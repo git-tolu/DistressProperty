@@ -9,7 +9,7 @@ header("Location: index");
 $cname = $_SESSION['cname'] ;
 $role = $_SESSION['userrole'] ;
 $fullname = $_SESSION['userfullname'] ;
-$adminemailadd = $_SESSION['useremail'] ;
+$adminemailadd = $_SESSION['useremailadmin'] ;
 $user = $_SESSION['username'] ;
 $passport = $_SESSION['passport']  ;
 $adminstatus = $_SESSION['adminstatus'] ;

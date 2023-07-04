@@ -63,7 +63,7 @@ if (isset($_POST['regrealuser'])) {
 
 }
 if (isset($_SESSION['useremail'])) {
-
+    header("Location: index.php");
     $user_email = $_SESSION['useremail'];
     $UsersData = $dbs->currentUser($user_email);
     foreach ($UsersData as $values) {

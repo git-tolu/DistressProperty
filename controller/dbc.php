@@ -103,9 +103,7 @@ class Dbc extends Database
     {
         $sql = "SELECT * FROM images LIMIT 3";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute([
-            'imageid' => $imageid
-        ]);
+        $stmt->execute();
         $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $row;
     }
@@ -177,9 +175,9 @@ class Dbc extends Database
         $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $row;
     }
-    public function SelectAllApropertiesSearch($search)
+    public function SelectAllApropertiesSearch($search, $startIndex, $itemsPerPage)
     {
-        $sql = "SELECT * FROM properties WHERE propertytitle LIKE '%$search%' OR address LIKE '%$search%' OR city  LIKE '%$search%' OR state  LIKE '%$search%' ORDER BY id DESC ";
+        $sql = "SELECT * FROM properties WHERE propertytitle LIKE '%$search%' OR address LIKE '%$search%' OR city  LIKE '%$search%' OR state  LIKE '%$search%' ORDER BY id DESC LIMIT $startIndex, $itemsPerPage ";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $row = $stmt->fetchAll(PDO::FETCH_ASSOC);

@@ -41,7 +41,7 @@ if (isset($_POST['Submit'])) {
         $_SESSION['cname'] = $cname;
         $_SESSION['userrole'] = $role;
         $_SESSION['userfullname'] = $fullname;
-        $_SESSION['useremail'] = $emailadd;
+        $_SESSION['useremailadmin'] = $emailadd;
         $_SESSION['username'] = $user;
         $_SESSION['passport'] = $passport;
         $_SESSION['adminstatus'] = $status;

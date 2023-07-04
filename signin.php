@@ -162,7 +162,7 @@ if (isset($_SESSION['useremail'])) {
                                             </div>
                                         </form>
                                         <div class="othre-text">
-                                            <p>Have not any account? <a href="signup">Register Now</a></p>
+                                            <p>Don't have an account ? <a href="signup">Register Now</a></p>
                                             <p>Forgot Password? <a href="forgot">Recover</a></p>
                                         </div>
                                     </div>

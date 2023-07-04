@@ -87,6 +87,7 @@
 
                                     <?php
                                     $cls = '';
+                                    $user_role = 'Agent';
                                     if ($user_role == 'Agent') {
                                         if ($page == 'agent-profile') {
                                             $cls = 'current';

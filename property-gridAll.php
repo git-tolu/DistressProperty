@@ -556,7 +556,39 @@ if (isset($_SESSION['useremail'])) {
                                                     // Calculate the total number of pages
                                                     $totalPages = ceil($totalItems / $itemsPerPage);
                                             } else {
-                                                // Number of items per page
+                                                if (isset($_GET['search'])) {
+                                                    # code...
+                                                    $search = $_GET['search'];
+                                                    $itemsPerPage = 9;
+                                                
+                                                    // Current page number
+                                                    $page = isset($_GET['page']) ? $_GET['page'] : 1;
+                                                    
+                                                    // Calculate the starting index of the items to display
+                                                    $startIndex = ($page - 1) * $itemsPerPage;
+                                                    
+                                                    // Query to fetch the items from the database
+                                                    // Replace this with your own query to fetch the items
+                                                    $fetch = $dbs->SelectAllApropertiesSearch($search, $startIndex, $itemsPerPage);
+                                                    // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
+                                                    
+                                                    // Execute the query and fetch the items
+                                                    // Replace this with your own code to execute the query and fetch the items
+                                                    // $items = []; // array to store the fetched items
+                                                    
+                                                    // Query to get the total number of items
+                                                    // Replace this with your own query to get the total number of items
+                                                    // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
+                                                    $totalItemsQuery = $dbs->SelectAllApropertiesNoSessNoLimitPagCountAll();
+                                                    $totalItemsResult =   $totalItemsQuery; // result of executing the query
+                                                    
+                                                    // Get the total number of items
+                                                    $totalItems = $totalItemsResult['id'];
+                                                    
+                                                    // Calculate the total number of pages
+                                                    $totalPages = ceil($totalItems / $itemsPerPage);
+                                                } else {
+                                                        // Number of items per page
                                                 $itemsPerPage = 9;
                                                 
                                                 // Current page number
@@ -585,6 +617,10 @@ if (isset($_SESSION['useremail'])) {
                                                 
                                                 // Calculate the total number of pages
                                                 $totalPages = ceil($totalItems / $itemsPerPage);
+                                            
+                                                    // $fetch = $dbs->SelectAllpropertiesNoLimit();
+
+                                                }                                                
                                                 
                                             }
                                         }
@@ -644,7 +680,34 @@ if (isset($_SESSION['useremail'])) {
                                                 if (isset($_GET['search'])) {
                                                     # code...
                                                     $search = $_GET['search'];
-                                                    $fetch = $dbs->SelectAllApropertiesSearch($search);
+                                                    $itemsPerPage = 9;
+                                                
+                                                    // Current page number
+                                                    $page = isset($_GET['page']) ? $_GET['page'] : 1;
+                                                    
+                                                    // Calculate the starting index of the items to display
+                                                    $startIndex = ($page - 1) * $itemsPerPage;
+                                                    
+                                                    // Query to fetch the items from the database
+                                                    // Replace this with your own query to fetch the items
+                                                    $fetch = $dbs->SelectAllApropertiesSearch($search, $startIndex, $itemsPerPage);
+                                                    // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
+                                                    
+                                                    // Execute the query and fetch the items
+                                                    // Replace this with your own code to execute the query and fetch the items
+                                                    // $items = []; // array to store the fetched items
+                                                    
+                                                    // Query to get the total number of items
+                                                    // Replace this with your own query to get the total number of items
+                                                    // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
+                                                    $totalItemsQuery = $dbs->SelectAllApropertiesNoSessNoLimitPagCountAll();
+                                                    $totalItemsResult =   $totalItemsQuery; // result of executing the query
+                                                    
+                                                    // Get the total number of items
+                                                    $totalItems = $totalItemsResult['id'];
+                                                    
+                                                    // Calculate the total number of pages
+                                                    $totalPages = ceil($totalItems / $itemsPerPage);
                                                 } else {
                                                         // Number of items per page
                                                 $itemsPerPage = 9;
@@ -814,7 +877,39 @@ if (isset($_SESSION['useremail'])) {
                                                                // Calculate the total number of pages
                                                                $totalPages = ceil($totalItems / $itemsPerPage);
                                                         } else {
-                                                            // Number of items per page
+                                                            if (isset($_GET['search'])) {
+                                                                # code...
+                                                                $search = $_GET['search'];
+                                                                $itemsPerPage = 9;
+                                                            
+                                                                // Current page number
+                                                                $page = isset($_GET['page']) ? $_GET['page'] : 1;
+                                                                
+                                                                // Calculate the starting index of the items to display
+                                                                $startIndex = ($page - 1) * $itemsPerPage;
+                                                                
+                                                                // Query to fetch the items from the database
+                                                                // Replace this with your own query to fetch the items
+                                                                $fetch = $dbs->SelectAllApropertiesSearch($search, $startIndex, $itemsPerPage);
+                                                                // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
+                                                                
+                                                                // Execute the query and fetch the items
+                                                                // Replace this with your own code to execute the query and fetch the items
+                                                                // $items = []; // array to store the fetched items
+                                                                
+                                                                // Query to get the total number of items
+                                                                // Replace this with your own query to get the total number of items
+                                                                // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
+                                                                $totalItemsQuery = $dbs->SelectAllApropertiesNoSessNoLimitPagCountAll();
+                                                                $totalItemsResult =   $totalItemsQuery; // result of executing the query
+                                                                
+                                                                // Get the total number of items
+                                                                $totalItems = $totalItemsResult['id'];
+                                                                
+                                                                // Calculate the total number of pages
+                                                                $totalPages = ceil($totalItems / $itemsPerPage);
+                                                            } else {
+                                                                    // Number of items per page
                                                             $itemsPerPage = 9;
                                                             
                                                             // Current page number
@@ -843,7 +938,11 @@ if (isset($_SESSION['useremail'])) {
                                                             
                                                             // Calculate the total number of pages
                                                             $totalPages = ceil($totalItems / $itemsPerPage);
-                                                            
+                                                        
+                                                                // $fetch = $dbs->SelectAllpropertiesNoLimit();
+            
+                                                            }                                                
+                                                                        
                                                         }
                                                         
                                                         
@@ -859,7 +958,35 @@ if (isset($_SESSION['useremail'])) {
                                                             if (isset($_GET['search'])) {
                                                                 # code...
                                                                 $search = $_GET['search'];
-                                                                $fetch = $dbs->SelectAllApropertiesSearch($search);
+                                                                $itemsPerPage = 9;
+                                                            
+                                                                // Current page number
+                                                                $page = isset($_GET['page']) ? $_GET['page'] : 1;
+                                                                
+                                                                // Calculate the starting index of the items to display
+                                                                $startIndex = ($page - 1) * $itemsPerPage;
+                                                                
+                                                                // Query to fetch the items from the database
+                                                                // Replace this with your own query to fetch the items
+                                                                $fetch = $dbs->SelectAllApropertiesSearch($search, $startIndex, $itemsPerPage);
+                                                                // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
+                                                                
+                                                                // Execute the query and fetch the items
+                                                                // Replace this with your own code to execute the query and fetch the items
+                                                                // $items = []; // array to store the fetched items
+                                                                
+                                                                // Query to get the total number of items
+                                                                // Replace this with your own query to get the total number of items
+                                                                // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
+                                                                $totalItemsQuery = $dbs->SelectAllApropertiesNoSessNoLimitPagCountAll();
+                                                                $totalItemsResult =   $totalItemsQuery; // result of executing the query
+                                                                
+                                                                // Get the total number of items
+                                                                $totalItems = $totalItemsResult['id'];
+                                                                
+                                                                // Calculate the total number of pages
+                                                                $totalPages = ceil($totalItems / $itemsPerPage);
+    
                                                             } else {
                                                                    // Number of items per page
                                                             $itemsPerPage = 9;
