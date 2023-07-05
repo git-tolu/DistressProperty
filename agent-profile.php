@@ -117,7 +117,7 @@ if (isset($_GET['del'])) {
     $id = $_GET['del'];
     $result = $dbusers->DeleteProps($id);
     if ($result) {
-        
+
         $display = ' ';
         $alertColor = 'success';
         $errorMessage = 'Deleted successfully';
@@ -162,9 +162,9 @@ if (isset($_FILES['galleryimage'])) {
     $id = $dbusers->test_input($_POST['id']);
 
 
-    if (!empty($propertyCategory && $propertyid && $propertytitle && $propertyprice && $area_location && $address && $city && $state && $detailedinfo && $status && $titleproperty && $typeproperty)) {
+    if (!empty($propertyCategory && $propertyid && $propertytitle && $propertyprice && $area_location && $address && $city && $state && $detailedinfo && $status && $marketstatus && $youtubelink)) {
         if ($formType == 'edit') {
-            $sql = $dbusers->EditProps($user_id, $propertyid, $propertytitle, $propertyprice, $area_location, $address, $city, $state, $longtitude, $langtitude, $detailedinfo, $featuredimage, $galleryimageid, $status, $propertyCategory, $id, $bedrooms, $bathroom, $toilets, $propsize, $parkingspace, $landsize, $titleproperty, $typeproperty, $landcategory, $youtubelink, $marketstatus, $symbol);
+            $sql = $dbusers->EditProps($user_id, $propertyid, $propertytitle, $propertyprice, $area_location, $address, $city, $state, $longtitude, $langtitude, $detailedinfo, $featuredimage, $galleryimageid, $propertyCategory, $id, $bedrooms, $bathroom, $toilets, $propsize, $parkingspace, $landsize, $titleproperty, $typeproperty, $landcategory, $youtubelink, $marketstatus, $symbol);
         } else {
             $sql = $dbusers->UploadProps($user_id, $propertyid, $propertytitle, $propertyprice, $area_location, $address, $city, $state, $longtitude, $langtitude, $detailedinfo, $featuredimage, $galleryimageid, $status, $propertyCategory, $bedrooms, $bathroom, $toilets, $propsize, $parkingspace, $landsize, $titleproperty, $typeproperty, $landcategory, $youtubelink, $marketstatus, $symbol);
         }
@@ -281,6 +281,40 @@ if (isset($_FILES['galleryimage'])) {
             max-height: 200px;
             margin-bottom: 10px;
         }
+
+    .image-container {
+      display: block;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .image-container img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      margin-top: 20px;
+      margin-bottom: 5px;
+
+    }
+    button{
+        background-color: #D9A464;
+    border: 2px solid #D9A464;
+    color: #ffffff;
+    box-shadow: 0 10px 30px 0px rgb(0 0 0 / 10%);
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: middle;
+    font-size: 17px;
+    line-height: 25px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    text-align: center;
+    padding: 15.5px 34px;
+    text-transform: capitalize;
+    border-radius: 5px;
+    z-index: 1;
+    transition: all 500ms ease;
+    }
     </style>
 
 </head>
@@ -414,150 +448,133 @@ if (isset($_FILES['galleryimage'])) {
                     <div class="col-lg-8 col-md-12 col-sm-12  ">
                         <div>
                             <div class="card p-5 shadow radius-5" id="tab3">
-                                <div class="row ">
+                                <div class="deals-list-content list-item">
                                     <?php
-
                                     if (!isset($_SESSION['useremail'])) {
-                                        $fetch = '';
 
                                     } else {
+                                        // Number of items per page
+                                        $itemsPerPage = 6;
 
-                                        $fetch = $dbusers->SelectAllApropertiesNoCatNoLim($_SESSION['user_id']);
+                                        // Current page number
+                                        $page = isset($_GET['page']) ? $_GET['page'] : 1;
 
+                                        // Calculate the starting index of the items to display
+                                        $startIndex = ($page - 1) * $itemsPerPage;
+
+                                        // Query to fetch the items from the database
+                                        // Replace this with your own query to fetch the items
+                                        $fetch = $dbusers->SelectAllApropertiesNoCatNoLim($_SESSION['user_id'], $startIndex, $itemsPerPage);
+                                        // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
+                                    
+                                        // Execute the query and fetch the items
+                                        // Replace this with your own code to execute the query and fetch the items
+                                        // $items = []; // array to store the fetched items
+                                    
+                                        // Query to get the total number of items
+                                        // Replace this with your own query to get the total number of items
+                                        // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
+                                        $totalItemsQuery = $dbusers->SelectAllApropertiesNoCatNoLimCount($user_id);
+                                        $totalItemsResult = $totalItemsQuery; // result of executing the query
+                                    
+                                        // Get the total number of items
+                                        $totalItems = $totalItemsResult;
+
+                                        // Calculate the total number of pages
+                                        $totalPages = ceil($totalItems / $itemsPerPage);
                                     }
-
-
                                     if ($fetch):
-                                        foreach ($fetch as $inf):
+                                        foreach ($fetch as $info):
                                             ?>
-                                            <div class="col-lg-6 col-md-6 col-sm-12 feature-block">
-                                                <div class="feature-block-one">
-                                                    <div class="inner-box">
-                                                        <div class="image-box">
+                                            <div class="deals-block-one pb-2">
+                                                <div class="inner-box">
+                                                    <div class="image-box" style=" width: 100% !important;">
                                                         <?php
-                                                        $galleryimage = $inf['galleryimage'];
+                                                        $galleryimage = $info['galleryimage'];
                                                         $fetchgallery = $dbusers->SelectFromImgLim($galleryimage);
                                                         foreach ($fetchgallery as $fetchgalleryInfo) {
                                                             ?>
-                                                            <figure class="image-box"><img src="./galleryImage/<?= $fetchgalleryInfo['imagename'] ?>"
-                                                                    alt=""></figure>
-                                                    <?php } ?>
-                                                            <!-- <figure class="image"><img
-                                                                    src="featuredGallery/<?= $inf['featuredimage'] ?>" alt="">
-                                                            </figure> -->
+                                                            <figure class="image"><img
+                                                                    src="./galleryImage/<?= $fetchgalleryInfo['imagename'] ?>"
+                                                                    alt=""
+                                                                    style="object-fit: cover; background-position: center; height: 400px;">
+                                                            </figure>
+                                                        <?php } ?>
                                                             <!-- <div class="batch"><i class="icon-11"></i></div>
-                                                                    <span class="category">
-                                                                        <?= $inf['propertyCategory'] ?>
-                                                                    </span> -->
+                                                        <span class="category">Featured</span>
+                                                        <div class="buy-btn"><a href="property-details.html">For Buy</a></div> -->
+                                                    </div>
+                                                    <div class="lower-content">
+                                                        <div class="title-text">
+                                                            <h4><a href="property-details.html" class="text-white">
+                                                                    <?= $info['propertytitle'] ?>/ <?= $info['marketstatus'] ?>
+                                                                </a></h4>
                                                         </div>
-                                                        <div class="lower-content">
-                                                            <div class="author-info clearfix">
-                                                                <div class="author pull-left">
-                                                                    <figure class="author-thumb"><img
-                                                                            src="assets/images/footer-logo.png"
-                                                                            style="object-fit:cover; background-position: center; width: 60px; height: 40px; border-radius: 50%;"
-                                                                            alt="">
-                                                                    </figure>
-                                                                    <h6 class="text-uppercase">
-                                                                        <?= $inf['propertytitle'] ?>
-                                                                    </h6>
-                                                                </div>
-                                                                <div class="buy-btn pull-right"><a
-                                                                        href="property-details?propertyCategory=<?= $inf['propertyCategory'] ?>&id=<?= $inf['id'] ?>">
-                                                                        <?= $inf['symbol'] . number_format($inf['propertyprice'], 2) ?>
-                                                                    </a>
-                                                                </div>
+                                                        <div class="price-box clearfix">
+                                                            <div class="price-info pull-left">
+                                                                <!-- <h6>Start From</h6> -->
+                                                                <h4><a
+                                                                        href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>" class="text-white">
+                                                                        <?= $info['symbol'] . number_format($info['propertyprice'], 2) ?>
+                                                                    </a></h4>
                                                             </div>
-                                                            <div class="title-text">
-                                                                <h3><a
-                                                                        href="property-details?propertyCategory=<?= $inf['propertyCategory'] ?>&id=<?= $inf['id'] ?>">
-                                                                        <?= $inf['typeproperty'] ?>
-                                                                    </a></h3>
+                                                            <div class="author-box pull-right">
+                                                                <figure class="author-thumb">
+                                                                    <img src="assets/images/footer-logo.png"
+                                                                        style="object-fit:cover; background-position: center; width: 60px; height: 40px; border-radius: 50%;"
+                                                                        alt="">
+                                                                    <span><a
+                                                                            href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
+                                                                            <?= $info['typeproperty'] ?>
+                                                                        </a></span>
+                                                                </figure>
                                                             </div>
-                                                            <div class="title-text">
-                                                                <h6><a
-                                                                        href="property-details?propertyCategory=<?= $inf['propertyCategory'] ?>&id=<?= $inf['id'] ?>">
-                                                                        <?= $inf['propertytitle'] ?>
-                                                                    </a></h6>
-                                                            </div>
-                                                            <div class="title-text">
-                                                                <h3><a
-                                                                        href="property-details?propertyCategory=<?= $inf['propertyCategory'] ?>&id=<?= $inf['id'] ?>">
-                                                                        <?= $inf['city'] ?>,
-                                                                        <?= $inf['state'] ?>
-                                                                        <?= $inf['area_location'] ?>
-                                                                    </a></h3>
-                                                            </div>
-                                                            <div class="title-text">
-                                                                <h3><a
-                                                                        href="property-details?propertyCategory=<?= $inf['propertyCategory'] ?>&id=<?= $inf['id'] ?>">
-                                                                        <?= $inf['titleproperty'] ?>
-                                                                    </a></h3>
-                                                            </div>
-                                                            <div class="price-box clearfix">
-                                                                <div class="price-info pull-left">
-                                                                    <!-- <h6>
-                                                                                Longtitude:
-                                                                                <?= $inf['longtitude'] ?>
-                                                                            </h6>
-                                                                            <h6>
-                                                                                Langtitude:
-                                                                                <?= $inf['langtitude'] ?>
-                                                                            </h6> -->
-                                                                </div>
-
-                                                                <!-- <ul class="other-option pull-right clearfix">
-                                                                            <li><a href="property-details?id=<?= $inf['id'] ?>"><i
-                                                                                        class="icon-12"></i></a></li>
-                                                                            <li><a href="property-details?id=<?= $inf['id'] ?>"><i
-                                                                                        class="icon-13"></i></a></li>
-                                                                        </ul> -->
-                                                            </div>
-                                                            <p>
-                                                                <?= substr($inf['detailedinfo'], 0, 77) . ' ...' ?>
-                                                            <p>
-                                                            <ul class="more-details clearfix">
-                                                                <?php if ($inf['propertyCategory'] !== 'Land'): ?>
-                                                                    <li><i class="icon-14"></i>
-                                                                        <?= $inf['bedrooms'] ?> Beds
-                                                                    </li>
-                                                                    <li><i class="icon-15"></i>
-                                                                        <?= $inf['bathroom'] ?> Baths
-                                                                    </li>
-                                                                    <li><i class="icon-15"></i>
-                                                                        <?= $inf['toilets'] ?> Toilets
-                                                                    </li>
-                                                                <?php else: ?>
-                                                                    <p><i class="icon-16"></i>
-                                                                        <?= $inf['landsize'] ?> landsize(sqrt)
-                                                                    </p>
-                                                                <?php endif; ?>
-                                                                <!-- <li><i class="icon-16"></i>600 Prop Size(Sq Ft)</li>
-                                                                                    <li><i class="icon-16"></i>600 Parking Spaces</li> -->
-                                                            </ul>
-                                                            <!-- <ul class="more-details clearfix">
-                                                                        <li>
-                                                                            City:
-                                                                            <?= $inf['city'] ?>
-                                                                        </li>
-                                                                        <li>
-                                                                            State:
-                                                                            <?= $inf['state'] ?>
-                                                                        </li>
-                                                                        <li>
-                                                                            Country:
-                                                                            <?= $inf['area_location'] ?>
-                                                                        </li>
-                                                                    </ul> -->
-                                                            <div
-                                                                class="btn-box d-flex justify-content-between">
-                                                                <a href="property-details?propertyCategory=<?= $inf['propertyCategory'] ?>&id=<?= $inf['id'] ?>"
+                                                        </div>
+                                                        <div class="title-text">
+                                                            <h6><a
+                                                                    href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>" class="text-white">
+                                                                    <?= $info['city'] ?>,
+                                                                    <?= $info['state'] ?>
+                                                                    <?= $info['area_location'] ?>
+                                                                </a></h6>
+                                                        </div>
+                                                        <p class="text-white ">
+                                                            <?= substr($info['detailedinfo'], 0, 77) . ' ...' ?>.
+                                                        </p>
+                                                        <ul class="more-details clearfix">
+                                                            <?php if ($info['propertyCategory'] !== 'Land'): ?>
+                                                                <li class="text-white"><i class="icon-14"></i>
+                                                                    <?= $info['bedrooms'] ?> Beds
+                                                                </li>
+                                                                <li class="text-white"><i class="icon-15"></i>
+                                                                    <?= $info['bathroom'] ?> Baths
+                                                                </li class="text-white">
+                                                                <li class="text-white"><i class="icon-15"></i>
+                                                                    <?= $info['toilets'] ?> Toilets
+                                                                </li >
+                                                            <?php else: ?>
+                                                                <p class="text-white"><i class="icon-16"></i>
+                                                                    <?= $info['landsize'] ?> landsize(sqrt)
+                                                                </p>
+                                                            <?php endif; ?>
+                                                        </ul>
+                                                        <div class="other-info-box clearfix">
+                                                            <div class="btn-box  justify-content-center text-center ">
+                                                                <a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
                                                                     class="theme-btn btn-two ">See Details</a>
-                                                                <a href="agent-profile?edit=<?= $inf['id'] ?>"
-                                                                    class="theme-btn btn-two ">Edit Post</a>
-                                                                <a href="agent-profile?del=<?= $inf['id'] ?>"
-                                                                        class="theme-btn btn-two ">Delete</a>
-                                                            </div>
+
+                                                                <a href="#modalId" class="theme-btn btn-two "
+                                                                    data-toggle="modal"><span id='<?= $info[' longtitude'] ?>'
+                                                                        class="span" title="
+                                                                <?= $info['langtitude'] ?>">Map
+                                                                    </span></a>
+
+                                                                    <a href="agent-profile?edit=<?= $info['id'] ?>"
+                                                            class="theme-btn btn-two ">Edit Post</a>
+
+                                                                    <a href="agent-profile?del=<?= $info['id'] ?>"
+                                                                            class="theme-btn btn-two ">Delete</a>
+                                                            </div> 
                                                         </div>
                                                     </div>
                                                 </div>
@@ -578,7 +595,9 @@ if (isset($_FILES['galleryimage'])) {
                                         </div>
                                     </div>
                                     <?php endif; ?>
+
                                 </div>
+
                             </div>
                             <div class="card p-5 shadow radius-5" id="tab1">
                                 <form action="" method="post">
@@ -678,7 +697,7 @@ if (isset($_FILES['galleryimage'])) {
                                                             <option value="<?= $marketstatus ?>">
                                                                 <?= $marketstatus ?>
                                                             </option>
-                                                            <option value="Available">Available
+                                                            <option value="For Sale">For Sale
                                                             </option>
                                                             <option value="Rented">Rented
                                                             </option>
@@ -720,9 +739,9 @@ if (isset($_FILES['galleryimage'])) {
                                                 </div>
                                                 <div class="col-lg-12 col-md-12 col-sm-12 column">
                                                     <div class="field-input">
-                                                        <label>Property Title</label>
-                                                        <input type="text" name="titleproperty"
-                                                            value="<?= $titleproperty ?>" placeholder="Property Title">
+                                                        <label>Ref No</label>
+                                                        <input type="number" name="titleproperty"
+                                                            value="<?= $titleproperty ?>" placeholder="Ref No">
 
                                                     </div>
                                                 </div>
@@ -838,8 +857,8 @@ if (isset($_FILES['galleryimage'])) {
                                                 </div>
                                                 <div class="col-lg-6 col-md-6 col-sm-12 column">
                                                     <div class="field-input">
-                                                        <label>City</label>
-                                                        <label for="citySelect">Select City:</label>
+                                                        <label>Lga</label>
+                                                        <label for="citySelect">Select Lga:</label>
                                                         <select id="citySelect" class="form-control" name="city">
                                                             <option value="<?= $city ?>" selected>
                                                                 <?= $city ?>
@@ -929,9 +948,8 @@ if (isset($_FILES['galleryimage'])) {
                                                         <input type="file" id="uploader" data-max-file="6"
                                                             name="galleryimage[]" multiple required>
                                                     </div> -->
-                                                        <input type="file" id="imageUpload" name="galleryimage[]"
-                                                            multiple>
-                                                        <div id="previewContainer"></div>
+                                                    <input type="file" id="fileInput" multiple accept="image/*" onchange="handleFileSelect(event)" name="galleryimage[]"  />
+                                                    <div id="imageContainer" class="image-container "></div>
                                                     </div>
                                                 </div>
                                                 <button class="theme-btn btn-one m-3" type="submit"
@@ -1038,6 +1056,39 @@ if (isset($_FILES['galleryimage'])) {
             </div>
         </div>
     </div>
+    <script>
+        $(".span").click(function (e) {
+            e.preventDefault();
+            long = $(this).attr('id');
+            lat = $(this).attr('title');
+            src = 'https://maps.google.com/maps?q=' + lat + ', ' + long + '&z=15&output=embed'
+            $("#iframe").attr('src', 'https://maps.google.com/maps?q=' + lat + ', ' + long + '&z=15&output=embed');
+        });
+    </script>
+
+    <!-- Modal Body -->
+    <div class="modal fade" id="modalId" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+        role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitleId">Map</h5>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="google-map-area">
+                        <!-- <iframe src="https://maps.google.com/maps?q=<?= $info['langtitude'] ?>, <?= $info['longtitude'] ?>&z=15&output=embed" width="100%" height="270" frameborder="0" style="border:0" id="ifr></iframe> -->
+                        <iframe src="" width="100%" height="270" frameborder="0" style="border:0"
+                            id="iframe"></iframe>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- jequery plugins -->
     <script src="assets/js/jquery.js"></script>
     <script src="assets/js/popper.min.js"></script>
@@ -1065,112 +1116,42 @@ if (isset($_FILES['galleryimage'])) {
         defer></script>
     <script>
 
-        function handleFileUpload() {
-            var fileInput = document.getElementById('imageUpload');
-            var previewContainer = document.getElementById('previewContainer');
+function handleFileSelect(event) {
+      const files = event.target.files;
+      const imageContainer = document.getElementById('imageContainer');
+      const maxImages = 20 - imageContainer.childElementCount;
 
-            // Clear previous previews
-            previewContainer.innerHTML = '';
+        if (files.length > maxImages) {
+        alert('You can upload a maximum of 20 images.');
+        return;
+        }
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const reader = new FileReader();
 
-            // Loop through selected files
-            for (var i = 0; i < fileInput.files.length; i++) {
-                var file = fileInput.files[i];
+        reader.onload = function(event) {
+          const imageUrl = event.target.result;
+          const imageElement = document.createElement('img');
+          imageElement.src = imageUrl;
 
-                // Create image preview element
-                var img = document.createElement('img');
-                img.classList.add('preview-image');
+          const deleteButton = document.createElement('button');
+          deleteButton.innerText = 'Delete';
+          deleteButton.addEventListener('click', function() {
+            imageElement.remove();
+            deleteButton.remove();
+          });
 
-                // Set image source to the file object URL
-                img.src = URL.createObjectURL(file);
+          const imageWrapper = document.createElement('div');
+          imageWrapper.appendChild(imageElement);
+          imageWrapper.appendChild(deleteButton);
 
-                // Append image preview to the container
-                previewContainer.appendChild(img);
-            }
+          imageContainer.appendChild(imageWrapper);
         }
 
-        var fileInput = document.getElementById('imageUpload');
-        fileInput.addEventListener('change', handleFileUpload);
-
-        //   FilePond.parse(document.body);
-
-        //         FilePond.registerPlugin(
-        //   FilePondPluginImagePreview,
-        //   FilePondPluginImageExifOrientation,
-        //   FilePondPluginFileValidateSize,
-        //   FilePondPluginImageEdit
-        // );
-
-        // // Select the file input and use 
-        // // create() to turn it into a pond
-        // FilePond.create(
-        //   document.querySelector('input')
-        // );
-
-        //  jQuery(document).ready(function () {
-        //   ImgUpload();
-        // });
-
-        // function ImgUpload() {
-        //   var imgWrap = "";
-        //   var imgArray = [];
-
-        //   $('.upload__inputfile').each(function () {
-        //     $(this).on('change', function (e) {
-        //       imgWrap = $(this).closest('.upload__box').find('.upload__img-wrap');
-        //       var maxLength = $(this).attr('data-max_length');
-
-        //       var files = e.target.files;
-        //       var filesArr = Array.prototype.slice.call(files);
-        //       var iterator = 0;
-        //       filesArr.forEach(function (f, index) {
-
-        //         if (!f.type.match('image.*')) {
-        //           return;
-        //         }
-
-        //         if (imgArray.length > maxLength) {
-        //           return false
-        //         } else {
-        //           var len = 0;
-        //           for (var i = 0; i < imgArray.length; i++) {
-        //             if (imgArray[i] !== undefined) {
-        //               len++;
-        //             }
-        //           }
-        //           if (len > maxLength) {
-        //             return false;
-        //           } else {
-        //             imgArray.push(f);
-
-        //             var reader = new FileReader();
-        //             reader.onload = function (e) {
-        //               var html = "<div class='upload__img-box'><div style='background-image: url(" + e.target.result + ")' data-number='" + $(".upload__img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close'></div></div></div>";
-        //               imgWrap.append(html);
-        //               iterator++;
-        //             }
-        //             reader.readAsDataURL(f);
-        //           }
-        //         }
-        //       });
-        //     });
-        //   });
-
-        //   $('body').on('click', ".upload__img-close", function (e) {
-        //     var file = $(this).parent().data("file");
-        //     for (var i = 0; i < imgArray.length; i++) {
-        //       if (imgArray[i].name === file) {
-        //         imgArray.splice(i, 1);
-        //         break;
-        //       }
-        //     }
-        //     $(this).parent().parent().remove();
-        //   });
-        // }
-        // The dropzone method is added to jQuery elements and can
-        // be invoked with an (optional) configuration object.
-        // $("#myId").dropzone();
-
-        var placeSearch, autocomplete;
+        reader.readAsDataURL(file);
+      }
+    }
+            var placeSearch, autocomplete;
         var componentForm = {
             street_number: 'short_name',
             route: 'long_name',
@@ -2165,7 +2146,7 @@ if (isset($_FILES['galleryimage'])) {
             const selectedState = stateSelect.value;
 
             // Clear city select box
-            citySelect.innerHTML = '<option value="">Select a city</option>';
+            citySelect.innerHTML = '<option value="">Select a Lga</option>';
 
             if (selectedState && cityData[selectedState]) {
                 const cities = cityData[selectedState];
@@ -2218,9 +2199,9 @@ if (isset($_FILES['galleryimage'])) {
         <?php
         if (isset($_GET['edit']) && !empty($_GET['edit'])):
             ?>
-            //         $("#tab2").show()
-            //     $("#tab1").hide()
-            // $("#tab3").hide()
+                    $("#tab2").show()
+                $("#tab1").hide()
+            $("#tab3").hide()
                 <?php
         endif;
         ?>

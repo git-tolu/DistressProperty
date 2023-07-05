@@ -28,7 +28,7 @@
             <div class="main-box">
                 <div class="logo-box " style="visibility: hidden; width: 0px;">
                     <figure class="logo "><a href="index"><img src="assets/images/logo.png"
-                                style="width: 250px; height: 100px; " alt=""></a></figure>
+                                style="width: 150px; height: 50px; " alt=""></a></figure>
                 </div>
                 <div class="menu-area clearfix">
                     <!--Mobile Navigation Toggler-->

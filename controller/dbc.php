@@ -136,9 +136,9 @@ class Dbc extends Database
         $stmt->execute([]);
         return true;
     }
-    public function EditProps($user_id, $propertyid, $propertytitle, $propertyprice, $area_location, $address, $city, $state, $longtitude, $langtitude, $detailedinfo, $featuredimage, $galleryimage, $status, $propertyCategory, $id, $bedrooms, $bathroom, $toilets, $propsize, $parkingspace, $landsize, $titleproperty, $typeproperty, $landcategory, $youtubelink, $marketstatus, $symbol)
+    public function EditProps($user_id, $propertyid, $propertytitle, $propertyprice, $area_location, $address, $city, $state, $longtitude, $langtitude, $detailedinfo, $featuredimage, $galleryimage,  $propertyCategory, $id, $bedrooms, $bathroom, $toilets, $propsize, $parkingspace, $landsize, $titleproperty, $typeproperty, $landcategory, $youtubelink, $marketstatus, $symbol)
     {
-        $sql = "UPDATE   `properties` SET  user_id = '$user_id', propertyid = '$propertyid', propertytitle = '$propertytitle',  propertyprice = '$propertyprice', area_location = '$area_location',  address = '$address', city = '$city', state = '$state',  longtitude = '$longtitude', langtitude = '$langtitude', detailedinfo = '$detailedinfo',  featuredimage = '$featuredimage', galleryimage = '$galleryimage', status = '$status', propertyCategory = '$propertyCategory' , bedrooms  = '$bedrooms', bathroom  = '$bathroom', toilets  = '$toilets', propsize  = '$propsize', parkingspace  = '$parkingspace', landsize = '$landsize', titleproperty = '$titleproperty', typeproperty = '$typeproperty', landcategory = '$landcategory', youtubelink = '$youtubelink', marketstatus = '$marketstatus', symbol = '$symbol'  WHERE id = '$id' ";
+        $sql = "UPDATE   `properties` SET  user_id = '$user_id', propertyid = '$propertyid', propertytitle = '$propertytitle',  propertyprice = '$propertyprice', area_location = '$area_location',  address = '$address', city = '$city', state = '$state',  longtitude = '$longtitude', langtitude = '$langtitude', detailedinfo = '$detailedinfo',  featuredimage = '$featuredimage', galleryimage = '$galleryimage',  propertyCategory = '$propertyCategory' , bedrooms  = '$bedrooms', bathroom  = '$bathroom', toilets  = '$toilets', propsize  = '$propsize', parkingspace  = '$parkingspace', landsize = '$landsize', titleproperty = '$titleproperty', typeproperty = '$typeproperty', landcategory = '$landcategory', youtubelink = '$youtubelink', marketstatus = '$marketstatus', symbol = '$symbol'  WHERE id = '$id' ";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([]);
         return true;
@@ -167,14 +167,23 @@ class Dbc extends Database
         $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $row;
     }
-    public function SelectAllApropertiesNoCatNoLim($user_id)
+    public function SelectAllApropertiesNoCatNoLim($user_id,  $startIndex, $itemsPerPage)
     {
-        $sql = "SELECT * FROM properties WHERE user_id='$user_id'  ORDER BY id DESC ";
+        $sql = "SELECT * FROM properties WHERE user_id='$user_id'  ORDER BY id DESC  LIMIT $startIndex, $itemsPerPage";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $row;
     }
+    public function SelectAllApropertiesNoCatNoLimCount($user_id)
+    {
+        $sql = "SELECT * FROM properties WHERE user_id='$user_id'  ORDER BY id DESC";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $row = $stmt->rowCount();
+        return $row;
+    }
+
     public function SelectAllApropertiesSearch($search, $startIndex, $itemsPerPage)
     {
         $sql = "SELECT * FROM properties WHERE propertytitle LIKE '%$search%' OR address LIKE '%$search%' OR city  LIKE '%$search%' OR state  LIKE '%$search%' ORDER BY id DESC LIMIT $startIndex, $itemsPerPage ";
@@ -305,23 +314,23 @@ class Dbc extends Database
 
     public function SelectAllApropertiesWhereNoSess($propertyCategory, $state)
     {
-        $sql = "SELECT * FROM properties WHERE  (propertyCategory='$propertyCategory' OR landcategory='$propertyCategory' OR typeproperty='$propertyCategory')  AND (state='$state') AND status!='pending'  ORDER BY id DESC";
+        $sql = "SELECT * FROM properties WHERE  (propertyCategory='$propertyCategory' OR landcategory='$propertyCategory' OR typeproperty='$propertyCategory')  AND (state='$state' ) AND status!='pending'  ORDER BY id DESC";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $row;
     }
-    public function AdvanceSearchquery($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex)
+    public function AdvanceSearchquery($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex, $titleproperty)
     {
-        $sql = "SELECT * FROM properties WHERE  (state='$Location' OR address='$Location' OR city='$Location')  AND (propertyCategory='$propertyCategory') AND (landcategory = '$landcategory' OR (typeproperty='$typeproperty' And bedrooms='$bedrooms' AND bathroom='$bathroom' AND toilets='$toilets')) AND (propertyprice >= '$minprice' AND propertyprice <= '$maxprice') AND (propertytitle LIKE '%$keywords%'  OR titleproperty LIKE '%$keywords%'  OR detailedinfo LIKE '%$keywords%' ) AND status!='pending'  ORDER BY id DESC LIMIT $startIndex, $itemsPerPage  ";
+        $sql = "SELECT * FROM properties WHERE  (state='$Location' OR address='$Location' OR city='$Location')  AND (propertyCategory='$propertyCategory') AND (landcategory = '$landcategory' OR (typeproperty='$typeproperty' And bedrooms='$bedrooms' AND bathroom='$bathroom' AND toilets='$toilets')) AND (propertyprice >= '$minprice' AND propertyprice <= '$maxprice') AND (propertytitle LIKE '%$keywords%'  OR titleproperty LIKE '%$keywords%'  OR detailedinfo LIKE '%$keywords%' ) AND titleproperty='$titleproperty' AND status!='pending'  ORDER BY id DESC LIMIT $startIndex, $itemsPerPage  ";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $row;
     }
-    public function AdvanceSearchqueryNO($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex)
+    public function AdvanceSearchqueryNO($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex, $titleproperty)
     {
-        $sql = "SELECT * FROM properties WHERE  (state='$Location' OR address='$Location' OR city='$Location')  AND (propertyCategory='$propertyCategory') AND (landcategory = '$landcategory' OR (typeproperty='$typeproperty' And (bedrooms='$bedrooms' OR bedrooms>='$bedrooms') AND (bathroom='$bathroom'  OR bathroom>='$bathroom') AND (toilets='$toilets'OR toilets>='$toilets' ) ) ) AND (propertyprice >= '$minprice' AND propertyprice <= '$maxprice') AND (propertytitle LIKE '%$keywords%'  OR titleproperty LIKE '%$keywords%'  OR detailedinfo LIKE '%$keywords%' ) AND status!='pending'  ORDER BY id DESC LIMIT $startIndex, $itemsPerPage  ";
+        $sql = "SELECT * FROM properties WHERE  (state='$Location' OR address='$Location' OR city='$Location')  AND (propertyCategory='$propertyCategory') AND (landcategory = '$landcategory' OR (typeproperty='$typeproperty' And (bedrooms='$bedrooms' OR bedrooms>='$bedrooms') AND (bathroom='$bathroom'  OR bathroom>='$bathroom') AND (toilets='$toilets'OR toilets>='$toilets' ) ) ) AND (propertyprice >= '$minprice' AND propertyprice <= '$maxprice') AND (propertytitle LIKE '%$keywords%'  OR titleproperty LIKE '%$keywords%'  OR detailedinfo LIKE '%$keywords%' ) AND titleproperty = '$titleproperty' AND status!='pending'  ORDER BY id DESC LIMIT $startIndex, $itemsPerPage  ";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $row = $stmt->rowCount();

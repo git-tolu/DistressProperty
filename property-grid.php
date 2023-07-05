@@ -248,24 +248,24 @@ if (isset($_SESSION['useremail'])) {
                                                                     <?php
                                                                     if ($propertyCategory == 'Land'):
                                                                         ?>
-                                                                        <option value="Residential">Residential</option>
-                                                                        <option value="commercial">commercial</option>
-                                                                        <option value="Mixed Area"> Mixed Area</option>
+                                                                    <option value="Residential">Residential</option>
+                                                                    <option value="commercial">commercial</option>
+                                                                    <option value="Mixed Area"> Mixed Area</option>
                                                                     <?php else: ?>
-                                                                        <option value="Detached Duplex">Detached Duplex
-                                                                        </option>
-                                                                        <option value="Terrace Duplex"> Terrace Duplex
-                                                                        </option>
-                                                                        <option value="Flat/Apartment">Flat/Apartment
-                                                                        </option>
-                                                                        <option value="Detached Bungalow">Detached Bungalow
-                                                                        </option>
-                                                                        <option value="Semi Detached Bungalow">Semi Detached
-                                                                            Bungalow</option>
-                                                                        <option value="Semi Detached Duplex">Semi Detached
-                                                                            Duplex</option>
-                                                                        <option value="Terrace Bungalow">Terrace Bungalow
-                                                                        </option>
+                                                                    <option value="Detached Duplex">Detached Duplex
+                                                                    </option>
+                                                                    <option value="Terrace Duplex"> Terrace Duplex
+                                                                    </option>
+                                                                    <option value="Flat/Apartment">Flat/Apartment
+                                                                    </option>
+                                                                    <option value="Detached Bungalow">Detached Bungalow
+                                                                    </option>
+                                                                    <option value="Semi Detached Bungalow">Semi Detached
+                                                                        Bungalow</option>
+                                                                    <option value="Semi Detached Duplex">Semi Detached
+                                                                        Duplex</option>
+                                                                    <option value="Terrace Bungalow">Terrace Bungalow
+                                                                    </option>
                                                                     <?php endif; ?>
                                                                     <!-- <option value="Distress Properties">Distress Property</option>
                                                                     <option value="Non Distress
@@ -397,7 +397,7 @@ if (isset($_SESSION['useremail'])) {
                                             <div class="col-lg-12 col-md-12 col-sm-12 column show1">
                                                 <label>Land Category</label>
                                                 <div class="field-input">
-                                                    <select class="form-control"  name="landcategory" id="">
+                                                    <select class="form-control" name="landcategory" id="">
                                                         <option value="">
                                                             Land Category
                                                         </option>
@@ -410,7 +410,7 @@ if (isset($_SESSION['useremail'])) {
                                             <div class="col-md-12 show">
                                                 <div class="form-group">
                                                     <label>Type</label>
-                                                    <select name="type" id="type"  class="form-control">
+                                                    <select name="type" id="type" class="form-control">
                                                         <option value="0" selected="selected">Select Types</option>
                                                         <option value="Detached Duplex">Detached Duplex</option>
                                                         <option value="Terrace Duplex"> Terrace Duplex</option>
@@ -427,7 +427,7 @@ if (isset($_SESSION['useremail'])) {
                                             <div class="col-md-4 show">
                                                 <div class="form-group">
                                                     <label>Bedrooms</label>
-                                                    <select name="bedrooms"  id="bedrooms" class="form-control">
+                                                    <select name="bedrooms" id="bedrooms" class="form-control">
                                                         <option value="0" selected="selected">Any</option>
                                                         <option value="1">1</option>
                                                         <option value="2">2</option>
@@ -441,7 +441,7 @@ if (isset($_SESSION['useremail'])) {
                                             <div class="col-md-4 show">
                                                 <div class="form-group">
                                                     <label>Toilets</label>
-                                                    <select name="toilets"  id="toilets" class="form-control">
+                                                    <select name="toilets" id="toilets" class="form-control">
                                                         <option value="0" selected="selected">Any</option>
                                                         <option value="1">1</option>
                                                         <option value="2">2</option>
@@ -455,8 +455,7 @@ if (isset($_SESSION['useremail'])) {
                                             <div class="col-md-4">
                                                 <div class="form-group show">
                                                     <label>Bathroooms</label>
-                                                    <select name="bathroooms"  id="bathroooms"
-                                                        class="form-control">
+                                                    <select name="bathroooms" id="bathroooms" class="form-control">
                                                         <option value="0" selected="selected">Any</option>
                                                         <option value="1">1</option>
                                                         <option value="2">2</option>
@@ -548,7 +547,7 @@ if (isset($_SESSION['useremail'])) {
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- <div class="row">
+                                        <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label>Property Ref.</label>
@@ -557,7 +556,7 @@ if (isset($_SESSION['useremail'])) {
                                                         autocomplete="off">
                                                 </div>
                                             </div>
-                                        </div> -->
+                                        </div>
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
@@ -652,7 +651,8 @@ if (isset($_SESSION['useremail'])) {
                                             $minprice = $_POST['minprice'];
                                             $maxprice = $_POST['maxprice'];
                                             $keywords = $_POST['keywords'];
-                                            $fetch = $dbs->AdvanceSearchquery($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex);
+                                            $ref = $_POST['ref'];
+                                            $fetch = $dbs->AdvanceSearchquery($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex, $ref);
                                             // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
                                     
                                             // Execute the query and fetch the items
@@ -662,7 +662,7 @@ if (isset($_SESSION['useremail'])) {
                                             // Query to get the total number of items
                                             // Replace this with your own query to get the total number of items
                                             // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
-                                            $totalItemsQuery = $dbs->AdvanceSearchqueryNO($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex);
+                                            $totalItemsQuery = $dbs->AdvanceSearchqueryNO($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex, $ref);
                                             $totalItemsResult = $totalItemsQuery; // result of executing the query
                                     
                                             // Get the total number of items
@@ -764,7 +764,8 @@ if (isset($_SESSION['useremail'])) {
                                             $minprice = $_POST['minprice'];
                                             $maxprice = $_POST['maxprice'];
                                             $keywords = $_POST['keywords'];
-                                            $fetch = $dbs->AdvanceSearchquery($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex);
+                                            $keywords = $_POST['ref'];
+                                            $fetch = $dbs->AdvanceSearchquery($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex, $ref);
                                             // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
                                     
                                             // Execute the query and fetch the items
@@ -774,7 +775,7 @@ if (isset($_SESSION['useremail'])) {
                                             // Query to get the total number of items
                                             // Replace this with your own query to get the total number of items
                                             // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
-                                            $totalItemsQuery = $dbs->AdvanceSearchqueryNO($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex);
+                                            $totalItemsQuery = $dbs->AdvanceSearchqueryNO($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex, $ref);
                                             $totalItemsResult = $totalItemsQuery; // result of executing the query
                                     
                                             // Get the total number of items
@@ -857,99 +858,99 @@ if (isset($_SESSION['useremail'])) {
                                     if ($fetch):
                                         foreach ($fetch as $info):
                                             ?>
-                                            <div class="deals-block-one">
-                                                <div class="inner-box">
-                                                    <div class="image-box">
-                                                        <?php
+                                    <div class="deals-block-one">
+                                        <div class="inner-box">
+                                            <div class="image-box">
+                                                <?php
                                                         $galleryimage = $info['galleryimage'];
                                                         $fetchgallery = $dbs->SelectFromImgLim($galleryimage);
                                                         foreach ($fetchgallery as $fetchgalleryInfo) {
                                                             ?>
-                                                            <figure class="image"><img
-                                                                    src="./galleryImage/<?= $fetchgalleryInfo['imagename'] ?>"
-                                                                    alt=""
-                                                                    style="object-fit: cover; background-position: center; height: 400px; ">
-                                                            </figure>
-                                                        <?php } ?>
-                                                        <!-- <div class="batch"><i class="icon-11"></i></div>
+                                                <figure class="image"><img
+                                                        src="./galleryImage/<?= $fetchgalleryInfo['imagename'] ?>"
+                                                        alt=""
+                                                        style="object-fit: cover; background-position: center; height: 400px; ">
+                                                </figure>
+                                                <?php } ?>
+                                                <!-- <div class="batch"><i class="icon-11"></i></div>
                                                     <span class="category">Featured</span>
                                                     <div class="buy-btn"><a href="property-details.html">For Buy</a></div> -->
+                                            </div>
+                                            <div class="lower-content">
+                                                <div class="title-text">
+                                                    <h4><a href="property-details.html">
+                                                            <?= $info['propertytitle'] ?>/ <?= $info['marketstatus']  ?>
+                                                        </a></h4>
+                                                </div>
+                                                <div class="price-box clearfix">
+                                                    <div class="price-info pull-left">
+                                                        <!-- <h6>Start From</h6> -->
+                                                        <h4><a
+                                                                href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
+                                                                <?= $info['symbol'] . number_format($info['propertyprice'], 2) ?>
+                                                            </a></h4>
                                                     </div>
-                                                    <div class="lower-content">
-                                                        <div class="title-text">
-                                                            <h4><a href="property-details.html">
-                                                                    <?= $info['propertytitle'] ?>
-                                                                </a></h4>
-                                                        </div>
-                                                        <div class="price-box clearfix">
-                                                            <div class="price-info pull-left">
-                                                                <!-- <h6>Start From</h6> -->
-                                                                <h4><a
-                                                                        href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
-                                                                        <?= $info['symbol'] . number_format($info['propertyprice'], 2) ?>
-                                                                    </a></h4>
-                                                            </div>
-                                                            <div class="author-box pull-right">
-                                                                <figure class="author-thumb">
-                                                                    <img src="assets/images/footer-logo.png"
-                                                                        style="object-fit:cover; background-position: center; width: 60px; height: 40px; border-radius: 50%;"
-                                                                        alt="">
-                                                                    <span><a
-                                                                            href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
-                                                                            <?= $info['typeproperty'] ?>
-                                                                        </a></span>
-                                                                </figure>
-                                                            </div>
-                                                        </div>
-                                                        <div class="title-text">
-                                                            <h6><a
+                                                    <div class="author-box pull-right">
+                                                        <figure class="author-thumb">
+                                                            <img src="assets/images/footer-logo.png"
+                                                                style="object-fit:cover; background-position: center; width: 60px; height: 40px; border-radius: 50%;"
+                                                                alt="">
+                                                            <span><a
                                                                     href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
-                                                                    <?= $info['city'] ?>,
-                                                                    <?= $info['state'] ?>
-                                                                    <?= $info['area_location'] ?>
-                                                                </a></h6>
-                                                        </div>
-                                                        <p>
-                                                            <?= substr($info['detailedinfo'], 0, 77) . ' ...' ?>.
-                                                        </p>
-                                                        <ul class="more-details clearfix">
-                                                            <?php if ($info['propertyCategory'] !== 'Land'): ?>
-                                                                <li><i class="icon-14"></i>
-                                                                    <?= $info['bedrooms'] ?> Beds
-                                                                </li>
-                                                                <li><i class="icon-15"></i>
-                                                                    <?= $info['bathroom'] ?> Baths
-                                                                </li>
-                                                                <li><i class="icon-15"></i>
-                                                                    <?= $info['toilets'] ?> Toilets
-                                                                </li>
-                                                            <?php else: ?>
-                                                                <p><i class="icon-16"></i>
-                                                                    <?= $info['landsize'] ?> landsize(sqrt)
-                                                                </p>
-                                                            <?php endif; ?>
-                                                            <!-- <li><i class="icon-16"></i>600 Prop Size(Sq Ft)</li>
+                                                                    <?= $info['typeproperty'] ?>
+                                                                </a></span>
+                                                        </figure>
+                                                    </div>
+                                                </div>
+                                                <div class="title-text">
+                                                    <h6><a
+                                                            href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
+                                                            <?= $info['city'] ?>,
+                                                            <?= $info['state'] ?>
+                                                            <?= $info['area_location'] ?>
+                                                        </a></h6>
+                                                </div>
+                                                <p>
+                                                    <?= substr($info['detailedinfo'], 0, 77) . ' ...' ?>.
+                                                </p>
+                                                <ul class="more-details clearfix">
+                                                    <?php if ($info['propertyCategory'] !== 'Land'): ?>
+                                                    <li><i class="icon-14"></i>
+                                                        <?= $info['bedrooms'] ?> Beds
+                                                    </li>
+                                                    <li><i class="icon-15"></i>
+                                                        <?= $info['bathroom'] ?> Baths
+                                                    </li>
+                                                    <li><i class="icon-15"></i>
+                                                        <?= $info['toilets'] ?> Toilets
+                                                    </li>
+                                                    <?php else: ?>
+                                                    <p><i class="icon-16"></i>
+                                                        <?= $info['landsize'] ?> landsize(sqrt)
+                                                    </p>
+                                                    <?php endif; ?>
+                                                    <!-- <li><i class="icon-16"></i>600 Prop Size(Sq Ft)</li>
                                                         <li><i class="icon-16"></i>600 Parking Spaces</li> -->
-                                                        </ul>
-                                                        <div class="other-info-box clearfix">
-                                                            <div class="btn-box d-flex justify-content-between oull-left">
-                                                                <a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
-                                                                    class="theme-btn btn-two ">See Details</a>
+                                                </ul>
+                                                <div class="other-info-box clearfix">
+                                                    <div class="btn-box d-flex justify-content-between oull-left">
+                                                        <a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
+                                                            class="theme-btn btn-two ">See Details</a>
 
-                                                                <a href="#modalId" class="theme-btn btn-two "
-                                                                    data-toggle="modal"><span id='<?= $info[' longtitude'] ?>'
-                                                                        class="span" title="
+                                                        <a href="#modalId" class="theme-btn btn-two "
+                                                            data-toggle="modal"><span id='<?= $info[' longtitude'] ?>'
+                                                                class="span" title="
                                                                 <?= $info['langtitude'] ?>">Map
-                                                                    </span></a>
-                                                            </div> <!-- <ul class="other-option pull-right clearfix">
+                                                            </span></a>
+                                                    </div> <!-- <ul class="other-option pull-right clearfix">
                                                             <li><a href="property-details.html"><i class="icon-12"></i></a></li>
                                                             <li><a href="property-details.html"><i class="icon-13"></i></a></li>
                                                         </ul> -->
-                                                        </div>
-                                                    </div>
                                                 </div>
                                             </div>
-                                            <?php
+                                        </div>
+                                    </div>
+                                    <?php
                                         endforeach;
                                     else:
                                         ?>
@@ -994,7 +995,8 @@ if (isset($_SESSION['useremail'])) {
                                             $minprice = $_POST['minprice'];
                                             $maxprice = $_POST['maxprice'];
                                             $keywords = $_POST['keywords'];
-                                            $fetch = $dbs->AdvanceSearchquery($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex);
+                                            $ref = $_POST['ref'];
+                                            $fetch = $dbs->AdvanceSearchquery($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex, $ref);
                                             // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
                                     
                                             // Execute the query and fetch the items
@@ -1004,7 +1006,7 @@ if (isset($_SESSION['useremail'])) {
                                             // Query to get the total number of items
                                             // Replace this with your own query to get the total number of items
                                             // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
-                                            $totalItemsQuery = $dbs->AdvanceSearchqueryNO($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex);
+                                            $totalItemsQuery = $dbs->AdvanceSearchqueryNO($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex, $ref);
                                             $totalItemsResult = $totalItemsQuery; // result of executing the query
                                     
                                             // Get the total number of items
@@ -1106,7 +1108,8 @@ if (isset($_SESSION['useremail'])) {
                                             $minprice = $_POST['minprice'];
                                             $maxprice = $_POST['maxprice'];
                                             $keywords = $_POST['keywords'];
-                                            $fetch = $dbs->AdvanceSearchquery($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex);
+                                            $ref = $_POST['ref'];
+                                            $fetch = $dbs->AdvanceSearchquery($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex, $ref);
                                             // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
                                     
                                             // Execute the query and fetch the items
@@ -1116,7 +1119,7 @@ if (isset($_SESSION['useremail'])) {
                                             // Query to get the total number of items
                                             // Replace this with your own query to get the total number of items
                                             // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
-                                            $totalItemsQuery = $dbs->AdvanceSearchqueryNO($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex);
+                                            $totalItemsQuery = $dbs->AdvanceSearchqueryNO($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex, $ref);
                                             $totalItemsResult = $totalItemsQuery; // result of executing the query
                                     
                                             // Get the total number of items
@@ -1199,113 +1202,97 @@ if (isset($_SESSION['useremail'])) {
                                         if ($fetch):
                                             foreach ($fetch as $info):
                                                 ?>
-                                                <div class="col-lg-6 col-md-6 col-sm-12 feature-block">
-                                                    <div class="feature-block-one">
-                                                        <div class="inner-box">
-                                                            <div class="image-box">
-                                                                <?php
-                                                                $galleryimage = $info['galleryimage'];
-                                                                $fetchgallery = $dbs->SelectFromImgLim($galleryimage);
-                                                                foreach ($fetchgallery as $fetchgalleryInfo) {
-                                                                    ?>
-                                                                    <figure class="image-box"><img
-                                                                            src="./galleryImage/<?= $fetchgalleryInfo['imagename'] ?>"
-                                                                            alt=""></figure>
-                                                                <?php } ?>
-                                                                <!-- <figure class="image"><img
+                                        <div class="col-lg-6 col-md-6 col-sm-12 feature-block">
+                                            <div class="feature-block-one">
+                                                <div class="inner-box">
+                                                    <div class="image-box">
+                                                        <div class="carousel-inner">
+                                                            <div class="single-item-carousel owl-carousel owl-theme owl-dots-none">
+                                                                <?php 
+                                                                 $galleryimage = $info['galleryimage'];
+                                                                 $fetchgallery =  $dbs->SelectFromImg($galleryimage);
+                                                                 foreach ($fetchgallery as $fetchgalleryInfo ){
+                                                                ?>
+                                                                <figure class="image-box"><img src="./galleryImage/<?= $fetchgalleryInfo['imagename']  ?>"
+                                                                        alt=""></figure>
+                                                                <?php }  ?>
+                                                            </div>
+                            
+                                                        <!-- <figure class="image"><img
                                                                                         src="featuredGallery/<?= $info['featuredimage'] ?>"
                                                                                         alt="">
                                                                                 </figure> -->
-                                                                <!-- <div class="batch"><i class="icon-11"></i></div>
+                                                        <!-- <div class="batch"><i class="icon-11"></i></div>
                                                                         <span class="category">
                                                                             <?= $info['propertyCategory'] ?>
                                                                         </span> -->
+                                                    </div>
+                                                    <div class="lower-content">
+                                                        <div class="author-info clearfix">
+                                                            <div class="author pull-left">
+                                                                <figure class="author-thumb"><img
+                                                                        src="assets/images/footer-logo.png"
+                                                                        style="object-fit:cover; background-position: center; width: 60px; height: 40px; border-radius: 50%;"
+                                                                        alt="">
+                                                                </figure>
+                                                                <h6 class="text-uppercase">
+                                                                    <?= $info['propertytitle'] ?>
+                                                                </h6>
                                                             </div>
-                                                            <div class="lower-content">
-                                                                <div class="author-info clearfix">
-                                                                    <div class="author pull-left">
-                                                                        <figure class="author-thumb"><img
-                                                                                src="assets/images/footer-logo.png"
-                                                                                style="object-fit:cover; background-position: center; width: 60px; height: 40px; border-radius: 50%;"
-                                                                                alt="">
-                                                                        </figure>
-                                                                        <h6 class="text-uppercase">
-                                                                            <?= $info['propertytitle'] ?>
-                                                                        </h6>
-                                                                    </div>
-                                                                    <div class="buy-btn pull-right"><a
-                                                                            href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
-                                                                            <?= $info['symbol'] . number_format($info['propertyprice'], 2) ?>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <!-- <div class="title-text">
+                                                            <div class="buy-btn pull-right"><a
+                                                                    href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
+                                                                    <?= $info['symbol'] . number_format($info['propertyprice'], 2) ?>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <!-- <div class="title-text">
                                                                     <h6><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
                                                                             <?= $info['propertytitle'] ?>
                                                                         </a></h6>
                                                                 </div> -->
-                                                                <div class="title-text">
-                                                                    <h6><a
-                                                                            href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
-                                                                            <?= $info['city'] ?>,
-                                                                            <?= $info['state'] ?>
-                                                                            <?= $info['area_location'] ?>
-                                                                        </a></h6>
-                                                                </div>
-                                                                <div class="title-text">
-                                                                    <h3><a
-                                                                            href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
-                                                                            <?= $info['typeproperty'] ?>
-                                                                        </a></h3>
-                                                                </div>
-                                                                <div class="title-text">
-                                                                    <h3><a
-                                                                            href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
-                                                                            <?= $info['titleproperty'] ?>
-                                                                        </a></h3>
-                                                                </div>
-                                                                <div class="price-box clearfix">
-                                                                    <div class="price-info pull-left">
-                                                                        <!-- <h6>
-                                                                            Longtitude:
-                                                                            <?= $info['longtitude'] ?>
-                                                                        </h6>
-                                                                        <h6>
-                                                                            Langtitude:
-                                                                            <?= $info['langtitude'] ?>
-                                                                        </h6> -->
-                                                                    </div>
-
-                                                                    <!-- <ul class="other-option pull-right clearfix">
-                                                                        <li><a href="property-details?id=<?= $info['id'] ?>"><i
-                                                                                    class="icon-12"></i></a></li>
-                                                                        <li><a href="property-details?id=<?= $info['id'] ?>"><i
-                                                                                    class="icon-13"></i></a></li>
-                                                                    </ul> -->
-                                                                </div>
-                                                                <p>
-                                                                    <?= substr($info['detailedinfo'], 0, 77) . ' ...' ?>
-                                                                <p>
-                                                                <ul class="more-details clearfix">
-                                                                    <?php if ($info['propertyCategory'] !== 'Land'): ?>
-                                                                        <li><i class="icon-14"></i>
-                                                                            <?= $info['bedrooms'] ?> Beds
-                                                                        </li>
-                                                                        <li><i class="icon-15"></i>
-                                                                            <?= $info['bathroom'] ?> Baths
-                                                                        </li>
-                                                                        <li><i class="icon-15"></i>
-                                                                            <?= $info['toilets'] ?> Toilets
-                                                                        </li>
-                                                                    <?php else: ?>
-                                                                        <p><i class="icon-16"></i>
-                                                                            <?= $info['landsize'] ?> landsize(sqrt)
-                                                                        </p>
-                                                                    <?php endif; ?>
-                                                                    <!-- <li><i class="icon-16"></i>600 Prop Size(Sq Ft)</li>
+                                                        <div class="title-text">
+                                                            <h4><a
+                                                                    href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
+                                                                    <?= $info['propertytitle'] ?>/ <?= $info['marketstatus'] ?>
+                                                                </a></h4>
+                                                        </div>
+                                                        <div class="title-text">
+                                                            <h6><a
+                                                                    href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
+                                                                    <?= $info['city'] ?>,
+                                                                    <?= $info['state'] ?>
+                                                                    <?= $info['area_location'] ?>
+                                                                </a></h6>
+                                                        </div>
+                                                        <div class="title-text">
+                                                            <h4><a
+                                                                    href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
+                                                                    <?= $info['typeproperty'] ?>
+                                                                </a></h4>
+                                                        </div>
+                                                        <p>
+                                                            <?= substr($info['detailedinfo'], 0, 77) . ' ...' ?>
+                                                        <p>
+                                                        <ul class="more-details clearfix">
+                                                            <?php if ($info['propertyCategory'] !== 'Land'): ?>
+                                                            <li><i class="icon-14"></i>
+                                                                <?= $info['bedrooms'] ?> Beds
+                                                            </li>
+                                                            <li><i class="icon-15"></i>
+                                                                <?= $info['bathroom'] ?> Baths
+                                                            </li>
+                                                            <li><i class="icon-15"></i>
+                                                                <?= $info['toilets'] ?> Toilets
+                                                            </li>
+                                                            <?php else: ?>
+                                                            <p><i class="icon-16"></i>
+                                                                <?= $info['landsize'] ?> landsize(sqrt)
+                                                            </p>
+                                                            <?php endif; ?>
+                                                            <!-- <li><i class="icon-16"></i>600 Prop Size(Sq Ft)</li>
                                                                             <li><i class="icon-16"></i>600 Parking Spaces</li> -->
-                                                                </ul>
-                                                                <!-- <ul class="more-details clearfix">
+                                                        </ul>
+                                                        <!-- <ul class="more-details clearfix">
                                                                     <li>
                                                                         City:
                                                                         <?= $info['city'] ?>
@@ -1319,22 +1306,22 @@ if (isset($_SESSION['useremail'])) {
                                                                         <?= $info['area_location'] ?>
                                                                     </li>
                                                                 </ul> -->
-                                                                <div
-                                                                    class="btn-box d-flex justify-content-center align-items-center text-center">
-                                                                    <a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
-                                                                        class="theme-btn btn-two ">See Details</a>
+                                                        <div
+                                                            class="btn-box d-flex justify-content-center align-items-center text-center">
+                                                            <a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
+                                                                class="theme-btn btn-two ">See Details</a>
 
-                                                                    <a href="#modalId" class="theme-btn btn-two "
-                                                                        data-toggle="modal"><span id='<?= $info[' longtitude']
-                                                                            ?>' class="span" title="
+                                                            <a href="#modalId" class="theme-btn btn-two "
+                                                                data-toggle="modal"><span id='<?= $info[' longtitude']
+                                                                    ?>' class="span" title="
                                                                     <?= $info['langtitude'] ?>">Map
-                                                                        </span></a>
-                                                                </div>
-                                                            </div>
+                                                                </span></a>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <?php
+                                            </div>
+                                        </div>
+                                        <?php
                                             endforeach;
                                         else:
                                             ?>
@@ -1358,15 +1345,14 @@ if (isset($_SESSION['useremail'])) {
                                 <ul class="pagination clearfix">
 
                                     <?php for ($i = 1; $i <= $totalPages; $i++): ?>
-                                        <li><a href="?propertyCategory=<?= $propertyCategory ?>&page=<?php echo $i; ?>"
-                                                <?php if ($i == $page)
-                                                    echo 'class="current"'; ?>>
-                                                <?php echo $i; ?>
-                                            </a></li>
+                                    <li><a href="?propertyCategory=<?= $propertyCategory ?>&page=<?php echo $i; ?>"
+                                            <?php if ($i==$page) echo 'class="current"' ; ?>>
+                                            <?php echo $i; ?>
+                                        </a></li>
                                     <?php endfor; ?>
 
                                     <?php if ($i <= $totalPages): ?>
-                                        <!-- <li><a href="?propertyCategory=<?= $propertyCategory ?>&page=<?php echo $i; ?>"><i class="fas fa-angle-right"></i></a></li> -->
+                                    <!-- <li><a href="?propertyCategory=<?= $propertyCategory ?>&page=<?php echo $i; ?>"><i class="fas fa-angle-right"></i></a></li> -->
                                     <?php endif; ?>
                                     <!-- <li><a href="property-grid.html">2</a></li>
                                     <li><a href="property-grid.html">3</a></li>

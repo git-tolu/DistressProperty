@@ -12,7 +12,7 @@
                         <!-- <li class="sidebar-item"> <a class="sidebar-link  waves-effect waves-dark" href="pendingmembers" aria-expanded="false"><i class="mdi mdi-account-star"></i><span class="hide-menu">Application </span></a>
                       
                         </li> -->
-						<li class="sidebar-item"> <a class="sidebar-link  waves-effect waves-dark" href="pendingpost" aria-expanded="false"><i class="mdi mdi-wallet-membership"></i><span class="hide-menu">Posts </span></a>
+						<li class="sidebar-item"> <a class="sidebar-link  waves-effect waves-dark" href="pendingpost" aria-expanded="false"><i class="mdi mdi-wallet-membership"></i><span class="hide-menu">Properties </span></a>
                         </li>
                         <!-- 
 						

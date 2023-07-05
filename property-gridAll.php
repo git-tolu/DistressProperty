@@ -9,17 +9,17 @@ $page = 'property-grid';
 
 $propertyCategory = "All Properties";
 if (isset($_SESSION['useremail'])) {
-  
+
     $user_email = $_SESSION['useremail'];
     $UsersData = $dbs->currentUser($user_email);
     foreach ($UsersData as $values) {
-      $user_role = $values['user_role'];
-      // $hashpass = $values['hashpass'];
+        $user_role = $values['user_role'];
+        // $hashpass = $values['hashpass'];
     }
-  }
+}
 
 
-  
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -436,23 +436,23 @@ if (isset($_SESSION['useremail'])) {
                         <div class="property-content-side">
                         <div class="item-shorting clearfix">
                                 <div class="left-column pull-left">
-                                    <?php 
-                                        $count = $dbs->SelectAllApropertiesNoSessNoLimitCount($propertyCategory);
-                                     // Number of items per page
-                                     $itemsPerPage = 9;
+                                    <?php
+                                    $count = $dbs->SelectAllApropertiesNoSessNoLimitCount($propertyCategory);
+                                    // Number of items per page
+                                    $itemsPerPage = 9;
 
-                                     // Current page number
-                                     $page = isset($_GET['page']) ? $_GET['page'] : 1;
+                                    // Current page number
+                                    $page = isset($_GET['page']) ? $_GET['page'] : 1;
 
-                                     // Calculate the starting index of the items to display
-                                     $startIndex = ($page - 1) * $itemsPerPage;
+                                    // Calculate the starting index of the items to display
+                                    $startIndex = ($page - 1) * $itemsPerPage;
 
-                                     // Query to fetch the items from the database
-                                     // Replace this with your own query to fetch the items
-                                     $fetch = $dbs->SelectAllApropertiesNoSessNoLimitPag($propertyCategory, $itemsPerPage, $startIndex);
-                                     $fetchCount = count($fetch);
+                                    // Query to fetch the items from the database
+                                    // Replace this with your own query to fetch the items
+                                    $fetch = $dbs->SelectAllApropertiesNoSessNoLimitPag($propertyCategory, $itemsPerPage, $startIndex);
+                                    $fetchCount = count($fetch);
                                     ?>
-                                    <h5>Search Reasults: <span>Showing <?= $fetchCount  ?> of <?= $count  ?> Listings</span></h5>
+                                    <h5>Search Reasults: <span>Showing <?= $fetchCount ?> of <?= $count ?> Listings</span></h5>
                                 </div>
                                 <div class="right-column pull-right clearfix">
                                     <div class="short-box clearfix">
@@ -475,159 +475,58 @@ if (isset($_SESSION['useremail'])) {
                             <div class="wrapper grid">
                                 <div class="deals-list-content list-item">
                                 <?php
-                                            
-                                    if (!isset($_SESSION['useremail'])) {
-                                        if (isset($_POST['advquery'])) {
-                                            // Number of items per page
-                                            $itemsPerPage = 9;
 
-                                            // Current page number
-                                            $page = isset($_GET['page']) ? $_GET['page'] : 1;
+                                if (!isset($_SESSION['useremail'])) {
+                                    if (isset($_POST['advquery'])) {
+                                        // Number of items per page
+                                        $itemsPerPage = 9;
 
-                                            // Calculate the starting index of the items to display
-                                            $startIndex = ($page - 1) * $itemsPerPage;
+                                        // Current page number
+                                        $page = isset($_GET['page']) ? $_GET['page'] : 1;
 
-                                            // Query to fetch the items from the database
-                                            // Replace this with your own query to fetch the items
-                                            $Location = $_POST['Location'];
-                                            $propertyCategory = $_POST['category'];
-                                            $landcategory = $_POST['landcategory'];
-                                            $typeproperty = $_POST['type'];
-                                            $bedrooms = $_POST['bedrooms'];
-                                            $bathroom = $_POST['bathroooms'];
-                                            $toilets = $_POST['toilets'];
-                                            $minprice = $_POST['minprice'];
-                                            $maxprice = $_POST['maxprice'];
-                                            $keywords = $_POST['keywords'];
-                                            $fetch = $dbs->AdvanceSearchquery($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex);
-                                            // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
-                                    
-                                            // Execute the query and fetch the items
-                                            // Replace this with your own code to execute the query and fetch the items
-                                            // $items = []; // array to store the fetched items
-                                    
-                                            // Query to get the total number of items
-                                            // Replace this with your own query to get the total number of items
-                                            // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
-                                            $totalItemsQuery = $dbs->AdvanceSearchqueryNO($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex);
-                                            $totalItemsResult = $totalItemsQuery; // result of executing the query
-                                    
-                                            // Get the total number of items
-                                            $totalItems = $totalItemsResult;
+                                        // Calculate the starting index of the items to display
+                                        $startIndex = ($page - 1) * $itemsPerPage;
 
-                                            // Calculate the total number of pages
-                                            $totalPages = ceil($totalItems / $itemsPerPage);
-                                        } else {
-                                            if (isset($_POST['searchBtn'])) {
-                                                $propertyCategory = $_POST['propertyCategory'];
-                                                $state = $_POST['state'];
-                                                // echo $state;
-                                                // $area_location = $_POST['area_location'];
-                                                // $city = $_POST['city'];
-                                                // $fetch = $dbs->SelectAllApropertiesWhere($user_id, $propertyCategory, $area_location, $city, $state);
-                                                    $fetch = $dbs->SelectAllApropertiesWhereNoSess($propertyCategory, $state);
-                                                    // Number of items per page
-                                                    $itemsPerPage = 9;
-                                                
-                                                    // Current page number
-                                                    $page = isset($_GET['page']) ? $_GET['page'] : 1;
-                                                    
-                                                    // Calculate the starting index of the items to display
-                                                    $startIndex = ($page - 1) * $itemsPerPage;
-                                                    
-                                                    // Query to fetch the items from the database
-                                                    // Replace this with your own query to fetch the items
-                                                //    $fetch = $dbs->SelectAllApropertiesNoSessNoLimitPag($propertyCategory, $itemsPerPage, $startIndex);
-                                                    // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
-                                                    
-                                                    // Execute the query and fetch the items
-                                                    // Replace this with your own code to execute the query and fetch the items
-                                                    // $items = []; // array to store the fetched items
-                                                    
-                                                    // Query to get the total number of items
-                                                    // Replace this with your own query to get the total number of items
-                                                    // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
-                                                    $totalItemsQuery = $dbs->SelectAllApropertiesNoSessNoLimitPagCount($propertyCategory);
-                                                    $totalItemsResult =   $totalItemsQuery; // result of executing the query
-                                                    
-                                                    // Get the total number of items
-                                                    $totalItems = $totalItemsResult['id'];
-                                                    
-                                                    // Calculate the total number of pages
-                                                    $totalPages = ceil($totalItems / $itemsPerPage);
-                                            } else {
-                                                if (isset($_GET['search'])) {
-                                                    # code...
-                                                    $search = $_GET['search'];
-                                                    $itemsPerPage = 9;
-                                                
-                                                    // Current page number
-                                                    $page = isset($_GET['page']) ? $_GET['page'] : 1;
-                                                    
-                                                    // Calculate the starting index of the items to display
-                                                    $startIndex = ($page - 1) * $itemsPerPage;
-                                                    
-                                                    // Query to fetch the items from the database
-                                                    // Replace this with your own query to fetch the items
-                                                    $fetch = $dbs->SelectAllApropertiesSearch($search, $startIndex, $itemsPerPage);
-                                                    // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
-                                                    
-                                                    // Execute the query and fetch the items
-                                                    // Replace this with your own code to execute the query and fetch the items
-                                                    // $items = []; // array to store the fetched items
-                                                    
-                                                    // Query to get the total number of items
-                                                    // Replace this with your own query to get the total number of items
-                                                    // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
-                                                    $totalItemsQuery = $dbs->SelectAllApropertiesNoSessNoLimitPagCountAll();
-                                                    $totalItemsResult =   $totalItemsQuery; // result of executing the query
-                                                    
-                                                    // Get the total number of items
-                                                    $totalItems = $totalItemsResult['id'];
-                                                    
-                                                    // Calculate the total number of pages
-                                                    $totalPages = ceil($totalItems / $itemsPerPage);
-                                                } else {
-                                                        // Number of items per page
-                                                $itemsPerPage = 9;
-                                                
-                                                // Current page number
-                                                $page = isset($_GET['page']) ? $_GET['page'] : 1;
-                                                
-                                                // Calculate the starting index of the items to display
-                                                $startIndex = ($page - 1) * $itemsPerPage;
-                                                
-                                                // Query to fetch the items from the database
-                                                // Replace this with your own query to fetch the items
-                                                $fetch = $dbs->SelectAllpropertiesNoLimit($startIndex, $itemsPerPage);
-                                                // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
-                                                
-                                                // Execute the query and fetch the items
-                                                // Replace this with your own code to execute the query and fetch the items
-                                                // $items = []; // array to store the fetched items
-                                                
-                                                // Query to get the total number of items
-                                                // Replace this with your own query to get the total number of items
-                                                // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
-                                                $totalItemsQuery = $dbs->SelectAllApropertiesNoSessNoLimitPagCountAll();
-                                                $totalItemsResult =   $totalItemsQuery; // result of executing the query
-                                                
-                                                // Get the total number of items
-                                                $totalItems = $totalItemsResult['id'];
-                                                
-                                                // Calculate the total number of pages
-                                                $totalPages = ceil($totalItems / $itemsPerPage);
-                                            
-                                                    // $fetch = $dbs->SelectAllpropertiesNoLimit();
+                                        // Query to fetch the items from the database
+                                        // Replace this with your own query to fetch the items
+                                        $Location = $_POST['Location'];
+                                        $propertyCategory = $_POST['category'];
+                                        $landcategory = $_POST['landcategory'];
+                                        $typeproperty = $_POST['type'];
+                                        $bedrooms = $_POST['bedrooms'];
+                                        $bathroom = $_POST['bathroooms'];
+                                        $toilets = $_POST['toilets'];
+                                        $minprice = $_POST['minprice'];
+                                        $maxprice = $_POST['maxprice'];
+                                        $keywords = $_POST['keywords'];
+                                        $ref = $_POST['ref'];
+                                        $fetch = $dbs->AdvanceSearchquery($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex, $ref);
+                                        // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
+                                
+                                        // Execute the query and fetch the items
+                                        // Replace this with your own code to execute the query and fetch the items
+                                        // $items = []; // array to store the fetched items
+                                
+                                        // Query to get the total number of items
+                                        // Replace this with your own query to get the total number of items
+                                        // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
+                                        $totalItemsQuery = $dbs->AdvanceSearchqueryNO($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex, $ref);
+                                        $totalItemsResult = $totalItemsQuery; // result of executing the query
+                                
+                                        // Get the total number of items
+                                        $totalItems = $totalItemsResult;
 
-                                                }                                                
-                                                
-                                            }
-                                        }
-                                        
-                                        
+                                        // Calculate the total number of pages
+                                        $totalPages = ceil($totalItems / $itemsPerPage);
                                     } else {
-                                        if (isset($_POST['advquery'])) {
+                                        if (isset($_POST['searchBtn'])) {
+                                            $propertyCategory = $_POST['propertyCategory'];
+                                            $state = $_POST['state'];
+                                            // echo $state;
+                                            // $area_location = $_POST['area_location'];
+                                            // $city = $_POST['city'];
+                                            // $fetch = $dbs->SelectAllApropertiesWhere($user_id, $propertyCategory, $area_location, $city, $state);
+                                            $fetch = $dbs->SelectAllApropertiesWhereNoSess($propertyCategory, $state);
                                             // Number of items per page
                                             $itemsPerPage = 9;
 
@@ -639,134 +538,240 @@ if (isset($_SESSION['useremail'])) {
 
                                             // Query to fetch the items from the database
                                             // Replace this with your own query to fetch the items
-                                            $Location = $_POST['Location'];
-                                            $propertyCategory = $_POST['category'];
-                                            $landcategory = $_POST['landcategory'];
-                                            $typeproperty = $_POST['type'];
-                                            $bedrooms = $_POST['bedrooms'];
-                                            $bathroom = $_POST['bathroooms'];
-                                            $toilets = $_POST['toilets'];
-                                            $minprice = $_POST['minprice'];
-                                            $maxprice = $_POST['maxprice'];
-                                            $keywords = $_POST['keywords'];
-                                            $fetch = $dbs->AdvanceSearchquery($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex);
+                                            //    $fetch = $dbs->SelectAllApropertiesNoSessNoLimitPag($propertyCategory, $itemsPerPage, $startIndex);
                                             // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
-                                    
+                                
                                             // Execute the query and fetch the items
                                             // Replace this with your own code to execute the query and fetch the items
                                             // $items = []; // array to store the fetched items
-                                    
+                                
                                             // Query to get the total number of items
                                             // Replace this with your own query to get the total number of items
                                             // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
-                                            $totalItemsQuery = $dbs->AdvanceSearchqueryNO($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex);
+                                            $totalItemsQuery = $dbs->SelectAllApropertiesNoSessNoLimitPagCount($propertyCategory);
                                             $totalItemsResult = $totalItemsQuery; // result of executing the query
-                                    
+                                
                                             // Get the total number of items
-                                            $totalItems = $totalItemsResult;
+                                            $totalItems = $totalItemsResult['id'];
 
                                             // Calculate the total number of pages
                                             $totalPages = ceil($totalItems / $itemsPerPage);
                                         } else {
-
-                                            if (isset($_POST['searchBtn'])) {
-                                                $propertyCategory = $_POST['propertyCategory'];
-                                                // $area_location = $_POST['area_location'];
-                                                // $city = $_POST['city'];
-                                                $state = $_POST['state'];
-                                                // $fetch = $dbs->SelectAllApropertiesWhere($user_id, $propertyCategory, $area_location, $city, $state);
-                                                $fetch = $dbs->SelectAllApropertiesWhereNoSess($propertyCategory, $state);
-                                            } else {
-                                                if (isset($_GET['search'])) {
-                                                    # code...
-                                                    $search = $_GET['search'];
-                                                    $itemsPerPage = 9;
-                                                
-                                                    // Current page number
-                                                    $page = isset($_GET['page']) ? $_GET['page'] : 1;
-                                                    
-                                                    // Calculate the starting index of the items to display
-                                                    $startIndex = ($page - 1) * $itemsPerPage;
-                                                    
-                                                    // Query to fetch the items from the database
-                                                    // Replace this with your own query to fetch the items
-                                                    $fetch = $dbs->SelectAllApropertiesSearch($search, $startIndex, $itemsPerPage);
-                                                    // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
-                                                    
-                                                    // Execute the query and fetch the items
-                                                    // Replace this with your own code to execute the query and fetch the items
-                                                    // $items = []; // array to store the fetched items
-                                                    
-                                                    // Query to get the total number of items
-                                                    // Replace this with your own query to get the total number of items
-                                                    // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
-                                                    $totalItemsQuery = $dbs->SelectAllApropertiesNoSessNoLimitPagCountAll();
-                                                    $totalItemsResult =   $totalItemsQuery; // result of executing the query
-                                                    
-                                                    // Get the total number of items
-                                                    $totalItems = $totalItemsResult['id'];
-                                                    
-                                                    // Calculate the total number of pages
-                                                    $totalPages = ceil($totalItems / $itemsPerPage);
-                                                } else {
-                                                        // Number of items per page
+                                            if (isset($_GET['search'])) {
+                                                # code...
+                                                $search = $_GET['search'];
                                                 $itemsPerPage = 9;
-                                                
+
                                                 // Current page number
                                                 $page = isset($_GET['page']) ? $_GET['page'] : 1;
-                                                
+
                                                 // Calculate the starting index of the items to display
                                                 $startIndex = ($page - 1) * $itemsPerPage;
-                                                
+
                                                 // Query to fetch the items from the database
                                                 // Replace this with your own query to fetch the items
-                                                $fetch = $dbs->SelectAllpropertiesNoLimit($startIndex, $itemsPerPage);
+                                                $fetch = $dbs->SelectAllApropertiesSearch($search, $startIndex, $itemsPerPage);
                                                 // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
-                                                
+                                
                                                 // Execute the query and fetch the items
                                                 // Replace this with your own code to execute the query and fetch the items
                                                 // $items = []; // array to store the fetched items
-                                                
+                                
                                                 // Query to get the total number of items
                                                 // Replace this with your own query to get the total number of items
                                                 // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
                                                 $totalItemsQuery = $dbs->SelectAllApropertiesNoSessNoLimitPagCountAll();
-                                                $totalItemsResult =   $totalItemsQuery; // result of executing the query
-                                                
+                                                $totalItemsResult = $totalItemsQuery; // result of executing the query
+                                
                                                 // Get the total number of items
                                                 $totalItems = $totalItemsResult['id'];
-                                                
+
                                                 // Calculate the total number of pages
                                                 $totalPages = ceil($totalItems / $itemsPerPage);
-                                            
-                                                    // $fetch = $dbs->SelectAllpropertiesNoLimit();
+                                            } else {
+                                                // Number of items per page
+                                                $itemsPerPage = 9;
 
-                                                }                                                
+                                                // Current page number
+                                                $page = isset($_GET['page']) ? $_GET['page'] : 1;
+
+                                                // Calculate the starting index of the items to display
+                                                $startIndex = ($page - 1) * $itemsPerPage;
+
+                                                // Query to fetch the items from the database
+                                                // Replace this with your own query to fetch the items
+                                                $fetch = $dbs->SelectAllpropertiesNoLimit($startIndex, $itemsPerPage);
+                                                // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
+                                
+                                                // Execute the query and fetch the items
+                                                // Replace this with your own code to execute the query and fetch the items
+                                                // $items = []; // array to store the fetched items
+                                
+                                                // Query to get the total number of items
+                                                // Replace this with your own query to get the total number of items
+                                                // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
+                                                $totalItemsQuery = $dbs->SelectAllApropertiesNoSessNoLimitPagCountAll();
+                                                $totalItemsResult = $totalItemsQuery; // result of executing the query
+                                
+                                                // Get the total number of items
+                                                $totalItems = $totalItemsResult['id'];
+
+                                                // Calculate the total number of pages
+                                                $totalPages = ceil($totalItems / $itemsPerPage);
+
+                                                // $fetch = $dbs->SelectAllpropertiesNoLimit();
+                                
+                                            }
+
+                                        }
+                                    }
+
+
+                                } else {
+                                    if (isset($_POST['advquery'])) {
+                                        // Number of items per page
+                                        $itemsPerPage = 9;
+
+                                        // Current page number
+                                        $page = isset($_GET['page']) ? $_GET['page'] : 1;
+
+                                        // Calculate the starting index of the items to display
+                                        $startIndex = ($page - 1) * $itemsPerPage;
+
+                                        // Query to fetch the items from the database
+                                        // Replace this with your own query to fetch the items
+                                        $Location = $_POST['Location'];
+                                        $propertyCategory = $_POST['category'];
+                                        $landcategory = $_POST['landcategory'];
+                                        $typeproperty = $_POST['type'];
+                                        $bedrooms = $_POST['bedrooms'];
+                                        $bathroom = $_POST['bathroooms'];
+                                        $toilets = $_POST['toilets'];
+                                        $minprice = $_POST['minprice'];
+                                        $maxprice = $_POST['maxprice'];
+                                        $keywords = $_POST['keywords'];
+                                        $ref = $_POST['ref'];
+                                        $fetch = $dbs->AdvanceSearchquery($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex, $ref);
+                                        // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
+                                
+                                        // Execute the query and fetch the items
+                                        // Replace this with your own code to execute the query and fetch the items
+                                        // $items = []; // array to store the fetched items
+                                
+                                        // Query to get the total number of items
+                                        // Replace this with your own query to get the total number of items
+                                        // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
+                                        $totalItemsQuery = $dbs->AdvanceSearchqueryNO($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex, $ref);
+                                        $totalItemsResult = $totalItemsQuery; // result of executing the query
+                                
+                                        // Get the total number of items
+                                        $totalItems = $totalItemsResult;
+
+                                        // Calculate the total number of pages
+                                        $totalPages = ceil($totalItems / $itemsPerPage);
+                                    } else {
+
+                                        if (isset($_POST['searchBtn'])) {
+                                            $propertyCategory = $_POST['propertyCategory'];
+                                            // $area_location = $_POST['area_location'];
+                                            // $city = $_POST['city'];
+                                            $state = $_POST['state'];
+                                            // $fetch = $dbs->SelectAllApropertiesWhere($user_id, $propertyCategory, $area_location, $city, $state);
+                                            $fetch = $dbs->SelectAllApropertiesWhereNoSess($propertyCategory, $state);
+                                        } else {
+                                            if (isset($_GET['search'])) {
+                                                # code...
+                                                $search = $_GET['search'];
+                                                $itemsPerPage = 9;
+
+                                                // Current page number
+                                                $page = isset($_GET['page']) ? $_GET['page'] : 1;
+
+                                                // Calculate the starting index of the items to display
+                                                $startIndex = ($page - 1) * $itemsPerPage;
+
+                                                // Query to fetch the items from the database
+                                                // Replace this with your own query to fetch the items
+                                                $fetch = $dbs->SelectAllApropertiesSearch($search, $startIndex, $itemsPerPage);
+                                                // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
+                                
+                                                // Execute the query and fetch the items
+                                                // Replace this with your own code to execute the query and fetch the items
+                                                // $items = []; // array to store the fetched items
+                                
+                                                // Query to get the total number of items
+                                                // Replace this with your own query to get the total number of items
+                                                // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
+                                                $totalItemsQuery = $dbs->SelectAllApropertiesNoSessNoLimitPagCountAll();
+                                                $totalItemsResult = $totalItemsQuery; // result of executing the query
+                                
+                                                // Get the total number of items
+                                                $totalItems = $totalItemsResult['id'];
+
+                                                // Calculate the total number of pages
+                                                $totalPages = ceil($totalItems / $itemsPerPage);
+                                            } else {
+                                                // Number of items per page
+                                                $itemsPerPage = 9;
+
+                                                // Current page number
+                                                $page = isset($_GET['page']) ? $_GET['page'] : 1;
+
+                                                // Calculate the starting index of the items to display
+                                                $startIndex = ($page - 1) * $itemsPerPage;
+
+                                                // Query to fetch the items from the database
+                                                // Replace this with your own query to fetch the items
+                                                $fetch = $dbs->SelectAllpropertiesNoLimit($startIndex, $itemsPerPage);
+                                                // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
+                                
+                                                // Execute the query and fetch the items
+                                                // Replace this with your own code to execute the query and fetch the items
+                                                // $items = []; // array to store the fetched items
+                                
+                                                // Query to get the total number of items
+                                                // Replace this with your own query to get the total number of items
+                                                // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
+                                                $totalItemsQuery = $dbs->SelectAllApropertiesNoSessNoLimitPagCountAll();
+                                                $totalItemsResult = $totalItemsQuery; // result of executing the query
+                                
+                                                // Get the total number of items
+                                                $totalItems = $totalItemsResult['id'];
+
+                                                // Calculate the total number of pages
+                                                $totalPages = ceil($totalItems / $itemsPerPage);
+
+                                                // $fetch = $dbs->SelectAllpropertiesNoLimit();
+                                
                                             }
                                         }
                                     }
-    
+                                }
+
                                 if ($fetch):
                                     foreach ($fetch as $info):
                                         ?>
                                         <div class="deals-block-one">
                                             <div class="inner-box" >
                                                 <div class="image-box" >
-                                                    <?php
+                                                <?php
                                                         $galleryimage = $info['galleryimage'];
                                                         $fetchgallery = $dbs->SelectFromImgLim($galleryimage);
                                                         foreach ($fetchgallery as $fetchgalleryInfo) {
-                                                    ?>
-                                                        <figure class="image"><img src="./galleryImage/<?= $fetchgalleryInfo['imagename'] ?>"
-                                                                alt="" style="object-fit: cover; background-position: center; height: 400px; "
-                                                                                        ></figure>
-                                                    <?php } ?>
+                                                            ?>
+                                                <figure class="image"><img
+                                                        src="./galleryImage/<?= $fetchgalleryInfo['imagename'] ?>"
+                                                        alt=""
+                                                        style="object-fit: cover; background-position: center; height: 400px; ">
+                                                </figure>
+                                                <?php } ?>                          
+                                              </div>
                                                     <!-- <div class="batch"><i class="icon-11"></i></div>
                                                     <span class="category">Featured</span>
                                                     <div class="buy-btn"><a href="property-details.html">For Buy</a></div> -->
                                                 </div>
                                                 <div class="lower-content" >
-                                                    <div class="title-text"><h4><a href="property-details.html"><?= $info['propertytitle'] ?></a></h4></div>
+                                                    <div class="title-text"><h4><a href="property-details.html"><?= $info['propertytitle'] ?>/ <?= $info['marketstatus']  ?></a></h4></div>
                                                     <div class="price-box clearfix">
                                                         <div class="price-info pull-left">
                                                             <!-- <h6>Start From</h6> -->
@@ -837,208 +842,212 @@ if (isset($_SESSION['useremail'])) {
                                 <div class="deals-grid-content grid-item">
                                     <div class="row clearfix">
                                         <?php
-                                                      
-                                                      if (!isset($_SESSION['useremail'])) {
-                                                        if (isset($_POST['searchBtn'])) {
-                                                            $propertyCategory = $_POST['propertyCategory'];
-                                                            $state = $_POST['state'];
-                                                            // echo $state;
-                                                            // $area_location = $_POST['area_location'];
-                                                            // $city = $_POST['city'];
-                                                            // $fetch = $dbs->SelectAllApropertiesWhere($user_id, $propertyCategory, $area_location, $city, $state);
-                                                                $fetch = $dbs->SelectAllApropertiesWhereNoSess($propertyCategory, $state);
-                                                               // Number of items per page
-                                                               $itemsPerPage = 9;
-                                                            
-                                                               // Current page number
-                                                               $page = isset($_GET['page']) ? $_GET['page'] : 1;
-                                                               
-                                                               // Calculate the starting index of the items to display
-                                                               $startIndex = ($page - 1) * $itemsPerPage;
-                                                               
-                                                               // Query to fetch the items from the database
-                                                               // Replace this with your own query to fetch the items
-                                                            //    $fetch = $dbs->SelectAllApropertiesNoSessNoLimitPag($propertyCategory, $itemsPerPage, $startIndex);
-                                                               // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
-                                                               
-                                                               // Execute the query and fetch the items
-                                                               // Replace this with your own code to execute the query and fetch the items
-                                                               // $items = []; // array to store the fetched items
-                                                               
-                                                               // Query to get the total number of items
-                                                               // Replace this with your own query to get the total number of items
-                                                               // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
-                                                               $totalItemsQuery = $dbs->SelectAllApropertiesNoSessNoLimitPagCount($propertyCategory);
-                                                               $totalItemsResult =   $totalItemsQuery; // result of executing the query
-                                                               
-                                                               // Get the total number of items
-                                                               $totalItems = $totalItemsResult['id'];
-                                                               
-                                                               // Calculate the total number of pages
-                                                               $totalPages = ceil($totalItems / $itemsPerPage);
-                                                        } else {
-                                                            if (isset($_GET['search'])) {
-                                                                # code...
-                                                                $search = $_GET['search'];
-                                                                $itemsPerPage = 9;
-                                                            
-                                                                // Current page number
-                                                                $page = isset($_GET['page']) ? $_GET['page'] : 1;
-                                                                
-                                                                // Calculate the starting index of the items to display
-                                                                $startIndex = ($page - 1) * $itemsPerPage;
-                                                                
-                                                                // Query to fetch the items from the database
-                                                                // Replace this with your own query to fetch the items
-                                                                $fetch = $dbs->SelectAllApropertiesSearch($search, $startIndex, $itemsPerPage);
-                                                                // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
-                                                                
-                                                                // Execute the query and fetch the items
-                                                                // Replace this with your own code to execute the query and fetch the items
-                                                                // $items = []; // array to store the fetched items
-                                                                
-                                                                // Query to get the total number of items
-                                                                // Replace this with your own query to get the total number of items
-                                                                // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
-                                                                $totalItemsQuery = $dbs->SelectAllApropertiesNoSessNoLimitPagCountAll();
-                                                                $totalItemsResult =   $totalItemsQuery; // result of executing the query
-                                                                
-                                                                // Get the total number of items
-                                                                $totalItems = $totalItemsResult['id'];
-                                                                
-                                                                // Calculate the total number of pages
-                                                                $totalPages = ceil($totalItems / $itemsPerPage);
-                                                            } else {
-                                                                    // Number of items per page
-                                                            $itemsPerPage = 9;
-                                                            
-                                                            // Current page number
-                                                            $page = isset($_GET['page']) ? $_GET['page'] : 1;
-                                                            
-                                                            // Calculate the starting index of the items to display
-                                                            $startIndex = ($page - 1) * $itemsPerPage;
-                                                            
-                                                            // Query to fetch the items from the database
-                                                            // Replace this with your own query to fetch the items
-                                                            $fetch = $dbs->SelectAllpropertiesNoLimit($startIndex, $itemsPerPage);
-                                                            // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
-                                                            
-                                                            // Execute the query and fetch the items
-                                                            // Replace this with your own code to execute the query and fetch the items
-                                                            // $items = []; // array to store the fetched items
-                                                            
-                                                            // Query to get the total number of items
-                                                            // Replace this with your own query to get the total number of items
-                                                            // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
-                                                            $totalItemsQuery = $dbs->SelectAllApropertiesNoSessNoLimitPagCountAll();
-                                                            $totalItemsResult =   $totalItemsQuery; // result of executing the query
-                                                            
-                                                            // Get the total number of items
-                                                            $totalItems = $totalItemsResult['id'];
-                                                            
-                                                            // Calculate the total number of pages
-                                                            $totalPages = ceil($totalItems / $itemsPerPage);
-                                                        
-                                                                // $fetch = $dbs->SelectAllpropertiesNoLimit();
-            
-                                                            }                                                
-                                                                        
-                                                        }
-                                                        
-                                                        
-                                                    } else {
-                                                        if (isset($_POST['searchBtn'])) {
-                                                            $propertyCategory = $_POST['propertyCategory'];
-                                                            // $area_location = $_POST['area_location'];
-                                                            // $city = $_POST['city'];
-                                                            $state = $_POST['state'];
-                                                            // $fetch = $dbs->SelectAllApropertiesWhere($user_id, $propertyCategory, $area_location, $city, $state);
-                                                            $fetch = $dbs->SelectAllApropertiesWhereNoSess($propertyCategory, $state);
-                                                        } else {
-                                                            if (isset($_GET['search'])) {
-                                                                # code...
-                                                                $search = $_GET['search'];
-                                                                $itemsPerPage = 9;
-                                                            
-                                                                // Current page number
-                                                                $page = isset($_GET['page']) ? $_GET['page'] : 1;
-                                                                
-                                                                // Calculate the starting index of the items to display
-                                                                $startIndex = ($page - 1) * $itemsPerPage;
-                                                                
-                                                                // Query to fetch the items from the database
-                                                                // Replace this with your own query to fetch the items
-                                                                $fetch = $dbs->SelectAllApropertiesSearch($search, $startIndex, $itemsPerPage);
-                                                                // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
-                                                                
-                                                                // Execute the query and fetch the items
-                                                                // Replace this with your own code to execute the query and fetch the items
-                                                                // $items = []; // array to store the fetched items
-                                                                
-                                                                // Query to get the total number of items
-                                                                // Replace this with your own query to get the total number of items
-                                                                // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
-                                                                $totalItemsQuery = $dbs->SelectAllApropertiesNoSessNoLimitPagCountAll();
-                                                                $totalItemsResult =   $totalItemsQuery; // result of executing the query
-                                                                
-                                                                // Get the total number of items
-                                                                $totalItems = $totalItemsResult['id'];
-                                                                
-                                                                // Calculate the total number of pages
-                                                                $totalPages = ceil($totalItems / $itemsPerPage);
-    
-                                                            } else {
-                                                                   // Number of items per page
-                                                            $itemsPerPage = 9;
-                                                            
-                                                            // Current page number
-                                                            $page = isset($_GET['page']) ? $_GET['page'] : 1;
-                                                            
-                                                            // Calculate the starting index of the items to display
-                                                            $startIndex = ($page - 1) * $itemsPerPage;
-                                                            
-                                                            // Query to fetch the items from the database
-                                                            // Replace this with your own query to fetch the items
-                                                            $fetch = $dbs->SelectAllpropertiesNoLimit($startIndex, $itemsPerPage);
-                                                            // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
-                                                            
-                                                            // Execute the query and fetch the items
-                                                            // Replace this with your own code to execute the query and fetch the items
-                                                            // $items = []; // array to store the fetched items
-                                                            
-                                                            // Query to get the total number of items
-                                                            // Replace this with your own query to get the total number of items
-                                                            // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
-                                                            $totalItemsQuery = $dbs->SelectAllApropertiesNoSessNoLimitPagCountAll();
-                                                            $totalItemsResult =   $totalItemsQuery; // result of executing the query
-                                                            
-                                                            // Get the total number of items
-                                                            $totalItems = $totalItemsResult['id'];
-                                                            
-                                                            // Calculate the total number of pages
-                                                            $totalPages = ceil($totalItems / $itemsPerPage);
-                                                        
-                                                                // $fetch = $dbs->SelectAllpropertiesNoLimit();
-            
-                                                            }                                                
-                                                        }
-                                                    }
-            
+
+                                        if (!isset($_SESSION['useremail'])) {
+                                            if (isset($_POST['searchBtn'])) {
+                                                $propertyCategory = $_POST['propertyCategory'];
+                                                $state = $_POST['state'];
+                                                // echo $state;
+                                                // $area_location = $_POST['area_location'];
+                                                // $city = $_POST['city'];
+                                                // $fetch = $dbs->SelectAllApropertiesWhere($user_id, $propertyCategory, $area_location, $city, $state);
+                                                $fetch = $dbs->SelectAllApropertiesWhereNoSess($propertyCategory, $state);
+                                                // Number of items per page
+                                                $itemsPerPage = 9;
+
+                                                // Current page number
+                                                $page = isset($_GET['page']) ? $_GET['page'] : 1;
+
+                                                // Calculate the starting index of the items to display
+                                                $startIndex = ($page - 1) * $itemsPerPage;
+
+                                                // Query to fetch the items from the database
+                                                // Replace this with your own query to fetch the items
+                                                //    $fetch = $dbs->SelectAllApropertiesNoSessNoLimitPag($propertyCategory, $itemsPerPage, $startIndex);
+                                                // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
+                                        
+                                                // Execute the query and fetch the items
+                                                // Replace this with your own code to execute the query and fetch the items
+                                                // $items = []; // array to store the fetched items
+                                        
+                                                // Query to get the total number of items
+                                                // Replace this with your own query to get the total number of items
+                                                // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
+                                                $totalItemsQuery = $dbs->SelectAllApropertiesNoSessNoLimitPagCount($propertyCategory);
+                                                $totalItemsResult = $totalItemsQuery; // result of executing the query
+                                        
+                                                // Get the total number of items
+                                                $totalItems = $totalItemsResult['id'];
+
+                                                // Calculate the total number of pages
+                                                $totalPages = ceil($totalItems / $itemsPerPage);
+                                            } else {
+                                                if (isset($_GET['search'])) {
+                                                    # code...
+                                                    $search = $_GET['search'];
+                                                    $itemsPerPage = 9;
+
+                                                    // Current page number
+                                                    $page = isset($_GET['page']) ? $_GET['page'] : 1;
+
+                                                    // Calculate the starting index of the items to display
+                                                    $startIndex = ($page - 1) * $itemsPerPage;
+
+                                                    // Query to fetch the items from the database
+                                                    // Replace this with your own query to fetch the items
+                                                    $fetch = $dbs->SelectAllApropertiesSearch($search, $startIndex, $itemsPerPage);
+                                                    // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
+                                        
+                                                    // Execute the query and fetch the items
+                                                    // Replace this with your own code to execute the query and fetch the items
+                                                    // $items = []; // array to store the fetched items
+                                        
+                                                    // Query to get the total number of items
+                                                    // Replace this with your own query to get the total number of items
+                                                    // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
+                                                    $totalItemsQuery = $dbs->SelectAllApropertiesNoSessNoLimitPagCountAll();
+                                                    $totalItemsResult = $totalItemsQuery; // result of executing the query
+                                        
+                                                    // Get the total number of items
+                                                    $totalItems = $totalItemsResult['id'];
+
+                                                    // Calculate the total number of pages
+                                                    $totalPages = ceil($totalItems / $itemsPerPage);
+                                                } else {
+                                                    // Number of items per page
+                                                    $itemsPerPage = 9;
+
+                                                    // Current page number
+                                                    $page = isset($_GET['page']) ? $_GET['page'] : 1;
+
+                                                    // Calculate the starting index of the items to display
+                                                    $startIndex = ($page - 1) * $itemsPerPage;
+
+                                                    // Query to fetch the items from the database
+                                                    // Replace this with your own query to fetch the items
+                                                    $fetch = $dbs->SelectAllpropertiesNoLimit($startIndex, $itemsPerPage);
+                                                    // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
+                                        
+                                                    // Execute the query and fetch the items
+                                                    // Replace this with your own code to execute the query and fetch the items
+                                                    // $items = []; // array to store the fetched items
+                                        
+                                                    // Query to get the total number of items
+                                                    // Replace this with your own query to get the total number of items
+                                                    // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
+                                                    $totalItemsQuery = $dbs->SelectAllApropertiesNoSessNoLimitPagCountAll();
+                                                    $totalItemsResult = $totalItemsQuery; // result of executing the query
+                                        
+                                                    // Get the total number of items
+                                                    $totalItems = $totalItemsResult['id'];
+
+                                                    // Calculate the total number of pages
+                                                    $totalPages = ceil($totalItems / $itemsPerPage);
+
+                                                    // $fetch = $dbs->SelectAllpropertiesNoLimit();
+                                        
+                                                }
+
+                                            }
+
+
+                                        } else {
+                                            if (isset($_POST['searchBtn'])) {
+                                                $propertyCategory = $_POST['propertyCategory'];
+                                                // $area_location = $_POST['area_location'];
+                                                // $city = $_POST['city'];
+                                                $state = $_POST['state'];
+                                                // $fetch = $dbs->SelectAllApropertiesWhere($user_id, $propertyCategory, $area_location, $city, $state);
+                                                $fetch = $dbs->SelectAllApropertiesWhereNoSess($propertyCategory, $state);
+                                            } else {
+                                                if (isset($_GET['search'])) {
+                                                    # code...
+                                                    $search = $_GET['search'];
+                                                    $itemsPerPage = 9;
+
+                                                    // Current page number
+                                                    $page = isset($_GET['page']) ? $_GET['page'] : 1;
+
+                                                    // Calculate the starting index of the items to display
+                                                    $startIndex = ($page - 1) * $itemsPerPage;
+
+                                                    // Query to fetch the items from the database
+                                                    // Replace this with your own query to fetch the items
+                                                    $fetch = $dbs->SelectAllApropertiesSearch($search, $startIndex, $itemsPerPage);
+                                                    // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
+                                        
+                                                    // Execute the query and fetch the items
+                                                    // Replace this with your own code to execute the query and fetch the items
+                                                    // $items = []; // array to store the fetched items
+                                        
+                                                    // Query to get the total number of items
+                                                    // Replace this with your own query to get the total number of items
+                                                    // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
+                                                    $totalItemsQuery = $dbs->SelectAllApropertiesNoSessNoLimitPagCountAll();
+                                                    $totalItemsResult = $totalItemsQuery; // result of executing the query
+                                        
+                                                    // Get the total number of items
+                                                    $totalItems = $totalItemsResult['id'];
+
+                                                    // Calculate the total number of pages
+                                                    $totalPages = ceil($totalItems / $itemsPerPage);
+
+                                                } else {
+                                                    // Number of items per page
+                                                    $itemsPerPage = 9;
+
+                                                    // Current page number
+                                                    $page = isset($_GET['page']) ? $_GET['page'] : 1;
+
+                                                    // Calculate the starting index of the items to display
+                                                    $startIndex = ($page - 1) * $itemsPerPage;
+
+                                                    // Query to fetch the items from the database
+                                                    // Replace this with your own query to fetch the items
+                                                    $fetch = $dbs->SelectAllpropertiesNoLimit($startIndex, $itemsPerPage);
+                                                    // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
+                                        
+                                                    // Execute the query and fetch the items
+                                                    // Replace this with your own code to execute the query and fetch the items
+                                                    // $items = []; // array to store the fetched items
+                                        
+                                                    // Query to get the total number of items
+                                                    // Replace this with your own query to get the total number of items
+                                                    // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
+                                                    $totalItemsQuery = $dbs->SelectAllApropertiesNoSessNoLimitPagCountAll();
+                                                    $totalItemsResult = $totalItemsQuery; // result of executing the query
+                                        
+                                                    // Get the total number of items
+                                                    $totalItems = $totalItemsResult['id'];
+
+                                                    // Calculate the total number of pages
+                                                    $totalPages = ceil($totalItems / $itemsPerPage);
+
+                                                    // $fetch = $dbs->SelectAllpropertiesNoLimit();
+                                        
+                                                }
+                                            }
+                                        }
+
                                         if ($fetch):
                                             foreach ($fetch as $info):
                                                 ?>
                                                         <div class="col-lg-6 col-md-6 col-sm-12 feature-block">
                                                             <div class="feature-block-one">
                                                                 <div class="inner-box"  >
-                                                                    <div class="image-box" >
-                                                                        <?php
-                                                                        $galleryimage = $info['galleryimage'];
-                                                                        $fetchgallery = $dbs->SelectFromImgLim($galleryimage);
-                                                                        foreach ($fetchgallery as $fetchgalleryInfo) {
-                                                                            ?>
-                                                                        <figure class="image-box"><img src="./galleryImage/<?= $fetchgalleryInfo['imagename'] ?>"
-                                                                                alt="" ></figure>
-                                                                        <?php } ?>
+                                                                    <div class="image-box" style="height: 100% !important;">
+                                                                        <div class="carousel-inner" style="height: 100% !important;">
+                                                                            <div class="single-item-carousel owl-carousel owl-theme owl-dots-none">
+                                                                                <?php 
+                                                                                $galleryimage = $info['galleryimage'];
+                                                                                $fetchgallery =  $dbs->SelectFromImg($galleryimage);
+                                                                                foreach ($fetchgallery as $fetchgalleryInfo ){
+                                                                                ?>
+                                                                                <figure class="image-box"><img src="./galleryImage/<?= $fetchgalleryInfo['imagename']  ?>"
+                                                                                        alt=""></figure>
+                                                                                <?php }  ?>
+                                                                            </div>
+                                                                        </div>
                                                                                 <!-- <figure class="image"><img
                                                                                         src="featuredGallery/<?= $info['featuredimage'] ?>"
                                                                                         alt="">
@@ -1070,43 +1079,29 @@ if (isset($_SESSION['useremail'])) {
                                                                             <?= $info['propertytitle'] ?>
                                                                         </a></h6>
                                                                 </div> -->
-                                                                        <div class="title-text">
-                                                                            <h6><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
-                                                                                      <?= $info['city'] ?>,   <?= $info['state'] ?>         <?= $info['area_location'] ?>
-                                                                                </a></h6>
-                                                                        </div>
-                                                                        <div class="title-text">
-                                                                    <h3><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
-                                                                    <?= $info['typeproperty'] ?>
-                                                                        </a></h3>
-                                                                </div>
-                                                                        <div class="title-text">
-                                                                    <h3><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
-                                                                    <?= $info['titleproperty'] ?>
-                                                                        </a></h3>
-                                                                </div>
-                                                                        <div class="price-box clearfix">
-                                                                            <div class="price-info pull-left">
-                                                                                <!-- <h6>
-                                                                            Longtitude:
-                                                                            <?= $info['longtitude'] ?>
-                                                                        </h6>
-                                                                        <h6>
-                                                                            Langtitude:
-                                                                            <?= $info['langtitude'] ?>
-                                                                        </h6> -->
-                                                                            </div>
-                                                                    
-                                                                            <!-- <ul class="other-option pull-right clearfix">
-                                                                        <li><a href="property-details?id=<?= $info['id'] ?>"><i
-                                                                                    class="icon-12"></i></a></li>
-                                                                        <li><a href="property-details?id=<?= $info['id'] ?>"><i
-                                                                                    class="icon-13"></i></a></li>
-                                                                    </ul> -->
-                                                                        </div>
-                                                                        <p>
-                                                                            <?= substr($info['detailedinfo'], 0, 77) . ' ...' ?>
-                                                                        <p>
+                                                                    <div class="title-text">
+                                                                        <h4><a
+                                                                                href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
+                                                                                <?= $info['propertytitle'] ?>/ <?= $info['marketstatus'] ?>
+                                                                            </a></h4>
+                                                                    </div>
+                                                                    <div class="title-text">
+                                                                        <h6><a
+                                                                                href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
+                                                                                <?= $info['city'] ?>,
+                                                                                <?= $info['state'] ?>
+                                                                                <?= $info['area_location'] ?>
+                                                                            </a></h6>
+                                                                    </div>
+                                                                    <div class="title-text">
+                                                                        <h4><a
+                                                                                href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
+                                                                                <?= $info['typeproperty'] ?>
+                                                                            </a></h4>
+                                                                    </div>
+                                                                    <p>
+                                                                        <?= substr($info['detailedinfo'], 0, 77) . ' ...' ?>
+                                                                    <p>
                                                                         <ul class="more-details clearfix">
                                                                         <?php if ($info['propertyCategory'] !== 'Land'): ?>
                                                                             <li><i class="icon-14"></i><?= $info['bedrooms'] ?> Beds</li>
@@ -1164,11 +1159,12 @@ if (isset($_SESSION['useremail'])) {
                                 <ul class="pagination clearfix">
                           
                                 <?php for ($i = 1; $i <= $totalPages; $i++): ?>
-                                    <li><a href="?propertyCategory=<?= $propertyCategory  ?>&page=<?php echo $i; ?>" <?php if ($i == $page) echo 'class="current"'; ?>><?php echo $i; ?></a></li>
+                                    <li><a href="?propertyCategory=<?= $propertyCategory ?>&page=<?php echo $i; ?>" <?php if ($i == $page)
+                                              echo 'class="current"'; ?>><?php echo $i; ?></a></li>
                                     <?php endfor; ?>
                                     
-                                    <?php if ($i <= $totalPages ): ?>
-                                        <!-- <li><a href="?propertyCategory=<?= $propertyCategory  ?>&page=<?php echo $i; ?>"><i class="fas fa-angle-right"></i></a></li> -->
+                                    <?php if ($i <= $totalPages): ?>
+                                        <!-- <li><a href="?propertyCategory=<?= $propertyCategory ?>&page=<?php echo $i; ?>"><i class="fas fa-angle-right"></i></a></li> -->
                                 <?php endif; ?>
                                     <!-- <li><a href="property-grid.html">2</a></li>
                                     <li><a href="property-grid.html">3</a></li>
