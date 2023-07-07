@@ -52,6 +52,8 @@ if (isset($_SESSION['useremail'])) {
     <link href="assets/css/switcher-style.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/responsive.css" rel="stylesheet">
+    <script src="assets/js/jquery.js"></script>
+
     
 </head>
 
@@ -467,12 +469,12 @@ if (isset($_SESSION['useremail'])) {
                                         </div> -->
                                     </div>
                                     <div class="short-menu clearfix">
-                                        <button class="list-view "><i class="icon-35"></i></button>
-                                        <button class="grid-view on"><i class="icon-36"></i></button>
+                                        <!-- <button class="list-view "><i class="icon-35"></i></button>
+                                        <button class="grid-view on"><i class="icon-36"></i></button> -->
                                     </div>
                                 </div>
                             </div>
-                            <div class="wrapper grid">
+                            <div class="wrapper list">
                                 <div class="deals-list-content list-item">
                                 <?php
 
@@ -751,9 +753,9 @@ if (isset($_SESSION['useremail'])) {
                                 if ($fetch):
                                     foreach ($fetch as $info):
                                         ?>
-                                        <div class="deals-block-one">
-                                            <div class="inner-box" >
-                                                <div class="image-box" >
+                                    <div class="deals-block-one">
+                                        <div class="inner-box">
+                                            <div class="image-box">
                                                 <?php
                                                         $galleryimage = $info['galleryimage'];
                                                         $fetchgallery = $dbs->SelectFromImgLim($galleryimage);
@@ -764,63 +766,85 @@ if (isset($_SESSION['useremail'])) {
                                                         alt=""
                                                         style="object-fit: cover; background-position: center; height: 400px; ">
                                                 </figure>
-                                                <?php } ?>                          
-                                              </div>
-                                                    <!-- <div class="batch"><i class="icon-11"></i></div>
+                                                <?php } ?>
+                                                <!-- <div class="batch"><i class="icon-11"></i></div>
                                                     <span class="category">Featured</span>
-                                                    <div class="buy-btn"><a href="property-details.html">For Buy</a></div> -->
+                                                    <div class="buy-btn"><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">For Buy</a></div> -->
+                                            </div>
+                                            <div class="lower-content">
+                                                <div class="title-text">
+                                                    <h4><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>" class="text-dark">
+                                                            <?= $info['propertytitle'] ?>/ <?= $info['marketstatus']  ?>
+                                                        </a></h4>
                                                 </div>
-                                                <div class="lower-content" >
-                                                    <div class="title-text"><h4><a href="property-details.html"><?= $info['propertytitle'] ?>/ <?= $info['marketstatus']  ?></a></h4></div>
-                                                    <div class="price-box clearfix">
-                                                        <div class="price-info pull-left">
-                                                            <!-- <h6>Start From</h6> -->
-                                                            <h4><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
-                                                                                    <?= $info['symbol'] . number_format($info['propertyprice'], 2) ?>
-                                                                                </a></h4>
-                                                        </div>
-                                                        <div class="author-box pull-right">
-                                                            <figure class="author-thumb"> 
-                                                                <img  src="assets/images/footer-logo.png"
-                                                                                        style="object-fit:cover; background-position: center; width: 60px; height: 40px; border-radius: 50%;"
-                                                                                        alt="">
-                                                                <span><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
+                                                <div class="price-box clearfix">
+                                                    <div class="price-info pull-left">
+                                                        <!-- <h6>Start From</h6> -->
+                                                        <h4><a
+                                                                href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
+                                                                <?= $info['symbol'] . number_format($info['propertyprice'], 2) ?>
+                                                            </a></h4>
+                                                    </div>
+                                                    <div class="author-box pull-right">
+                                                        <figure class="author-thumb">
+                                                            <img src="assets/images/footer-logo.png"
+                                                                style="object-fit:cover; background-position: center; width: 60px; height: 40px; border-radius: 50%;"
+                                                                alt="">
+                                                            <span><a
+                                                                    href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
                                                                     <?= $info['typeproperty'] ?>
-                                                                        </a></span>
-                                                            </figure>
-                                                        </div>
+                                                                </a></span>
+                                                        </figure>
                                                     </div>
-                                                    <div class="title-text">
-                                                        <h6><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
-                                                                    <?= $info['city'] ?>,   <?= $info['state'] ?>         <?= $info['area_location'] ?>
-                                                            </a></h6>
-                                                    </div>
-                                                    <p> <?= substr($info['detailedinfo'], 0, 77) . ' ...' ?>.</p>
-                                                    <ul class="more-details clearfix">
-                                                        <?php if ($info['propertyCategory'] !== 'Land'): ?>
-                                                            <li><i class="icon-14"></i><?= $info['bedrooms'] ?> Beds</li>
-                                                            <li><i class="icon-15"></i><?= $info['bathroom'] ?> Baths</li>
-                                                            <li><i class="icon-15"></i><?= $info['toilets'] ?> Toilets</li>
-                                                        <?php else: ?> 
-                                                            <p><i class="icon-16"></i> <?= $info['landsize'] ?> landsize(sqrt)</p>
-                                                        <?php endif; ?> 
-                                                        <!-- <li><i class="icon-16"></i>600 Prop Size(Sq Ft)</li>
+                                                </div>
+                                                <div class="title-text">
+                                                    <h6><a
+                                                            href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
+                                                            <?= $info['city'] ?>,
+                                                            <?= $info['state'] ?>
+                                                            <?= $info['area_location'] ?>
+                                                        </a></h6>
+                                                </div>
+                                                <p>
+                                                    <?= substr($info['detailedinfo'], 0, 77) . ' ...' ?>.
+                                                </p>
+                                                <ul class="more-details clearfix">
+                                                    <?php if ($info['propertyCategory'] !== 'Land'): ?>
+                                                    <li><i class="icon-14"></i>
+                                                        <?= $info['bedrooms'] ?> Beds
+                                                    </li>
+                                                    <li><i class="icon-15"></i>
+                                                        <?= $info['bathroom'] ?> Baths
+                                                    </li>
+                                                    <li><i class="icon-15"></i>
+                                                        <?= $info['toilets'] ?> Toilets
+                                                    </li>
+                                                    <?php else: ?>
+                                                    <p><i class="icon-16"></i>
+                                                        <?= $info['landsize'] ?> landsize(sqrt)
+                                                    </p>
+                                                    <?php endif; ?>
+                                                    <!-- <li><i class="icon-16"></i>600 Prop Size(Sq Ft)</li>
                                                         <li><i class="icon-16"></i>600 Parking Spaces</li> -->
-                                                    </ul>
-                                                    <div class="other-info-box clearfix">
+                                                </ul>
+                                                <div class="other-info-box clearfix">
                                                     <div class="btn-box d-flex justify-content-between oull-left">
-                                                                            <a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
-                                                                                class="theme-btn btn-two ">See Details</a>
-                                                                            
-                                                                            <a href="#modalId" class="theme-btn btn-two " data-toggle="modal" ><span id='<?= $info['longtitude'] ?>' class="span" title="<?= $info['langtitude'] ?>"  >Map</span></a>
-                                                                        </div>                                                        <!-- <ul class="other-option pull-right clearfix">
-                                                            <li><a href="property-details.html"><i class="icon-12"></i></a></li>
-                                                            <li><a href="property-details.html"><i class="icon-13"></i></a></li>
+                                                        <a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
+                                                            class="theme-btn btn-two ">See Details</a>
+
+                                                            <a href="#modalId" class="theme-btn btn-two "
+                                                            data-toggle="modal"><span id='<?= $info[' longtitude'] ?>'
+                                                                class="span" title="
+                                                                <?= $info['langtitude'] ?>">Map
+                                                            </span></a>
+                                                    </div> <!-- <ul class="other-option pull-right clearfix">
+                                                            <li><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"><i class="icon-12"></i></a></li>
+                                                            <li><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"><i class="icon-13"></i></a></li>
                                                         </ul> -->
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
                                                         <?php
                                     endforeach;
                                 else:
@@ -839,327 +863,12 @@ if (isset($_SESSION['useremail'])) {
                                         <?php endif; ?>
                                   
                                 </div>
-                                <div class="deals-grid-content grid-item">
-                                    <div class="row clearfix">
-                                        <?php
-
-                                        if (!isset($_SESSION['useremail'])) {
-                                            if (isset($_POST['searchBtn'])) {
-                                                $propertyCategory = $_POST['propertyCategory'];
-                                                $state = $_POST['state'];
-                                                // echo $state;
-                                                // $area_location = $_POST['area_location'];
-                                                // $city = $_POST['city'];
-                                                // $fetch = $dbs->SelectAllApropertiesWhere($user_id, $propertyCategory, $area_location, $city, $state);
-                                                $fetch = $dbs->SelectAllApropertiesWhereNoSess($propertyCategory, $state);
-                                                // Number of items per page
-                                                $itemsPerPage = 9;
-
-                                                // Current page number
-                                                $page = isset($_GET['page']) ? $_GET['page'] : 1;
-
-                                                // Calculate the starting index of the items to display
-                                                $startIndex = ($page - 1) * $itemsPerPage;
-
-                                                // Query to fetch the items from the database
-                                                // Replace this with your own query to fetch the items
-                                                //    $fetch = $dbs->SelectAllApropertiesNoSessNoLimitPag($propertyCategory, $itemsPerPage, $startIndex);
-                                                // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
-                                        
-                                                // Execute the query and fetch the items
-                                                // Replace this with your own code to execute the query and fetch the items
-                                                // $items = []; // array to store the fetched items
-                                        
-                                                // Query to get the total number of items
-                                                // Replace this with your own query to get the total number of items
-                                                // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
-                                                $totalItemsQuery = $dbs->SelectAllApropertiesNoSessNoLimitPagCount($propertyCategory);
-                                                $totalItemsResult = $totalItemsQuery; // result of executing the query
-                                        
-                                                // Get the total number of items
-                                                $totalItems = $totalItemsResult['id'];
-
-                                                // Calculate the total number of pages
-                                                $totalPages = ceil($totalItems / $itemsPerPage);
-                                            } else {
-                                                if (isset($_GET['search'])) {
-                                                    # code...
-                                                    $search = $_GET['search'];
-                                                    $itemsPerPage = 9;
-
-                                                    // Current page number
-                                                    $page = isset($_GET['page']) ? $_GET['page'] : 1;
-
-                                                    // Calculate the starting index of the items to display
-                                                    $startIndex = ($page - 1) * $itemsPerPage;
-
-                                                    // Query to fetch the items from the database
-                                                    // Replace this with your own query to fetch the items
-                                                    $fetch = $dbs->SelectAllApropertiesSearch($search, $startIndex, $itemsPerPage);
-                                                    // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
-                                        
-                                                    // Execute the query and fetch the items
-                                                    // Replace this with your own code to execute the query and fetch the items
-                                                    // $items = []; // array to store the fetched items
-                                        
-                                                    // Query to get the total number of items
-                                                    // Replace this with your own query to get the total number of items
-                                                    // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
-                                                    $totalItemsQuery = $dbs->SelectAllApropertiesNoSessNoLimitPagCountAll();
-                                                    $totalItemsResult = $totalItemsQuery; // result of executing the query
-                                        
-                                                    // Get the total number of items
-                                                    $totalItems = $totalItemsResult['id'];
-
-                                                    // Calculate the total number of pages
-                                                    $totalPages = ceil($totalItems / $itemsPerPage);
-                                                } else {
-                                                    // Number of items per page
-                                                    $itemsPerPage = 9;
-
-                                                    // Current page number
-                                                    $page = isset($_GET['page']) ? $_GET['page'] : 1;
-
-                                                    // Calculate the starting index of the items to display
-                                                    $startIndex = ($page - 1) * $itemsPerPage;
-
-                                                    // Query to fetch the items from the database
-                                                    // Replace this with your own query to fetch the items
-                                                    $fetch = $dbs->SelectAllpropertiesNoLimit($startIndex, $itemsPerPage);
-                                                    // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
-                                        
-                                                    // Execute the query and fetch the items
-                                                    // Replace this with your own code to execute the query and fetch the items
-                                                    // $items = []; // array to store the fetched items
-                                        
-                                                    // Query to get the total number of items
-                                                    // Replace this with your own query to get the total number of items
-                                                    // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
-                                                    $totalItemsQuery = $dbs->SelectAllApropertiesNoSessNoLimitPagCountAll();
-                                                    $totalItemsResult = $totalItemsQuery; // result of executing the query
-                                        
-                                                    // Get the total number of items
-                                                    $totalItems = $totalItemsResult['id'];
-
-                                                    // Calculate the total number of pages
-                                                    $totalPages = ceil($totalItems / $itemsPerPage);
-
-                                                    // $fetch = $dbs->SelectAllpropertiesNoLimit();
-                                        
-                                                }
-
-                                            }
-
-
-                                        } else {
-                                            if (isset($_POST['searchBtn'])) {
-                                                $propertyCategory = $_POST['propertyCategory'];
-                                                // $area_location = $_POST['area_location'];
-                                                // $city = $_POST['city'];
-                                                $state = $_POST['state'];
-                                                // $fetch = $dbs->SelectAllApropertiesWhere($user_id, $propertyCategory, $area_location, $city, $state);
-                                                $fetch = $dbs->SelectAllApropertiesWhereNoSess($propertyCategory, $state);
-                                            } else {
-                                                if (isset($_GET['search'])) {
-                                                    # code...
-                                                    $search = $_GET['search'];
-                                                    $itemsPerPage = 9;
-
-                                                    // Current page number
-                                                    $page = isset($_GET['page']) ? $_GET['page'] : 1;
-
-                                                    // Calculate the starting index of the items to display
-                                                    $startIndex = ($page - 1) * $itemsPerPage;
-
-                                                    // Query to fetch the items from the database
-                                                    // Replace this with your own query to fetch the items
-                                                    $fetch = $dbs->SelectAllApropertiesSearch($search, $startIndex, $itemsPerPage);
-                                                    // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
-                                        
-                                                    // Execute the query and fetch the items
-                                                    // Replace this with your own code to execute the query and fetch the items
-                                                    // $items = []; // array to store the fetched items
-                                        
-                                                    // Query to get the total number of items
-                                                    // Replace this with your own query to get the total number of items
-                                                    // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
-                                                    $totalItemsQuery = $dbs->SelectAllApropertiesNoSessNoLimitPagCountAll();
-                                                    $totalItemsResult = $totalItemsQuery; // result of executing the query
-                                        
-                                                    // Get the total number of items
-                                                    $totalItems = $totalItemsResult['id'];
-
-                                                    // Calculate the total number of pages
-                                                    $totalPages = ceil($totalItems / $itemsPerPage);
-
-                                                } else {
-                                                    // Number of items per page
-                                                    $itemsPerPage = 9;
-
-                                                    // Current page number
-                                                    $page = isset($_GET['page']) ? $_GET['page'] : 1;
-
-                                                    // Calculate the starting index of the items to display
-                                                    $startIndex = ($page - 1) * $itemsPerPage;
-
-                                                    // Query to fetch the items from the database
-                                                    // Replace this with your own query to fetch the items
-                                                    $fetch = $dbs->SelectAllpropertiesNoLimit($startIndex, $itemsPerPage);
-                                                    // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
-                                        
-                                                    // Execute the query and fetch the items
-                                                    // Replace this with your own code to execute the query and fetch the items
-                                                    // $items = []; // array to store the fetched items
-                                        
-                                                    // Query to get the total number of items
-                                                    // Replace this with your own query to get the total number of items
-                                                    // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
-                                                    $totalItemsQuery = $dbs->SelectAllApropertiesNoSessNoLimitPagCountAll();
-                                                    $totalItemsResult = $totalItemsQuery; // result of executing the query
-                                        
-                                                    // Get the total number of items
-                                                    $totalItems = $totalItemsResult['id'];
-
-                                                    // Calculate the total number of pages
-                                                    $totalPages = ceil($totalItems / $itemsPerPage);
-
-                                                    // $fetch = $dbs->SelectAllpropertiesNoLimit();
-                                        
-                                                }
-                                            }
-                                        }
-
-                                        if ($fetch):
-                                            foreach ($fetch as $info):
-                                                ?>
-                                                        <div class="col-lg-6 col-md-6 col-sm-12 feature-block">
-                                                            <div class="feature-block-one">
-                                                                <div class="inner-box"  >
-                                                                    <div class="image-box" style="height: 100% !important;">
-                                                                        <div class="carousel-inner" style="height: 100% !important;">
-                                                                            <div class="single-item-carousel owl-carousel owl-theme owl-dots-none">
-                                                                                <?php 
-                                                                                $galleryimage = $info['galleryimage'];
-                                                                                $fetchgallery =  $dbs->SelectFromImg($galleryimage);
-                                                                                foreach ($fetchgallery as $fetchgalleryInfo ){
-                                                                                ?>
-                                                                                <figure class="image-box"><img src="./galleryImage/<?= $fetchgalleryInfo['imagename']  ?>"
-                                                                                        alt=""></figure>
-                                                                                <?php }  ?>
-                                                                            </div>
-                                                                        </div>
-                                                                                <!-- <figure class="image"><img
-                                                                                        src="featuredGallery/<?= $info['featuredimage'] ?>"
-                                                                                        alt="">
-                                                                                </figure> -->
-                                                                                <!-- <div class="batch"><i class="icon-11"></i></div>
-                                                                        <span class="category">
-                                                                            <?= $info['propertyCategory'] ?>
-                                                                        </span> -->
-                                                                    </div>
-                                                                    <div class="lower-content" >
-                                                                        <div class="author-info clearfix">
-                                                                            <div class="author pull-left">
-                                                                                <figure class="author-thumb"><img
-                                                                                        src="assets/images/footer-logo.png"
-                                                                                        style="object-fit:cover; background-position: center; width: 60px; height: 40px; border-radius: 50%;"
-                                                                                        alt="">
-                                                                                </figure>
-                                                                                <h6 class="text-uppercase">
-                                                                                    <?= $info['propertytitle'] ?>
-                                                                                </h6>
-                                                                            </div>
-                                                                            <div class="buy-btn pull-right"><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
-                                                                                    <?= $info['symbol'] . number_format($info['propertyprice'], 2) ?>
-                                                                                </a>
-                                                                            </div>
-                                                                        </div>
-                                                                        <!-- <div class="title-text">
-                                                                    <h6><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
-                                                                            <?= $info['propertytitle'] ?>
-                                                                        </a></h6>
-                                                                </div> -->
-                                                                    <div class="title-text">
-                                                                        <h4><a
-                                                                                href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
-                                                                                <?= $info['propertytitle'] ?>/ <?= $info['marketstatus'] ?>
-                                                                            </a></h4>
-                                                                    </div>
-                                                                    <div class="title-text">
-                                                                        <h6><a
-                                                                                href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
-                                                                                <?= $info['city'] ?>,
-                                                                                <?= $info['state'] ?>
-                                                                                <?= $info['area_location'] ?>
-                                                                            </a></h6>
-                                                                    </div>
-                                                                    <div class="title-text">
-                                                                        <h4><a
-                                                                                href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
-                                                                                <?= $info['typeproperty'] ?>
-                                                                            </a></h4>
-                                                                    </div>
-                                                                    <p>
-                                                                        <?= substr($info['detailedinfo'], 0, 77) . ' ...' ?>
-                                                                    <p>
-                                                                        <ul class="more-details clearfix">
-                                                                        <?php if ($info['propertyCategory'] !== 'Land'): ?>
-                                                                            <li><i class="icon-14"></i><?= $info['bedrooms'] ?> Beds</li>
-                                                                            <li><i class="icon-15"></i><?= $info['bathroom'] ?> Baths</li>
-                                                                            <li><i class="icon-15"></i><?= $info['toilets'] ?> Toilets</li>
-                                                                            <?php else: ?> 
-                                                                                <p><i class="icon-16"></i> <?= $info['landsize'] ?> landsize(sqrt)</p>
-                                                                            <?php endif; ?> 
-                                                                            <!-- <li><i class="icon-16"></i>600 Prop Size(Sq Ft)</li>
-                                                                            <li><i class="icon-16"></i>600 Parking Spaces</li> -->
-                                                                        </ul>
-                                                                        <!-- <ul class="more-details clearfix">
-                                                                    <li>
-                                                                        City:
-                                                                        <?= $info['city'] ?>
-                                                                    </li>
-                                                                    <li>
-                                                                        State:
-                                                                        <?= $info['state'] ?>
-                                                                    </li>
-                                                                    <li>
-                                                                        Country:
-                                                                        <?= $info['area_location'] ?>
-                                                                    </li>
-                                                                </ul> -->
-                                                                        <div class="btn-box d-flex justify-content-center align-items-center text-center">
-                                                                            <a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
-                                                                                class="theme-btn btn-two ">See Details</a>
-                                                                            
-                                                                            <a href="#modalId" class="theme-btn btn-two " data-toggle="modal" ><span id='<?= $info['longtitude'] ?>' class="span" title="<?= $info['langtitude'] ?>"  >Map</span></a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <?php
-                                            endforeach;
-                                        else:
-                                            ?>
-                                                <div class="col-lg-6 col-md-6 col-sm-12 feature-block">
-                                                    <div class="feature-block-one">
-                                                        <div class="inner-box">
-                                                            <div
-                                                                class="lower-content d-flex justify-content-center align-items-center ">
-                                                                <div class="btn-box mt-5"><a href="javascript:void()"
-                                                                        class="theme-btn btn-two">No Property Found</a></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                        <?php endif; ?>
-                                    </div>
-                                </div>
-                            </div>                            <div class="pagination-wrapper">
+                            </div>                            
+                            <div class="pagination-wrapper">
                                 <ul class="pagination clearfix">
                           
                                 <?php for ($i = 1; $i <= $totalPages; $i++): ?>
-                                    <li><a href="?propertyCategory=<?= $propertyCategory ?>&page=<?php echo $i; ?>" <?php if ($i == $page)
+                                    <li ><a class="" href="?propertyCategory=<?= $propertyCategory ?>&page=<?php echo $i; ?>" <?php if ($i == $page)
                                               echo 'class="current"'; ?>><?php echo $i; ?></a></li>
                                     <?php endfor; ?>
                                     

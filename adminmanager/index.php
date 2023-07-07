@@ -98,7 +98,7 @@ if (isset($_POST['Submit'])) {
         <!-- Login box.scss -->
         <!-- ============================================================== -->
         <div class="auth-wrapper d-flex no-block justify-content-center align-items-center"
-            style="background:url(assets/images/big/auth-bg.jpg) no-repeat center center;">
+            style="background:url(../assets/images/bannerhome.jpg) no-repeat center center; width: 100vw; height: 100vh; background-size: cover;">
             <div style="border-style:solid !important; border-radius:20px !important" class="auth-box">
                 <div id="loginform">
                     <div class="logo">

@@ -9,11 +9,24 @@
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark" href="dashboard" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard </span></a>
                           
                         </li>
-                        <!-- <li class="sidebar-item"> <a class="sidebar-link  waves-effect waves-dark" href="pendingmembers" aria-expanded="false"><i class="mdi mdi-account-star"></i><span class="hide-menu">Application </span></a>
+                        <!-- <li class="sidebar-item"> <a class="sidebar-link  waves-effect waves-dark" href="pendingmembers" aria-expanded="false"><i class="mdi mdi-account-star"></i><span class="hide-menu">Users </span></a>
                       
                         </li> -->
-						<li class="sidebar-item"> <a class="sidebar-link  waves-effect waves-dark" href="pendingpost" aria-expanded="false"><i class="mdi mdi-wallet-membership"></i><span class="hide-menu">Properties </span></a>
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-wallet-membership"></i><span class="hide-menu">Agents </span></a>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                                <li class="sidebar-item"><a href="pendingmembers?status=Approved" class="sidebar-link"><i class="mdi mdi-format-align-left"></i><span class="hide-menu"> Approved Agents </span></a></li>
+                                <li class="sidebar-item"><a href="pendingmembers?status=pending" class="sidebar-link"><i class="mdi mdi-format-align-right"></i><span class="hide-menu"> Pending Agents </span></a></li>
+
+                            </ul>
                         </li>
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-wallet-membership"></i><span class="hide-menu">Properties </span></a>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                                <li class="sidebar-item"><a href="pendingpost?status=Approved" class="sidebar-link"><i class="mdi mdi-format-align-left"></i><span class="hide-menu"> Approved Properties </span></a></li>
+                                <li class="sidebar-item"><a href="pendingpost?status=pending" class="sidebar-link"><i class="mdi mdi-format-align-right"></i><span class="hide-menu"> Pending properties </span></a></li>
+
+                            </ul>
+                        </li>
+						
                         <!-- 
 						
 						

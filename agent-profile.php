@@ -65,7 +65,7 @@ $propertytitle = '';
 $propertyprice = '';
 $area_location = 'Country';
 $address = '';
-$city = 'City';
+$city = 'LGA';
 $state = 'State';
 $longtitude = '';
 $langtitude = '';
@@ -121,111 +121,131 @@ if (isset($_GET['del'])) {
         $display = ' ';
         $alertColor = 'success';
         $errorMessage = 'Deleted successfully';
-        // header("location: agent-profile");
+        header("location: agent-profile");
 
     }
 
 }
+    if(isset($_SESSION['galleryimageid'])){
+        $galleryimageid = $_SESSION['galleryimageid']  ;
+        
+    }else{
+        $galleryimageid = 'img' . rand(1000, 10000);
+        $_SESSION['galleryimageid'] = $galleryimageid;
+        
+    }
+    if (isset($_POST['propertytitle'])) {
+        $propertyid = 'props' . rand(1000, 10000);
+        // $user_id = 'user_id' . rand(1000, 10000);
+        $propertytitle = $dbusers->test_input($_POST['propertytitle']);
+        $symbol = $dbusers->test_input($_POST['symbol']);
+        $propertyprice = $dbusers->test_input($_POST['propertyprice']);
+        $area_location = $dbusers->test_input($_POST['area_location']);
+        $address = $dbusers->test_input($_POST['address']);
+        $city = $dbusers->test_input($_POST['city']);
+        $state = $dbusers->test_input($_POST['state']);
+        $longtitude = $dbusers->test_input($_POST['longtitude']);
+        $langtitude = $dbusers->test_input($_POST['langtitude']);
+        $detailedinfo = $dbusers->test_input($_POST['detailedinfo']);
+        $propertyCategory = $dbusers->test_input($_POST['propertyCategory']);
+        $formType = $dbusers->test_input($_POST['formType']);
+        $bedrooms = $dbusers->test_input($_POST['bedrooms']);
+        $bathroom = $dbusers->test_input($_POST['bathroom']);
+        $toilets = $dbusers->test_input($_POST['toilets']);
+        $propsize = $dbusers->test_input($_POST['propsize']);
+        $parkingspace = $dbusers->test_input($_POST['parkingspace']);
+        $landsize = $dbusers->test_input($_POST['landsize']);
+        $titleproperty = $dbusers->test_input($_POST['titleproperty']);
+        $typeproperty = $dbusers->test_input($_POST['typeproperty']);
+        $landcategory = $dbusers->test_input($_POST['landcategory']);
+        $youtubelink = $dbusers->test_input($_POST['youtubelink']);
+        $marketstatus = $dbusers->test_input($_POST['marketstatus']);
+        $featuredimage = '';
+        // $featuredimage = $_FILES['featuredimage']['name'];
+        // $galleryimage = $_FILES['galleryimage']['name'];
 
-if (isset($_FILES['galleryimage'])) {
-    $propertyid = 'props' . rand(1000, 10000);
-    // $user_id = 'user_id' . rand(1000, 10000);
-    $propertytitle = $dbusers->test_input($_POST['propertytitle']);
-    $symbol = $dbusers->test_input($_POST['symbol']);
-    $propertyprice = $dbusers->test_input($_POST['propertyprice']);
-    $area_location = $dbusers->test_input($_POST['area_location']);
-    $address = $dbusers->test_input($_POST['address']);
-    $city = $dbusers->test_input($_POST['city']);
-    $state = $dbusers->test_input($_POST['state']);
-    $longtitude = $dbusers->test_input($_POST['longtitude']);
-    $langtitude = $dbusers->test_input($_POST['langtitude']);
-    $detailedinfo = $dbusers->test_input($_POST['detailedinfo']);
-    $propertyCategory = $dbusers->test_input($_POST['propertyCategory']);
-    $formType = $dbusers->test_input($_POST['formType']);
-    $bedrooms = $dbusers->test_input($_POST['bedrooms']);
-    $bathroom = $dbusers->test_input($_POST['bathroom']);
-    $toilets = $dbusers->test_input($_POST['toilets']);
-    $propsize = $dbusers->test_input($_POST['propsize']);
-    $parkingspace = $dbusers->test_input($_POST['parkingspace']);
-    $landsize = $dbusers->test_input($_POST['landsize']);
-    $titleproperty = $dbusers->test_input($_POST['titleproperty']);
-    $typeproperty = $dbusers->test_input($_POST['typeproperty']);
-    $landcategory = $dbusers->test_input($_POST['landcategory']);
-    $youtubelink = $dbusers->test_input($_POST['youtubelink']);
-    $marketstatus = $dbusers->test_input($_POST['marketstatus']);
-    $featuredimage = '';
-    // $featuredimage = $_FILES['featuredimage']['name'];
-    $galleryimage = $_FILES['galleryimage']['name'];
-    $galleryimageid = 'img' . rand(1000, 10000);
-    $_SESSION['galleryimageid'] = $galleryimageid;
+$galleryimageid = $_SESSION['galleryimageid']  ;
+
+    
     $status = 'pending';
     $id = $dbusers->test_input($_POST['id']);
+    $agent_id = $_SESSION['agent_id'];
 
 
-    if (!empty($propertyCategory && $propertyid && $propertytitle && $propertyprice && $area_location && $address && $city && $state && $detailedinfo && $status && $marketstatus && $youtubelink)) {
+    if (empty($propertyid ) && empty($propertytitle) && empty($propertyprice) && empty($area_location) && empty($address) && empty($state) && empty($detailedinfo) && empty($marketstatus) && empty($youtubelink)) {
+
+        $display = ' ';
+
+        $errorMessage = 'Form Not Completely Filled';
+    } else {
         if ($formType == 'edit') {
             $sql = $dbusers->EditProps($user_id, $propertyid, $propertytitle, $propertyprice, $area_location, $address, $city, $state, $longtitude, $langtitude, $detailedinfo, $featuredimage, $galleryimageid, $propertyCategory, $id, $bedrooms, $bathroom, $toilets, $propsize, $parkingspace, $landsize, $titleproperty, $typeproperty, $landcategory, $youtubelink, $marketstatus, $symbol);
         } else {
-            $sql = $dbusers->UploadProps($user_id, $propertyid, $propertytitle, $propertyprice, $area_location, $address, $city, $state, $longtitude, $langtitude, $detailedinfo, $featuredimage, $galleryimageid, $status, $propertyCategory, $bedrooms, $bathroom, $toilets, $propsize, $parkingspace, $landsize, $titleproperty, $typeproperty, $landcategory, $youtubelink, $marketstatus, $symbol);
+            $sql = $dbusers->UploadProps($user_id, $propertyid, $propertytitle, $propertyprice, $area_location, $address, $city, $state, $longtitude, $langtitude, $detailedinfo, $featuredimage, $galleryimageid, $status, $propertyCategory, $bedrooms, $bathroom, $toilets, $propsize, $parkingspace, $landsize, $titleproperty, $typeproperty, $landcategory, $youtubelink, $marketstatus, $symbol, $agent_id);
         }
 
         if ($sql) {
-            $totalFiles = count($_FILES["galleryimage"]["name"]);
-            if ($totalFiles > 6) {
+            // $totalFiles = count($_FILES["galleryimage"]["name"]);
+            // if ($totalFiles > 20) {
+            //     $display = ' ';
+
+            //     $errorMessage = "cannot upload more than 20 files.<br>";
+            // } else {
+
+            //     // $targetDirectory = "featuredGallery/";
+            //     // $targetFile = $targetDirectory . basename($_FILES["featuredimage"]["name"]);
+            //     //if (move_uploaded_file($_FILES["featuredimage"]["tmp_name"], $targetFile)) {
+            //     //   $display = ' ';
+            //     //    $errorMessage = "File uploaded successfully.";
+            //     //  } else {
+            //     //   $display = ' ';
+            //     //   $errorMessage = "File upload failed.";
+            //     //  } 
+
+            //     // $targetDirectory = 'galleryImage/';
+
+            //     // // Iterate through the uploaded files
+            //     // for ($i = 0; $i < count($_FILES['galleryimage']['name']); $i++) {
+            //     //     $filename = $_FILES['galleryimage']['name'][$i];
+            //     //     $tempFilePath = $_FILES['galleryimage']['tmp_name'][$i];
+            //     //     $targetFilePath = $targetDirectory . $filename;
+
+            //     //     // Move the temporary file to the target directory
+            //     //     $sql = $dbusers->multiImage($galleryimageid, $filename);
+            //     //     if (move_uploaded_file($tempFilePath, $targetFilePath) && $sql) {
+            //     //         $display = ' ';
+            //     //         $alertColor = 'success';
+            //     //         if ($formType == 'edit') {
+            //     //             $errorMessage = "Edited successfully.<br>";
+            //     //             header("location: agent-profile");
+            //     //         } else {
+            //     //             $errorMessage = "Uploaded successfully.<br>";
+            //     //         }
+            //     //         // $errorMessage = "File $filename uploaded successfully.<br>";
+            //     //     } else {
+            //     //         $display = ' ';
+
+            //     //         $errorMessage = "Error uploading file $filename.<br>";
+            //     //     }
+            //     // }
+            // }
+                // echo"<script>myDropzone.processQueue()</script>";
+                unset($_SESSION['galleryimageid']);
                 $display = ' ';
-
-                $errorMessage = "cannot upload more than 6 files.<br>";
-            } else {
-
-                // $targetDirectory = "featuredGallery/";
-                // $targetFile = $targetDirectory . basename($_FILES["featuredimage"]["name"]);
-                //if (move_uploaded_file($_FILES["featuredimage"]["tmp_name"], $targetFile)) {
-                //   $display = ' ';
-                //    $errorMessage = "File uploaded successfully.";
-                //  } else {
-                //   $display = ' ';
-                //   $errorMessage = "File upload failed.";
-                //  } 
-
-                $targetDirectory = 'galleryImage/';
-
-                // Iterate through the uploaded files
-                for ($i = 0; $i < count($_FILES['galleryimage']['name']); $i++) {
-                    $filename = $_FILES['galleryimage']['name'][$i];
-                    $tempFilePath = $_FILES['galleryimage']['tmp_name'][$i];
-                    $targetFilePath = $targetDirectory . $filename;
-
-                    // Move the temporary file to the target directory
-                    $sql = $dbusers->multiImage($galleryimageid, $filename);
-                    if (move_uploaded_file($tempFilePath, $targetFilePath) && $sql) {
-                        $display = ' ';
-                        $alertColor = 'success';
-                        if ($formType == 'edit') {
-                            $errorMessage = "Edited successfully.<br>";
-                            header("location: agent-profile");
-                        } else {
-                            $errorMessage = "Uploaded successfully.<br>";
-                        }
-                        // $errorMessage = "File $filename uploaded successfully.<br>";
-                    } else {
-                        $display = ' ';
-
-                        $errorMessage = "Error uploading file $filename.<br>";
-                    }
+                $alertColor = 'success';
+                if ($formType == 'edit') {
+                    $errorMessage = "Edited successfully.<br>";
+                    header("location: agent-profile");
+                } else {
+                    $errorMessage = "Uploaded successfully.<br>";
                 }
-            }
 
         } else {
             $display = ' ';
 
             $errorMessage = "Error Submit Form.<br>";
         }
-
-
-    } else {
-        $display = ' ';
-
-        $errorMessage = 'Form Not Completely Filled';
+     
     }
 
 
@@ -264,14 +284,18 @@ if (isset($_FILES['galleryimage'])) {
     <link href="assets/css/switcher-style.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/responsive.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="assets/dropzone/dist/min/dropzone.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css.scss">
-    <!-- <script src="assets/dropzone/dist/min/dropzone.min.js"></script> -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dropzone@5.9.2/dist/dropzone.css">
-    <script src="https://cdn.jsdelivr.net/npm/dropzone@5.9.2/dist/dropzone.js"></script>
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/dropzone.min.css" /> -->
-    <!-- <link rel="stylesheet" href="./assets/dropify-master/dropify-master/dist/css/dropify.min.css"> -->
-    <style>
+    <script src="assets/js/jquery.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dropzone@5.9.3/dist/dropzone.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/dropzone@5.9.3/dist/dropzone.min.js"></script>
+      <style>
+        .dropzone {
+            border: 2px dashed #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            min-height: 150px;
+        }
+        
         .active {
             background-color: #2C7365 !important;
         }
@@ -295,6 +319,9 @@ if (isset($_FILES['galleryimage'])) {
       margin-bottom: 5px;
 
     }
+    .dropzone .dz-preview .dz-progress {
+      display: none !important; /* Hide the progress bar */
+    }
     button{
         background-color: #D9A464;
     border: 2px solid #D9A464;
@@ -314,6 +341,12 @@ if (isset($_FILES['galleryimage'])) {
     border-radius: 5px;
     z-index: 1;
     transition: all 500ms ease;
+    }
+    @media only screen and (max-width: 1200px) {
+
+        .mbwhite{
+            color: black !important;
+        }
     }
     </style>
 
@@ -408,9 +441,9 @@ if (isset($_FILES['galleryimage'])) {
                                 <div class="header clearflix">
                                     <div class="card text-white" style="width: 300px;">
                                         <?php if (!$profilepic): ?>
-                                            <img src="assets/images/clients/clients-2.png" class="card-img-top" alt="...">
+                                            <img src="assets/images/clients/clients-2.png" class="card-img-top  img-fluid" alt="...">
                                         <?php else: ?>
-                                            <img src="<?= $profilepic ?>" class="card-img-top" alt="...">
+                                            <img src="<?= $profilepic ?>" class="card-img-top  img-fluid" alt="...">
                                         <?php endif; ?>
 
                                     </div>
@@ -497,16 +530,16 @@ if (isset($_FILES['galleryimage'])) {
                                                             <figure class="image"><img
                                                                     src="./galleryImage/<?= $fetchgalleryInfo['imagename'] ?>"
                                                                     alt=""
-                                                                    style="object-fit: cover; background-position: center; height: 400px;">
+                                                                    style="object-fit: cover; background-position: center; width: 100% !important;  height: 400px;">
                                                             </figure>
                                                         <?php } ?>
                                                             <!-- <div class="batch"><i class="icon-11"></i></div>
                                                         <span class="category">Featured</span>
-                                                        <div class="buy-btn"><a href="property-details.html">For Buy</a></div> -->
+                                                        <div class="buy-btn"><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">For Buy</a></div> -->
                                                     </div>
                                                     <div class="lower-content">
                                                         <div class="title-text">
-                                                            <h4><a href="property-details.html" class="text-white">
+                                                            <h4><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>" class="text-white mbwhite">
                                                                     <?= $info['propertytitle'] ?>/ <?= $info['marketstatus'] ?>
                                                                 </a></h4>
                                                         </div>
@@ -514,7 +547,7 @@ if (isset($_FILES['galleryimage'])) {
                                                             <div class="price-info pull-left">
                                                                 <!-- <h6>Start From</h6> -->
                                                                 <h4><a
-                                                                        href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>" class="text-white">
+                                                                        href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>" class="text-white mbwhite">
                                                                         <?= $info['symbol'] . number_format($info['propertyprice'], 2) ?>
                                                                     </a></h4>
                                                             </div>
@@ -532,7 +565,7 @@ if (isset($_FILES['galleryimage'])) {
                                                         </div>
                                                         <div class="title-text">
                                                             <h6><a
-                                                                    href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>" class="text-white">
+                                                                    href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>" class="text-white mbwhite">
                                                                     <?= $info['city'] ?>,
                                                                     <?= $info['state'] ?>
                                                                     <?= $info['area_location'] ?>
@@ -543,17 +576,17 @@ if (isset($_FILES['galleryimage'])) {
                                                         </p>
                                                         <ul class="more-details clearfix">
                                                             <?php if ($info['propertyCategory'] !== 'Land'): ?>
-                                                                <li class="text-white"><i class="icon-14"></i>
+                                                                <li class="text-white mbwhite"><i class="icon-14"></i>
                                                                     <?= $info['bedrooms'] ?> Beds
                                                                 </li>
-                                                                <li class="text-white"><i class="icon-15"></i>
+                                                                <li class="text-white mbwhite"><i class="icon-15"></i>
                                                                     <?= $info['bathroom'] ?> Baths
-                                                                </li class="text-white">
-                                                                <li class="text-white"><i class="icon-15"></i>
+                                                                </li>
+                                                                <li class="text-white mbwhite"><i class="icon-15"></i>
                                                                     <?= $info['toilets'] ?> Toilets
                                                                 </li >
                                                             <?php else: ?>
-                                                                <p class="text-white"><i class="icon-16"></i>
+                                                                <p class="text-white mbwhite"><i class="icon-16"></i>
                                                                     <?= $info['landsize'] ?> landsize(sqrt)
                                                                 </p>
                                                             <?php endif; ?>
@@ -654,7 +687,7 @@ if (isset($_FILES['galleryimage'])) {
                             </div>
                             <div class="card p-5 shadow radius-5" id="tab2">
                          
-                                <form action="" method="POST" enctype="multipart/form-data">
+                                <form action="" method="POST" id="myForm"  enctype="multipart/form-data">
                                     <div class="general-information">
                                         <h4><i class="icon-42"></i>General Information:</h4>
                                         <div class="inner-box default-form">
@@ -669,14 +702,14 @@ if (isset($_FILES['galleryimage'])) {
                                                         <input type="hidden" name="formType" value="<?= $formType ?>">
                                                         <input type="hidden" name="id" value="<?= $id ?>">
                                                         <input type="text" name="propertytitle"
-                                                            value="<?= $propertytitle ?>" placeholder="Property Title">
+                                                            value="<?= $propertytitle ?>" placeholder="Property Title"  required>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-4 col-md-4 col-sm-12 column">
                                                     <label>Property Category</label>
                                                     <div class="field-input">
                                                         <select class="form-control" name="propertyCategory"
-                                                            id="trigShow">
+                                                            id="trigShow" required>
                                                             <option value="<?= $propertyCategory ?>">
                                                                 <?= $propertyCategory ?>
                                                             </option>
@@ -694,7 +727,7 @@ if (isset($_FILES['galleryimage'])) {
                                                     <label>Market Status</label>
                                                     <div class="field-input">
                                                         <select class="form-control" name="marketstatus">
-                                                            <option value="<?= $marketstatus ?>">
+                                                            <option value="<?= $marketstatus ?>"  required>
                                                                 <?= $marketstatus ?>
                                                             </option>
                                                             <option value="For Sale">For Sale
@@ -741,7 +774,7 @@ if (isset($_FILES['galleryimage'])) {
                                                     <div class="field-input">
                                                         <label>Ref No</label>
                                                         <input type="number" name="titleproperty"
-                                                            value="<?= $titleproperty ?>" placeholder="Ref No">
+                                                            value="<?= $titleproperty ?>" placeholder="Ref No" required>
 
                                                     </div>
                                                 </div>
@@ -763,7 +796,7 @@ if (isset($_FILES['galleryimage'])) {
                                                                 <input type="number" name="propertyprice"
                                                                     class="form-control" placeholder="Property Price"
                                                                     id="number-input" onkeyup="convertNumber()"
-                                                                    value="<?= $propertyprice ?>">
+                                                                    value="<?= $propertyprice ?>" required>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -776,7 +809,7 @@ if (isset($_FILES['galleryimage'])) {
                                                         <label>Property Description</label>
                                                         <div class="field-input">
                                                             <textarea placeholder="Property Description"
-                                                                name="detailedinfo"><?= $detailedinfo ?></textarea>
+                                                                name="detailedinfo" required><?= $detailedinfo ?> </textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -785,7 +818,7 @@ if (isset($_FILES['galleryimage'])) {
                                                         <label>Area/locality</label>
                                                         <input type="text" name="address" id="autocomplete"
                                                             placeholder="Area/locality" onFocus="geolocate()"
-                                                            value="<?= $address ?>">
+                                                            value="<?= $address ?>" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 col-md-6 col-sm-12 column">
@@ -808,7 +841,7 @@ if (isset($_FILES['galleryimage'])) {
 
                                                         <label for="stateSelect">Select State:</label>
                                                         <select id="stateSelect" class="form-control"
-                                                            onchange="populateCities()" name="state">
+                                                            onchange="populateCities()" name="state" required>
                                                             <option value="<?= $state ?>" selected>
                                                                 <?= $state ?>
                                                             </option>
@@ -857,9 +890,9 @@ if (isset($_FILES['galleryimage'])) {
                                                 </div>
                                                 <div class="col-lg-6 col-md-6 col-sm-12 column">
                                                     <div class="field-input">
-                                                        <label>Lga</label>
-                                                        <label for="citySelect">Select Lga:</label>
-                                                        <select id="citySelect" class="form-control" name="city">
+                                                        <label>LGA</label>
+                                                        <label for="citySelect">Select LGA:</label>
+                                                        <select id="citySelect" class="form-control" name="city" required>
                                                             <option value="<?= $city ?>" selected>
                                                                 <?= $city ?>
                                                             </option>
@@ -874,7 +907,7 @@ if (isset($_FILES['galleryimage'])) {
                                                         <label>Country</label>
                                                         <div class="select-box">
                                                             <select class="form-control form-control"
-                                                                name="area_location">
+                                                                name="area_location" required>
                                                                 <option value="<?= $area_location ?>" selected>
                                                                     <?= $area_location ?>
                                                                 </option>
@@ -934,29 +967,20 @@ if (isset($_FILES['galleryimage'])) {
                                                     <div class="field-input">
                                                         <label>Youtube Link</label>
                                                         <input type="text" name="youtubelink" placeholder="Youtube Link"
-                                                            value="<?= $youtubelink ?>">
+                                                            value="<?= $youtubelink ?>" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12 col-md-12 col-sm-12 column mt-3">
                                                     <div class="gallery-box">
-                                                        <!-- <h4><i class="icon-16"></i>Featured Images:</h4> -->
-                                                        <!-- <div class="upload-inner centred d-none">
-                                                        <input type="file" class="dropify" name="featuredimage" required>
-                                                    </div> -->
-                                                        <!-- <h4><i class="icon-16"></i>Gallery Image:</h4>
-                                                    <div class="upload-inner centred">
-                                                        <input type="file" id="uploader" data-max-file="6"
-                                                            name="galleryimage[]" multiple required>
-                                                    </div> -->
-                                                    <input type="file" id="fileInput" multiple accept="image/*" onchange="handleFileSelect(event)" name="galleryimage[]"  />
-                                                    <div id="imageContainer" class="image-container "></div>
-                                                    </div>
+                                                  
+                                                    
                                                 </div>
-                                                <button class="theme-btn btn-one m-3" type="submit"
-                                                    name="uploadProps">Upload</button>
+                                             
                                             </div>
                                         </div>
                                 </form>
+                                <form action="process.php" class="dropzone" id="myDropzone"></form>
+                                <button class="theme-btn btn-one m-3" type="button" onclick="submitForm()"                                                   name="uploadProps">Upload</button>
                             </div>
 
                         </div>
@@ -1090,7 +1114,6 @@ if (isset($_FILES['galleryimage'])) {
     </div>
 
     <!-- jequery plugins -->
-    <script src="assets/js/jquery.js"></script>
     <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/owl.js"></script>
@@ -1110,11 +1133,32 @@ if (isset($_FILES['galleryimage'])) {
     <script src="assets/sweetalert/sweet.js"></script>
     <!-- <script src="./assets/dropify-master/dropify-master/dist/js/dropify.min.js"></script>
     <script src="./assets/dropify-master/dropify-master/dist/js/customDropify.js"></script> -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.js"></script> -->
+   
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfCP4-o7KxqBfbWE5VX5Qw5a_M8P-mGUU&libraries=places&callback=initAutocomplete"
         defer></script>
     <script>
+          function submitForm() {
+      const form = document.getElementById('myForm');
+      form.submit();
+    }
+    Dropzone.options.myDropzone = {
+      paramName: 'file',
+      maxFiles: 20, // Maximum number of files
+      acceptedFiles: 'image/*', // Only accept image files
+      dictDefaultMessage: 'Drop images here or click to upload', // Default message
+      init: function() {
+        this.on('success', function(file, response) {
+        console.log(response);
+        });
+      },
+    //   
+    
+  addRemoveLinks: true,
+        autoProcessQueue: true,
+
+    };        // Initialize Dropzone.js
+    
 
 function handleFileSelect(event) {
       const files = event.target.files;
@@ -2146,7 +2190,7 @@ function handleFileSelect(event) {
             const selectedState = stateSelect.value;
 
             // Clear city select box
-            citySelect.innerHTML = '<option value="">Select a Lga</option>';
+            citySelect.innerHTML = '<option value="">Select a LGA</option>';
 
             if (selectedState && cityData[selectedState]) {
                 const cities = cityData[selectedState];

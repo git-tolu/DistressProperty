@@ -1,6 +1,6 @@
 <?php
 include('includes/aunthenticate.php');
-$page = "Application";
+$page = "Agents";
 $home = "Distress Property Market ";
 $apptitle = "Distress Property Market : Admin ";
 $todaydate = date("jS F, Y");
@@ -67,7 +67,7 @@ include("includes/pagehead.php");
                     <div class="col-sm-12 col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Applications</h4>
+                                <h4 class="card-title">Agents</h4>
                                 <?php if (isset($msg)) {
                                     echo $msg;
                                 } ?>
@@ -96,8 +96,11 @@ include("includes/pagehead.php");
                                             </thead>
                                             <tbody>
                                                 <?php
-
-                                                $sql8 = "SELECT * FROM real_users  ORDER BY id DESC LIMIT 10";
+                                                if(!isset($_GET['status'])){
+                                                    header("location: dashboard");
+                                                }
+                                                $getsta = $_GET['status'];
+                                                $sql8 = "SELECT * FROM real_users WHERE accountstatus='$getsta'  ORDER BY id DESC";
 
                                                 $result8 = mysqli_query($conn, $sql8);
                                                 if (mysqli_num_rows($result8) > 0) {
@@ -107,6 +110,7 @@ include("includes/pagehead.php");
 
                                                         $mid = $info8['user_id'];
                                                         $fullname = $info8['fullname'];
+                                                        $agent_id = $info8['username'];
                                                         $user_email = $info8['user_email'];
                                                         $user_role = $info8['user_role'];
                                                         $userphone = $info8['userphone'];
@@ -120,14 +124,23 @@ include("includes/pagehead.php");
                                                             $class = 'label-success';
                                                         }
                                                         
-                                                     
+                                                        $accountstatus = $info8['accountstatus'];
+                                                        if ($accountstatus == 'pending' || $accountstatus == 'Disapproved') {
+                                                            $class = 'label-danger';
+                                                            $btn = "<button id='$mid' class='btn btn-primary activeBtn'>Approve</button>";
+                                                        } else {
+                                                            $class = 'label-success';
+                                                            $btn = "
+                                                            <button id='$mid' class='btn btn-primary deactiveBtn'>Disapprove</button>";
+                                                        }
+
                                                 
 
                                                         echo "
                                         <tr>
                                             <td>
                                                 <div class='d-flex align-items-center'>
-                                                    <div class='m-r-10'><a class='btn btn-circle btn-info text-white'><img src='assets/images/small.png' width='70%'></a></div>
+                                                    <div class='m-r-10'><a class='btn btn-circle btn-info text-white'><img src='../assets/images/footer-logo.png' width='70%'></a></div>
                                                     <div class=''>
                                                         <h4 class='m-b-0 font-16'>$fullname</h4>
                                                     </div>
@@ -142,8 +155,10 @@ include("includes/pagehead.php");
                                             <h5 class='m-b-0'>$datereg</h5>
                                             </td>
                                             <td><label class='label $class'>$accountstatus</label></td>
-                                            <td>
-                                            <button id='$user' class='btn btn-primary activeBtn'>Active</button>
+                                            <td class='btn-group'>
+                                            $btn
+                                            <a  class='btn btn-primary' href='pendingpost?agent_id=" . $agent_id . "'>View Agent Properties</a>
+                                            <a  class='btn btn-primary' href='viewagent?viewagent=" . $agent_id . "'>View Agent Details</a>
                                         </td>
 											
                                         </tr>";
@@ -232,6 +247,32 @@ include("includes/pagehead.php");
                 }
             });
         });
+        $('body').on('click', '.deactiveBtn', function(e) {
+            e.preventDefault();
+            deactiveBtnMem = $(this).attr('id');
+            // console.log(deactiveBtnMem);
+            $.ajax({
+                type: "POST",
+                url: "includes/action.php",
+                data: {
+                    deactiveBtnMem: deactiveBtnMem
+                },
+                success: function(response) {
+                    // console.log(response)
+                    if (response == 'success') {
+                        $('#errorshow').show()
+                        $('#error').html('Deactivated Succesfully');
+                        $('#error').addClass('alert-success');
+                    } else {
+                        $('#errorshow').show()
+                        $('#error').html('Something Went wrong try again later');
+                        $('#error').addClass('alert-danger');
+                    }
+
+                }
+            });
+        });
+
     </script>
 
 

@@ -4,6 +4,7 @@ $page = "Properties";
 $home = "Distress Property Market ";
 $apptitle = "Distress Property Market : Admin ";
 $todaydate = date("jS F, Y");
+
 ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
@@ -110,8 +111,29 @@ include("includes/pagehead.php");
                                             </thead>
                                             <tbody>
                                                 <?php
+                                                if (isset($_GET['status']) || isset($_GET['agent_id'])) {
+                                                    if (isset($_GET['agent_id'])) {
+                                                        $agent_id = $_GET['agent_id'];
+                                                        $sql8 = "SELECT * FROM properties WHERE agent_id='$agent_id' ORDER BY id DESC ";
+                                                    } else {
+                                                        $getsta = $_GET['status'];
+                                                        $sql8 = "SELECT * FROM properties WHERE status='$getsta'  ORDER BY id DESC ";
+                                                    }
+                                                   
+                                                } else {
+                                                    echo "<script>window.location.href = 'dashboard'</script>";
+                                                    // header('location:dashboard');
 
-                                                $sql8 = "SELECT * FROM properties ORDER BY id DESC LIMIT 10";
+                                                }
+
+                                                // if (isset($_GET['agent_id'])) {
+                                                //     $agent_id = $_GET['agent_id'];
+                                                //     $sql8 = "SELECT * FROM properties WHERE agent_id='$agent_id' ORDER BY id DESC ";
+                                                // } else {
+                                                //     echo "<script>window.location.href = 'dashboard'</script>";
+
+                                                // }
+
                                                 $btn = '';
                                                 $result8 = mysqli_query($conn, $sql8);
                                                 if (mysqli_num_rows($result8) > 0) {
@@ -141,11 +163,11 @@ include("includes/pagehead.php");
                                                         $accountstatus = $info8['status'];
                                                         if ($accountstatus == 'pending' || $accountstatus == 'Disapproved') {
                                                             $class = 'label-danger';
-                                                            $btn = "<button id='$mid' class='btn btn-primary activeBtn'>Active</button>";
+                                                            $btn = "<button id='$mid' class='btn btn-primary activeBtn'>Approve</button>";
                                                         } else {
                                                             $class = 'label-success';
                                                             $btn = "
-                                                            <button id='$mid' class='btn btn-primary deactiveBtn'>Deactive</button>";
+                                                            <button id='$mid' class='btn btn-primary deactiveBtn'>Disapprove</button>";
                                                         }
 
                                                         // $phone = $info8['phone'];
@@ -154,58 +176,59 @@ include("includes/pagehead.php");
                                                         // $memberstatus = $info8['status'];
                                                         // $approvaladmin = $info8['approvaladmin'];
                                                         // $completeregpay = $info8['completeregpay'];
-
+                                                
                                                         // if ($approvaladmin == "Approved") {
                                                         //     $approval = "";
                                                         //     $approvalemail = "<a class='dropdown-item' href='resendapproval.php?id=$mid''>Resend Approval Email </a>";
-
+                                                
                                                         // } else {
                                                         //     $approval = "<a class='dropdown-item' href='approvemembers.php?id=$mid&newstatus=Approved'>Approve Application </a>";
                                                         //     $approvalemail = "";
                                                         // }
-
+                                                
                                                         // if ($approvaladmin == "Declined") {
                                                         //     $decline = "";
                                                         // } else {
                                                         //     $decline = "<a class='dropdown-item' href='approvemembers.php?id=$mid&newstatus=Declined'>Decline Application</a>";
                                                         // }
-
+                                                
 
                                                         echo "
                                         <tr>
                                             <td>
                                                 <div class='d-flex align-items-center'>
-                                                    <div class='m-r-10'><a class='btn btn-circle btn-info text-white'><img src='assets/images/small.png' width='70%'></a></div>
+                                                    <div class='m-r-10'><a class='btn btn-circle btn-info text-white'><img src='../assets/images/footer-logo.png' width='70%'></a></div>
                                                     <div class=''>
-                                                        <h4 class='m-b-0 font-16'>$propertytitle</h4>
+                                                        <h4 class='m-b-0 font-16'><a href='../property-details?propertyCategory=" . $info8['propertyCategory'] . "&id=" . $info8['id'] . "'>$propertytitle<a/></h4>
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td>". $info8['propertyCategory']."</td>
-                                            <td>". $info8['symbol'] ."$propertyprice</td>
-                                            <td>". $info8['address']."</td>
-                                            <td>". $info8['area_location']."</td>
+                                            <td> " . $info8['propertyCategory'] . "</td>
+                                            <td>" . $info8['symbol'] . "$propertyprice</td>
+                                            <td>" . $info8['address'] . "</td>
+                                            <td>" . $info8['area_location'] . "</td>
                                             <td>$bedrooms</td>
                                             <td>$bathrooms</td>
-                                            <td>". $info8['toilets']."</td>
-                                            <td>". $info8['propsize']."</td>
-                                            <td>". $info8['parkingspace']."</td>
-                                            <td>". $info8['landcategory']."</td>
-                                            <td>". $info8['landsize']."</td>
-                                            <td>". $info8['titleproperty']."</td>
-                                            <td>". $info8['typeproperty']."</td>
-                                            <td>". $info8['youtubelink']."</td>
+                                            <td>" . $info8['toilets'] . "</td>
+                                            <td>" . $info8['propsize'] . "</td>
+                                            <td>" . $info8['parkingspace'] . "</td>
+                                            <td>" . $info8['landcategory'] . "</td>
+                                            <td>" . $info8['landsize'] . "</td>
+                                            <td>" . $info8['titleproperty'] . "</td>
+                                            <td>" . $info8['typeproperty'] . "</td>
+                                            <td>" . $info8['youtubelink'] . "</td>
                                             <td>
                                             $city
                                             </td>
                                             <td>$state</td>
-                                            <td>". $info8['longtitude']."</td>
-                                            <td>". $info8['langtitude']."</td>
-                                            <td>". $info8['marketstatus']."</td>
-                                            <td>". substr($detailedinfo, 0, 200)."</td>
+                                            <td>" . $info8['longtitude'] . "</td>
+                                            <td>" . $info8['langtitude'] . "</td>
+                                            <td>" . $info8['marketstatus'] . "</td>
+                                            <td>" . substr($detailedinfo, 0, 200) . "</td>
                                             <td><label class='label $class'>$accountstatus</label></td>
-                                            <td>
+                                            <td class='btn-group'>
                                             $btn
+                                            <a href='../property-details?propertyCategory=" . $info8['propertyCategory'] . "&id=" . $info8['id'] . "'><button  class='btn btn-success '>view</button><a/>
                                             </td>
 											
                                         </tr>";
@@ -274,7 +297,7 @@ include("includes/pagehead.php");
     <script src="dist/js/pages/datatable/datatable-advanced.init.js"></script>
     <script>
         $('#errorshow').hide()
-        $('body').on('click', '.activeBtn', function(e) {
+        $('body').on('click', '.activeBtn', function (e) {
             e.preventDefault();
             activeBtnPost = $(this).attr('id');
             // console.log(activeBtnPost);
@@ -284,7 +307,7 @@ include("includes/pagehead.php");
                 data: {
                     activeBtnPost: activeBtnPost
                 },
-                success: function(response) {
+                success: function (response) {
                     // console.log(response)
                     if (response == 'success') {
                         $('#errorshow').show()
@@ -300,7 +323,7 @@ include("includes/pagehead.php");
             });
         });
 
-        $('body').on('click', '.deactiveBtn', function(e) {
+        $('body').on('click', '.deactiveBtn', function (e) {
             e.preventDefault();
             deactiveBtnPost = $(this).attr('id');
             // console.log(deactiveBtnPost);
@@ -310,7 +333,7 @@ include("includes/pagehead.php");
                 data: {
                     deactiveBtnPost: deactiveBtnPost
                 },
-                success: function(response) {
+                success: function (response) {
                     // console.log(response)
                     if (response == 'success') {
                         $('#errorshow').show()

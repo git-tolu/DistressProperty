@@ -170,10 +170,9 @@ if (isset($_SESSION['useremail'])) {
                                      $fetchgallery =  $dbs->SelectFromImg($galleryimage);
                                      foreach ($fetchgallery as $fetchgalleryInfo ){
                                     ?>
-                                    <figure class="image-box"><img src="./galleryImage/<?= $fetchgalleryInfo['imagename']  ?>"
-                                            alt=""></figure>
-                                    <figure class="image-box"><img src="./galleryImage/<?= $fetchgalleryInfo['imagename']  ?>"
-                                            alt=""></figure>
+                                    <figure class="image-box"  style="width: 100% !important; height: 600px !important; background-size: cover;"><img src="./galleryImage/<?= $fetchgalleryInfo['imagename']  ?>"
+                                            alt="" class="img-fluid" style="width: 100% !important; height: 100% !important; background-size: cover;"></figure>
+                                    
                                     <?php }  ?>
                                 </div>
                             </div>
@@ -393,7 +392,7 @@ if (isset($_SESSION['useremail'])) {
                                     <div class="d-flex justify-content-between mt-3">
                                     <a href="javascript:void()" class="theme-btn btn-one" id='show'>Call</a>
                                     
-                                        <a href="javascript:void()" class="theme-btn btn-one">Whatsapp</a>
+                                        <a href="https://api.whatsapp.com/send?phone=<?= $agentDetails['whatsappNumber'] ?>" target="_blank" class="theme-btn btn-one">Whatsapp</a>
                                     </div>
                                     <div class="bg-light p-3"> <p id="noshow">Phoneno: <?= $agentDetails['callNumber'] ?></p></div>
                                

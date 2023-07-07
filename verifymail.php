@@ -24,10 +24,11 @@ if (isset($_POST['verifyCode'])) {
 
           $regUser = $dbusers->regLandUsers($userid, $username, $fullname, $user_email, $user_role, $hpass, $accountstatus, $userType, $callNumber, $whatsappNumber);
           $update = $dbusers->Update($user_email, $usercode);
-          $_SESSION['user_role'] = $user_role;
-          $_SESSION['useremail'] = $user_email;
+          session_destroy();
+        //   $_SESSION['user_role'] = $user_role;
+        //   $_SESSION['useremail'] = $user_email;
         if ($update) {
-            header("location: agent-profile");
+            header("location: signin");
             // if ($user_role == 'Agent') {
 
             // } else {

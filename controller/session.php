@@ -18,6 +18,7 @@ foreach ($UsersData as $values) {
   $user_role = $values['user_role'];
   $fullname = $values['fullname'];
   $user_id = $values['user_id'];
+  $_SESSION['agent_id'] = $values['username'];
   $username = $values['username'];
   $usertitle = $values['usertitle'];
   $userphone = $values['userphone'];

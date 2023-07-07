@@ -99,13 +99,13 @@
                     </figure>
                 </div>
                 <div class="copyright pull-left">
-                    <p><a href="index">Distress Property Market</a> &copy;
+                    <p class="text-white"><a href="index" class="text-white">Distress Property Market</a> &copy;
                         <?= Date('Y') ?> All Right Reserved
                     </p>
                 </div>
                 <ul class="footer-nav pull-right clearfix">
-                    <li><a href="index">Terms of Service</a></li>
-                    <li><a href="index">Privacy Policy</a></li>
+                    <li><a href="index" class="text-white">Terms of Service</a></li>
+                    <li><a href="index" class="text-white">Privacy Policy</a></li>
                 </ul>
             </div>
         </div>

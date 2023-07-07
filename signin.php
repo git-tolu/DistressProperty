@@ -6,7 +6,7 @@ $user_role = '';
 $page = '';
 
   if (isset($_SESSION['useremail'])) {
-    header('location: index');
+    // header('location: index');
     
 $user_email = $_SESSION['useremail'];
 $UsersData = $dbusers->currentUser($user_email);
@@ -33,23 +33,27 @@ if(isset($_POST['loginUSer'])){
     // check if user exist
     $loggedUser = $user->loginUsers($user_email);
     if ($loggedUser != null) {
-        if (password_verify($user_password, $loggedUser['user_password'])) {
-            // echo "Login";
-            
-            // resave user to session
-            $_SESSION['user_role'] = $loggedUser['user_role'];
-            $_SESSION['useremail'] = $user_email;
-            $_SESSION['user_id'] = $loggedUser['user_id'];
-            if ($loggedUser['user_role'] == 'Agent') {
-                header('location: agent-profile');
-            } else {
-                header('location: user-profile');
-            }
+        if ($loggedUser['accountstatus'] == 'pending') {
+            $errorMessage = '<p class="text-danger"> Account has not been approved</p>';
         }else{
-            $errorMessage = '<p class="text-danger">Error: password not correct</p>';
+            if (password_verify($user_password, $loggedUser['user_password'])) {
+                // echo "Login";
+                
+                // resave user to session
+                $_SESSION['user_role'] = $loggedUser['user_role'];
+                $_SESSION['useremail'] = $user_email;
+                $_SESSION['user_id'] = $loggedUser['user_id'];
+                if ($loggedUser['user_role'] == 'Agent') {
+                    header('location: agent-profile');
+                } else {
+                    header('location: user-profile');
+                }
+            }else{
+                $errorMessage = '<p class="text-danger">Error: password not correct</p>';
+            }
         }
     }else{
-        $errorMessage = '<p class="text-danger">Error: user not found</p>';
+            $errorMessage = '<p class="text-danger"> Account has not been approved</p>';
         // $errorMessage = "";
     }
 }

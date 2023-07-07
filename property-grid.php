@@ -617,14 +617,14 @@ if (isset($_SESSION['useremail'])) {
                                         </div> -->
                                     </div>
                                     <div class="short-menu clearfix">
-                                        <button class="list-view "><i class="icon-35"></i></button>
-                                        <button class="grid-view on"><i class="icon-36"></i></button>
+                                        <!-- <button class="list-view "><i class="icon-35"></i></button>
+                                        <button class="grid-view on"><i class="icon-36"></i></button> -->
                                     </div>
                                 </div>
                             </div>
 
 
-                            <div class="wrapper grid">
+                            <div class="wrapper list">
                                 <div class="deals-list-content list-item">
                                     <?php
                                     if (!isset($_SESSION['useremail'])) {
@@ -874,11 +874,11 @@ if (isset($_SESSION['useremail'])) {
                                                 <?php } ?>
                                                 <!-- <div class="batch"><i class="icon-11"></i></div>
                                                     <span class="category">Featured</span>
-                                                    <div class="buy-btn"><a href="property-details.html">For Buy</a></div> -->
+                                                    <div class="buy-btn"><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">For Buy</a></div> -->
                                             </div>
                                             <div class="lower-content">
                                                 <div class="title-text">
-                                                    <h4><a href="property-details.html">
+                                                    <h4><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>" class="text-dark">
                                                             <?= $info['propertytitle'] ?>/ <?= $info['marketstatus']  ?>
                                                         </a></h4>
                                                 </div>
@@ -943,8 +943,8 @@ if (isset($_SESSION['useremail'])) {
                                                                 <?= $info['langtitude'] ?>">Map
                                                             </span></a>
                                                     </div> <!-- <ul class="other-option pull-right clearfix">
-                                                            <li><a href="property-details.html"><i class="icon-12"></i></a></li>
-                                                            <li><a href="property-details.html"><i class="icon-13"></i></a></li>
+                                                            <li><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"><i class="icon-12"></i></a></li>
+                                                            <li><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"><i class="icon-13"></i></a></li>
                                                         </ul> -->
                                                 </div>
                                             </div>

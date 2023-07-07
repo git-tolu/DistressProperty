@@ -47,7 +47,7 @@ class Dbc extends Database
 
     public function currentUser($user_email)
     {
-        $sql = "SELECT * FROM real_users WHERE user_email=:user_email";
+        $sql = "SELECT * FROM real_users WHERE user_email=:user_email ";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([
             'user_email' => $user_email
@@ -81,7 +81,7 @@ class Dbc extends Database
 
     public function loginUsers($user_email)
     {
-        $sql = "SELECT * FROM real_users WHERE user_email=:user_email";
+        $sql = "SELECT * FROM real_users WHERE user_email=:user_email  AND accountstatus!='pending' ";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([
             'user_email' => $user_email
@@ -128,10 +128,10 @@ class Dbc extends Database
         return $row;
     }
 
-    public function UploadProps($user_id, $propertyid, $propertytitle, $propertyprice, $area_location, $address, $city, $state, $longtitude, $langtitude, $detailedinfo, $featuredimage, $galleryimage, $status, $propertyCategory, $bedrooms, $bathroom, $toilets, $propsize, $parkingspace, $landsize, $titleproperty, $typeproperty, $landcategory, $youtubelink, $marketstatus, $symbol)
+    public function UploadProps($user_id, $propertyid, $propertytitle, $propertyprice, $area_location, $address, $city, $state, $longtitude, $langtitude, $detailedinfo, $featuredimage, $galleryimage, $status, $propertyCategory, $bedrooms, $bathroom, $toilets, $propsize, $parkingspace, $landsize, $titleproperty, $typeproperty, $landcategory, $youtubelink, $marketstatus, $symbol, $agent_id)
     {
-        $sql = "INSERT INTO properties (user_id, propertyid, propertytitle,  propertyprice, area_location,  address, city, state,  longtitude, langtitude, detailedinfo,  featuredimage, galleryimage, status, propertyCategory, bedrooms, bathroom, toilets, propsize, parkingspace, landsize, titleproperty, typeproperty, landcategory, youtubelink, marketstatus, symbol) VALUES 
-                   ('$user_id', '$propertyid', '$propertytitle',  '$propertyprice', '$area_location','$address', '$city',  '$state', '$longtitude', '$langtitude', '$detailedinfo',  '$featuredimage', '$galleryimage', '$status', '$propertyCategory', '$bedrooms', '$bathroom', '$toilets', '$propsize', '$parkingspace', '$landsize', '$titleproperty', '$typeproperty', '$landcategory', '$youtubelink', '$marketstatus', '$symbol')";
+        $sql = "INSERT INTO properties (user_id, propertyid, propertytitle,  propertyprice, area_location,  address, city, state,  longtitude, langtitude, detailedinfo,  featuredimage, galleryimage, status, propertyCategory, bedrooms, bathroom, toilets, propsize, parkingspace, landsize, titleproperty, typeproperty, landcategory, youtubelink, marketstatus, symbol, agent_id) VALUES 
+                   ('$user_id', '$propertyid', '$propertytitle',  '$propertyprice', '$area_location','$address', '$city',  '$state', '$longtitude', '$langtitude', '$detailedinfo',  '$featuredimage', '$galleryimage', '$status', '$propertyCategory', '$bedrooms', '$bathroom', '$toilets', '$propsize', '$parkingspace', '$landsize', '$titleproperty', '$typeproperty', '$landcategory', '$youtubelink', '$marketstatus', '$symbol', '$agent_id')";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([]);
         return true;

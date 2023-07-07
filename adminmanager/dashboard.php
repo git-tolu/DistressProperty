@@ -33,6 +33,32 @@ if (mysqli_num_rows($result8) > 0) {
 } else {
     $amountowing = 0;
 }
+$sql8 = "SELECT * FROM real_users";
+$result8 = mysqli_query($conn, $sql8);
+if (mysqli_num_rows($result8) > 0) {
+    $total = number_format(mysqli_num_rows($result8));
+
+} else {
+    $total = 0;
+}
+
+$sql8 = "SELECT * FROM real_users WHERE accountstatus='pending' ";
+$result8 = mysqli_query($conn, $sql8);
+if (mysqli_num_rows($result8) > 0) {
+    $pending = number_format(mysqli_num_rows($result8));
+
+} else {
+    $pending = 0;
+}
+
+$sql8 = "SELECT * FROM real_users WHERE accountstatus='Approved' ";
+$result8 = mysqli_query($conn, $sql8);
+if (mysqli_num_rows($result8) > 0) {
+    $Approved = number_format(mysqli_num_rows($result8));
+
+} else {
+    $Approved = 0;
+}
 // inactive members
 
 ?>
@@ -91,6 +117,67 @@ include("includes/pagehead.php");
                 <!-- ============================================================== -->
                 <!-- Sales Summery -->
                 <!-- ============================================================== -->
+                <div class="row">
+                    <!-- column -->
+                    <div class="col-sm-12 col-lg-4">
+                        <div style="background-color:#004030 !important;" class="card card-hover">
+                            <div class="card-body">
+                                <div class="d-flex">
+                                    <div class="m-r-10">
+                                        <span><a style="color:#fff !important;"
+                                                href='javascript:void(0)'>Total Agents</a></span>
+                                        <h4><a style="color:#fff !important;" href='javascript:void(0)'>
+                                                <?php echo $total; ?>
+                                            </a></h4>
+                                    </div>
+                                    <div class="ml-auto">
+                                        <a href='javascript:void(0)'> <img src="assets/images/active.png" width="50%"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- column -->
+                    <div class="col-sm-12 col-lg-4">
+                        <div style="background-color:#D9A464 !important;" class="card card-hover">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div class="m-r-10">
+                                        <span><a style="color:#fff !important;" href='javascript:void(0)'>Pending
+                                                Agents</a></span>
+                                        <h4 style="color:#fff !important;"><a style="color:#fff !important;"
+                                                href='javascript:void(0)'>
+                                                <?php echo $pending; ?>
+                                            </a></h4>
+                                    </div>
+                                    <div class="ml-auto">
+                                        <a href='javascript:void(0)'><img src="assets/images/pending.png"
+                                                width="50%"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- column -->
+                    <div class="col-sm-12 col-lg-4">
+                        <div style="background-color:#004030 !important;" class="card card-hover">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div class="m-r-10">
+                                        <span><a style="color:#fff !important;" href='javascript:void(0)'>Approved Agents
+                                            </a></span>
+                                        <h4><a style="color:#fff !important;" href='javascript:void(0)'>
+                                                <?php echo $Approved; ?>
+                                            </a></h4>
+                                    </div>
+                                    <div class="ml-auto">
+                                        <a href='javascript:void(0)'> <img src="assets/images/active.png" width="50%"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="row">
                     <!-- column -->
                     <div class="col-sm-12 col-lg-4">
@@ -159,7 +246,7 @@ include("includes/pagehead.php");
                 <!-- ============================================================== -->
                 <!-- Table -->
                 <!-- ============================================================== -->
-                <div class="row">
+                <div class="row d-none">
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-body">
@@ -258,7 +345,7 @@ include("includes/pagehead.php");
                                         <tr>
                                             <td>
                                                 <div class='d-flex align-items-center'>
-                                                    <div class='m-r-10'><a class='btn btn-circle btn-info text-white'><img src='assets/images/small.png' width='70%'></a></div>
+                                                    <div class='m-r-10'><a class='btn btn-circle btn-info text-white'><img src='../assets/images/footer-logo.png' width='70%'></a></div>
                                                     <div class=''>
                                                         <h4 class='m-b-0 font-16'>$propertytitle</h4>
                                                     </div>

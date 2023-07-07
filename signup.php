@@ -19,7 +19,7 @@ if (isset($_POST['regrealuser'])) {
     $callNumber = $dbs->test_input($_POST['callNumber']);
     $whatsappNumber = $dbs->test_input($_POST['whatsappNumber']);
     $userid = 'real' . '_' . rand(9999, 100000);
-    if (strlen($userPassword) > 8) {
+    if (strlen($userPassword) > 7) {
         if ($userPassword == $conPass) {
             $hpass = password_hash($userPassword, PASSWORD_DEFAULT);
             $verifyCode = rand(999, 100000);
@@ -43,6 +43,7 @@ if (isset($_POST['regrealuser'])) {
 
                 // $_SESSION['user_role'] = $user_role;
                 // $_SESSION['useremail'] = $user_email;
+                // $_SESSION['user_id'] = $userid;
 
                 // if($regUser){
                 $status = 'not verify';
@@ -63,7 +64,7 @@ if (isset($_POST['regrealuser'])) {
 
 }
 if (isset($_SESSION['useremail'])) {
-    header("Location: index.php");
+    // header("Location: index.php");
     $user_email = $_SESSION['useremail'];
     $UsersData = $dbs->currentUser($user_email);
     foreach ($UsersData as $values) {
@@ -192,7 +193,7 @@ if (isset($_SESSION['useremail'])) {
                                             </div>
 
                                             <div class="form-group">
-                                                <label>New Password</label>
+                                                <label>Password</label>
                                                 <input type="password" name="user_password" required="">
                                             </div>
                                             <div class="form-group">
