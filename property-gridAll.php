@@ -810,15 +810,21 @@ if (isset($_SESSION['useremail'])) {
                                                 </p>
                                                 <ul class="more-details clearfix">
                                                     <?php if ($info['propertyCategory'] !== 'Land'): ?>
-                                                    <li><i class="icon-14"></i>
-                                                        <?= $info['bedrooms'] ?> Beds
-                                                    </li>
-                                                    <li><i class="icon-15"></i>
-                                                        <?= $info['bathroom'] ?> Baths
-                                                    </li>
-                                                    <li><i class="icon-15"></i>
-                                                        <?= $info['toilets'] ?> Toilets
-                                                    </li>
+                                                        <?php if($info['propertyCategory'] !== 'Autos/Machinery'):  ?>
+
+                                                        <li><i class="icon-14"></i>
+                                                            <?= $info['bedrooms'] ?> Beds
+                                                        </li>
+                                                        <li><i class="icon-15"></i>
+                                                            <?= $info['bathroom'] ?> Baths
+                                                        </li>
+                                                        <li><i class="icon-15"></i>
+                                                            <?= $info['toilets'] ?> Toilets
+                                                        </li>     
+                                                                                                            
+                                                        <?php else:  ?> 
+                                                        <?php endif;  ?> 
+                                                  
                                                     <?php else: ?>
                                                     <p><i class="icon-16"></i>
                                                         <?= $info['landsize'] ?> landsize(sqrt)

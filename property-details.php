@@ -196,12 +196,16 @@ if (isset($_SESSION['useremail'])) {
                                     <h4>Property Details</h4>
                                 </div>
                                 <ul class="list clearfix">
-                                    <?php if($info['propertyCategory'] !== 'landsize'):  ?>
-                                        <li>Bedrooms: <span><?= $info['bedrooms']  ?></span></li>
-                                        <li>Bathrooms: <span><?= $info['bathroom']  ?></span></li>
-                                        <li>Property Size: <span><?= $info['propsize']  ?> Sq Ft</span></li>
-                                        <li>Toilets: <span><?= $info['toilets']  ?></span></li>
-                                        <li>Parking Spaces: <span><?= $info['parkingspace']  ?></span></li>
+                                    <?php if($info['propertyCategory'] !== 'Land'):  ?>
+                                        <?php if($info['propertyCategory'] !== 'Autos/Machinery'):  ?>
+
+                                            <li>Bedrooms: <span><?= $info['bedrooms']  ?></span></li>
+                                            <li>Bathrooms: <span><?= $info['bathroom']  ?></span></li>
+                                            <li>Property Size: <span><?= $info['propsize']  ?> Sq Ft</span></li>
+                                            <li>Toilets: <span><?= $info['toilets']  ?></span></li>
+                                            <li>Parking Spaces: <span><?= $info['parkingspace']  ?></span></li>
+                                        <?php else:  ?> 
+                                        <?php endif;  ?> 
                                     <?php else:  ?> 
                                         <li><i class="icon-16"></i><?= $info['landsize']  ?> landsize(sq rt)</li>
                                     <?php endif;  ?> 
@@ -477,7 +481,7 @@ if (isset($_SESSION['useremail'])) {
                                                         foreach ($fetchgallery as $fetchgalleryInfo ){
                                                     ?>
                                                         <figure class="image-box"><img src="./galleryImage/<?= $fetchgalleryInfo['imagename']  ?>"
-                                                                alt=""></figure>
+                                                                alt="" style="width: 100% !important; height: 400px !important; background-size: cover;"></figure>
                                                     <?php }  ?>
                                             <!-- <figure class="image"><img src="featuredGallery/<?= $info['featuredimage'] ?>"
                                                     alt="">

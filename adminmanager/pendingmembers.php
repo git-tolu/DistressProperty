@@ -157,8 +157,8 @@ include("includes/pagehead.php");
                                             <td><label class='label $class'>$accountstatus</label></td>
                                             <td class='btn-group'>
                                             $btn
-                                            <a  class='btn btn-primary' href='pendingpost?agent_id=" . $agent_id . "'>View Agent Properties</a>
-                                            <a  class='btn btn-primary' href='viewagent?viewagent=" . $agent_id . "'>View Agent Details</a>
+                                            <a  class='btn btn-primary' target='_blank'  href='pendingpost?agent_id=" . $agent_id . "' >View Agent Properties</a>
+                                            <a  class='btn btn-primary' target='_blank' href='regdetails?viewagent=" . $agent_id . "'>View Agent Details</a>
                                         </td>
 											
                                         </tr>";

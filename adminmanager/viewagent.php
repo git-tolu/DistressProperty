@@ -159,7 +159,7 @@ include("includes/pagehead.php");
                                             <div class='card-body'>
                                                 <h5 class='card-title text-capitalize'>$fullname</h5>
                                                 <h6 class='card-title'>$usertitle</h6>
-                                                <p class='card-text'>$aboutuser</p>
+                                                <p class='card-text'></p>
                                                 <ul class='list-group list-group-flush'>
                                                     <li class='list-group-item'>Agent Role: $user_role</li>
                                                     <li class='list-group-item'>Email: $user_email</li>

@@ -576,15 +576,20 @@ $galleryimageid = $_SESSION['galleryimageid']  ;
                                                         </p>
                                                         <ul class="more-details clearfix">
                                                             <?php if ($info['propertyCategory'] !== 'Land'): ?>
-                                                                <li class="text-white mbwhite"><i class="icon-14"></i>
+                                                                <?php if($info['propertyCategory'] !== 'Autos/Machinery'):  ?>
+
+                                                                <li><i class="icon-14"></i>
                                                                     <?= $info['bedrooms'] ?> Beds
                                                                 </li>
-                                                                <li class="text-white mbwhite"><i class="icon-15"></i>
+                                                                <li><i class="icon-15"></i>
                                                                     <?= $info['bathroom'] ?> Baths
                                                                 </li>
-                                                                <li class="text-white mbwhite"><i class="icon-15"></i>
+                                                                <li><i class="icon-15"></i>
                                                                     <?= $info['toilets'] ?> Toilets
-                                                                </li >
+                                                                </li>     
+                                                                                                                    
+                                                                <?php else:  ?> 
+                                                                <?php endif;  ?> 
                                                             <?php else: ?>
                                                                 <p class="text-white mbwhite"><i class="icon-16"></i>
                                                                     <?= $info['landsize'] ?> landsize(sqrt)

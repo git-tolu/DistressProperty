@@ -199,7 +199,7 @@ include("includes/pagehead.php");
                                                 <div class='d-flex align-items-center'>
                                                     <div class='m-r-10'><a class='btn btn-circle btn-info text-white'><img src='../assets/images/footer-logo.png' width='70%'></a></div>
                                                     <div class=''>
-                                                        <h4 class='m-b-0 font-16'><a href='../property-details?propertyCategory=" . $info8['propertyCategory'] . "&id=" . $info8['id'] . "'>$propertytitle<a/></h4>
+                                                        <h4 class='m-b-0 font-16'><a target='_blank' href='../property-details?propertyCategory=" . $info8['propertyCategory'] . "&id=" . $info8['id'] . "'>$propertytitle<a/></h4>
                                                     </div>
                                                 </div>
                                             </td>
@@ -228,7 +228,7 @@ include("includes/pagehead.php");
                                             <td><label class='label $class'>$accountstatus</label></td>
                                             <td class='btn-group'>
                                             $btn
-                                            <a href='../property-details?propertyCategory=" . $info8['propertyCategory'] . "&id=" . $info8['id'] . "'><button  class='btn btn-success '>view</button><a/>
+                                            <a href='../property-details?propertyCategory=" . $info8['propertyCategory'] . "&id=" . $info8['id'] . "' target='_blank' ><button  class='btn btn-success '>view</button><a/>
                                             </td>
 											
                                         </tr>";

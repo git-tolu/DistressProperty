@@ -294,7 +294,7 @@ if (isset($_SESSION['useremail'])) {
                                                         foreach ($fetchgallery as $fetchgalleryInfo ){
                                                     ?>
                                                         <figure class="image-box"><img src="./galleryImage/<?= $fetchgalleryInfo['imagename']  ?>"
-                                                                alt=""></figure>
+                                                                alt="" style="width: 100% !important; height: 400px !important; background-size: cover;"></figure>
                                                     <?php }  ?>
                                                     <!-- <figure class="image"><img src="featuredGallery/<?= $info['featuredimage'] ?>"
                                                             alt="">
@@ -342,10 +342,20 @@ if (isset($_SESSION['useremail'])) {
                                                                         <p>
                                                                         <ul class="more-details clearfix">
                                                                         <?php if($info['propertyCategory'] !== 'Land'):  ?>
-                                                                            <li><i class="icon-14"></i><?= $info['bedrooms']  ?> Beds</li>
-                                                                            <li><i class="icon-15"></i><?= $info['bathroom']  ?> Baths</li>
-                                                                            <li><i class="icon-15"></i><?= $info['toilets']  ?> Toilets</li>
+                                                                            <?php if($info['propertyCategory'] !== 'Autos/Machinery'):  ?>
+
+                                                                            <li><i class="icon-14"></i>
+                                                                                <?= $info['bedrooms'] ?> Beds
+                                                                            </li>
+                                                                            <li><i class="icon-15"></i>
+                                                                                <?= $info['bathroom'] ?> Baths
+                                                                            </li>
+                                                                            <li><i class="icon-15"></i>
+                                                                                <?= $info['toilets'] ?> Toilets
+                                                                            </li>     
+                                                                                                                                
                                                                             <?php else:  ?> 
+                                                                            <?php endif;  ?>                                                                             <?php else:  ?> 
                                                                                 <p><i class="icon-16"></i> <?= $info['landsize']  ?> landsize(sqrt)</p>
                                                                             <?php endif;  ?> 
                                                                             <!-- <li><i class="icon-16"></i>600 Prop Size(Sq Ft)</li>
