@@ -320,6 +320,14 @@ class Dbc extends Database
         $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $row;
     }
+    public function AdvanceSearchqueryNO($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex, $titleproperty)
+    {
+        $sql = "SELECT * FROM properties WHERE  (state='$Location' OR address='$Location' OR city='$Location')  AND (propertyCategory='$propertyCategory') AND (landcategory = '$landcategory' OR (typeproperty='$typeproperty' And (bedrooms='$bedrooms' OR bedrooms>='$bedrooms') AND (bathroom='$bathroom'  OR bathroom>='$bathroom') AND (toilets='$toilets'OR toilets>='$toilets' ) ) ) AND (propertyprice >= '$minprice' AND propertyprice <= '$maxprice') AND (propertytitle LIKE '%$keywords%'  OR titleproperty LIKE '%$keywords%'  OR detailedinfo LIKE '%$keywords%' ) AND titleproperty = '$titleproperty' AND status!='pending'  ORDER BY id DESC LIMIT $startIndex, $itemsPerPage  ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $row = $stmt->rowCount();
+        return $row;
+    }
     public function AdvanceSearchquery($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex, $titleproperty)
     {
         $sql = "SELECT * FROM properties WHERE  (state='$Location' OR address='$Location' OR city='$Location')  AND (propertyCategory='$propertyCategory') AND (landcategory = '$landcategory' OR (typeproperty='$typeproperty' And bedrooms='$bedrooms' AND bathroom='$bathroom' AND toilets='$toilets')) AND (propertyprice >= '$minprice' AND propertyprice <= '$maxprice') AND (propertytitle LIKE '%$keywords%'  OR titleproperty LIKE '%$keywords%'  OR detailedinfo LIKE '%$keywords%' ) AND titleproperty='$titleproperty' AND status!='pending'  ORDER BY id DESC LIMIT $startIndex, $itemsPerPage  ";
@@ -328,12 +336,20 @@ class Dbc extends Database
         $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $row;
     }
-    public function AdvanceSearchqueryNO($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex, $titleproperty)
+    public function AdvanceSearchqueryDis($Location, $typeproperty,  $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex)
     {
-        $sql = "SELECT * FROM properties WHERE  (state='$Location' OR address='$Location' OR city='$Location')  AND (propertyCategory='$propertyCategory') AND (landcategory = '$landcategory' OR (typeproperty='$typeproperty' And (bedrooms='$bedrooms' OR bedrooms>='$bedrooms') AND (bathroom='$bathroom'  OR bathroom>='$bathroom') AND (toilets='$toilets'OR toilets>='$toilets' ) ) ) AND (propertyprice >= '$minprice' AND propertyprice <= '$maxprice') AND (propertytitle LIKE '%$keywords%'  OR titleproperty LIKE '%$keywords%'  OR detailedinfo LIKE '%$keywords%' ) AND titleproperty = '$titleproperty' AND status!='pending'  ORDER BY id DESC LIMIT $startIndex, $itemsPerPage  ";
+        $sql = "SELECT * FROM properties WHERE  (state='$Location' OR address='$Location' OR city='$Location')  AND (landcategory = '$typeproperty' OR typeproperty='$typeproperty') AND (propertyprice >= '$minprice' AND propertyprice <= '$maxprice') AND (propertytitle LIKE '%$keywords%'  OR detailedinfo LIKE '%$keywords%' ) AND status!='pending'  ORDER BY id DESC LIMIT $startIndex, $itemsPerPage  ";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
-        $row = $stmt->rowCount();
+        $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $row;
+    }
+    public function AdvanceSearchqueryLand($Location, $typeproperty,  $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex, $sqrt)
+    {
+        $sql = "SELECT * FROM properties WHERE  (state='$Location' OR address='$Location' OR city='$Location')  AND (landcategory = '$typeproperty' OR typeproperty='$typeproperty') AND (propertyprice >= '$minprice' AND propertyprice <= '$maxprice') AND (propertytitle LIKE '%$keywords%'  OR detailedinfo LIKE '%$keywords%' ) AND sqrt='$sqrt' AND status!='pending'  ORDER BY id DESC LIMIT $startIndex, $itemsPerPage  ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $row;
     }
 

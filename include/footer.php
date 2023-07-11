@@ -10,9 +10,9 @@
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 form-column">
                 <div class="form-inner">
-                    <form action="" method="post" class="subscribe-form">
+                    <form action="https://distresspropertymarket.us14.list-manage.com/subscribe/post?u=3617399b9ffe7259a94198d02&amp;id=caa3512409&amp;f_id=00b976e0f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"  target="_blank" class="subscribe-form">
                         <div class="form-group">
-                            <input type="email" name="email" placeholder="Enter your email" required="">
+                            <input type="email" name="EMAIL" placeholder="Enter your email" required="">
                             <button type="submit">Subscribe Now</button>
                         </div>
                     </form>

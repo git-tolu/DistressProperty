@@ -288,14 +288,14 @@ $galleryimageid = $_SESSION['galleryimageid']  ;
     <script src="assets/js/jquery.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dropzone@5.9.3/dist/dropzone.min.css">
     <script src="https://cdn.jsdelivr.net/npm/dropzone@5.9.3/dist/dropzone.min.js"></script>
-      <style>
+    <style>
         .dropzone {
             border: 2px dashed #ccc;
             border-radius: 5px;
             padding: 20px;
             min-height: 150px;
         }
-        
+
         .active {
             background-color: #2C7365 !important;
         }
@@ -306,48 +306,53 @@ $galleryimageid = $_SESSION['galleryimageid']  ;
             margin-bottom: 10px;
         }
 
-    .image-container {
-      display: block;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .image-container img {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-      margin-top: 20px;
-      margin-bottom: 5px;
-
-    }
-    .dropzone .dz-preview .dz-progress {
-      display: none !important; /* Hide the progress bar */
-    }
-    button{
-        background-color: #D9A464;
-    border: 2px solid #D9A464;
-    color: #ffffff;
-    box-shadow: 0 10px 30px 0px rgb(0 0 0 / 10%);
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
-    vertical-align: middle;
-    font-size: 17px;
-    line-height: 25px;
-    font-family: 'Rubik', sans-serif;
-    font-weight: 500;
-    text-align: center;
-    padding: 15.5px 34px;
-    text-transform: capitalize;
-    border-radius: 5px;
-    z-index: 1;
-    transition: all 500ms ease;
-    }
-    @media only screen and (max-width: 1200px) {
-
-        .mbwhite{
-            color: black !important;
+        .image-container {
+            display: block;
+            flex-wrap: wrap;
+            gap: 10px;
         }
-    }
+
+        .image-container img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            margin-top: 20px;
+            margin-bottom: 5px;
+
+        }
+
+        .dropzone .dz-preview .dz-progress {
+            display: none !important;
+            /* Hide the progress bar */
+        }
+
+        button {
+            background-color: #D9A464;
+            border: 2px solid #D9A464;
+            color: #ffffff;
+            box-shadow: 0 10px 30px 0px rgb(0 0 0 / 10%);
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+            vertical-align: middle;
+            font-size: 17px;
+            line-height: 25px;
+            font-family: 'Rubik', sans-serif;
+            font-weight: 500;
+            text-align: center;
+            padding: 15.5px 34px;
+            text-transform: capitalize;
+            border-radius: 5px;
+            z-index: 1;
+            transition: all 500ms ease;
+        }
+
+        @media only screen and (max-width: 1200px) {
+
+            .mbwhite {
+                color: black !important;
+            }
+        }
     </style>
 
 </head>
@@ -441,9 +446,10 @@ $galleryimageid = $_SESSION['galleryimageid']  ;
                                 <div class="header clearflix">
                                     <div class="card text-white" style="width: 300px;">
                                         <?php if (!$profilepic): ?>
-                                            <img src="assets/images/clients/clients-2.png" class="card-img-top  img-fluid" alt="...">
+                                        <img src="assets/images/clients/clients-2.png" class="card-img-top  img-fluid"
+                                            alt="...">
                                         <?php else: ?>
-                                            <img src="<?= $profilepic ?>" class="card-img-top  img-fluid" alt="...">
+                                        <img src="<?= $profilepic ?>" class="card-img-top  img-fluid" alt="...">
                                         <?php endif; ?>
 
                                     </div>
@@ -519,105 +525,107 @@ $galleryimageid = $_SESSION['galleryimageid']  ;
                                     if ($fetch):
                                         foreach ($fetch as $info):
                                             ?>
-                                            <div class="deals-block-one pb-2">
-                                                <div class="inner-box">
-                                                    <div class="image-box" style=" width: 100% !important;">
-                                                        <?php
+                                    <div class="deals-block-one pb-2">
+                                        <div class="inner-box">
+                                            <div class="image-box" style=" width: 100% !important;">
+                                                <?php
                                                         $galleryimage = $info['galleryimage'];
                                                         $fetchgallery = $dbusers->SelectFromImgLim($galleryimage);
                                                         foreach ($fetchgallery as $fetchgalleryInfo) {
                                                             ?>
-                                                            <figure class="image"><img
-                                                                    src="./galleryImage/<?= $fetchgalleryInfo['imagename'] ?>"
-                                                                    alt=""
-                                                                    style="object-fit: cover; background-position: center; width: 100% !important;  height: 400px;">
-                                                            </figure>
-                                                        <?php } ?>
-                                                            <!-- <div class="batch"><i class="icon-11"></i></div>
+                                                <figure class="image"><img
+                                                        src="./galleryImage/<?= $fetchgalleryInfo['imagename'] ?>"
+                                                        alt=""
+                                                        style="object-fit: cover; background-position: center; width: 100% !important;  height: 400px;">
+                                                </figure>
+                                                <?php } ?>
+                                                <!-- <div class="batch"><i class="icon-11"></i></div>
                                                         <span class="category">Featured</span>
                                                         <div class="buy-btn"><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">For Buy</a></div> -->
+                                            </div>
+                                            <div class="lower-content">
+                                                <div class="title-text">
+                                                    <h4><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
+                                                            class="text-white mbwhite">
+                                                            <?= $info['propertytitle'] ?>/
+                                                            <?= $info['marketstatus'] ?>
+                                                        </a></h4>
+                                                </div>
+                                                <div class="price-box clearfix">
+                                                    <div class="price-info pull-left">
+                                                        <!-- <h6>Start From</h6> -->
+                                                        <h4><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
+                                                                class="text-white mbwhite">
+                                                                <?= $info['symbol'] . number_format($info['propertyprice'], 2) ?>
+                                                            </a></h4>
                                                     </div>
-                                                    <div class="lower-content">
-                                                        <div class="title-text">
-                                                            <h4><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>" class="text-white mbwhite">
-                                                                    <?= $info['propertytitle'] ?>/ <?= $info['marketstatus'] ?>
-                                                                </a></h4>
-                                                        </div>
-                                                        <div class="price-box clearfix">
-                                                            <div class="price-info pull-left">
-                                                                <!-- <h6>Start From</h6> -->
-                                                                <h4><a
-                                                                        href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>" class="text-white mbwhite">
-                                                                        <?= $info['symbol'] . number_format($info['propertyprice'], 2) ?>
-                                                                    </a></h4>
-                                                            </div>
-                                                            <div class="author-box pull-right">
-                                                                <figure class="author-thumb">
-                                                                    <img src="assets/images/footer-logo.png"
-                                                                        style="object-fit:cover; background-position: center; width: 60px; height: 40px; border-radius: 50%;"
-                                                                        alt="">
-                                                                    <span><a
-                                                                            href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
-                                                                            <?= $info['typeproperty'] ?>
-                                                                        </a></span>
-                                                                </figure>
-                                                            </div>
-                                                        </div>
-                                                        <div class="title-text">
-                                                            <h6><a
-                                                                    href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>" class="text-white mbwhite">
-                                                                    <?= $info['city'] ?>,
-                                                                    <?= $info['state'] ?>
-                                                                    <?= $info['area_location'] ?>
-                                                                </a></h6>
-                                                        </div>
-                                                        <p class="text-white ">
-                                                            <?= substr($info['detailedinfo'], 0, 77) . ' ...' ?>.
-                                                        </p>
-                                                        <ul class="more-details clearfix">
-                                                            <?php if ($info['propertyCategory'] !== 'Land'): ?>
-                                                                <?php if($info['propertyCategory'] !== 'Autos/Machinery'):  ?>
+                                                    <div class="author-box pull-right">
+                                                        <figure class="author-thumb">
+                                                            <img src="assets/images/footer-logo.png"
+                                                                style="object-fit:cover; background-position: center; width: 60px; height: 40px; border-radius: 50%;"
+                                                                alt="">
+                                                            <span><a
+                                                                    href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
+                                                                    <?= $info['typeproperty'] ?>
+                                                                </a></span>
+                                                        </figure>
+                                                    </div>
+                                                </div>
+                                                <div class="title-text">
+                                                    <h6><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
+                                                            class="text-white mbwhite">
+                                                            <?= $info['city'] ?>,
+                                                            <?= $info['state'] ?>
+                                                            <?= $info['area_location'] ?>
+                                                        </a></h6>
+                                                </div>
+                                                <p class="text-white ">
+                                                    <?= substr($info['detailedinfo'], 0, 77) . ' ...' ?>.
+                                                </p>
+                                                <ul class="more-details clearfix">
+                                                    <?php if ($info['propertyCategory'] !== 'Land'): ?>
+                                                    <?php if($info['propertyCategory'] !== 'Autos/Machinery'):  ?>
 
-                                                                <li><i class="icon-14"></i>
-                                                                    <?= $info['bedrooms'] ?> Beds
-                                                                </li>
-                                                                <li><i class="icon-15"></i>
-                                                                    <?= $info['bathroom'] ?> Baths
-                                                                </li>
-                                                                <li><i class="icon-15"></i>
-                                                                    <?= $info['toilets'] ?> Toilets
-                                                                </li>     
-                                                                                                                    
-                                                                <?php else:  ?> 
-                                                                <?php endif;  ?> 
-                                                            <?php else: ?>
-                                                                <p class="text-white mbwhite"><i class="icon-16"></i>
-                                                                    <?= $info['landsize'] ?> landsize(sqrt)
-                                                                </p>
-                                                            <?php endif; ?>
-                                                        </ul>
-                                                        <div class="other-info-box clearfix">
-                                                            <div class="btn-box  justify-content-center text-center ">
-                                                                <a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
-                                                                    class="theme-btn btn-two ">See Details</a>
+                                                    <li><i class="icon-14"></i>
+                                                        <?= $info['bedrooms'] ?> Beds
+                                                    </li>
+                                                    <li><i class="icon-15"></i>
+                                                        <?= $info['bathroom'] ?> Baths
+                                                    </li>
+                                                    <li><i class="icon-15"></i>
+                                                        <?= $info['toilets'] ?> Toilets
+                                                    </li>
 
-                                                                <a href="#modalId" class="theme-btn btn-two "
-                                                                    data-toggle="modal"><span id='<?= $info[' longtitude'] ?>'
-                                                                        class="span" title="
+                                                    <?php else:  ?>
+                                                    <?php endif;  ?>
+                                                    <?php else: ?>
+                                                    <p class="text-white mbwhite"><i class="icon-16"></i>
+                                                        <?= $info['landsize'] ?> landsize(sqrt)
+                                                    </p>
+                                                    <?php endif; ?>
+                                                </ul>
+                                                <div class="other-info-box clearfix">
+                                                    <div class="btn-box  justify-content-center text-center ">
+                                                        <a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
+                                                            class="theme-btn btn-two ">See Details</a>
+
+                                                        <a href="#modalId" class="theme-btn btn-two "
+                                                            data-toggle="modal"><span id='<?= $info[' longtitude'] ?>'
+                                                                class="span" title="
                                                                 <?= $info['langtitude'] ?>">Map
-                                                                    </span></a>
+                                                            </span></a>
 
-                                                                    <a href="agent-profile?edit=<?= $info['id'] ?>"
+                                                        <a href="agent-profile?edit=<?= $info['id'] ?>"
                                                             class="theme-btn btn-two ">Edit Post</a>
 
-                                                                    <a href="agent-profile?del=<?= $info['id'] ?>"
-                                                                            class="theme-btn btn-two ">Delete</a>
-                                                            </div> 
-                                                        </div>
+                                                        <a href="agent-profile?del=<?= $info['id'] ?>"
+                                                            class="theme-btn btn-two ">Delete</a>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <?php
+                                        </div>
+                                    </div>
+                                    <?php
                                         endforeach;
                                     else:
                                         ?>
@@ -641,11 +649,11 @@ $galleryimageid = $_SESSION['galleryimageid']  ;
                                 <form action="" method="post">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <div class="alert alert-<?= $alertColor; ?>  "  <?= $display; ?>  role="alert">
+                                            <div class="alert alert-<?= $alertColor; ?>  " <?=$display; ?> role="alert">
                                                 <?= $errorMessage ?>
                                             </div>
                                         </div>
-                                        <div class="col-md-12" >
+                                        <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="">Full name</label>
                                                 <input type="text" name="fullname" value="<?= $fullname ?>"
@@ -691,8 +699,8 @@ $galleryimageid = $_SESSION['galleryimageid']  ;
                                 </form>
                             </div>
                             <div class="card p-5 shadow radius-5" id="tab2">
-                         
-                                <form action="" method="POST" id="myForm"  enctype="multipart/form-data">
+
+                                <form action="" method="POST" id="myForm" enctype="multipart/form-data">
                                     <div class="general-information">
                                         <h4><i class="icon-42"></i>General Information:</h4>
                                         <div class="inner-box default-form">
@@ -707,7 +715,8 @@ $galleryimageid = $_SESSION['galleryimageid']  ;
                                                         <input type="hidden" name="formType" value="<?= $formType ?>">
                                                         <input type="hidden" name="id" value="<?= $id ?>">
                                                         <input type="text" name="propertytitle"
-                                                            value="<?= $propertytitle ?>" placeholder="Property Title"  required>
+                                                            value="<?= $propertytitle ?>" placeholder="Property Title"
+                                                            required>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-4 col-md-4 col-sm-12 column">
@@ -732,7 +741,7 @@ $galleryimageid = $_SESSION['galleryimageid']  ;
                                                     <label>Market Status</label>
                                                     <div class="field-input">
                                                         <select class="form-control" name="marketstatus">
-                                                            <option value="<?= $marketstatus ?>"  required>
+                                                            <option value="<?= $marketstatus ?>" required>
                                                                 <?= $marketstatus ?>
                                                             </option>
                                                             <option value="For Sale">For Sale
@@ -750,15 +759,53 @@ $galleryimageid = $_SESSION['galleryimageid']  ;
                                                             <option value="<?= $typeproperty ?>">
                                                                 <?= $typeproperty ?>
                                                             </option>
-                                                            <option value="Detached Duplex">Detached Duplex</option>
-                                                            <option value="Terrace Duplex"> Terrace Duplex</option>
-                                                            <option value="Flat/Apartment">Flat/Apartment</option>
-                                                            <option value="Detached Bungalow">Detached Bungalow</option>
-                                                            <option value="Semi Detached Bungalow">Semi Detached
-                                                                Bungalow</option>
-                                                            <option value="Semi Detached Duplex">Semi Detached Duplex
+                                                            <option value="bungalow">bungalow</option>
+                                                            <option value="fully detached"> fully detached</option>
+                                                            <option value="semi detached">semi detached</option>
+                                                            <option value="terrace">terrace</option>
+                                                            <option value="maisonette">maisonette
                                                             </option>
-                                                            <option value="Terrace Bungalow">Terrace Bungalow</option>
+                                                            <option value="land">land
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 column show3">
+                                                    <label>Property Type</label>
+                                                    <div class="field-input">
+                                                        <select class="form-control" name="typeproperty">
+                                                            <option value="<?= $typeproperty ?>">
+                                                                <?= $typeproperty ?>
+                                                            </option>
+                                                            <option value="bungalow">bungalow</option>
+                                                            <option value="fully detached"> fully detached</option>
+                                                            <option value="semi detached">semi detached</option>
+                                                            <option value="terrace">terrace</option>
+                                                            <option value="maisonette">maisonette
+                                                            </option>
+                                                            <option value="land">land
+                                                            </option>
+                                                            <option value="apartment-block">apartment-block
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 column show2">
+                                                    <label>Property Type</label>
+                                                    <div class="field-input">
+                                                        <select class="form-control" name="typeproperty">
+                                                            <option value="<?= $typeproperty ?>">
+                                                                <?= $typeproperty ?>
+                                                            </option>
+                                                            <option value="Vechicle">Vechicle</option>
+                                                            <option value="motorbike"> motorbike</option>
+                                                            <option value="aircraft">aircraft</option>
+                                                            <option value="vessel/ships">vessel/ships</option>
+                                                            <option value="cranes">cranes</option>
+                                                            <option value="scaffold iron bars">scaffold iron bars
+                                                            </option>
+                                                            <option value="wires and conductors">wires and conductors</option>
+                                                            <option value="heavy machineries">heavy machineries</option>    
                                                         </select>
                                                     </div>
                                                 </div>
@@ -769,9 +816,14 @@ $galleryimageid = $_SESSION['galleryimageid']  ;
                                                             <option value="<?= $landcategory ?>">
                                                                 <?= $landcategory ?>
                                                             </option>
-                                                            <option value="Residential">Residential</option>
-                                                            <option value="commercial">commercial</option>
-                                                            <option value="Mixed Area"> Mixed Area</option>
+                                                            <option value="Wetland">Wetland</option>
+                                                            <option value="dry land"> dry land</option>
+                                                            <option value="sandfilled">sandfilled</option>
+                                                            <option value="bare-land">bare-land</option>
+                                                            <option value="demolishable">demolishable</option>
+                                                            <option value="Semi Detached Duplex">Semi Detached Duplex
+                                                            </option>
+                                                            <option value="Terrace Bungalow">Terrace Bungalow</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -814,7 +866,8 @@ $galleryimageid = $_SESSION['galleryimageid']  ;
                                                         <label>Property Description</label>
                                                         <div class="field-input">
                                                             <textarea placeholder="Property Description"
-                                                                name="detailedinfo" required><?= $detailedinfo ?> </textarea>
+                                                                name="detailedinfo"
+                                                                required><?= $detailedinfo ?> </textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -897,7 +950,8 @@ $galleryimageid = $_SESSION['galleryimageid']  ;
                                                     <div class="field-input">
                                                         <label>LGA</label>
                                                         <label for="citySelect">Select LGA:</label>
-                                                        <select id="citySelect" class="form-control" name="city" required>
+                                                        <select id="citySelect" class="form-control" name="city"
+                                                            required>
                                                             <option value="<?= $city ?>" selected>
                                                                 <?= $city ?>
                                                             </option>
@@ -977,15 +1031,16 @@ $galleryimageid = $_SESSION['galleryimageid']  ;
                                                 </div>
                                                 <div class="col-lg-12 col-md-12 col-sm-12 column mt-3">
                                                     <div class="gallery-box">
-                                                  
-                                                    
+
+
+                                                    </div>
+
                                                 </div>
-                                             
                                             </div>
-                                        </div>
                                 </form>
                                 <form action="process.php" class="dropzone" id="myDropzone"></form>
-                                <button class="theme-btn btn-one m-3" type="button" onclick="submitForm()"                                                   name="uploadProps">Upload</button>
+                                <button class="theme-btn btn-one m-3" type="button" onclick="submitForm()"
+                                    name="uploadProps">Upload</button>
                             </div>
 
                         </div>
@@ -1096,8 +1151,8 @@ $galleryimageid = $_SESSION['galleryimageid']  ;
     </script>
 
     <!-- Modal Body -->
-    <div class="modal fade" id="modalId" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
-        role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+    <div class="modal fade" id="modalId" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
+        aria-labelledby="modalTitleId" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -1107,8 +1162,7 @@ $galleryimageid = $_SESSION['galleryimageid']  ;
                 <div class="modal-body">
                     <div class="google-map-area">
                         <!-- <iframe src="https://maps.google.com/maps?q=<?= $info['langtitude'] ?>, <?= $info['longtitude'] ?>&z=15&output=embed" width="100%" height="270" frameborder="0" style="border:0" id="ifr></iframe> -->
-                        <iframe src="" width="100%" height="270" frameborder="0" style="border:0"
-                            id="iframe"></iframe>
+                        <iframe src="" width="100%" height="270" frameborder="0" style="border:0" id="iframe"></iframe>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -1138,69 +1192,69 @@ $galleryimageid = $_SESSION['galleryimageid']  ;
     <script src="assets/sweetalert/sweet.js"></script>
     <!-- <script src="./assets/dropify-master/dropify-master/dist/js/dropify.min.js"></script>
     <script src="./assets/dropify-master/dropify-master/dist/js/customDropify.js"></script> -->
-   
+
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfCP4-o7KxqBfbWE5VX5Qw5a_M8P-mGUU&libraries=places&callback=initAutocomplete"
         defer></script>
     <script>
-          function submitForm() {
-      const form = document.getElementById('myForm');
-      form.submit();
-    }
-    Dropzone.options.myDropzone = {
-      paramName: 'file',
-      maxFiles: 20, // Maximum number of files
-      acceptedFiles: 'image/*', // Only accept image files
-      dictDefaultMessage: 'Drop images here or click to upload', // Default message
-      init: function() {
-        this.on('success', function(file, response) {
-        console.log(response);
-        });
-      },
-    //   
-    
-  addRemoveLinks: true,
-        autoProcessQueue: true,
-
-    };        // Initialize Dropzone.js
-    
-
-function handleFileSelect(event) {
-      const files = event.target.files;
-      const imageContainer = document.getElementById('imageContainer');
-      const maxImages = 20 - imageContainer.childElementCount;
-
-        if (files.length > maxImages) {
-        alert('You can upload a maximum of 20 images.');
-        return;
+        function submitForm() {
+            const form = document.getElementById('myForm');
+            form.submit();
         }
-      for (let i = 0; i < files.length; i++) {
-        const file = files[i];
-        const reader = new FileReader();
+        Dropzone.options.myDropzone = {
+            paramName: 'file',
+            maxFiles: 20, // Maximum number of files
+            acceptedFiles: 'image/*', // Only accept image files
+            dictDefaultMessage: 'Drop images here or click to upload', // Default message
+            init: function () {
+                this.on('success', function (file, response) {
+                    console.log(response);
+                });
+            },
+            //   
 
-        reader.onload = function(event) {
-          const imageUrl = event.target.result;
-          const imageElement = document.createElement('img');
-          imageElement.src = imageUrl;
+            addRemoveLinks: true,
+            autoProcessQueue: true,
 
-          const deleteButton = document.createElement('button');
-          deleteButton.innerText = 'Delete';
-          deleteButton.addEventListener('click', function() {
-            imageElement.remove();
-            deleteButton.remove();
-          });
+        };        // Initialize Dropzone.js
 
-          const imageWrapper = document.createElement('div');
-          imageWrapper.appendChild(imageElement);
-          imageWrapper.appendChild(deleteButton);
 
-          imageContainer.appendChild(imageWrapper);
+        function handleFileSelect(event) {
+            const files = event.target.files;
+            const imageContainer = document.getElementById('imageContainer');
+            const maxImages = 20 - imageContainer.childElementCount;
+
+            if (files.length > maxImages) {
+                alert('You can upload a maximum of 20 images.');
+                return;
+            }
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                const reader = new FileReader();
+
+                reader.onload = function (event) {
+                    const imageUrl = event.target.result;
+                    const imageElement = document.createElement('img');
+                    imageElement.src = imageUrl;
+
+                    const deleteButton = document.createElement('button');
+                    deleteButton.innerText = 'Delete';
+                    deleteButton.addEventListener('click', function () {
+                        imageElement.remove();
+                        deleteButton.remove();
+                    });
+
+                    const imageWrapper = document.createElement('div');
+                    imageWrapper.appendChild(imageElement);
+                    imageWrapper.appendChild(deleteButton);
+
+                    imageContainer.appendChild(imageWrapper);
+                }
+
+                reader.readAsDataURL(file);
+            }
         }
-
-        reader.readAsDataURL(file);
-      }
-    }
-            var placeSearch, autocomplete;
+        var placeSearch, autocomplete;
         var componentForm = {
             street_number: 'short_name',
             route: 'long_name',
@@ -1261,9 +1315,6 @@ function handleFileSelect(event) {
         }
         // Load the Google Places Autocomplete API
         // google.maps.event.addDomListener(window, 'load', initialize);
-
-
-
 
         function numberToWords(number) {
             // Single-digit and teen numbers
@@ -1338,853 +1389,853 @@ function handleFileSelect(event) {
         }
 
         const cityData = {
-  Abia: [
-    'Aba North',
-    'Aba South',
-    'Arochukwu',
-    'Bende',
-    'Ikwuano',
-    'Isiala Ngwa North',
-    'Isiala Ngwa South',
-    'Isuikwuato',
-    'Obi Ngwa',
-    'Ohafia',
-    'Osisioma Ngwa',
-    'Ugwunagbo',
-    'Ukwa East',
-    'Ukwa West',
-    'Umuahia North',
-    'Umuahia South',
-    'Umu Nneochi'
-  ],
-  Adamawa: [
-    'Demsa',
-    'Fufore',
-    'Ganye',
-    'Girei',
-    'Gombi',
-    'Guyuk',
-    'Hong',
-    'Jada',
-    'Lamurde',
-    'Madagali',
-    'Maiha',
-    'Mayo-Belwa',
-    'Michika',
-    'Mubi North',
-    'Mubi South',
-    'Numan',
-    'Shelleng',
-    'Song',
-    'Toungo',
-    'Yola North',
-    'Yola South'
-  ],
-  AkwaIbom: [
-    'Abak',
-    'Eastern Obolo',
-    'Eket',
-    'Esit Eket',
-    'Essien Udim',
-    'Etim Ekpo',
-    'Etinan',
-    'Ibeno',
-    'Ibesikpo Asutan',
-    'Ibiono Ibom',
-    'Ika',
-    'Ikono',
-    'Ikot Abasi',
-    'Ikot Ekpene',
-    'Ini',
-    'Itu',
-    'Mbo',
-    'Mkpat Enin',
-    'Nsit Atai',
-    'Nsit Ibom',
-    'Nsit Ubium',
-    'Obot Akara',
-    'Okobo',
-    'Onna',
-    'Oron',
-    'Oruk Anam',
-    'Udung Uko',
-    'Ukanafun',
-    'Uruan',
-    'Urue-Offong/Oruko',
-    'Uyo'
-  ],
-  Anambra: [
-    'Aguata',
-    'Anambra East',
-    'Anambra West',
-    'Anaocha',
-    'Awka North',
-    'Awka South',
-    'Ayamelum',
-    'Dunukofia',
-    'Ekwusigo',
-    'Idemili North',
-    'Idemili South',
-    'Ihiala',
-    'Njikoka',
-    'Nnewi North',
-    'Nnewi South',
-    'Ogbaru',
-    'Onitsha North',
-    'Onitsha South',
-    'Orumba North',
-    'Orumba South',
-    'Oyi'
-  ],
-  Bauchi: [
-    'Alkaleri',
-    'Bauchi',
-    'Bogoro',
-    'Damban',
-    'Darazo',
-    'Dass',
-    'Ganjuwa',
-    'Giade',
-    'Itas/Gadau',
-    'Jama\'are',
-    'Katagum',
-    'Kirfi',
-    'Misau',
-    'Ningi',
-    'Shira',
-    'Tafawa Balewa',
-    'Toro',
-    'Warji',
-    'Zaki'
-  ],
-  Bayelsa: [
-    'Brass',
-    'Ekeremor',
-    'Kolokuma/Opokuma',
-    'Nembe',
-    'Ogbia',
-    'Sagbama',
-    'Southern Ijaw',
-    'Yenagoa'
-  ],
-  Benue: [
-    'Ado',
-    'Agatu',
-    'Apa',
-    'Buruku',
-    'Gboko',
-    'Guma',
-    'Gwer East',
-    'Gwer West',
-    'Katsina-Ala',
-    'Konshisha',
-    'Kwande',
-    'Logo',
-    'Makurdi',
-    'Obi',
-    'Ogbadibo',
-    'Ohimini',
-    'Oju',
-    'Okpokwu',
-    'Oturkpo',
-    'Tarka',
-    'Ukum',
-    'Ushongo',
-    'Vandeikya'
-  ],
-  Borno: [
-    'Abadam',
-    'Askira/Uba',
-    'Bama',
-    'Bayo',
-    'Biase',
-    'Biu',
-    'Chibok',
-    'Damboa',
-    'Dikwa',
-    'Gubio',
-    'Guzamala',
-    'Gwoza',
-    'Hawul',
-    'Jere',
-    'Kaga',
-    'Kala/Balge',
-    'Konduga',
-    'Kukawa',
-    'Kwaya Kusar',
-    'Mafa',
-    'Magumeri',
-    'Maiduguri',
-    'Marte',
-    'Mobbar',
-    'Monguno',
-    'Ngala',
-    'Nganzai',
-    'Shani'
-  ],
-  CrossRiver: [
-    'Abi',
-    'Akamkpa',
-    'Akpabuyo',
-    'Bakassi',
-    'Bekwarra',
-    'Biase',
-    'Boki',
-    'Calabar Municipal',
-    'Calabar South',
-    'Etung',
-    'Ikom',
-    'Obanliku',
-    'Obubra',
-    'Obudu',
-    'Odukpani',
-    'Ogoja',
-    'Yakuur',
-    'Yala'
-  ],
-  Delta: [
-    'Aniocha North',
-    'Aniocha South',
-    'Bomadi',
-    'Burutu',
-    'Ethiope East',
-    'Ethiope West',
-    'Ika North East',
-    'Ika South',
-    'Isoko North',
-    'Isoko South',
-    'Ndokwa East',
-    'Ndokwa West',
-    'Okpe',
-    'Oshimili North',
-    'Oshimili South',
-    'Patani',
-    'Sapele',
-    'Udu',
-    'Ughelli North',
-    'Ughelli South',
-    'Ukwuani',
-    'Uvwie',
-    'Warri North',
-    'Warri South',
-    'Warri South West'
-  ],
-  Ebonyi: [
-    'Abakaliki',
-    'Afikpo North',
-    'Afikpo South',
-    'Ebonyi',
-    'Ezza North',
-    'Ezza South',
-    'Ikwo',
-    'Ishielu',
-    'Ivo',
-    'Izzi',
-    'Ohaozara',
-    'Ohaukwu',
-    'Onicha'
-  ],
-  Edo: [
-    'Akoko-Edo',
-    'Egor',
-    'Esan Central',
-    'Esan North-East',
-    'Esan South-East',
-    'Esan West',
-    'Etsako Central',
-    'Etsako East',
-    'Etsako West',
-    'Igueben',
-    'Ikpoba-Okha',
-    'Orhionmwon',
-    'Oredo',
-    'Ovia North-East',
-    'Ovia South-West',
-    'Owan East',
-    'Owan West',
-    'Uhunmwonde'
-  ],
-  Ekiti: [
-    'Ado Ekiti',
-    'Efon',
-    'Ekiti East',
-    'Ekiti South-West',
-    'Ekiti West',
-    'Emure',
-    'Gbonyin',
-    'Ido Osi',
-    'Ijero',
-    'Ikere',
-    'Ikole',
-    'Ilejemeje',
-    'Irepodun/Ifelodun',
-    'Ise/Orun',
-    'Moba',
-    'Oye'
-  ],
-  Enugu: [
-    'Aninri',
-    'Awgu',
-    'Enugu East',
-    'Enugu North',
-    'Enugu South',
-    'Ezeagu',
-    'Igbo Etiti',
-    'Igbo Eze North',
-    'Igbo Eze South',
-    'Isi Uzo',
-    'Nkanu East',
-    'Nkanu West',
-    'Nsukka',
-    'Oji River',
-    'Udenu',
-    'Udi',
-    'Uzo-Uwani'
-  ],
-  Gombe: [
-    'Akko',
-    'Balanga',
-    'Billiri',
-    'Dukku',
-    'Funakaye',
-    'Gombe',
-    'Kaltungo',
-    'Kwami',
-    'Nafada',
-    'Shongom',
-    'Yamaltu/Deba'
-  ],
-  Imo: [
-    'Aboh Mbaise',
-    'Ahiazu Mbaise',
-    'Ehime Mbano',
-    'Ezinihitte',
-    'Ideato North',
-    'Ideato South',
-    'Ihitte/Uboma',
-    'Ikeduru',
-    'Isiala Mbano',
-    'Isu',
-    'Mbaitoli',
-    'Ngor Okpala',
-    'Njaba',
-    'Nkwerre',
-    'Nwangele',
-    'Obowo',
-    'Oguta',
-    'Ohaji/Egbema',
-    'Okigwe',
-    'Orlu',
-    'Orsu',
-    'Oru East',
-    'Oru West',
-    'Owerri Municipal',
-    'Owerri North',
-    'Owerri West',
-    'Unuimo'
-  ],
-  Jigawa: [
-    'Auyo',
-    'Babura',
-    'Biriniwa',
-    'Birnin Kudu',
-    'Buji',
-    'Dutse',
-    'Gagarawa',
-    'Garki',
-    'Gumel',
-    'Guri',
-    'Gwaram',
-    'Gwiwa',
-    'Hadejia',
-    'Jahun',
-    'Kafin Hausa',
-    'Kazaure',
-    'Kiri Kasama',
-    'Kiyawa',
-    'Maigatari',
-    'Malam Madori',
-    'Miga',
-    'Ringim',
-    'Roni',
-    'Sule Tankarkar',
-    'Taura',
-    'Yankwashi'
-  ],
-  Kaduna: [
-    'Birnin Gwari',
-    'Chikun',
-    'Giwa',
-    'Igabi',
-    'Ikara',
-    'Jaba',
-    'Jema\'a',
-    'Kachia',
-    'Kaduna North',
-    'Kaduna South',
-    'Kagarko',
-    'Kajuru',
-    'Kaura',
-    'Kauru',
-    'Kubau',
-    'Kudan',
-    'Lere',
-    'Makarfi',
-    'Sabon Gari',
-    'Sanga',
-    'Soba',
-    'Zangon Kataf',
-    'Zaria'
-  ],
-  Kano: [
-    'Ajingi',
-    'Albasu',
-    'Bagwai',
-    'Bebeji',
-    'Bichi',
-    'Bunkure',
-    'Dala',
-    'Dambatta',
-    'Dawakin Kudu',
-    'Dawakin Tofa',
-    'Doguwa',
-    'Fagge',
-    'Gabasawa',
-    'Garko',
-    'Garun Mallam',
-    'Gaya',
-    'Gezawa',
-    'Gwale',
-    'Gwarzo',
-    'Kabo',
-    'Kano Municipal',
-    'Karaye',
-    'Kibiya',
-    'Kiru',
-    'Kumbotso',
-    'Kunchi',
-    'Kura',
-    'Madobi',
-    'Makoda',
-    'Minjibir',
-    'Nasarawa',
-    'Rano',
-    'Rimin Gado',
-    'Rogo',
-    'Shanono',
-    'Sumaila',
-    'Takai',
-    'Tarauni',
-    'Tofa',
-    'Tsanyawa',
-    'Tudun Wada',
-    'Ungogo',
-    'Warawa',
-    'Wudil'
-  ],
-  Katsina: [
-    'Bakori',
-    'Batagarawa',
-    'Batsari',
-    'Baure',
-    'Bindawa',
-    'Charanchi',
-    'Dan Musa',
-    'Dandume',
-    'Danja',
-    'Daura',
-    'Dutsi',
-    'Dutsin Ma',
-    'Faskari',
-    'Funtua',
-    'Ingawa',
-    'Jibia',
-    'Kafur',
-    'Kaita',
-    'Kankara',
-    'Kankia',
-    'Katsina',
-    'Kurfi',
-    'Kusada',
-    'Mai\'Adua',
-    'Malumfashi',
-    'Mani',
-    'Mashi',
-    'Matazu',
-    'Musawa',
-    'Rimi',
-    'Sabuwa',
-    'Safana',
-    'Sandamu',
-    'Zango'
-  ],
-  Kebbi: [
-    'Aleiro',
-    'Arewa Dandi',
-    'Argungu',
-    'Augie',
-    'Bagudo',
-    'Birnin Kebbi',
-    'Bunza',
-    'Dandi',
-    'Fakai',
-    'Gwandu',
-    'Jega',
-    'Kalgo',
-    'Koko/Besse',
-    'Maiyama',
-    'Ngaski',
-    'Sakaba',
-    'Shanga',
-    'Suru',
-    'Wasagu/Danko',
-    'Yauri',
-    'Zuru'
-  ],
-  Kogi: [
-    'Adavi',
-    'Ajaokuta',
-    'Ankpa',
-    'Bassa',
-    'Dekina',
-    'Ibaji',
-    'Idah',
-    'Igalamela Odolu',
-    'Ijumu',
-    'Kabba/Bunu',
-    'Kogi',
-    'Lokoja',
-    'Mopa Muro',
-    'Ofu',
-    'Ogori/Magongo',
-    'Okehi',
-    'Okene',
-    'Olamaboro',
-    'Omala',
-    'Yagba East',
-    'Yagba West'
-  ],
-  Kwara: [
-    'Asa',
-    'Baruten',
-    'Edu',
-    'Ekiti',
-    'Ifelodun',
-    'Ilorin East',
-    'Ilorin South',
-    'Ilorin West',
-    'Irepodun',
-    'Isin',
-    'Kaiama',
-    'Moro',
-    'Offa',
-    'Oke Ero',
-    'Oyun',
-    'Pategi'
-  ],
-  Lagos: [
-    'Agege',
-    'Ajeromi-Ifelodun',
-    'Alimosho',
-    'Amuwo-Odofin',
-    'Apapa',
-    'Badagry',
-    'Epe',
-    'Eti-Osa',
-    'Ibeju-Lekki',
-    'Ifako-Ijaiye',
-    'Ikeja',
-    'Ikorodu',
-    'Kosofe',
-    'Lagos Island',
-    'Lagos Mainland',
-    'Mushin',
-    'Ojo',
-    'Oshodi-Isolo',
-    'Shomolu',
-    'Surulere'
-  ],
-  Nasarawa: [
-    'Akwanga',
-    'Awe',
-    'Doma',
-    'Karu',
-    'Keana',
-    'Keffi',
-    'Kokona',
-    'Lafia',
-    'Nasarawa',
-    'Nasarawa Egon',
-    'Obi',
-    'Toto',
-    'Wamba'
-  ],
-  Niger: [
-    'Agaie',
-    'Agwara',
-    'Bida',
-    'Borgu',
-    'Bosso',
-    'Chanchaga',
-    'Edati',
-    'Gbako',
-    'Gurara',
-    'Katcha',
-    'Kontagora',
-    'Lapai',
-    'Lavun',
-    'Magama',
-    'Mariga',
-    'Mashegu',
-    'Mokwa',
-    'Moya',
-    'Paikoro',
-    'Rafi',
-    'Rijau',
-    'Shiroro',
-    'Suleja',
-    'Tafa',
-    'Wushishi'
-  ],
-  Ogun: [
-    'Abeokuta North',
-    'Abeokuta South',
-    'Ado-Odo/Ota',
-    'Egbado North',
-    'Egbado South',
-    'Ewekoro',
-    'Ifo',
-    'Ijebu East',
-    'Ijebu North',
-    'Ijebu North East',
-    'Ijebu Ode',
-    'Ikenne',
-    'Imeko Afon',
-    'Ipokia',
-    'Obafemi Owode',
-    'Odeda',
-    'Odogbolu',
-    'Ogun Waterside',
-    'Remo North',
-    'Shagamu'
-  ],
-  Ondo: [
-    'Akoko North-East',
-    'Akoko North-West',
-    'Akoko South-West',
-    'Akoko South-East',
-    'Akure North',
-    'Akure South',
-    'Ese Odo',
-    'Idanre',
-    'Ifedore',
-    'Ilaje',
-    'Ile Oluji/Okeigbo',
-    'Irele',
-    'Odigbo',
-    'Okitipupa',
-    'Ondo East',
-    'Ondo West',
-    'Ose',
-    'Owo'
-  ],
-  Osun: [
-    'Atakunmosa East',
-    'Atakunmosa West',
-    'Aiyedaade',
-    'Aiyedire',
-    'Boluwaduro',
-    'Boripe',
-    'Ede North',
-    'Ede South',
-    'Ife Central',
-    'Ife East',
-    'Ife North',
-    'Ife South',
-    'Egbedore',
-    'Ejigbo',
-    'Ifedayo',
-    'Ifelodun',
-    'Ila',
-    'Ilesa East',
-    'Ilesa West',
-    'Irepodun',
-    'Irewole',
-    'Isokan',
-    'Iwo',
-    'Obokun',
-    'Odo Otin',
-    'Ola Oluwa',
-    'Olorunda',
-    'Oriade',
-    'Orolu',
-    'Osogbo'
-  ],
-  Oyo: [
-    'Afijio',
-    'Akinyele',
-    'Atiba',
-    'Atisbo',
-    'Egbeda',
-    'Ibadan North',
-    'Ibadan North-East',
-    'Ibadan North-West',
-    'Ibadan South-East',
-    'Ibadan South-West',
-    'Ibarapa Central',
-    'Ibarapa East',
-    'Ibarapa North',
-    'Ido',
-    'Irepo',
-    'Iseyin',
-    'Itesiwaju',
-    'Iwajowa',
-    'Kajola',
-    'Lagelu',
-    'Ogbomosho North',
-    'Ogbomosho South',
-    'Ogo Oluwa',
-    'Olorunsogo',
-    'Oluyole',
-    'Ona Ara',
-    'Orelope',
-    'Ori Ire',
-    'Oyo',
-    'Oyo East',
-    'Saki East',
-    'Saki West',
-    'Surulere'
-  ],
-  Plateau: [
-    'Barikin Ladi',
-    'Bassa',
-    'Bokkos',
-    'Jos East',
-    'Jos North',
-    'Jos South',
-    'Kanam',
-    'Kanke',
-    'Langtang North',
-    'Langtang South',
-    'Mangu',
-    'Mikang',
-    'Pankshin',
-    'Qua\'an Pan',
-    'Riyom',
-    'Shendam',
-    'Wase'
-  ],
-  Rivers: [
-    'Abua/Odual',
-    'Ahoada East',
-    'Ahoada West',
-    'Akuku-Toru',
-    'Andoni',
-    'Asari-Toru',
-    'Bonny',
-    'Degema',
-    'Eleme',
-    'Emuoha',
-    'Etche',
-    'Gokana',
-    'Ikwerre',
-    'Khana',
-    'Obio/Akpor',
-    'Ogba/Egbema/Ndoni',
-    'Ogu/Bolo',
-    'Okrika',
-    'Omuma',
-    'Opobo/Nkoro',
-    'Oyigbo',
-    'Port Harcourt',
-    'Tai'
-  ],
-  Sokoto: [
-    'Binji',
-    'Bodinga',
-    'Dange Shuni',
-    'Gada',
-    'Goronyo',
-    'Gudu',
-    'Gwadabawa',
-    'Illela',
-    'Isa',
-    'Kebbe',
-    'Kware',
-    'Rabah',
-    'Sabon Birni',
-    'Shagari',
-    'Silame',
-    'Sokoto North',
-    'Sokoto South',
-    'Tambuwal',
-    'Tangaza',
-    'Tureta',
-    'Wamako',
-    'Wurno',
-    'Yabo'
-  ],
-  Taraba: [
-    'Ardo Kola',
-    'Bali',
-    'Donga',
-    'Gashaka',
-    'Gassol',
-    'Ibi',
-    'Jalingo',
-    'Karim Lamido',
-    'Kumi',
-    'Lau',
-    'Sardauna',
-    'Takum',
-    'Ussa',
-    'Wukari',
-    'Yorro',
-    'Zing'
-  ],
-  Yobe: [
-    'Bade',
-    'Bursari',
-    'Damaturu',
-    'Fika',
-    'Fune',
-    'Geidam',
-    'Gujba',
-    'Gulani',
-    'Jakusko',
-    'Karasuwa',
-    'Machina',
-    'Nangere',
-    'Nguru',
-    'Potiskum',
-    'Tarmuwa',
-    'Yunusari',
-    'Yusufari'
-  ],
-  Zamfara: [
-    'Anka',
-    'Bakura',
-    'Birnin Magaji/Kiyaw',
-    'Bukkuyum',
-    'Bungudu',
-    'Gummi',
-    'Gusau',
-    'Kaura Namoda',
-    'Maradun',
-    'Maru',
-    'Shinkafi',
-    'Talata Mafara',
-    'Zurmi'
-  ],
-  "Federal Capital Territory": [
-    "Abaji",
-    "Bwari",
-    "Gwagwalada",
-    "Kuje",
-    "Kwali",
-    "Municipal Area Council"
-  ]
-};
+            Abia: [
+                'Aba North',
+                'Aba South',
+                'Arochukwu',
+                'Bende',
+                'Ikwuano',
+                'Isiala Ngwa North',
+                'Isiala Ngwa South',
+                'Isuikwuato',
+                'Obi Ngwa',
+                'Ohafia',
+                'Osisioma Ngwa',
+                'Ugwunagbo',
+                'Ukwa East',
+                'Ukwa West',
+                'Umuahia North',
+                'Umuahia South',
+                'Umu Nneochi'
+            ],
+            Adamawa: [
+                'Demsa',
+                'Fufore',
+                'Ganye',
+                'Girei',
+                'Gombi',
+                'Guyuk',
+                'Hong',
+                'Jada',
+                'Lamurde',
+                'Madagali',
+                'Maiha',
+                'Mayo-Belwa',
+                'Michika',
+                'Mubi North',
+                'Mubi South',
+                'Numan',
+                'Shelleng',
+                'Song',
+                'Toungo',
+                'Yola North',
+                'Yola South'
+            ],
+            AkwaIbom: [
+                'Abak',
+                'Eastern Obolo',
+                'Eket',
+                'Esit Eket',
+                'Essien Udim',
+                'Etim Ekpo',
+                'Etinan',
+                'Ibeno',
+                'Ibesikpo Asutan',
+                'Ibiono Ibom',
+                'Ika',
+                'Ikono',
+                'Ikot Abasi',
+                'Ikot Ekpene',
+                'Ini',
+                'Itu',
+                'Mbo',
+                'Mkpat Enin',
+                'Nsit Atai',
+                'Nsit Ibom',
+                'Nsit Ubium',
+                'Obot Akara',
+                'Okobo',
+                'Onna',
+                'Oron',
+                'Oruk Anam',
+                'Udung Uko',
+                'Ukanafun',
+                'Uruan',
+                'Urue-Offong/Oruko',
+                'Uyo'
+            ],
+            Anambra: [
+                'Aguata',
+                'Anambra East',
+                'Anambra West',
+                'Anaocha',
+                'Awka North',
+                'Awka South',
+                'Ayamelum',
+                'Dunukofia',
+                'Ekwusigo',
+                'Idemili North',
+                'Idemili South',
+                'Ihiala',
+                'Njikoka',
+                'Nnewi North',
+                'Nnewi South',
+                'Ogbaru',
+                'Onitsha North',
+                'Onitsha South',
+                'Orumba North',
+                'Orumba South',
+                'Oyi'
+            ],
+            Bauchi: [
+                'Alkaleri',
+                'Bauchi',
+                'Bogoro',
+                'Damban',
+                'Darazo',
+                'Dass',
+                'Ganjuwa',
+                'Giade',
+                'Itas/Gadau',
+                'Jama\'are',
+                'Katagum',
+                'Kirfi',
+                'Misau',
+                'Ningi',
+                'Shira',
+                'Tafawa Balewa',
+                'Toro',
+                'Warji',
+                'Zaki'
+            ],
+            Bayelsa: [
+                'Brass',
+                'Ekeremor',
+                'Kolokuma/Opokuma',
+                'Nembe',
+                'Ogbia',
+                'Sagbama',
+                'Southern Ijaw',
+                'Yenagoa'
+            ],
+            Benue: [
+                'Ado',
+                'Agatu',
+                'Apa',
+                'Buruku',
+                'Gboko',
+                'Guma',
+                'Gwer East',
+                'Gwer West',
+                'Katsina-Ala',
+                'Konshisha',
+                'Kwande',
+                'Logo',
+                'Makurdi',
+                'Obi',
+                'Ogbadibo',
+                'Ohimini',
+                'Oju',
+                'Okpokwu',
+                'Oturkpo',
+                'Tarka',
+                'Ukum',
+                'Ushongo',
+                'Vandeikya'
+            ],
+            Borno: [
+                'Abadam',
+                'Askira/Uba',
+                'Bama',
+                'Bayo',
+                'Biase',
+                'Biu',
+                'Chibok',
+                'Damboa',
+                'Dikwa',
+                'Gubio',
+                'Guzamala',
+                'Gwoza',
+                'Hawul',
+                'Jere',
+                'Kaga',
+                'Kala/Balge',
+                'Konduga',
+                'Kukawa',
+                'Kwaya Kusar',
+                'Mafa',
+                'Magumeri',
+                'Maiduguri',
+                'Marte',
+                'Mobbar',
+                'Monguno',
+                'Ngala',
+                'Nganzai',
+                'Shani'
+            ],
+            CrossRiver: [
+                'Abi',
+                'Akamkpa',
+                'Akpabuyo',
+                'Bakassi',
+                'Bekwarra',
+                'Biase',
+                'Boki',
+                'Calabar Municipal',
+                'Calabar South',
+                'Etung',
+                'Ikom',
+                'Obanliku',
+                'Obubra',
+                'Obudu',
+                'Odukpani',
+                'Ogoja',
+                'Yakuur',
+                'Yala'
+            ],
+            Delta: [
+                'Aniocha North',
+                'Aniocha South',
+                'Bomadi',
+                'Burutu',
+                'Ethiope East',
+                'Ethiope West',
+                'Ika North East',
+                'Ika South',
+                'Isoko North',
+                'Isoko South',
+                'Ndokwa East',
+                'Ndokwa West',
+                'Okpe',
+                'Oshimili North',
+                'Oshimili South',
+                'Patani',
+                'Sapele',
+                'Udu',
+                'Ughelli North',
+                'Ughelli South',
+                'Ukwuani',
+                'Uvwie',
+                'Warri North',
+                'Warri South',
+                'Warri South West'
+            ],
+            Ebonyi: [
+                'Abakaliki',
+                'Afikpo North',
+                'Afikpo South',
+                'Ebonyi',
+                'Ezza North',
+                'Ezza South',
+                'Ikwo',
+                'Ishielu',
+                'Ivo',
+                'Izzi',
+                'Ohaozara',
+                'Ohaukwu',
+                'Onicha'
+            ],
+            Edo: [
+                'Akoko-Edo',
+                'Egor',
+                'Esan Central',
+                'Esan North-East',
+                'Esan South-East',
+                'Esan West',
+                'Etsako Central',
+                'Etsako East',
+                'Etsako West',
+                'Igueben',
+                'Ikpoba-Okha',
+                'Orhionmwon',
+                'Oredo',
+                'Ovia North-East',
+                'Ovia South-West',
+                'Owan East',
+                'Owan West',
+                'Uhunmwonde'
+            ],
+            Ekiti: [
+                'Ado Ekiti',
+                'Efon',
+                'Ekiti East',
+                'Ekiti South-West',
+                'Ekiti West',
+                'Emure',
+                'Gbonyin',
+                'Ido Osi',
+                'Ijero',
+                'Ikere',
+                'Ikole',
+                'Ilejemeje',
+                'Irepodun/Ifelodun',
+                'Ise/Orun',
+                'Moba',
+                'Oye'
+            ],
+            Enugu: [
+                'Aninri',
+                'Awgu',
+                'Enugu East',
+                'Enugu North',
+                'Enugu South',
+                'Ezeagu',
+                'Igbo Etiti',
+                'Igbo Eze North',
+                'Igbo Eze South',
+                'Isi Uzo',
+                'Nkanu East',
+                'Nkanu West',
+                'Nsukka',
+                'Oji River',
+                'Udenu',
+                'Udi',
+                'Uzo-Uwani'
+            ],
+            Gombe: [
+                'Akko',
+                'Balanga',
+                'Billiri',
+                'Dukku',
+                'Funakaye',
+                'Gombe',
+                'Kaltungo',
+                'Kwami',
+                'Nafada',
+                'Shongom',
+                'Yamaltu/Deba'
+            ],
+            Imo: [
+                'Aboh Mbaise',
+                'Ahiazu Mbaise',
+                'Ehime Mbano',
+                'Ezinihitte',
+                'Ideato North',
+                'Ideato South',
+                'Ihitte/Uboma',
+                'Ikeduru',
+                'Isiala Mbano',
+                'Isu',
+                'Mbaitoli',
+                'Ngor Okpala',
+                'Njaba',
+                'Nkwerre',
+                'Nwangele',
+                'Obowo',
+                'Oguta',
+                'Ohaji/Egbema',
+                'Okigwe',
+                'Orlu',
+                'Orsu',
+                'Oru East',
+                'Oru West',
+                'Owerri Municipal',
+                'Owerri North',
+                'Owerri West',
+                'Unuimo'
+            ],
+            Jigawa: [
+                'Auyo',
+                'Babura',
+                'Biriniwa',
+                'Birnin Kudu',
+                'Buji',
+                'Dutse',
+                'Gagarawa',
+                'Garki',
+                'Gumel',
+                'Guri',
+                'Gwaram',
+                'Gwiwa',
+                'Hadejia',
+                'Jahun',
+                'Kafin Hausa',
+                'Kazaure',
+                'Kiri Kasama',
+                'Kiyawa',
+                'Maigatari',
+                'Malam Madori',
+                'Miga',
+                'Ringim',
+                'Roni',
+                'Sule Tankarkar',
+                'Taura',
+                'Yankwashi'
+            ],
+            Kaduna: [
+                'Birnin Gwari',
+                'Chikun',
+                'Giwa',
+                'Igabi',
+                'Ikara',
+                'Jaba',
+                'Jema\'a',
+                'Kachia',
+                'Kaduna North',
+                'Kaduna South',
+                'Kagarko',
+                'Kajuru',
+                'Kaura',
+                'Kauru',
+                'Kubau',
+                'Kudan',
+                'Lere',
+                'Makarfi',
+                'Sabon Gari',
+                'Sanga',
+                'Soba',
+                'Zangon Kataf',
+                'Zaria'
+            ],
+            Kano: [
+                'Ajingi',
+                'Albasu',
+                'Bagwai',
+                'Bebeji',
+                'Bichi',
+                'Bunkure',
+                'Dala',
+                'Dambatta',
+                'Dawakin Kudu',
+                'Dawakin Tofa',
+                'Doguwa',
+                'Fagge',
+                'Gabasawa',
+                'Garko',
+                'Garun Mallam',
+                'Gaya',
+                'Gezawa',
+                'Gwale',
+                'Gwarzo',
+                'Kabo',
+                'Kano Municipal',
+                'Karaye',
+                'Kibiya',
+                'Kiru',
+                'Kumbotso',
+                'Kunchi',
+                'Kura',
+                'Madobi',
+                'Makoda',
+                'Minjibir',
+                'Nasarawa',
+                'Rano',
+                'Rimin Gado',
+                'Rogo',
+                'Shanono',
+                'Sumaila',
+                'Takai',
+                'Tarauni',
+                'Tofa',
+                'Tsanyawa',
+                'Tudun Wada',
+                'Ungogo',
+                'Warawa',
+                'Wudil'
+            ],
+            Katsina: [
+                'Bakori',
+                'Batagarawa',
+                'Batsari',
+                'Baure',
+                'Bindawa',
+                'Charanchi',
+                'Dan Musa',
+                'Dandume',
+                'Danja',
+                'Daura',
+                'Dutsi',
+                'Dutsin Ma',
+                'Faskari',
+                'Funtua',
+                'Ingawa',
+                'Jibia',
+                'Kafur',
+                'Kaita',
+                'Kankara',
+                'Kankia',
+                'Katsina',
+                'Kurfi',
+                'Kusada',
+                'Mai\'Adua',
+                'Malumfashi',
+                'Mani',
+                'Mashi',
+                'Matazu',
+                'Musawa',
+                'Rimi',
+                'Sabuwa',
+                'Safana',
+                'Sandamu',
+                'Zango'
+            ],
+            Kebbi: [
+                'Aleiro',
+                'Arewa Dandi',
+                'Argungu',
+                'Augie',
+                'Bagudo',
+                'Birnin Kebbi',
+                'Bunza',
+                'Dandi',
+                'Fakai',
+                'Gwandu',
+                'Jega',
+                'Kalgo',
+                'Koko/Besse',
+                'Maiyama',
+                'Ngaski',
+                'Sakaba',
+                'Shanga',
+                'Suru',
+                'Wasagu/Danko',
+                'Yauri',
+                'Zuru'
+            ],
+            Kogi: [
+                'Adavi',
+                'Ajaokuta',
+                'Ankpa',
+                'Bassa',
+                'Dekina',
+                'Ibaji',
+                'Idah',
+                'Igalamela Odolu',
+                'Ijumu',
+                'Kabba/Bunu',
+                'Kogi',
+                'Lokoja',
+                'Mopa Muro',
+                'Ofu',
+                'Ogori/Magongo',
+                'Okehi',
+                'Okene',
+                'Olamaboro',
+                'Omala',
+                'Yagba East',
+                'Yagba West'
+            ],
+            Kwara: [
+                'Asa',
+                'Baruten',
+                'Edu',
+                'Ekiti',
+                'Ifelodun',
+                'Ilorin East',
+                'Ilorin South',
+                'Ilorin West',
+                'Irepodun',
+                'Isin',
+                'Kaiama',
+                'Moro',
+                'Offa',
+                'Oke Ero',
+                'Oyun',
+                'Pategi'
+            ],
+            Lagos: [
+                'Agege',
+                'Ajeromi-Ifelodun',
+                'Alimosho',
+                'Amuwo-Odofin',
+                'Apapa',
+                'Badagry',
+                'Epe',
+                'Eti-Osa',
+                'Ibeju-Lekki',
+                'Ifako-Ijaiye',
+                'Ikeja',
+                'Ikorodu',
+                'Kosofe',
+                'Lagos Island',
+                'Lagos Mainland',
+                'Mushin',
+                'Ojo',
+                'Oshodi-Isolo',
+                'Shomolu',
+                'Surulere'
+            ],
+            Nasarawa: [
+                'Akwanga',
+                'Awe',
+                'Doma',
+                'Karu',
+                'Keana',
+                'Keffi',
+                'Kokona',
+                'Lafia',
+                'Nasarawa',
+                'Nasarawa Egon',
+                'Obi',
+                'Toto',
+                'Wamba'
+            ],
+            Niger: [
+                'Agaie',
+                'Agwara',
+                'Bida',
+                'Borgu',
+                'Bosso',
+                'Chanchaga',
+                'Edati',
+                'Gbako',
+                'Gurara',
+                'Katcha',
+                'Kontagora',
+                'Lapai',
+                'Lavun',
+                'Magama',
+                'Mariga',
+                'Mashegu',
+                'Mokwa',
+                'Moya',
+                'Paikoro',
+                'Rafi',
+                'Rijau',
+                'Shiroro',
+                'Suleja',
+                'Tafa',
+                'Wushishi'
+            ],
+            Ogun: [
+                'Abeokuta North',
+                'Abeokuta South',
+                'Ado-Odo/Ota',
+                'Egbado North',
+                'Egbado South',
+                'Ewekoro',
+                'Ifo',
+                'Ijebu East',
+                'Ijebu North',
+                'Ijebu North East',
+                'Ijebu Ode',
+                'Ikenne',
+                'Imeko Afon',
+                'Ipokia',
+                'Obafemi Owode',
+                'Odeda',
+                'Odogbolu',
+                'Ogun Waterside',
+                'Remo North',
+                'Shagamu'
+            ],
+            Ondo: [
+                'Akoko North-East',
+                'Akoko North-West',
+                'Akoko South-West',
+                'Akoko South-East',
+                'Akure North',
+                'Akure South',
+                'Ese Odo',
+                'Idanre',
+                'Ifedore',
+                'Ilaje',
+                'Ile Oluji/Okeigbo',
+                'Irele',
+                'Odigbo',
+                'Okitipupa',
+                'Ondo East',
+                'Ondo West',
+                'Ose',
+                'Owo'
+            ],
+            Osun: [
+                'Atakunmosa East',
+                'Atakunmosa West',
+                'Aiyedaade',
+                'Aiyedire',
+                'Boluwaduro',
+                'Boripe',
+                'Ede North',
+                'Ede South',
+                'Ife Central',
+                'Ife East',
+                'Ife North',
+                'Ife South',
+                'Egbedore',
+                'Ejigbo',
+                'Ifedayo',
+                'Ifelodun',
+                'Ila',
+                'Ilesa East',
+                'Ilesa West',
+                'Irepodun',
+                'Irewole',
+                'Isokan',
+                'Iwo',
+                'Obokun',
+                'Odo Otin',
+                'Ola Oluwa',
+                'Olorunda',
+                'Oriade',
+                'Orolu',
+                'Osogbo'
+            ],
+            Oyo: [
+                'Afijio',
+                'Akinyele',
+                'Atiba',
+                'Atisbo',
+                'Egbeda',
+                'Ibadan North',
+                'Ibadan North-East',
+                'Ibadan North-West',
+                'Ibadan South-East',
+                'Ibadan South-West',
+                'Ibarapa Central',
+                'Ibarapa East',
+                'Ibarapa North',
+                'Ido',
+                'Irepo',
+                'Iseyin',
+                'Itesiwaju',
+                'Iwajowa',
+                'Kajola',
+                'Lagelu',
+                'Ogbomosho North',
+                'Ogbomosho South',
+                'Ogo Oluwa',
+                'Olorunsogo',
+                'Oluyole',
+                'Ona Ara',
+                'Orelope',
+                'Ori Ire',
+                'Oyo',
+                'Oyo East',
+                'Saki East',
+                'Saki West',
+                'Surulere'
+            ],
+            Plateau: [
+                'Barikin Ladi',
+                'Bassa',
+                'Bokkos',
+                'Jos East',
+                'Jos North',
+                'Jos South',
+                'Kanam',
+                'Kanke',
+                'Langtang North',
+                'Langtang South',
+                'Mangu',
+                'Mikang',
+                'Pankshin',
+                'Qua\'an Pan',
+                'Riyom',
+                'Shendam',
+                'Wase'
+            ],
+            Rivers: [
+                'Abua/Odual',
+                'Ahoada East',
+                'Ahoada West',
+                'Akuku-Toru',
+                'Andoni',
+                'Asari-Toru',
+                'Bonny',
+                'Degema',
+                'Eleme',
+                'Emuoha',
+                'Etche',
+                'Gokana',
+                'Ikwerre',
+                'Khana',
+                'Obio/Akpor',
+                'Ogba/Egbema/Ndoni',
+                'Ogu/Bolo',
+                'Okrika',
+                'Omuma',
+                'Opobo/Nkoro',
+                'Oyigbo',
+                'Port Harcourt',
+                'Tai'
+            ],
+            Sokoto: [
+                'Binji',
+                'Bodinga',
+                'Dange Shuni',
+                'Gada',
+                'Goronyo',
+                'Gudu',
+                'Gwadabawa',
+                'Illela',
+                'Isa',
+                'Kebbe',
+                'Kware',
+                'Rabah',
+                'Sabon Birni',
+                'Shagari',
+                'Silame',
+                'Sokoto North',
+                'Sokoto South',
+                'Tambuwal',
+                'Tangaza',
+                'Tureta',
+                'Wamako',
+                'Wurno',
+                'Yabo'
+            ],
+            Taraba: [
+                'Ardo Kola',
+                'Bali',
+                'Donga',
+                'Gashaka',
+                'Gassol',
+                'Ibi',
+                'Jalingo',
+                'Karim Lamido',
+                'Kumi',
+                'Lau',
+                'Sardauna',
+                'Takum',
+                'Ussa',
+                'Wukari',
+                'Yorro',
+                'Zing'
+            ],
+            Yobe: [
+                'Bade',
+                'Bursari',
+                'Damaturu',
+                'Fika',
+                'Fune',
+                'Geidam',
+                'Gujba',
+                'Gulani',
+                'Jakusko',
+                'Karasuwa',
+                'Machina',
+                'Nangere',
+                'Nguru',
+                'Potiskum',
+                'Tarmuwa',
+                'Yunusari',
+                'Yusufari'
+            ],
+            Zamfara: [
+                'Anka',
+                'Bakura',
+                'Birnin Magaji/Kiyaw',
+                'Bukkuyum',
+                'Bungudu',
+                'Gummi',
+                'Gusau',
+                'Kaura Namoda',
+                'Maradun',
+                'Maru',
+                'Shinkafi',
+                'Talata Mafara',
+                'Zurmi'
+            ],
+            "Federal Capital Territory": [
+                "Abaji",
+                "Bwari",
+                "Gwagwalada",
+                "Kuje",
+                "Kwali",
+                "Municipal Area Council"
+            ]
+        };
 
 
 
@@ -2229,6 +2280,9 @@ function handleFileSelect(event) {
 
         $(".show").hide()
         $(".show1").hide()
+        $(".show2").hide()
+        $(".show3").hide()
+
 
         $('#trigShow').change(function (e) {
             e.preventDefault();
@@ -2236,29 +2290,44 @@ function handleFileSelect(event) {
             if (trigVal == 'Land') {
                 $(".show1").show()
                 $(".show").hide()
+                $(".show2").hide()
+                $(".show3").hide()
+
+
             } else if (trigVal == 'Autos/Machinery') {
                 $(".show").hide()
                 $(".show1").hide()
+                $(".show2").show()
+                $(".show3").hide()
+
+            }  else if (trigVal == 'Non Distress Properties') {
+                $(".show3").show()
+                $(".show").hide()
+                $(".show1").hide()
+                $(".show2").hide()
 
             } else {
-                $(".show1").hide()
                 $(".show").show()
+                $(".show1").hide()
+                $(".show2").hide()
+                $(".show3").hide()
+
+
             }
         });
         <?php
-        if (isset($_GET['edit']) && !empty($_GET['edit'])):
-            ?>
-                    $("#tab2").show()
+            if (isset($_GET['edit']) && !empty($_GET['edit'])):
+        ?>
+                $("#tab2").show()
                 $("#tab1").hide()
-            $("#tab3").hide()
-                <?php
-        endif;
+        $("#tab3").hide()
+        <?php
+            endif;
         ?>
 
 
 
     </script>
     <?= $reload ?>
-</body><!-- End of .page_wrapper -->
-
+</body>
 </html>

@@ -497,17 +497,17 @@ if (isset($_SESSION['useremail'])) {
                 <h5 class="modal-title" id="modalTitleId">Don't leave without an exclusive offer from us </h5>
                     <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
             </div> -->
-            <form class="" action="" method="POST">
+            <form class="" action="https://distresspropertymarket.us14.list-manage.com/subscribe/post?u=3617399b9ffe7259a94198d02&amp;id=caa3512409&amp;f_id=00b976e0f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form">
                 <div class="modal-body p-2">
                     <h5 class="modal-title text-center text-white p-2" id="modalTitleId">Get first hand access and updates on available distress deals </h5>
                   <div class="col-md-12 my-2">
-                    <input type="text" class="form-control" id="validationCustom01" placeholder="Name"  required>
+                    <input type="text" class="form-control" id="validationCustom01" placeholder="Name"  name="FNAME" required>
                   </div>
                   <div class="col-md-12 my-2">
-                    <input type="text" class="form-control" id="validationCustom02" placeholder="Email"  required>
+                    <input type="text" class="form-control" id="validationCustom02" placeholder="Email" name="EMAIL" required>
                   </div>
                   <div class="col-md-12 my-2">
-                    <button type="submit" style="background-color: #004030; width: 100%;"  class="btn text-white" >i want to hear!</button>
+                    <button type="submit" style="background-color: #004030; width: 100%;"  class="btn text-white" >Subscribe Now</button>
                   </div>
                 </div>
                 <div class="modal-footer">
