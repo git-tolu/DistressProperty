@@ -163,6 +163,7 @@ if (isset($_GET['del'])) {
         $featuredimage = '';
         // $featuredimage = $_FILES['featuredimage']['name'];
         // $galleryimage = $_FILES['galleryimage']['name'];
+        echo $typeproperty;
 
 $galleryimageid = $_SESSION['galleryimageid']  ;
 
@@ -279,7 +280,7 @@ $galleryimageid = $_SESSION['galleryimageid']  ;
     <link href="assets/css/jquery.fancybox.min.css" rel="stylesheet">
     <link href="assets/css/animate.css" rel="stylesheet">
     <link href="assets/css/jquery-ui.css" rel="stylesheet">
-    <link href="assets/css/nice-select.css" rel="stylesheet">
+    <!-- <link href="assets/css/nice-select.css" rel="stylesheet"> -->
     <link href="assets/css/color/theme-color.css" id="jssDefault" rel="stylesheet">
     <link href="assets/css/switcher-style.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
@@ -347,6 +348,9 @@ $galleryimageid = $_SESSION['galleryimageid']  ;
             transition: all 500ms ease;
         }
 
+        /* .mbwhite {
+            color: #D9A464 !important;
+        } */
         @media only screen and (max-width: 1200px) {
 
             .mbwhite {
@@ -985,7 +989,7 @@ $galleryimageid = $_SESSION['galleryimageid']  ;
                                                     </div>
                                                 </div>
 
-                                                <div class="col-lg-6 col-md-6 col-sm-12 column show">
+                                                <div class="col-lg-6 col-md-6 col-sm-12 column show ">
                                                     <div class="field-input">
                                                         <label>Bedrooms</label>
                                                         <input type="number" name="bedrooms" placeholder="Bedrooms"
@@ -1021,8 +1025,44 @@ $galleryimageid = $_SESSION['galleryimageid']  ;
                                                             placeholder="Parking Space" value="<?= $parkingspace ?>">
                                                     </div>
                                                 </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-12 column show3 ">
+                                                    <div class="field-input">
+                                                        <label>Bedrooms</label>
+                                                        <input type="number" name="bedrooms" placeholder="Bedrooms"
+                                                            value="<?= $bedrooms ?>">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-12 column show3">
+                                                    <div class="field-input">
+                                                        <label>Bathroom</label>
+                                                        <input type="number" name="bathroom" placeholder="Bathroom"
+                                                            value="<?= $bathroom ?>">
+                                                    </div>
+                                                </div>
 
-                                                <div class="col-lg-12 col-md-12 col-sm-12 column show">
+                                                <div class="col-lg-6 col-md-6 col-sm-12 column show3">
+                                                    <div class="field-input">
+                                                        <label>Toilets</label>
+                                                        <input type="number" name="toilets" placeholder="toilets"
+                                                            value="<?= $toilets ?>">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-12 column show3">
+                                                    <div class="field-input">
+                                                        <label>Property Size(Square Meter)</label>
+                                                        <input type="number" name="propsize" placeholder="Property Size"
+                                                            value="<?= $propsize ?>">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 column show3">
+                                                    <div class="field-input">
+                                                        <label>Parking Space</label>
+                                                        <input type="number" name="parkingspace"
+                                                            placeholder="Parking Space" value="<?= $parkingspace ?>">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-12 col-md-12 col-sm-12 column ">
                                                     <div class="field-input">
                                                         <label>Youtube Link</label>
                                                         <input type="text" name="youtubelink" placeholder="Youtube Link"
@@ -1182,7 +1222,7 @@ $galleryimageid = $_SESSION['galleryimageid']  ;
     <script src="assets/js/appear.js"></script>
     <script src="assets/js/scrollbar.js"></script>
     <script src="assets/js/isotope.js"></script>
-    <script src="assets/js/jquery.nice-select.min.js"></script>
+    <!-- <script src="assets/js/jquery.nice-select.min.js"></script> -->
     <script src="assets/js/jQuery.style.switcher.min.js"></script>
     <script src="assets/js/jquery-ui.js"></script>
     <script src="assets/js/product-filter.js"></script>

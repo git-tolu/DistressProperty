@@ -1215,7 +1215,17 @@ if (isset($_SESSION['useremail'])) {
                                             // Query to get the total number of items
                                             // Replace this with your own query to get the total number of items
                                             // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
-                                            $totalItemsQuery = $dbs->AdvanceSearchqueryNO($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex, $ref);
+                                            if($_GET['propertyCategory'] == 'Distress Properties'):  
+                                            $totalItemsQuery = $dbs->AdvanceSearchqueryNODis($Location, $typeproperty,  $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex);
+                                            elseif($_GET['propertyCategory'] == 'Non Distress Properties'):
+                                            $totalItemsQuery = $dbs->AdvanceSearchqueryNODis($Location, $typeproperty,  $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex);
+                                            elseif($_GET['propertyCategory'] == 'Autos/Machinery'):
+                                            $totalItemsQuery = $dbs->AdvanceSearchqueryNODis($Location, $typeproperty,  $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex);
+                                            elseif($_GET['propertyCategory'] == 'Land'): 
+                                            $totalItemsQuery = $dbs->AdvanceSearchqueryNOLand($Location, $typeproperty,  $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex, $sqrt);
+                                            $sqrt = $_POST['sqrt'];
+                                            endif;
+                                            // $totalItemsQuery = $dbs->AdvanceSearchqueryNO($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex, $ref); 
                                             $totalItemsResult = $totalItemsQuery; // result of executing the query
                                     
                                             // Get the total number of items
@@ -1331,7 +1341,17 @@ if (isset($_SESSION['useremail'])) {
                                             // Query to get the total number of items
                                             // Replace this with your own query to get the total number of items
                                             // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
-                                            $totalItemsQuery = $dbs->AdvanceSearchqueryNO($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex, $ref);
+                                            if($_GET['propertyCategory'] == 'Distress Properties'):  
+                                            $totalItemsQuery = $dbs->AdvanceSearchqueryNODis($Location, $typeproperty,  $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex);
+                                            elseif($_GET['propertyCategory'] == 'Non Distress Properties'):
+                                            $totalItemsQuery = $dbs->AdvanceSearchqueryNODis($Location, $typeproperty,  $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex);
+                                            elseif($_GET['propertyCategory'] == 'Autos/Machinery'):
+                                            $totalItemsQuery = $dbs->AdvanceSearchqueryNODis($Location, $typeproperty,  $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex);
+                                            elseif($_GET['propertyCategory'] == 'Land'): 
+                                            $totalItemsQuery = $dbs->AdvanceSearchqueryNOLand($Location, $typeproperty,  $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex, $sqrt);
+                                            $sqrt = $_POST['sqrt'];
+                                            endif;
+                                            //$totalItemsQuery = $dbs->AdvanceSearchqueryNO($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex, $ref); 
                                             $totalItemsResult = $totalItemsQuery; // result of executing the query
                                     
                                             // Get the total number of items
@@ -1472,9 +1492,8 @@ if (isset($_SESSION['useremail'])) {
                                                     <?= substr($info['detailedinfo'], 0, 77) . ' ...' ?>.
                                                 </p>
                                                 <ul class="more-details clearfix">
-                                                    <?php if ($info['propertyCategory'] !== 'Land'): ?>
-                                                    <?php if($info['propertyCategory'] !== 'Autos/Machinery'):  ?>
-
+                                                    
+                                                    <?php if($_GET['propertyCategory'] == 'Distress Properties'):   ?>
                                                     <li><i class="icon-14"></i>
                                                         <?= $info['bedrooms'] ?> Beds
                                                     </li>
@@ -1484,10 +1503,20 @@ if (isset($_SESSION['useremail'])) {
                                                     <li><i class="icon-15"></i>
                                                         <?= $info['toilets'] ?> Toilets
                                                     </li>
-
-                                                    <?php else:  ?>
-                                                    <?php endif;  ?>
-                                                    <?php else: ?>
+                                                    <?php elseif($_GET['propertyCategory'] == 'Non Distress Properties'): ?>
+                                                    <li><i class="icon-14"></i>
+                                                        <?= $info['bedrooms'] ?> Beds
+                                                    </li>
+                                                    <li><i class="icon-15"></i>
+                                                        <?= $info['bathroom'] ?> Baths
+                                                    </li>
+                                                    <li><i class="icon-15"></i>
+                                                        <?= $info['toilets'] ?> Toilets
+                                                    </li>
+                                                    <?php elseif($_GET['propertyCategory'] == 'Autos/Machinery'): ?>
+                                                    
+                                                    <?php elseif($_GET['propertyCategory'] == 'Land'): ?>
+                                                    
                                                     <p><i class="icon-16"></i>
                                                         <?= $info['landsize'] ?> landsize(sqrt)
                                                     </p>
