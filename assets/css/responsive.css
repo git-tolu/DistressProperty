@@ -347,7 +347,8 @@
 
   .search-field .top-search .search-btn {
     position: relative;
-    width: 100%;
+    width: 70%;
+    height: 50%;
     margin-top: 15px;
   }
 

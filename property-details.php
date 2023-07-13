@@ -178,19 +178,6 @@ if (isset($_SESSION['useremail'])) {
                             </div>
 							
 							
-							
-                            <div class="discription-box content-widget">
-                                <div class="title-box">
-                                    <h4>
-                                        <?= $info['propertyCategory'] ?>
-                                    </h4>
-                                </div>
-                                <div class="text">
-                                    <p>
-                                        <?= $info['detailedinfo'] ?>
-                                    </p>
-                                </div>
-                            </div>
                             <div class="details-box content-widget">
                                 <div class="title-box">
                                     <h4>Property Details</h4>
@@ -211,18 +198,21 @@ if (isset($_SESSION['useremail'])) {
                                     <?php endif;  ?> 
                                    
                                 </ul>
-                            </div>
+                            </div>	
                             <div class="discription-box content-widget">
                                 <div class="title-box">
-                                    <h4 class="text-capitalize mb-2">Disclaimer</h4>
+                                    <h4>
+                                        <?= $info['propertyCategory'] ?>
+                                    </h4>
                                 </div>
                                 <div class="text">
-                                
                                     <p>
-                                        The information displayed about this property comprises a property advertisement. Nigeria Property Centre makes no warranty as to the accuracy or completeness of the advertisement or any linked or associated information, and Nigeria Property Centre has no control over the content. This property listing does not constitute property particulars. The information is provided and maintained by Jaystone Realty Ltd. Nigeria Property Centre shall not in any way be held liable for the actions of any agent and/or property owner/landlord on or off this website.
+                                        <?= $info['detailedinfo'] ?>
                                     </p>
                                 </div>
                             </div>
+                         
+                           
                             <div class="location-box content-widget">
                                 <div class="title-box">
                                     <h4>Location</h4>
@@ -237,6 +227,18 @@ if (isset($_SESSION['useremail'])) {
                                 </ul>
                                 <div class="google-map-area">
                                    <iframe src="https://maps.google.com/maps?q=<?= $info['langtitude'] ?>, <?= $info['longtitude'] ?>&z=15&output=embed" width="100%" height="270" frameborder="0" style="border:0"></iframe>
+                                </div>
+                            </div>
+                            <div class="discription-box content-widget">
+                                <div class="title-box">
+                                    <h4 class="text-capitalize mb-2">Disclaimer</h4>
+                                </div>
+                                <div class="text">
+                                
+                                    <p>
+                                        
+Please note that the property aforementioned does not belong to Distress Property Market Ltd; therefore, we make no guarantees on the information displayed pertaining to the said property, until due diligence is fulfilled by an interested buyer.
+                                    </p>
                                 </div>
                             </div>
 							

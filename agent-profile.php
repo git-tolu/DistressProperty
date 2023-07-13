@@ -82,6 +82,8 @@ $typeproperty = '';
 $landcategory = '';
 $youtubelink = '';
 $marketstatus = '';
+$distresscat = '';
+$autocat = '';
 
 $id = '';
 $formType = '';
@@ -110,6 +112,8 @@ if (isset($_GET['edit'])) {
     $landcategory = $info['landcategory'];
     $youtubelink = $info['youtubelink'];
     $marketstatus = $info['marketstatus'];
+    $distresscat = $info['distresscat'];
+    $autocat = $info['autocat'];
 }
 
 if (isset($_GET['del'])) {
@@ -156,14 +160,21 @@ if (isset($_GET['del'])) {
         $parkingspace = $dbusers->test_input($_POST['parkingspace']);
         $landsize = $dbusers->test_input($_POST['landsize']);
         $titleproperty = $dbusers->test_input($_POST['titleproperty']);
-        $typeproperty = $dbusers->test_input($_POST['typeproperty']);
-        $landcategory = $dbusers->test_input($_POST['landcategory']);
         $youtubelink = $dbusers->test_input($_POST['youtubelink']);
         $marketstatus = $dbusers->test_input($_POST['marketstatus']);
+        if (!empty($_POST['typeproperty'])){
+            $typeproperty = $dbusers->test_input($_POST['typeproperty']);
+        }elseif(!empty($_POST['landcategory'])){
+            $typeproperty = $dbusers->test_input($_POST['landcategory']); 
+        }elseif(!empty($_POST['distresscat'])){
+            $typeproperty = $dbusers->test_input($_POST['distresscat']);
+        }else{
+            $typeproperty = $dbusers->test_input($_POST['autocat']);
+        }
         $featuredimage = '';
         // $featuredimage = $_FILES['featuredimage']['name'];
         // $galleryimage = $_FILES['galleryimage']['name'];
-        echo $typeproperty;
+        // echo $typeproperty; 
 
 $galleryimageid = $_SESSION['galleryimageid']  ;
 
@@ -180,9 +191,9 @@ $galleryimageid = $_SESSION['galleryimageid']  ;
         $errorMessage = 'Form Not Completely Filled';
     } else {
         if ($formType == 'edit') {
-            $sql = $dbusers->EditProps($user_id, $propertyid, $propertytitle, $propertyprice, $area_location, $address, $city, $state, $longtitude, $langtitude, $detailedinfo, $featuredimage, $galleryimageid, $propertyCategory, $id, $bedrooms, $bathroom, $toilets, $propsize, $parkingspace, $landsize, $titleproperty, $typeproperty, $landcategory, $youtubelink, $marketstatus, $symbol);
+            $sql = $dbusers->EditProps($user_id, $propertyid, $propertytitle, $propertyprice, $area_location, $address, $city, $state, $longtitude, $langtitude, $detailedinfo, $featuredimage, $galleryimageid, $propertyCategory, $id, $bedrooms, $bathroom, $toilets, $propsize, $parkingspace, $landsize, $titleproperty, $typeproperty, $landcategory, $youtubelink, $marketstatus, $symbol, $distresscat, $autocat);
         } else {
-            $sql = $dbusers->UploadProps($user_id, $propertyid, $propertytitle, $propertyprice, $area_location, $address, $city, $state, $longtitude, $langtitude, $detailedinfo, $featuredimage, $galleryimageid, $status, $propertyCategory, $bedrooms, $bathroom, $toilets, $propsize, $parkingspace, $landsize, $titleproperty, $typeproperty, $landcategory, $youtubelink, $marketstatus, $symbol, $agent_id);
+            $sql = $dbusers->UploadProps($user_id, $propertyid, $propertytitle, $propertyprice, $area_location, $address, $city, $state, $longtitude, $langtitude, $detailedinfo, $featuredimage, $galleryimageid, $status, $propertyCategory, $bedrooms, $bathroom, $toilets, $propsize, $parkingspace, $landsize, $titleproperty, $typeproperty, $landcategory, $youtubelink, $marketstatus, $symbol, $agent_id, $distresscat, $autocat);
         }
 
         if ($sql) {
@@ -287,6 +298,7 @@ $galleryimageid = $_SESSION['galleryimageid']  ;
     <link href="assets/css/responsive.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css.scss">
     <script src="assets/js/jquery.js"></script>
+    <!-- <script src="assets/dropify-master/dropify-master/dist/css/dropify.min.css"></script> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dropzone@5.9.3/dist/dropzone.min.css">
     <script src="https://cdn.jsdelivr.net/npm/dropzone@5.9.3/dist/dropzone.min.js"></script>
     <style>
@@ -570,7 +582,17 @@ $galleryimageid = $_SESSION['galleryimageid']  ;
                                                                 alt="">
                                                             <span><a
                                                                     href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
+                                                                    <?php if($info['propertyCategory'] == 'Distress Properties'):   ?>
                                                                     <?= $info['typeproperty'] ?>
+                                                                    <?php elseif($info['propertyCategory'] == 'Non Distress Properties'): ?>
+                                                                    <?= $info['distresscat'] ?>
+                                                                    <?php elseif($info['propertyCategory'] == 'Autos/Machinery'): ?>
+                                                                    <?= $info['typeproperty'] ?>
+                                                                    <?php elseif($info['propertyCategory'] == 'Land'): ?>
+                                                                                                                                                                                                        <?= $info['landcategory'] ?> 
+                                                                    <?php endif; ?>
+                
+                                                                   
                                                                 </a></span>
                                                         </figure>
                                                     </div>
@@ -709,21 +731,7 @@ $galleryimageid = $_SESSION['galleryimageid']  ;
                                         <h4><i class="icon-42"></i>General Information:</h4>
                                         <div class="inner-box default-form">
                                             <div class="row clearfix">
-                                                <div class="col-lg-4 col-md-4 col-sm-12 column">
-                                                    <div class="field-input">
-                                                        <label>Property Name</label>
-                                                        <?php if (isset($_GET['edit']) && !empty($_GET['edit'])) {
-                                                            $formType = 'edit';
-                                                            $id = $_GET['edit'];
-                                                        } ?>
-                                                        <input type="hidden" name="formType" value="<?= $formType ?>">
-                                                        <input type="hidden" name="id" value="<?= $id ?>">
-                                                        <input type="text" name="propertytitle"
-                                                            value="<?= $propertytitle ?>" placeholder="Property Title"
-                                                            required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4 col-md-4 col-sm-12 column">
+                                            <div class="col-lg-4 col-md-4 col-sm-12 column">
                                                     <label>Property Category</label>
                                                     <div class="field-input">
                                                         <select class="form-control" name="propertyCategory"
@@ -731,13 +739,13 @@ $galleryimageid = $_SESSION['galleryimageid']  ;
                                                             <option value="<?= $propertyCategory ?>">
                                                                 <?= $propertyCategory ?>
                                                             </option>
-                                                            <option value="Distress Properties">Distress Property
+                                                            <option value="Distress Properties" class="text-capitalize">Distress Property
                                                             </option>
-                                                            <option value="Non Distress Properties">Non-Distress
+                                                            <option value="Non Distress Properties" class="text-capitalize">Non-Distress
                                                                 Property
                                                             </option>
-                                                            <option value="Autos/Machinery">Autos & Machinery</option>
-                                                            <option value="Land">Land</option>
+                                                            <option value="Autos/Machinery"  class="text-capitalize">Autos & Machinery</option>
+                                                            <option value="Land"  class="text-capitalize">Land</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -756,85 +764,103 @@ $galleryimageid = $_SESSION['galleryimageid']  ;
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-12 col-md-12 col-sm-12 column show">
+
+                                            <div class="col-lg-4 col-md-4 col-sm-12 column show">
                                                     <label>Property Type</label>
                                                     <div class="field-input">
                                                         <select class="form-control" name="typeproperty">
                                                             <option value="<?= $typeproperty ?>">
                                                                 <?= $typeproperty ?>
                                                             </option>
-                                                            <option value="bungalow">bungalow</option>
-                                                            <option value="fully detached"> fully detached</option>
-                                                            <option value="semi detached">semi detached</option>
-                                                            <option value="terrace">terrace</option>
-                                                            <option value="maisonette">maisonette
+                                                            <option value="bungalow"  class="text-capitalize">bungalow</option>
+                                                            <option value="fully detached"  class="text-capitalize"> fully detached</option>
+                                                            <option value="semi detached"  class="text-capitalize">semi detached</option>
+                                                            <option value="terrace"  class="text-capitalize">terrace</option>
+                                                            <option value="maisonette"  class="text-capitalize">maisonette
                                                             </option>
-                                                            <option value="land">land
+                                                            <option value="land"  class="text-capitalize">land
                                                             </option>
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-12 col-md-12 col-sm-12 column show3">
+                                                <div class="col-lg-4 col-md-4 col-sm-12 column show3">
                                                     <label>Property Type</label>
                                                     <div class="field-input">
-                                                        <select class="form-control" name="typeproperty">
+                                                        <select class="form-control" name="distresscat">
                                                             <option value="<?= $typeproperty ?>">
                                                                 <?= $typeproperty ?>
                                                             </option>
-                                                            <option value="bungalow">bungalow</option>
-                                                            <option value="fully detached"> fully detached</option>
-                                                            <option value="semi detached">semi detached</option>
-                                                            <option value="terrace">terrace</option>
-                                                            <option value="maisonette">maisonette
+                                                            <option value="bungalow"  class="text-capitalize">bungalow</option>
+                                                            <option value="fully detached"  class="text-capitalize"> fully detached</option>
+                                                            <option value="semi detached"  class="text-capitalize">semi detached</option>
+                                                            <option value="terrace"  class="text-capitalize">terrace</option>
+                                                            <option value="maisonette"  class="text-capitalize">maisonette
                                                             </option>
-                                                            <option value="land">land
+                                                            <option value="land"  class="text-capitalize">land
                                                             </option>
-                                                            <option value="apartment-block">apartment-block
+                                                            <option value="apartment-block"  class="text-capitalize">apartment-block
                                                             </option>
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-12 col-md-12 col-sm-12 column show2">
+                                                <div class="col-lg-4 col-md-4 col-sm-12 column show2">
                                                     <label>Property Type</label>
                                                     <div class="field-input">
-                                                        <select class="form-control" name="typeproperty">
+                                                        <select class="form-control" name="autocat">
                                                             <option value="<?= $typeproperty ?>">
                                                                 <?= $typeproperty ?>
                                                             </option>
-                                                            <option value="Vechicle">Vechicle</option>
-                                                            <option value="motorbike"> motorbike</option>
-                                                            <option value="aircraft">aircraft</option>
-                                                            <option value="vessel/ships">vessel/ships</option>
-                                                            <option value="cranes">cranes</option>
-                                                            <option value="scaffold iron bars">scaffold iron bars
+                                                            <option value="Vechicle"  class="text-capitalize">Vechicle</option>
+                                                            <option value="motorbike"  class="text-capitalize"> motorbike</option>
+                                                            <option value="aircraft"  class="text-capitalize">aircraft</option>
+                                                            <option value="vessel/ships"  class="text-capitalize">vessel/ships</option>
+                                                            <option value="cranes"  class="text-capitalize">cranes</option>
+                                                            <option value="scaffold iron bars"  class="text-capitalize">scaffold iron bars
                                                             </option>
-                                                            <option value="wires and conductors">wires and conductors</option>
-                                                            <option value="heavy machineries">heavy machineries</option>    
+                                                            <option value="wires and conductors"  class="text-capitalize">wires and conductors</option>
+                                                            <option value="heavy machineries"  class="text-capitalize">heavy machineries</option>    
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-12 col-md-12 col-sm-12 column show1">
+                                                <div class="col-lg-4 col-md-4 col-sm-12 column show1">
                                                     <label>Land Category</label>
                                                     <div class="field-input">
                                                         <select class="form-control" name="landcategory" id="">
-                                                            <option value="<?= $landcategory ?>">
-                                                                <?= $landcategory ?>
+                                                            <option value="<?= $typeproperty ?>">
+                                                                <?= $typeproperty ?>
                                                             </option>
-                                                            <option value="Wetland">Wetland</option>
-                                                            <option value="dry land"> dry land</option>
-                                                            <option value="sandfilled">sandfilled</option>
-                                                            <option value="bare-land">bare-land</option>
-                                                            <option value="demolishable">demolishable</option>
-                                                            <option value="Semi Detached Duplex">Semi Detached Duplex
+                                                            <option value="Wetland"  class="text-capitalize">Wetland</option>
+                                                            <option value="dry land"  class="text-capitalize"> dry land</option>
+                                                            <option value="sandfilled"  class="text-capitalize">sandfilled</option>
+                                                            <option value="bare-land"  class="text-capitalize">bare-land</option>
+                                                            <option value="demolishable"  class="text-capitalize">demolishable</option>
+                                                            <option value="Semi Detached Duplex"  class="text-capitalize">Semi Detached Duplex
                                                             </option>
-                                                            <option value="Terrace Bungalow">Terrace Bungalow</option>
+                                                            <option value="Terrace Bungalow"  class="text-capitalize">Terrace Bungalow</option>
                                                         </select>
                                                     </div>
                                                 </div>
+                                               
                                                 <div class="col-lg-12 col-md-12 col-sm-12 column">
                                                     <div class="field-input">
-                                                        <label>Ref No</label>
-                                                        <input type="number" name="titleproperty"
+                                                        <label>Property Name</label>
+                                                        <?php if (isset($_GET['edit']) && !empty($_GET['edit'])) {
+                                                            $formType = 'edit';
+                                                            $id = $_GET['edit'];
+                                                        } ?>
+                                                        <input type="hidden" name="formType" value="<?= $formType ?>">
+                                                        <input type="hidden" name="id" value="<?= $id ?>">
+                                                        <input type="text" name="propertytitle"
+                                                            value="<?= $propertytitle ?>" placeholder="Property Title"
+                                                            required>
+                                                    </div>
+                                                </div>
+                                               
+                                                
+                                                <div class="col-lg-12 col-md-12 col-sm-12 column">
+                                                    <div class="field-input">
+                                                        <!-- <label>Ref No</label> -->
+                                                        <input type="number" hidden name="titleproperty"
                                                             value="<?= $titleproperty ?>" placeholder="Ref No" required>
 
                                                     </div>
@@ -1230,8 +1256,8 @@ $galleryimageid = $_SESSION['galleryimageid']  ;
     <!-- main-js -->
     <script src="assets/js/script.js"></script>
     <script src="assets/sweetalert/sweet.js"></script>
-    <!-- <script src="./assets/dropify-master/dropify-master/dist/js/dropify.min.js"></script>
-    <script src="./assets/dropify-master/dropify-master/dist/js/customDropify.js"></script> -->
+    <script src="./assets/dropify-master/dropify-master/dist/js/dropify.min.js"></script>
+    <script src="./assets/dropify-master/dropify-master/dist/js/customDropify.js"></script>
 
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfCP4-o7KxqBfbWE5VX5Qw5a_M8P-mGUU&libraries=places&callback=initAutocomplete"

@@ -332,11 +332,7 @@ if (isset($_SESSION['useremail'])) {
                                                                     <?= $info['typeproperty'] ?>
                                                                         </a></h3>
                                                                 </div>
-                                                                        <div class="title-text">
-                                                                    <h3><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
-                                                                    <?= $info['titleproperty'] ?>
-                                                                        </a></h3>
-                                                                </div>
+                                                                       
                                                                         <p>
                                                                             <?= substr($info['detailedinfo'], 0, 77) . ' ...' ?>
                                                                         <p>

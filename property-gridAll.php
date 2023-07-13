@@ -54,7 +54,7 @@ if (isset($_SESSION['useremail'])) {
     <link href="assets/css/responsive.css" rel="stylesheet">
     <script src="assets/js/jquery.js"></script>
 
-    
+
 </head>
 
 
@@ -67,7 +67,7 @@ if (isset($_SESSION['useremail'])) {
 
 
         <!-- switcher menu -->
-        
+
         <!-- end switcher menu -->
 
 
@@ -81,7 +81,7 @@ if (isset($_SESSION['useremail'])) {
         <!-- End Mobile Menu -->
 
 
-         <!--Page Title-->
+        <!--Page Title-->
         <section class="page-title centred" style="background-image: url(assets/images/bgall.jpg);">
             <div class="auto-container">
                 <div class="content-box clearfix">
@@ -101,7 +101,7 @@ if (isset($_SESSION['useremail'])) {
                     <div class="search-field">
                         <div class="tabs-box">
                             <div class="tabs-content info-group">
-                               
+
                                 <div class="tab active-tab" id="tab-1">
                                     <div class="inner-box">
                                         <div class="top-search">
@@ -110,22 +110,31 @@ if (isset($_SESSION['useremail'])) {
                                                     <div class="col-lg-5 col-md-6 col-sm-12 column">
                                                         <div class="form-group">
                                                             <div class="field-input">
-                                                               <select class="form-control" name="propertyCategory" required>
-                                                                    <option data-display="Property Type">Property Type</option>
+                                                                <select class="form-control" name="propertyCategory"
+                                                                    required>
+                                                                    <option data-display="Property Type">Property Type
+                                                                    </option>
                                                                     <?php
                                                                     if ($propertyCategory == 'Land'):
                                                                         ?>
-                                                                        <option value="Residential">Residential</option>
-                                                                        <option value="commercial">commercial</option>
-                                                                        <option value="Mixed Area"> Mixed Area</option>
+                                                                    <option value="Residential">Residential</option>
+                                                                    <option value="commercial">commercial</option>
+                                                                    <option value="Mixed Area"> Mixed Area</option>
                                                                     <?php else: ?>
-                                                                        <option value="Detached Duplex">Detached Duplex</option>
-                                                                        <option value="Terrace Duplex"> Terrace Duplex</option>
-                                                                        <option value="Flat/Apartment">Flat/Apartment</option>
-                                                                        <option value="Detached Bungalow">Detached Bungalow</option>
-                                                                        <option value="Semi Detached Bungalow">Semi Detached Bungalow</option>
-                                                                        <option value="Semi Detached Duplex">Semi Detached Duplex</option>
-                                                                        <option value="Terrace Bungalow">Terrace Bungalow</option>
+                                                                    <option value="Detached Duplex">Detached Duplex
+                                                                    </option>
+                                                                    <option value="Terrace Duplex"> Terrace Duplex
+                                                                    </option>
+                                                                    <option value="Flat/Apartment">Flat/Apartment
+                                                                    </option>
+                                                                    <option value="Detached Bungalow">Detached Bungalow
+                                                                    </option>
+                                                                    <option value="Semi Detached Bungalow">Semi Detached
+                                                                        Bungalow</option>
+                                                                    <option value="Semi Detached Duplex">Semi Detached
+                                                                        Duplex</option>
+                                                                    <option value="Terrace Bungalow">Terrace Bungalow
+                                                                    </option>
                                                                     <?php endif; ?>
                                                                     <!-- <option value="Distress Properties">Distress Property</option>
                                                                     <option value="Non Distress
@@ -137,12 +146,13 @@ if (isset($_SESSION['useremail'])) {
                                                             </div>
                                                         </div>
                                                     </div>
-                                            
+
                                                     <div class="col-lg-5 col-md-6 col-sm-12 column">
                                                         <div class="form-group">
                                                             <div class="select-box">
                                                                 <select class="form-control" name="state" required>
-                                                                    <option data-display="Select State">Select State</option>
+                                                                    <option data-display="Select State">Select State
+                                                                    </option>
                                                                     <option>ABUJA FCT</option>
                                                                     <option>ABIA</option>
                                                                     <option>ADAMAWA</option>
@@ -184,20 +194,21 @@ if (isset($_SESSION['useremail'])) {
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    
-                                                     <div class="col-lg-2 col-md-6 col-sm-12 column">
+
+                                                    <div class="col-lg-2 col-md-6 col-sm-12 column">
                                                         <input type="hidden" value="Nigeria" name="area_location">
-                                                        <button type="Submit" name="searchBtn" class="theme-btn btn-one">Search</button>
-                                       
-                                                     </div>
+                                                        <button type="Submit" name="searchBtn"
+                                                            class="theme-btn btn-one">Search</button>
+
+                                                    </div>
                                                 </div>
-                                         
+
                                             </form>
                                         </div>
-                                      
+
                                     </div>
                                 </div>
-                              
+
                             </div>
                         </div>
                     </div>
@@ -216,7 +227,7 @@ if (isset($_SESSION['useremail'])) {
                                     <h5>Property</h5>
                                 </div>
                                 <div class="panel-body">
-                                    <form action="" method="post" class="form-light">
+                                    <!-- <form action="" method="post" class="form-light">
                                         <input type="hidden" name="_token"
                                             value="LLm2UyrhInZ03U48KYRn8EQrgg71P31vvSNEuWq3">
                                         <div class="row">
@@ -402,16 +413,6 @@ if (isset($_SESSION['useremail'])) {
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label>Property Ref.</label>
-                                                    <input name="ref" id="ref" class="form-control"
-                                                        placeholder="e.g. 83256" type="number" min="0" value=""
-                                                        autocomplete="off">
-                                                </div>
-                                            </div>
-                                        </div> -->
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
@@ -429,14 +430,584 @@ if (isset($_SESSION['useremail'])) {
                                                 </button>
                                             </div>
                                         </div>
+                                    </form> -->
+                                    <?php if($_GET['propertyCategory'] == 'Distress Properties'):  ?>
+                                    <form action="" method="post" class="form-light">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Location</label>
+                                                    <div class="easy-autocomplete">
+                                                        <textarea data-prefix="" name="Location"
+                                                            placeholder="Enter a state, locality or area"
+                                                            data-results="all" style="height:36px;" type="text"
+                                                            class="form-control side-panel-search propertyLocation"
+                                                            autocomplete="off" id="eac-118" required></textarea>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12 ">
+                                                <div class="form-group">
+                                                    <label>Type</label>
+                                                    <select name="type" id="type" class="form-control">
+                                                        <option value="" selected="selected">Select Types</option>
+                                                        <option class="text-capitalize" value="bungalow">bungalow
+                                                        </option>
+                                                        <option class="text-capitalize" value="fully detached"> fully
+                                                            detached</option>
+                                                        <option class="text-capitalize" value="semi detached">semi
+                                                            detached</option>
+                                                        <option class="text-capitalize" value="terrace">terrace</option>
+                                                        <option class="text-capitalize" value="maisonette">maisonette
+                                                        </option>
+                                                        <option class="text-capitalize" value="land">land
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Min price</label>
+                                                    <select name="minprice" required id="minprice" class="form-control">
+                                                        <option value="0" selected="selected">No Min</option>
+                                                        <option value="250000"> 250,000</option>
+                                                        <option value="500000"> 500,000</option>
+                                                        <option value="750000"> 750,000</option>
+                                                        <option value="1000000"> 1 Million</option>
+                                                        <option value="2000000"> 2 Million</option>
+                                                        <option value="5000000"> 5 Million</option>
+                                                        <option value="10000000"> 10 Million</option>
+                                                        <option value="20000000"> 20 Million</option>
+                                                        <option value="30000000"> 30 Million</option>
+                                                        <option value="40000000"> 40 Million</option>
+                                                        <option value="60000000"> 60 Million</option>
+                                                        <option value="80000000"> 80 Million</option>
+                                                        <option value="100000000"> 100 Million</option>
+                                                        <option value="150000000"> 150 Million</option>
+                                                        <option value="200000000"> 200 Million</option>
+                                                        <option value="250000000"> 250 Million</option>
+                                                        <option value="300000000"> 300 Million</option>
+                                                        <option value="400000000"> 400 Million</option>
+                                                        <option value="500000000"> 500 Million</option>
+                                                        <option value="600000000"> 600 Million</option>
+                                                        <option value="700000000"> 700 Million</option>
+                                                        <option value="800000000"> 800 Million</option>
+                                                        <option value="900000000"> 900 Million</option>
+                                                        <option value="1000000000"> 1 Billion</option>
+                                                        <option value="2000000000"> 2 Billion</option>
+                                                        <option value="5000000000"> 5 Billion</option>
+                                                        <option value="10000000000"> 10 Billion</option>
+                                                        <option value="20000000000"> 20 Billion</option>
+                                                        <option value="30000000000"> 30 Billion</option>
+                                                        <option value="40000000000"> 40 Billion</option>
+                                                        <option value="50000000000"> 50 Billion</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Max price</label>
+                                                    <select name="maxprice" required id="maxprice" class="form-control">
+                                                        <option value="0" selected="selected">No Max</option>
+                                                        <option value="250000"> 250,000</option>
+                                                        <option value="500000"> 500,000</option>
+                                                        <option value="750000"> 750,000</option>
+                                                        <option value="1000000"> 1 Million</option>
+                                                        <option value="2000000"> 2 Million</option>
+                                                        <option value="5000000"> 5 Million</option>
+                                                        <option value="10000000"> 10 Million</option>
+                                                        <option value="20000000"> 20 Million</option>
+                                                        <option value="30000000"> 30 Million</option>
+                                                        <option value="40000000"> 40 Million</option>
+                                                        <option value="60000000"> 60 Million</option>
+                                                        <option value="80000000"> 80 Million</option>
+                                                        <option value="100000000"> 100 Million</option>
+                                                        <option value="150000000"> 150 Million</option>
+                                                        <option value="200000000"> 200 Million</option>
+                                                        <option value="250000000"> 250 Million</option>
+                                                        <option value="300000000"> 300 Million</option>
+                                                        <option value="400000000"> 400 Million</option>
+                                                        <option value="500000000"> 500 Million</option>
+                                                        <option value="600000000"> 600 Million</option>
+                                                        <option value="700000000"> 700 Million</option>
+                                                        <option value="800000000"> 800 Million</option>
+                                                        <option value="900000000"> 900 Million</option>
+                                                        <option value="1000000000"> 1 Billion</option>
+                                                        <option value="2000000000"> 2 Billion</option>
+                                                        <option value="5000000000"> 5 Billion</option>
+                                                        <option value="10000000000"> 10 Billion</option>
+                                                        <option value="20000000000"> 20 Billion</option>
+                                                        <option value="30000000000"> 30 Billion</option>
+                                                        <option value="40000000000"> 40 Billion</option>
+                                                        <option value="50000000000"> 50 Billion</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Title</label>
+                                                    <input name="keywords" id="keywords" required class="form-control"
+                                                        placeholder="e.g. 'pool' or 'jacuzzi'" value=""
+                                                        autocomplete="off">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <button type="submit" name="advquery" class="theme-btn btn-one ">
+                                                    <span>Search</span>
+                                                </button>
+                                            </div>
+                                        </div>
                                     </form>
+                                    <?php elseif($_GET['propertyCategory'] == 'Non Distress Properties'):  ?>
+                                    <form action="" method="post" class="form-light">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Location</label>
+                                                    <div class="easy-autocomplete">
+                                                        <textarea data-prefix="" name="Location"
+                                                            placeholder="Enter a state, locality or area"
+                                                            data-results="all" style="height:36px;" type="text"
+                                                            class="form-control side-panel-search propertyLocation"
+                                                            autocomplete="off" id="eac-118" required></textarea>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12 ">
+                                                <div class="form-group">
+                                                    <label>Type</label>
+                                                    <select name="type" id="type" class="form-control">
+                                                        <option class="text-capitalize" value="" selected="selected">
+                                                            Select Types</option>
+                                                        <option class="text-capitalize" value="bungalow">bungalow
+                                                        </option>
+                                                        <option class="text-capitalize" value="fully detached"> fully
+                                                            detached</option>
+                                                        <option class="text-capitalize" value="semi detached">semi
+                                                            detached</option>
+                                                        <option class="text-capitalize" value="terrace">terrace</option>
+                                                        <option class="text-capitalize" value="maisonette">maisonette
+                                                        </option>
+                                                        <option class="text-capitalize" value="land">land
+                                                        </option>
+                                                        <option class="text-capitalize" value="apartment-block">
+                                                            apartment-block
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Min price</label>
+                                                    <select name="minprice" required id="minprice" class="form-control">
+                                                        <option value="0" selected="selected">No Min</option>
+                                                        <option value="250000"> 250,000</option>
+                                                        <option value="500000"> 500,000</option>
+                                                        <option value="750000"> 750,000</option>
+                                                        <option value="1000000"> 1 Million</option>
+                                                        <option value="2000000"> 2 Million</option>
+                                                        <option value="5000000"> 5 Million</option>
+                                                        <option value="10000000"> 10 Million</option>
+                                                        <option value="20000000"> 20 Million</option>
+                                                        <option value="30000000"> 30 Million</option>
+                                                        <option value="40000000"> 40 Million</option>
+                                                        <option value="60000000"> 60 Million</option>
+                                                        <option value="80000000"> 80 Million</option>
+                                                        <option value="100000000"> 100 Million</option>
+                                                        <option value="150000000"> 150 Million</option>
+                                                        <option value="200000000"> 200 Million</option>
+                                                        <option value="250000000"> 250 Million</option>
+                                                        <option value="300000000"> 300 Million</option>
+                                                        <option value="400000000"> 400 Million</option>
+                                                        <option value="500000000"> 500 Million</option>
+                                                        <option value="600000000"> 600 Million</option>
+                                                        <option value="700000000"> 700 Million</option>
+                                                        <option value="800000000"> 800 Million</option>
+                                                        <option value="900000000"> 900 Million</option>
+                                                        <option value="1000000000"> 1 Billion</option>
+                                                        <option value="2000000000"> 2 Billion</option>
+                                                        <option value="5000000000"> 5 Billion</option>
+                                                        <option value="10000000000"> 10 Billion</option>
+                                                        <option value="20000000000"> 20 Billion</option>
+                                                        <option value="30000000000"> 30 Billion</option>
+                                                        <option value="40000000000"> 40 Billion</option>
+                                                        <option value="50000000000"> 50 Billion</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Max price</label>
+                                                    <select name="maxprice" required id="maxprice" class="form-control">
+                                                        <option value="0" selected="selected">No Max</option>
+                                                        <option value="250000"> 250,000</option>
+                                                        <option value="500000"> 500,000</option>
+                                                        <option value="750000"> 750,000</option>
+                                                        <option value="1000000"> 1 Million</option>
+                                                        <option value="2000000"> 2 Million</option>
+                                                        <option value="5000000"> 5 Million</option>
+                                                        <option value="10000000"> 10 Million</option>
+                                                        <option value="20000000"> 20 Million</option>
+                                                        <option value="30000000"> 30 Million</option>
+                                                        <option value="40000000"> 40 Million</option>
+                                                        <option value="60000000"> 60 Million</option>
+                                                        <option value="80000000"> 80 Million</option>
+                                                        <option value="100000000"> 100 Million</option>
+                                                        <option value="150000000"> 150 Million</option>
+                                                        <option value="200000000"> 200 Million</option>
+                                                        <option value="250000000"> 250 Million</option>
+                                                        <option value="300000000"> 300 Million</option>
+                                                        <option value="400000000"> 400 Million</option>
+                                                        <option value="500000000"> 500 Million</option>
+                                                        <option value="600000000"> 600 Million</option>
+                                                        <option value="700000000"> 700 Million</option>
+                                                        <option value="800000000"> 800 Million</option>
+                                                        <option value="900000000"> 900 Million</option>
+                                                        <option value="1000000000"> 1 Billion</option>
+                                                        <option value="2000000000"> 2 Billion</option>
+                                                        <option value="5000000000"> 5 Billion</option>
+                                                        <option value="10000000000"> 10 Billion</option>
+                                                        <option value="20000000000"> 20 Billion</option>
+                                                        <option value="30000000000"> 30 Billion</option>
+                                                        <option value="40000000000"> 40 Billion</option>
+                                                        <option value="50000000000"> 50 Billion</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Title</label>
+                                                    <input name="keywords" id="keywords" required class="form-control"
+                                                        placeholder="e.g. 'pool' or 'jacuzzi'" value=""
+                                                        autocomplete="off">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <button type="submit" name="advquery" class="theme-btn btn-one ">
+                                                    <span>Search</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <?php elseif($_GET['propertyCategory'] == 'Autos/Machinery'):  ?>
+                                    <form action="" method="post" class="form-light">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Location</label>
+                                                    <div class="easy-autocomplete">
+                                                        <textarea data-prefix="" name="Location"
+                                                            placeholder="Enter a state, locality or area"
+                                                            data-results="all" style="height:36px;" type="text"
+                                                            class="form-control side-panel-search propertyLocation"
+                                                            autocomplete="off" id="eac-118" required></textarea>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12 ">
+                                                <div class="form-group">
+                                                    <label>Type</label>
+                                                    <select name="type" id="type" class="form-control">
+                                                        <option class="text-capitalize" value="0" selected="selected">
+                                                            Select Types</option>
+                                                        <option class="text-capitalize" value="Vechicle">Vechicle
+                                                        </option>
+                                                        <option class="text-capitalize" value="motorbike"> motorbike
+                                                        </option>
+                                                        <option class="text-capitalize" value="aircraft">aircraft
+                                                        </option>
+                                                        <option class="text-capitalize" value="vessel/ships">
+                                                            vessel/ships</option>
+                                                        <option class="text-capitalize" value="cranes">cranes</option>
+                                                        <option class="text-capitalize" value="scaffold iron bars">
+                                                            scaffold iron bars
+                                                        </option>
+                                                        <option class="text-capitalize" value="wires and conductors">
+                                                            wires and conductors
+                                                        </option>
+                                                        <option class="text-capitalize" value="heavy machineries">heavy
+                                                            machineries</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Min price</label>
+                                                    <select name="minprice" required id="minprice" class="form-control">
+                                                        <option value="0" selected="selected">No Min</option>
+                                                        <option value="250000"> 250,000</option>
+                                                        <option value="500000"> 500,000</option>
+                                                        <option value="750000"> 750,000</option>
+                                                        <option value="1000000"> 1 Million</option>
+                                                        <option value="2000000"> 2 Million</option>
+                                                        <option value="5000000"> 5 Million</option>
+                                                        <option value="10000000"> 10 Million</option>
+                                                        <option value="20000000"> 20 Million</option>
+                                                        <option value="30000000"> 30 Million</option>
+                                                        <option value="40000000"> 40 Million</option>
+                                                        <option value="60000000"> 60 Million</option>
+                                                        <option value="80000000"> 80 Million</option>
+                                                        <option value="100000000"> 100 Million</option>
+                                                        <option value="150000000"> 150 Million</option>
+                                                        <option value="200000000"> 200 Million</option>
+                                                        <option value="250000000"> 250 Million</option>
+                                                        <option value="300000000"> 300 Million</option>
+                                                        <option value="400000000"> 400 Million</option>
+                                                        <option value="500000000"> 500 Million</option>
+                                                        <option value="600000000"> 600 Million</option>
+                                                        <option value="700000000"> 700 Million</option>
+                                                        <option value="800000000"> 800 Million</option>
+                                                        <option value="900000000"> 900 Million</option>
+                                                        <option value="1000000000"> 1 Billion</option>
+                                                        <option value="2000000000"> 2 Billion</option>
+                                                        <option value="5000000000"> 5 Billion</option>
+                                                        <option value="10000000000"> 10 Billion</option>
+                                                        <option value="20000000000"> 20 Billion</option>
+                                                        <option value="30000000000"> 30 Billion</option>
+                                                        <option value="40000000000"> 40 Billion</option>
+                                                        <option value="50000000000"> 50 Billion</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Max price</label>
+                                                    <select name="maxprice" required id="maxprice" class="form-control">
+                                                        <option value="0" selected="selected">No Max</option>
+                                                        <option value="250000"> 250,000</option>
+                                                        <option value="500000"> 500,000</option>
+                                                        <option value="750000"> 750,000</option>
+                                                        <option value="1000000"> 1 Million</option>
+                                                        <option value="2000000"> 2 Million</option>
+                                                        <option value="5000000"> 5 Million</option>
+                                                        <option value="10000000"> 10 Million</option>
+                                                        <option value="20000000"> 20 Million</option>
+                                                        <option value="30000000"> 30 Million</option>
+                                                        <option value="40000000"> 40 Million</option>
+                                                        <option value="60000000"> 60 Million</option>
+                                                        <option value="80000000"> 80 Million</option>
+                                                        <option value="100000000"> 100 Million</option>
+                                                        <option value="150000000"> 150 Million</option>
+                                                        <option value="200000000"> 200 Million</option>
+                                                        <option value="250000000"> 250 Million</option>
+                                                        <option value="300000000"> 300 Million</option>
+                                                        <option value="400000000"> 400 Million</option>
+                                                        <option value="500000000"> 500 Million</option>
+                                                        <option value="600000000"> 600 Million</option>
+                                                        <option value="700000000"> 700 Million</option>
+                                                        <option value="800000000"> 800 Million</option>
+                                                        <option value="900000000"> 900 Million</option>
+                                                        <option value="1000000000"> 1 Billion</option>
+                                                        <option value="2000000000"> 2 Billion</option>
+                                                        <option value="5000000000"> 5 Billion</option>
+                                                        <option value="10000000000"> 10 Billion</option>
+                                                        <option value="20000000000"> 20 Billion</option>
+                                                        <option value="30000000000"> 30 Billion</option>
+                                                        <option value="40000000000"> 40 Billion</option>
+                                                        <option value="50000000000"> 50 Billion</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Title</label>
+                                                    <input name="keywords" id="keywords" required class="form-control"
+                                                        placeholder="e.g. 'pool' or 'jacuzzi'" value=""
+                                                        autocomplete="off">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <button type="submit" name="advquery" class="theme-btn btn-one ">
+                                                    <span>Search</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <?php elseif($_GET['propertyCategory'] == 'Land'):  ?>
+                                    <form action="" method="post" class="form-light">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Location</label>
+                                                    <div class="easy-autocomplete">
+                                                        <textarea data-prefix="" name="Location"
+                                                            placeholder="Enter a state, locality or area"
+                                                            data-results="all" style="height:36px;" type="text"
+                                                            class="form-control side-panel-search propertyLocation"
+                                                            autocomplete="off" id="eac-118" required></textarea>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Type</label>
+                                                    <select name="type" id="type" class="form-control">
+                                                        <option class="text-capitalize" value="0" selected="selected">
+                                                            Select Types</option>
+                                                        <option class="text-capitalize" value="Wetland">Wetland</option>
+                                                        <option class="text-capitalize" value="dry land"> dry land
+                                                        </option>
+                                                        <option class="text-capitalize" value="sandfilled">sandfilled
+                                                        </option>
+                                                        <option class="text-capitalize" value="bare-land">bare-land
+                                                        </option>
+                                                        <option class="text-capitalize" value="demolishable">
+                                                            demolishable</option>
+                                                        <option class="text-capitalize" value="Semi Detached Duplex">
+                                                            Semi Detached Duplex
+                                                        </option>
+                                                        <option class="text-capitalize" value="Terrace Bungalow">Terrace
+                                                            Bungalow</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Min price</label>
+                                                    <select name="minprice" required id="minprice" class="form-control">
+                                                        <option value="0" selected="selected">No Min</option>
+                                                        <option value="250000"> 250,000</option>
+                                                        <option value="500000"> 500,000</option>
+                                                        <option value="750000"> 750,000</option>
+                                                        <option value="1000000"> 1 Million</option>
+                                                        <option value="2000000"> 2 Million</option>
+                                                        <option value="5000000"> 5 Million</option>
+                                                        <option value="10000000"> 10 Million</option>
+                                                        <option value="20000000"> 20 Million</option>
+                                                        <option value="30000000"> 30 Million</option>
+                                                        <option value="40000000"> 40 Million</option>
+                                                        <option value="60000000"> 60 Million</option>
+                                                        <option value="80000000"> 80 Million</option>
+                                                        <option value="100000000"> 100 Million</option>
+                                                        <option value="150000000"> 150 Million</option>
+                                                        <option value="200000000"> 200 Million</option>
+                                                        <option value="250000000"> 250 Million</option>
+                                                        <option value="300000000"> 300 Million</option>
+                                                        <option value="400000000"> 400 Million</option>
+                                                        <option value="500000000"> 500 Million</option>
+                                                        <option value="600000000"> 600 Million</option>
+                                                        <option value="700000000"> 700 Million</option>
+                                                        <option value="800000000"> 800 Million</option>
+                                                        <option value="900000000"> 900 Million</option>
+                                                        <option value="1000000000"> 1 Billion</option>
+                                                        <option value="2000000000"> 2 Billion</option>
+                                                        <option value="5000000000"> 5 Billion</option>
+                                                        <option value="10000000000"> 10 Billion</option>
+                                                        <option value="20000000000"> 20 Billion</option>
+                                                        <option value="30000000000"> 30 Billion</option>
+                                                        <option value="40000000000"> 40 Billion</option>
+                                                        <option value="50000000000"> 50 Billion</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Max price</label>
+                                                    <select name="maxprice" required id="maxprice" class="form-control">
+                                                        <option value="0" selected="selected">No Max</option>
+                                                        <option value="250000"> 250,000</option>
+                                                        <option value="500000"> 500,000</option>
+                                                        <option value="750000"> 750,000</option>
+                                                        <option value="1000000"> 1 Million</option>
+                                                        <option value="2000000"> 2 Million</option>
+                                                        <option value="5000000"> 5 Million</option>
+                                                        <option value="10000000"> 10 Million</option>
+                                                        <option value="20000000"> 20 Million</option>
+                                                        <option value="30000000"> 30 Million</option>
+                                                        <option value="40000000"> 40 Million</option>
+                                                        <option value="60000000"> 60 Million</option>
+                                                        <option value="80000000"> 80 Million</option>
+                                                        <option value="100000000"> 100 Million</option>
+                                                        <option value="150000000"> 150 Million</option>
+                                                        <option value="200000000"> 200 Million</option>
+                                                        <option value="250000000"> 250 Million</option>
+                                                        <option value="300000000"> 300 Million</option>
+                                                        <option value="400000000"> 400 Million</option>
+                                                        <option value="500000000"> 500 Million</option>
+                                                        <option value="600000000"> 600 Million</option>
+                                                        <option value="700000000"> 700 Million</option>
+                                                        <option value="800000000"> 800 Million</option>
+                                                        <option value="900000000"> 900 Million</option>
+                                                        <option value="1000000000"> 1 Billion</option>
+                                                        <option value="2000000000"> 2 Billion</option>
+                                                        <option value="5000000000"> 5 Billion</option>
+                                                        <option value="10000000000"> 10 Billion</option>
+                                                        <option value="20000000000"> 20 Billion</option>
+                                                        <option value="30000000000"> 30 Billion</option>
+                                                        <option value="40000000000"> 40 Billion</option>
+                                                        <option value="50000000000"> 50 Billion</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Title</label>
+                                                    <input name="keywords" id="keywords" required class="form-control"
+                                                        placeholder="e.g. 'pool' or 'jacuzzi'" value=""
+                                                        autocomplete="off">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Square Meters</label>
+                                                    <input name="sqrt" id="sqrt" required class="form-control"
+                                                        placeholder="500">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <button type="submit" name="advquery" class="theme-btn btn-one ">
+                                                    <span>Search</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <?php endif;  ?>
+
                                 </div>
                             </div>
                         </div>
-                    </div> 
+                    </div>
                     <div class="col-lg-8 col-md-8 col-sm-12 content-side">
                         <div class="property-content-side">
-                        <div class="item-shorting clearfix">
+                            <div class="item-shorting clearfix">
                                 <div class="left-column pull-left">
                                     <?php
                                     $count = $dbs->SelectAllApropertiesNoSessNoLimitCount($propertyCategory);
@@ -454,7 +1025,10 @@ if (isset($_SESSION['useremail'])) {
                                     $fetch = $dbs->SelectAllApropertiesNoSessNoLimitPag($propertyCategory, $itemsPerPage, $startIndex);
                                     $fetchCount = count($fetch);
                                     ?>
-                                    <h5>Search Reasults: <span>Showing <?= $fetchCount ?> of <?= $count ?> Listings</span></h5>
+                                    <h5>Search Reasults: <span>Showing
+                                            <?= $fetchCount ?> of
+                                            <?= $count ?> Listings
+                                        </span></h5>
                                 </div>
                                 <div class="right-column pull-right clearfix">
                                     <div class="short-box clearfix">
@@ -476,10 +1050,72 @@ if (isset($_SESSION['useremail'])) {
                             </div>
                             <div class="wrapper list">
                                 <div class="deals-list-content list-item">
-                                <?php
+                                    <?php
 
-                                if (!isset($_SESSION['useremail'])) {
-                                    if (isset($_POST['advquery'])) {
+                                if (isset($_POST['advquery'])) {
+                                    // Number of items per page
+                                    $itemsPerPage = 9;
+
+                                    // Current page number
+                                    $page = isset($_GET['page']) ? $_GET['page'] : 1;
+
+                                    // Calculate the starting index of the items to display
+                                    $startIndex = ($page - 1) * $itemsPerPage;
+
+                                    // Query to fetch the items from the database
+                                    // Replace this with your own query to fetch the items
+                                    $Location = $_POST['Location'];
+                                    $typeproperty = $_POST['type'];
+                                    $minprice = $_POST['minprice'];
+                                    $maxprice = $_POST['maxprice'];
+                                    $keywords = $_POST['keywords'];
+                                     if($_GET['propertyCategory'] == 'Distress Properties'):  
+                                        $fetch = $dbs->AdvanceSearchqueryDis($Location, $typeproperty,  $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex);
+                                     elseif($_GET['propertyCategory'] == 'Non Distress Properties'):
+                                        $fetch = $dbs->AdvanceSearchqueryDis($Location, $typeproperty,  $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex);
+                                     elseif($_GET['propertyCategory'] == 'Autos/Machinery'):
+                                        $fetch = $dbs->AdvanceSearchqueryDis($Location, $typeproperty,  $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex);
+                                    elseif($_GET['propertyCategory'] == 'Land'): 
+                                        $sqrt = $_POST['sqrt'];
+                                        $fetch = $dbs->AdvanceSearchqueryLand($Location, $typeproperty,  $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex, $sqrt);
+                                     endif;
+                                // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
+                            
+                                    // Execute the query and fetch the items
+                                    // Replace this with your own code to execute the query and fetch the items
+                                    // $items = []; // array to store the fetched items
+                            
+                                    // Query to get the total number of items
+                                    // Replace this with your own query to get the total number of items
+                                    // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
+                                    if($_GET['propertyCategory'] == 'Distress Properties'):  
+                                    $totalItemsQuery = $dbs->AdvanceSearchqueryNODis($Location, $typeproperty,  $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex);
+                                    elseif($_GET['propertyCategory'] == 'Non Distress Properties'):
+                                    $totalItemsQuery = $dbs->AdvanceSearchqueryNODis($Location, $typeproperty,  $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex);
+                                    elseif($_GET['propertyCategory'] == 'Autos/Machinery'):
+                                    $totalItemsQuery = $dbs->AdvanceSearchqueryNODis($Location, $typeproperty,  $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex);
+                                    elseif($_GET['propertyCategory'] == 'Land'): 
+                                    $totalItemsQuery = $dbs->AdvanceSearchqueryNOLand($Location, $typeproperty,  $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex, $sqrt);
+                                    $sqrt = $_POST['sqrt'];
+                                    endif;
+
+                                    //$totalItemsQuery = $dbs->AdvanceSearchqueryNO($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex, $ref);
+                                    $totalItemsResult = $totalItemsQuery; // result of executing the query
+                            
+                                    // Get the total number of items
+                                    $totalItems = $totalItemsResult;
+
+                                    // Calculate the total number of pages
+                                    $totalPages = ceil($totalItems / $itemsPerPage);
+                                } else {
+                                    if (isset($_POST['searchBtn'])) {
+                                        $propertyCategory = $_POST['propertyCategory'];
+                                        $state = $_POST['state'];
+                                        // echo $state;
+                                        // $area_location = $_POST['area_location'];
+                                        // $city = $_POST['city'];
+                                        // $fetch = $dbs->SelectAllApropertiesWhere($user_id, $propertyCategory, $area_location, $city, $state);
+                                        $fetch = $dbs->SelectAllApropertiesWhereNoSess($propertyCategory, $state);
                                         // Number of items per page
                                         $itemsPerPage = 9;
 
@@ -491,44 +1127,57 @@ if (isset($_SESSION['useremail'])) {
 
                                         // Query to fetch the items from the database
                                         // Replace this with your own query to fetch the items
-                                        $Location = $_POST['Location'];
-                                        $propertyCategory = $_POST['category'];
-                                        $landcategory = $_POST['landcategory'];
-                                        $typeproperty = $_POST['type'];
-                                        $bedrooms = $_POST['bedrooms'];
-                                        $bathroom = $_POST['bathroooms'];
-                                        $toilets = $_POST['toilets'];
-                                        $minprice = $_POST['minprice'];
-                                        $maxprice = $_POST['maxprice'];
-                                        $keywords = $_POST['keywords'];
-                                        $ref = $_POST['ref'];
-                                        $fetch = $dbs->AdvanceSearchquery($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex, $ref);
+                                        //    $fetch = $dbs->SelectAllApropertiesNoSessNoLimitPag($propertyCategory, $itemsPerPage, $startIndex);
                                         // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
-                                
+                            
                                         // Execute the query and fetch the items
                                         // Replace this with your own code to execute the query and fetch the items
                                         // $items = []; // array to store the fetched items
-                                
+                            
                                         // Query to get the total number of items
                                         // Replace this with your own query to get the total number of items
                                         // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
-                                        $totalItemsQuery = $dbs->AdvanceSearchqueryNO($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex, $ref);
+                                        $totalItemsQuery = $dbs->SelectAllApropertiesNoSessNoLimitPagCount($propertyCategory);
                                         $totalItemsResult = $totalItemsQuery; // result of executing the query
-                                
+                            
                                         // Get the total number of items
-                                        $totalItems = $totalItemsResult;
+                                        $totalItems = $totalItemsResult['id'];
 
                                         // Calculate the total number of pages
                                         $totalPages = ceil($totalItems / $itemsPerPage);
                                     } else {
-                                        if (isset($_POST['searchBtn'])) {
-                                            $propertyCategory = $_POST['propertyCategory'];
-                                            $state = $_POST['state'];
-                                            // echo $state;
-                                            // $area_location = $_POST['area_location'];
-                                            // $city = $_POST['city'];
-                                            // $fetch = $dbs->SelectAllApropertiesWhere($user_id, $propertyCategory, $area_location, $city, $state);
-                                            $fetch = $dbs->SelectAllApropertiesWhereNoSess($propertyCategory, $state);
+                                        if (isset($_GET['search'])) {
+                                            # code...
+                                            $search = $_GET['search'];
+                                            $itemsPerPage = 9;
+
+                                            // Current page number
+                                            $page = isset($_GET['page']) ? $_GET['page'] : 1;
+
+                                            // Calculate the starting index of the items to display
+                                            $startIndex = ($page - 1) * $itemsPerPage;
+
+                                            // Query to fetch the items from the database
+                                            // Replace this with your own query to fetch the items
+                                            $fetch = $dbs->SelectAllApropertiesSearch($search, $startIndex, $itemsPerPage);
+                                            // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
+                            
+                                            // Execute the query and fetch the items
+                                            // Replace this with your own code to execute the query and fetch the items
+                                            // $items = []; // array to store the fetched items
+                            
+                                            // Query to get the total number of items
+                                            // Replace this with your own query to get the total number of items
+                                            // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
+                                            $totalItemsQuery = $dbs->SelectAllApropertiesNoSessNoLimitPagCountAll();
+                                            $totalItemsResult = $totalItemsQuery; // result of executing the query
+                            
+                                            // Get the total number of items
+                                            $totalItems = $totalItemsResult['id'];
+
+                                            // Calculate the total number of pages
+                                            $totalPages = ceil($totalItems / $itemsPerPage);
+                                        } else {
                                             // Number of items per page
                                             $itemsPerPage = 9;
 
@@ -540,215 +1189,32 @@ if (isset($_SESSION['useremail'])) {
 
                                             // Query to fetch the items from the database
                                             // Replace this with your own query to fetch the items
-                                            //    $fetch = $dbs->SelectAllApropertiesNoSessNoLimitPag($propertyCategory, $itemsPerPage, $startIndex);
+                                            $fetch = $dbs->SelectAllpropertiesNoLimit($startIndex, $itemsPerPage);
                                             // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
-                                
+                            
                                             // Execute the query and fetch the items
                                             // Replace this with your own code to execute the query and fetch the items
                                             // $items = []; // array to store the fetched items
-                                
+                            
                                             // Query to get the total number of items
                                             // Replace this with your own query to get the total number of items
                                             // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
-                                            $totalItemsQuery = $dbs->SelectAllApropertiesNoSessNoLimitPagCount($propertyCategory);
+                                            $totalItemsQuery = $dbs->SelectAllApropertiesNoSessNoLimitPagCountAll();
                                             $totalItemsResult = $totalItemsQuery; // result of executing the query
-                                
+                            
                                             // Get the total number of items
                                             $totalItems = $totalItemsResult['id'];
 
                                             // Calculate the total number of pages
                                             $totalPages = ceil($totalItems / $itemsPerPage);
-                                        } else {
-                                            if (isset($_GET['search'])) {
-                                                # code...
-                                                $search = $_GET['search'];
-                                                $itemsPerPage = 9;
 
-                                                // Current page number
-                                                $page = isset($_GET['page']) ? $_GET['page'] : 1;
-
-                                                // Calculate the starting index of the items to display
-                                                $startIndex = ($page - 1) * $itemsPerPage;
-
-                                                // Query to fetch the items from the database
-                                                // Replace this with your own query to fetch the items
-                                                $fetch = $dbs->SelectAllApropertiesSearch($search, $startIndex, $itemsPerPage);
-                                                // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
-                                
-                                                // Execute the query and fetch the items
-                                                // Replace this with your own code to execute the query and fetch the items
-                                                // $items = []; // array to store the fetched items
-                                
-                                                // Query to get the total number of items
-                                                // Replace this with your own query to get the total number of items
-                                                // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
-                                                $totalItemsQuery = $dbs->SelectAllApropertiesNoSessNoLimitPagCountAll();
-                                                $totalItemsResult = $totalItemsQuery; // result of executing the query
-                                
-                                                // Get the total number of items
-                                                $totalItems = $totalItemsResult['id'];
-
-                                                // Calculate the total number of pages
-                                                $totalPages = ceil($totalItems / $itemsPerPage);
-                                            } else {
-                                                // Number of items per page
-                                                $itemsPerPage = 9;
-
-                                                // Current page number
-                                                $page = isset($_GET['page']) ? $_GET['page'] : 1;
-
-                                                // Calculate the starting index of the items to display
-                                                $startIndex = ($page - 1) * $itemsPerPage;
-
-                                                // Query to fetch the items from the database
-                                                // Replace this with your own query to fetch the items
-                                                $fetch = $dbs->SelectAllpropertiesNoLimit($startIndex, $itemsPerPage);
-                                                // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
-                                
-                                                // Execute the query and fetch the items
-                                                // Replace this with your own code to execute the query and fetch the items
-                                                // $items = []; // array to store the fetched items
-                                
-                                                // Query to get the total number of items
-                                                // Replace this with your own query to get the total number of items
-                                                // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
-                                                $totalItemsQuery = $dbs->SelectAllApropertiesNoSessNoLimitPagCountAll();
-                                                $totalItemsResult = $totalItemsQuery; // result of executing the query
-                                
-                                                // Get the total number of items
-                                                $totalItems = $totalItemsResult['id'];
-
-                                                // Calculate the total number of pages
-                                                $totalPages = ceil($totalItems / $itemsPerPage);
-
-                                                // $fetch = $dbs->SelectAllpropertiesNoLimit();
-                                
-                                            }
-
+                                            // $fetch = $dbs->SelectAllpropertiesNoLimit();
+                            
                                         }
-                                    }
 
-
-                                } else {
-                                    if (isset($_POST['advquery'])) {
-                                        // Number of items per page
-                                        $itemsPerPage = 9;
-
-                                        // Current page number
-                                        $page = isset($_GET['page']) ? $_GET['page'] : 1;
-
-                                        // Calculate the starting index of the items to display
-                                        $startIndex = ($page - 1) * $itemsPerPage;
-
-                                        // Query to fetch the items from the database
-                                        // Replace this with your own query to fetch the items
-                                        $Location = $_POST['Location'];
-                                        $propertyCategory = $_POST['category'];
-                                        $landcategory = $_POST['landcategory'];
-                                        $typeproperty = $_POST['type'];
-                                        $bedrooms = $_POST['bedrooms'];
-                                        $bathroom = $_POST['bathroooms'];
-                                        $toilets = $_POST['toilets'];
-                                        $minprice = $_POST['minprice'];
-                                        $maxprice = $_POST['maxprice'];
-                                        $keywords = $_POST['keywords'];
-                                        $ref = $_POST['ref'];
-                                        $fetch = $dbs->AdvanceSearchquery($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex, $ref);
-                                        // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
-                                
-                                        // Execute the query and fetch the items
-                                        // Replace this with your own code to execute the query and fetch the items
-                                        // $items = []; // array to store the fetched items
-                                
-                                        // Query to get the total number of items
-                                        // Replace this with your own query to get the total number of items
-                                        // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
-                                        $totalItemsQuery = $dbs->AdvanceSearchqueryNO($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex, $ref);
-                                        $totalItemsResult = $totalItemsQuery; // result of executing the query
-                                
-                                        // Get the total number of items
-                                        $totalItems = $totalItemsResult;
-
-                                        // Calculate the total number of pages
-                                        $totalPages = ceil($totalItems / $itemsPerPage);
-                                    } else {
-
-                                        if (isset($_POST['searchBtn'])) {
-                                            $propertyCategory = $_POST['propertyCategory'];
-                                            // $area_location = $_POST['area_location'];
-                                            // $city = $_POST['city'];
-                                            $state = $_POST['state'];
-                                            // $fetch = $dbs->SelectAllApropertiesWhere($user_id, $propertyCategory, $area_location, $city, $state);
-                                            $fetch = $dbs->SelectAllApropertiesWhereNoSess($propertyCategory, $state);
-                                        } else {
-                                            if (isset($_GET['search'])) {
-                                                # code...
-                                                $search = $_GET['search'];
-                                                $itemsPerPage = 9;
-
-                                                // Current page number
-                                                $page = isset($_GET['page']) ? $_GET['page'] : 1;
-
-                                                // Calculate the starting index of the items to display
-                                                $startIndex = ($page - 1) * $itemsPerPage;
-
-                                                // Query to fetch the items from the database
-                                                // Replace this with your own query to fetch the items
-                                                $fetch = $dbs->SelectAllApropertiesSearch($search, $startIndex, $itemsPerPage);
-                                                // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
-                                
-                                                // Execute the query and fetch the items
-                                                // Replace this with your own code to execute the query and fetch the items
-                                                // $items = []; // array to store the fetched items
-                                
-                                                // Query to get the total number of items
-                                                // Replace this with your own query to get the total number of items
-                                                // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
-                                                $totalItemsQuery = $dbs->SelectAllApropertiesNoSessNoLimitPagCountAll();
-                                                $totalItemsResult = $totalItemsQuery; // result of executing the query
-                                
-                                                // Get the total number of items
-                                                $totalItems = $totalItemsResult['id'];
-
-                                                // Calculate the total number of pages
-                                                $totalPages = ceil($totalItems / $itemsPerPage);
-                                            } else {
-                                                // Number of items per page
-                                                $itemsPerPage = 9;
-
-                                                // Current page number
-                                                $page = isset($_GET['page']) ? $_GET['page'] : 1;
-
-                                                // Calculate the starting index of the items to display
-                                                $startIndex = ($page - 1) * $itemsPerPage;
-
-                                                // Query to fetch the items from the database
-                                                // Replace this with your own query to fetch the items
-                                                $fetch = $dbs->SelectAllpropertiesNoLimit($startIndex, $itemsPerPage);
-                                                // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
-                                
-                                                // Execute the query and fetch the items
-                                                // Replace this with your own code to execute the query and fetch the items
-                                                // $items = []; // array to store the fetched items
-                                
-                                                // Query to get the total number of items
-                                                // Replace this with your own query to get the total number of items
-                                                // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
-                                                $totalItemsQuery = $dbs->SelectAllApropertiesNoSessNoLimitPagCountAll();
-                                                $totalItemsResult = $totalItemsQuery; // result of executing the query
-                                
-                                                // Get the total number of items
-                                                $totalItems = $totalItemsResult['id'];
-
-                                                // Calculate the total number of pages
-                                                $totalPages = ceil($totalItems / $itemsPerPage);
-
-                                                // $fetch = $dbs->SelectAllpropertiesNoLimit();
-                                
-                                            }
-                                        }
                                     }
                                 }
+
 
                                 if ($fetch):
                                     foreach ($fetch as $info):
@@ -773,8 +1239,10 @@ if (isset($_SESSION['useremail'])) {
                                             </div>
                                             <div class="lower-content">
                                                 <div class="title-text">
-                                                    <h4><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>" class="text-dark">
-                                                            <?= $info['propertytitle'] ?>/ <?= $info['marketstatus']  ?>
+                                                    <h4><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
+                                                            class="text-dark">
+                                                            <?= $info['propertytitle'] ?>/
+                                                            <?= $info['marketstatus']  ?>
                                                         </a></h4>
                                                 </div>
                                                 <div class="price-box clearfix">
@@ -808,7 +1276,7 @@ if (isset($_SESSION['useremail'])) {
                                                 <p>
                                                     <?= substr($info['detailedinfo'], 0, 77) . ' ...' ?>.
                                                 </p>
-                                                <ul class="more-details clearfix">
+                                                <!-- <ul class="more-details clearfix">
                                                     <?php if ($info['propertyCategory'] !== 'Land'): ?>
                                                         <?php if($info['propertyCategory'] !== 'Autos/Machinery'):  ?>
 
@@ -830,15 +1298,13 @@ if (isset($_SESSION['useremail'])) {
                                                         <?= $info['landsize'] ?> landsize(sqrt)
                                                     </p>
                                                     <?php endif; ?>
-                                                    <!-- <li><i class="icon-16"></i>600 Prop Size(Sq Ft)</li>
-                                                        <li><i class="icon-16"></i>600 Parking Spaces</li> -->
-                                                </ul>
+                                                </ul> -->
                                                 <div class="other-info-box clearfix">
                                                     <div class="btn-box d-flex justify-content-between oull-left">
                                                         <a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
                                                             class="theme-btn btn-two ">See Details</a>
 
-                                                            <a href="#modalId" class="theme-btn btn-two "
+                                                        <a href="#modalId" class="theme-btn btn-two "
                                                             data-toggle="modal"><span id='<?= $info[' longtitude'] ?>'
                                                                 class="span" title="
                                                                 <?= $info['langtitude'] ?>">Map
@@ -851,95 +1317,99 @@ if (isset($_SESSION['useremail'])) {
                                             </div>
                                         </div>
                                     </div>
-                                                        <?php
+                                    <?php
                                     endforeach;
                                 else:
                                     ?>
-                                                <div class="col-lg-6 col-md-6 col-sm-12 feature-block">
-                                                    <div class="feature-block-one">
-                                                        <div class="inner-box">
-                                                            <div
-                                                                class="lower-content d-flex justify-content-center align-items-center ">
-                                                                <div class="btn-box mt-5"><a href="javascript:void()"
-                                                                        class="theme-btn btn-two">No Property Found</a></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 feature-block">
+                                        <div class="feature-block-one">
+                                            <div class="inner-box">
+                                                <div
+                                                    class="lower-content d-flex justify-content-center align-items-center ">
+                                                    <div class="btn-box mt-5"><a href="javascript:void()"
+                                                            class="theme-btn btn-two">No Property Found</a></div>
                                                 </div>
-                                        <?php endif; ?>
-                                  
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php endif; ?>
+
                                 </div>
-                            </div>                            
+                            </div>
                             <div class="pagination-wrapper">
                                 <ul class="pagination clearfix">
-                          
-                                <?php for ($i = 1; $i <= $totalPages; $i++): ?>
-                                    <li ><a class="" href="?propertyCategory=<?= $propertyCategory ?>&page=<?php echo $i; ?>" <?php if ($i == $page)
-                                              echo 'class="current"'; ?>><?php echo $i; ?></a></li>
+
+                                    <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+                                    <li><a class=""
+                                            href="?propertyCategory=<?= $propertyCategory ?>&page=<?php echo $i; ?>"
+                                            <?php if ($i==$page) echo 'class="current"' ; ?>>
+                                            <?php echo $i; ?>
+                                        </a></li>
                                     <?php endfor; ?>
-                                    
+
                                     <?php if ($i <= $totalPages): ?>
-                                        <!-- <li><a href="?propertyCategory=<?= $propertyCategory ?>&page=<?php echo $i; ?>"><i class="fas fa-angle-right"></i></a></li> -->
-                                <?php endif; ?>
+                                    <!-- <li><a href="?propertyCategory=<?= $propertyCategory ?>&page=<?php echo $i; ?>"><i class="fas fa-angle-right"></i></a></li> -->
+                                    <?php endif; ?>
                                     <!-- <li><a href="property-grid.html">2</a></li>
                                     <li><a href="property-grid.html">3</a></li>
                                     <li><a href="property-grid.html"><i class="fas fa-angle-right"></i></a></li> -->
                                 </ul>
                             </div>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- property-page-section end -->
+    </div>
+    </section>
+    <!-- property-page-section end -->
 
 
-        <!-- subscribe-section -->
-        <!-- subscribe-section end -->
+    <!-- subscribe-section -->
+    <!-- subscribe-section end -->
 
 
-        <!-- main-footer -->
-        <?php include('include/footer.php') ?>
-        <!-- main-footer end -->
+    <!-- main-footer -->
+    <?php include('include/footer.php') ?>
+    <!-- main-footer end -->
 
 
 
-        <script>
-    $(".span").click(function (e) { 
-        e.preventDefault();
-        long = $(this).attr('id');
-       lat = $(this).attr('title');
-       src = 'https://maps.google.com/maps?q='+ lat  +', '+ long  +'&z=15&output=embed'
-       $("#iframe").attr('src', 'https://maps.google.com/maps?q='+ lat  +', '+ long  +'&z=15&output=embed');
-    });
-</script>
+    <script>
+        $(".span").click(function (e) {
+            e.preventDefault();
+            long = $(this).attr('id');
+            lat = $(this).attr('title');
+            src = 'https://maps.google.com/maps?q=' + lat + ', ' + long + '&z=15&output=embed'
+            $("#iframe").attr('src', 'https://maps.google.com/maps?q=' + lat + ', ' + long + '&z=15&output=embed');
+        });
+    </script>
 
-<!-- Modal Body -->
-<div class="modal fade" id="modalId" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalTitleId">Map</h5>
+    <!-- Modal Body -->
+    <div class="modal fade" id="modalId" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
+        aria-labelledby="modalTitleId" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitleId">Map</h5>
                     <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="google-map-area">
-                    <!-- <iframe src="https://maps.google.com/maps?q=<?= $info['langtitude'] ?>, <?= $info['longtitude'] ?>&z=15&output=embed" width="100%" height="270" frameborder="0" style="border:0" id="ifr></iframe> -->
-                    <iframe src="" width="100%" height="270" frameborder="0" style="border:0" id="iframe"></iframe>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <div class="modal-body">
+                    <div class="google-map-area">
+                        <!-- <iframe src="https://maps.google.com/maps?q=<?= $info['langtitude'] ?>, <?= $info['longtitude'] ?>&z=15&output=embed" width="100%" height="270" frameborder="0" style="border:0" id="ifr></iframe> -->
+                        <iframe src="" width="100%" height="270" frameborder="0" style="border:0" id="iframe"></iframe>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-        <!--Scroll to top-->
-        <button class="scroll-top scroll-to-target" data-target="html">
-            <span class="fal fa-angle-up"></span>
-        </button>
+    <!--Scroll to top-->
+    <button class="scroll-top scroll-to-target" data-target="html">
+        <span class="fal fa-angle-up"></span>
+    </button>
     </div>
 
 
