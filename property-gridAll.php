@@ -82,7 +82,7 @@ if (isset($_SESSION['useremail'])) {
 
 
         <!--Page Title-->
-        <section class="page-title centred" style="background-image: url(assets/images/bgall.jpg);">
+        <section class="page-title centred" style="background-image: url(assets/images/bgall.jpeg);">
             <div class="auto-container">
                 <div class="content-box clearfix">
                     <h1>Properties</h1>
@@ -1253,7 +1253,7 @@ if (isset($_SESSION['useremail'])) {
                                                                 <?= $info['symbol'] . number_format($info['propertyprice'], 2) ?>
                                                             </a></h4>
                                                     </div>
-                                                    <div class="author-box pull-right">
+                                                    <!-- <div class="author-box pull-right">
                                                         <figure class="author-thumb">
                                                             <img src="assets/images/footer-logo.png"
                                                                 style="object-fit:cover; background-position: center; width: 60px; height: 40px; border-radius: 50%;"
@@ -1263,7 +1263,7 @@ if (isset($_SESSION['useremail'])) {
                                                                     <?= $info['typeproperty'] ?>
                                                                 </a></span>
                                                         </figure>
-                                                    </div>
+                                                    </div> -->
                                                 </div>
                                                 <div class="title-text">
                                                     <h6><a
@@ -1308,6 +1308,9 @@ if (isset($_SESSION['useremail'])) {
                                                             data-toggle="modal"><span id='<?= $info[' longtitude'] ?>'
                                                                 class="span" title="
                                                                 <?= $info['langtitude'] ?>">Map
+                                                            </span></a>
+                                                        <a href="contect" class="theme-btn btn-two "
+                                                           ><span  class="span" >Book Insepection
                                                             </span></a>
                                                     </div> <!-- <ul class="other-option pull-right clearfix">
                                                             <li><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"><i class="icon-12"></i></a></li>

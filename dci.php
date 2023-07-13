@@ -73,6 +73,38 @@ if (isset($_SESSION['useremail'])) {
 
 
         <!--Page Title-->
+        <section class="banner-style-two centred">
+            <div class="banner-carousel owl-theme owl-carousel owl-nav-none">
+                <div class="slide-item">
+                    <div class="image-layer" style="background-image:url(assets/images/dcibannerpage.jpeg);"></div>
+                    <div class="auto-container">
+                        <div class="content-box">
+                        <p> Africa’s Biggest Distress Property Market Place <p>
+                        <h2>BUY. SELL. INVEST.</h2>
+                        </div> 
+                    </div>
+                </div>
+                <div class="slide-item">
+                    <div class="image-layer" style="background-image:url(assets/images/dcibannerpage.jpeg);"></div>
+                    <div class="auto-container">
+                        <div class="content-box">
+                        <p> Africa’s Biggest Distress Property Market Place <p>
+                        <h2>BUY. SELL. INVEST.</h2>
+                        </div>   
+                    </div>
+                </div>
+                <div class="slide-item">
+                    <div class="image-layer" style="background-image:url(assets/images/dcibannerpage.jpeg);"></div>
+                    <div class="auto-container">
+                        <div class="content-box">
+                        <p> Africa’s Biggest Distress Property Market Place <p>
+                        <h2>BUY. SELL. INVEST.</h2>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- <section class="page-title centred" style="background-image: url(assets/images/bgall.jpg);">
             <div class="auto-container">
                 <div class="content-box clearfix">
@@ -93,23 +125,18 @@ if (isset($_SESSION['useremail'])) {
 
 
         <!-- about-section -->
-        <section class="about-section about-page pb-5 pt-5" style="padding: 25px; padding-bottom: 50px;">
+        <section class="about-section about-page pb-5 m-2 pt-5" style="padding: 25px; padding-bottom: 50px;">
             <div class="auto-container">
                 <div class="inner-container">
                     <div class="row  clearfix">
-                        <div class="col-lg-6 col-md-12 col-sm-12 image-column">
+                        <!-- <div class="col-lg-6 col-md-12 col-sm-12 image-column">
                             <div class="image_block_2">
                                 <div class="image-box">
                                     <figure class="image"><img src="assets/images/DCI Page Banner.jpeg" alt=""></figure>
-                                    <!-- <div class="text wow fadeInLeft animated" data-wow-delay="00ms"
-                                        data-wow-duration="1500ms">
-                                        <h2 style="color:white !important; ">10</h2>
-                                        <h4>Years of <br />Experience</h4>
-                                    </div> -->
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-6 col-md-12 col-sm-12 content-column">
+                        </div> -->
+                        <div class="col-lg-12 col-md-12 col-sm-12 content-column">
                             <div class="content_block_3">
                                 <div class="content-box">
 
@@ -126,10 +153,7 @@ if (isset($_SESSION['useremail'])) {
                                         </p>
                                     </div>
 
-                                    <!-- 
-                                    <div class="btn-box">
-                                        <a href="contact.html" class="theme-btn btn-one">Contact With Me</a>
-                                    </div> -->
+                                   
                                 </div>
                             </div>
                         </div>
@@ -149,9 +173,9 @@ if (isset($_SESSION['useremail'])) {
                     <div class="lower-box">
                         <div class="row clearfix">
                             <div class="col-lg-4 col-md-6 col-sm-12 chooseus-block pt-3">
-                                <div class="chooseus-block-one">
+                                <div class="chooseus-block-one m-3">
                                     <div class="inner-box">
-                                        <div class="icon-box"><i class="icon-19"></i></div>
+                                        <div class="icon-box"><i class="text-white icon-19"></i></div>
                                         <h4>Untapped Potential</h4>
                                         <p> Distressed properties offer a hidden treasure trove of
                                             potential
@@ -166,9 +190,9 @@ if (isset($_SESSION['useremail'])) {
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-6 col-sm-12 chooseus-block pt-3">
-                                <div class="chooseus-block-one">
+                                <div class="chooseus-block-one m-3">
                                     <div class="inner-box">
-                                        <div class="icon-box"><i class="icon-26"></i></div>
+                                        <div class="icon-box"><i class="text-white icon-26"></i></div>
                                         <h4>100% Control of Investment</h4>
                                         <p>Via our DCI model, we are able to take into
                                             consideration
@@ -181,9 +205,9 @@ if (isset($_SESSION['useremail'])) {
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-6 col-sm-12 chooseus-block pt-3">
-                                <div class="chooseus-block-one">
+                                <div class="chooseus-block-one m-3">
                                     <div class="inner-box">
-                                        <div class="icon-box"><i class="icon-21"></i></div>
+                                        <div class="icon-box"><i class="text-white icon-21"></i></div>
                                         <h4>Multiple Profit Strategies</h4>
                                         <p>Distressed real estate investing allows for
                                             various profit
@@ -196,9 +220,9 @@ if (isset($_SESSION['useremail'])) {
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-6 col-sm-12 chooseus-block pt-3">
-                                <div class="chooseus-block-one">
+                                <div class="chooseus-block-one m-3">
                                     <div class="inner-box">
-                                        <div class="icon-box"><i class="icon-25"></i></div>
+                                        <div class="icon-box"><i class="text-white icon-25"></i></div>
                                         <h4>Market Timing Advantage</h4>
                                         <p>Economic cycles and market fluctuations create
                                             prime
@@ -213,9 +237,9 @@ if (isset($_SESSION['useremail'])) {
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-6 col-sm-12 chooseus-block pt-3">
-                                <div class="chooseus-block-one">
+                                <div class="chooseus-block-one m-3">
                                     <div class="inner-box">
-                                        <div class="icon-box"><i class="icon-26"></i></div>
+                                        <div class="icon-box"><i class="text-white icon-26"></i></div>
                                         <h4>Expert Guidance</h4>
                                         <p>Our team consists of seasoned professionals who possess
                                             extensive
@@ -230,9 +254,9 @@ if (isset($_SESSION['useremail'])) {
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-6 col-sm-12 chooseus-block pt-3">
-                                <div class="chooseus-block-one">
+                                <div class="chooseus-block-one m-3">
                                     <div class="inner-box">
-                                        <div class="icon-box"><i class="icon-27"></i></div>
+                                        <div class="icon-box"><i class="text-white icon-27"></i></div>
                                         <h4>Vast Network</h4>
                                         <p> Over the years, we have cultivated a vast network of industry
                                             professionals, including real estate agents, brokers, contractors, and
@@ -244,9 +268,9 @@ if (isset($_SESSION['useremail'])) {
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-6 col-sm-12 chooseus-block pt-3">
-                                <div class="chooseus-block-one">
+                                <div class="chooseus-block-one m-3">
                                     <div class="inner-box">
-                                        <div class="icon-box"><i class="icon-33"></i></div>
+                                        <div class="icon-box"><i class="text-white icon-33"></i></div>
                                         <h4>Comprehensive Support</h4>
                                         <p> From initial consultation to property acquisition to
                                             investment
@@ -261,9 +285,9 @@ if (isset($_SESSION['useremail'])) {
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-6 col-sm-12 chooseus-block pt-3">
-                                <div class="chooseus-block-one">
+                                <div class="chooseus-block-one m-3">
                                     <div class="inner-box">
-                                        <div class="icon-box"><i class="icon-36"></i></div>
+                                        <div class="icon-box"><i class="text-white icon-36"></i></div>
                                         <h4>Unparalleled Opportunities</h4>
                                         <p> Our Distress Property Market platform provides
                                             access to a
@@ -276,9 +300,9 @@ if (isset($_SESSION['useremail'])) {
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-6 col-sm-12 chooseus-block pt-3">
-                                <div class="chooseus-block-one">
+                                <div class="chooseus-block-one m-3">
                                     <div class="inner-box">
-                                        <div class="icon-box"><i class="icon-24"></i></div>
+                                        <div class="icon-box"><i class="text-white icon-24"></i></div>
                                         <h4>Ethical and Transparent Practices</h4>
                                         <p> At Distress Capital Investment, we
                                             prioritize ethical and

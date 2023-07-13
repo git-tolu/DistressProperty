@@ -1340,7 +1340,7 @@ if (isset($_SESSION['useremail'])) {
                                                                 <?= $info['symbol'] . number_format($info['propertyprice'], 2) ?>
                                                             </a></h4>
                                                     </div>
-                                                    <div class="author-box pull-right">
+                                                    <!-- <div class="author-box pull-right">
                                                         <figure class="author-thumb">
                                                             <img src="assets/images/footer-logo.png"
                                                                 style="object-fit:cover; background-position: center; width: 60px; height: 40px; border-radius: 50%;"
@@ -1357,8 +1357,8 @@ if (isset($_SESSION['useremail'])) {
                                                                                                                                                                                                         <?= $info['landcategory'] ?> 
                                                                     <?php endif; ?>
                                                                 </a></span>
-                                                        </figure>
-                                                    </div>
+                                                        </figure> 
+                                                    </div> -->
                                                 </div>
                                                 <div class="title-text">
                                                     <h6><a
@@ -1412,6 +1412,9 @@ if (isset($_SESSION['useremail'])) {
                                                                 class="span" title="
                                                                 <?= $info['langtitude'] ?>">Map
                                                             </span></a>
+                                                            <a href="contect" class="theme-btn btn-two "
+                                                            ><span  class="span" >Book Insepection
+                                                             </span></a>
                                                     </div> <!-- <ul class="other-option pull-right clearfix">
                                                             <li><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"><i class="icon-12"></i></a></li>
                                                             <li><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"><i class="icon-13"></i></a></li>

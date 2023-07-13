@@ -840,6 +840,15 @@ $galleryimageid = $_SESSION['galleryimageid']  ;
                                                         </select>
                                                     </div>
                                                 </div>
+                                                <div class="col-lg-4 col-md-4 col-sm-12 column demoshow">
+                                                    <label>Property Type</label>
+                                                    <div class="field-input">
+                                                        <select class="form-control" name="landcategory" id="">
+                                                            
+                                                            <option value=""  class="text-capitalize"></option>
+                                                        </select>
+                                                    </div>
+                                                </div>
                                                
                                                 <div class="col-lg-12 col-md-12 col-sm-12 column">
                                                     <div class="field-input">
@@ -2358,6 +2367,7 @@ $galleryimageid = $_SESSION['galleryimageid']  ;
                 $(".show").hide()
                 $(".show2").hide()
                 $(".show3").hide()
+                $(".demoshow").hide()
 
 
             } else if (trigVal == 'Autos/Machinery') {
@@ -2365,18 +2375,24 @@ $galleryimageid = $_SESSION['galleryimageid']  ;
                 $(".show1").hide()
                 $(".show2").show()
                 $(".show3").hide()
+                $(".demoshow").hide()
+
 
             }  else if (trigVal == 'Non Distress Properties') {
                 $(".show3").show()
                 $(".show").hide()
                 $(".show1").hide()
                 $(".show2").hide()
+                $(".demoshow").hide()
+
 
             } else {
                 $(".show").show()
                 $(".show1").hide()
                 $(".show2").hide()
                 $(".show3").hide()
+                $(".demoshow").hide()
+
 
 
             }

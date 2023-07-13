@@ -89,7 +89,7 @@ if (isset($_SESSION['useremail'])) {
                     </div>
                 </div>
                 <div class="slide-item">
-                    <div class="image-layer" style="background-image:url(assets/images/bannerhome2.jpg)"></div>
+                    <div class="image-layer" style="background-image:url(assets/images/bannerhome.jpg)"></div>
                     <div class="auto-container">
                         <div class="content-box">
                         <p> Africa’s Biggest Distress Property Market Place <p>
@@ -98,7 +98,7 @@ if (isset($_SESSION['useremail'])) {
                     </div>
                 </div>
                 <div class="slide-item">
-                    <div class="image-layer" style="background-image:url(assets/images/bannerhome3.jpg)"></div>
+                    <div class="image-layer" style="background-image:url(assets/images/bannerhome.jpg)"></div>
                     <div class="auto-container">
                         <div class="content-box">
                         <p> Africa’s Biggest Distress Property Market Place <p>
