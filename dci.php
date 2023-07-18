@@ -79,8 +79,7 @@ if (isset($_SESSION['useremail'])) {
                     <div class="image-layer" style="background-image:url(assets/images/dcibannerpage.jpeg);"></div>
                     <div class="auto-container">
                         <div class="content-box">
-                        <p> Africa’s Biggest Distress Property Market Place <p>
-                        <h2>BUY. SELL. INVEST.</h2>
+                        <h2 class="text-capitalize">Make tomorrow's profit today</h2>
                         </div> 
                     </div>
                 </div>
@@ -88,8 +87,7 @@ if (isset($_SESSION['useremail'])) {
                     <div class="image-layer" style="background-image:url(assets/images/dcibannerpage.jpeg);"></div>
                     <div class="auto-container">
                         <div class="content-box">
-                        <p> Africa’s Biggest Distress Property Market Place <p>
-                        <h2>BUY. SELL. INVEST.</h2>
+                        <h2 class="text-capitalize">Make tomorrow's profit today</h2>
                         </div>   
                     </div>
                 </div>
@@ -97,8 +95,7 @@ if (isset($_SESSION['useremail'])) {
                     <div class="image-layer" style="background-image:url(assets/images/dcibannerpage.jpeg);"></div>
                     <div class="auto-container">
                         <div class="content-box">
-                        <p> Africa’s Biggest Distress Property Market Place <p>
-                        <h2>BUY. SELL. INVEST.</h2>
+                        <h2 class="text-capitalize">Make tomorrow's profit today</h2>
                         </div>  
                     </div>
                 </div>

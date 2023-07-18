@@ -94,19 +94,18 @@ if (isset($_SESSION['useremail'])) {
             </div>
         </section>
         <!--End Page Title-->
-
-        <section class="search-field-section style-two">
+        <section class="search-field-section">
             <div class="auto-container">
                 <div class="inner-container">
-                    <div class="search-field">
+                <div class="search-field">
                         <div class="tabs-box">
-                            <div class="tabs-content info-group">
-
-                                <div class="tab active-tab" id="tab-1">
+                           
+                            <!-- <div class="tabs-content info-group">
+                                <div class="tab active-tab" id="tab-1"> -->
                                     <div class="inner-box">
                                         <div class="top-search">
-                                            <form action="" method="post" class="search-form">
-                                                <div class="row clearfix">
+                                            <form action="" method="post" class="search-form  d-flex justify-content-center align-items-center text-center">
+                                                <div class="row clearfix w-100" >
                                                     <div class="col-lg-5 col-md-6 col-sm-12 column">
                                                         <div class="form-group">
                                                             <div class="field-input">
@@ -117,23 +116,23 @@ if (isset($_SESSION['useremail'])) {
                                                                     <?php
                                                                     if ($propertyCategory == 'Land'):
                                                                         ?>
-                                                                    <option value="Residential">Residential</option>
-                                                                    <option value="commercial">commercial</option>
-                                                                    <option value="Mixed Area"> Mixed Area</option>
+                                                                    <option value="Residential"  class="text-capitalize">Residential</option>
+                                                                    <option value="commercial"  class="text-capitalize">commercial</option>
+                                                                    <option value="Mixed Area"  class="text-capitalize"> Mixed Area</option>
                                                                     <?php else: ?>
-                                                                    <option value="Detached Duplex">Detached Duplex
+                                                                    <option value="Detached Duplex"  class="text-capitalize">Detached Duplex
                                                                     </option>
-                                                                    <option value="Terrace Duplex"> Terrace Duplex
+                                                                    <option value="Terrace Duplex"  class="text-capitalize"> Terrace Duplex
                                                                     </option>
-                                                                    <option value="Flat/Apartment">Flat/Apartment
+                                                                    <option value="Flat/Apartment"  class="text-capitalize">Flat/Apartment
                                                                     </option>
-                                                                    <option value="Detached Bungalow">Detached Bungalow
+                                                                    <option value="Detached Bungalow"  class="text-capitalize">Detached Bungalow
                                                                     </option>
-                                                                    <option value="Semi Detached Bungalow">Semi Detached
+                                                                    <option value="Semi Detached Bungalow"  class="text-capitalize">Semi Detached
                                                                         Bungalow</option>
-                                                                    <option value="Semi Detached Duplex">Semi Detached
+                                                                    <option value="Semi Detached Duplex"  class="text-capitalize">Semi Detached
                                                                         Duplex</option>
-                                                                    <option value="Terrace Bungalow">Terrace Bungalow
+                                                                    <option value="Terrace Bungalow"  class="text-capitalize">Terrace Bungalow
                                                                     </option>
                                                                     <?php endif; ?>
                                                                     <!-- <option value="Distress Properties">Distress Property</option>
@@ -197,6 +196,118 @@ if (isset($_SESSION['useremail'])) {
 
                                                     <div class="col-lg-2 col-md-6 col-sm-12 column">
                                                         <input type="hidden" value="Nigeria" name="area_location">
+                                                        <div class="form-group">
+                                                            <input type="submit" value="Search" name="searchBtn" class="btn theme-btn btn-one form-control" style="padding: 0px;">
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                <!-- </div>
+                            </div> -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- <section class="search-field-section style-two">
+            <div class="auto-container">
+                <div class="inner-container">
+                    <div class="search-field">
+                        <div class="tabs-box">
+                            <div class="tabs-content info-group">
+
+                                <div class="tab active-tab" id="tab-1">
+                                    <div class="inner-box">
+                                        <div class="top-search">
+                                            <form action="" method="post" class="search-form">
+                                                <div class="row clearfix">
+                                                    <div class="col-lg-5 col-md-6 col-sm-12 column">
+                                                        <div class="form-group">
+                                                            <div class="field-input">
+                                                                <select class="form-control" name="propertyCategory"
+                                                                    required>
+                                                                    <option data-display="Property Type">Property Type
+                                                                    </option>
+                                                                    <?php
+                                                                    if ($propertyCategory == 'Land'):
+                                                                        ?>
+                                                                    <option value="Residential">Residential</option>
+                                                                    <option value="commercial">commercial</option>
+                                                                    <option value="Mixed Area"> Mixed Area</option>
+                                                                    <?php else: ?>
+                                                                    <option value="Detached Duplex">Detached Duplex
+                                                                    </option>
+                                                                    <option value="Terrace Duplex"> Terrace Duplex
+                                                                    </option>
+                                                                    <option value="Flat/Apartment">Flat/Apartment
+                                                                    </option>
+                                                                    <option value="Detached Bungalow">Detached Bungalow
+                                                                    </option>
+                                                                    <option value="Semi Detached Bungalow">Semi Detached
+                                                                        Bungalow</option>
+                                                                    <option value="Semi Detached Duplex">Semi Detached
+                                                                        Duplex</option>
+                                                                    <option value="Terrace Bungalow">Terrace Bungalow
+                                                                    </option>
+                                                                    <?php endif; ?>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-5 col-md-6 col-sm-12 column">
+                                                        <div class="form-group">
+                                                            <div class="select-box">
+                                                                <select class="form-control" name="state" required>
+                                                                    <option data-display="Select State">Select State
+                                                                    </option>
+                                                                    <option>ABUJA FCT</option>
+                                                                    <option>ABIA</option>
+                                                                    <option>ADAMAWA</option>
+                                                                    <option>AKWA IBOM</option>
+                                                                    <option>ANAMBRA</option>
+                                                                    <option>BAUCHI</option>
+                                                                    <option>BAYELSA</option>
+                                                                    <option>BENUE</option>
+                                                                    <option>BORNO</option>
+                                                                    <option>CROSS RIVER</option>
+                                                                    <option>DELTA</option>
+                                                                    <option>EBONYI</option>
+                                                                    <option>EDO</option>
+                                                                    <option>EKITI</option>
+                                                                    <option>ENUGU</option>
+                                                                    <option>GOMBE</option>
+                                                                    <option>IMO</option>
+                                                                    <option>JIGAWA</option>
+                                                                    <option>KADUNA</option>
+                                                                    <option>KANO</option>
+                                                                    <option>KATSINA</option>
+                                                                    <option>KEBBI</option>
+                                                                    <option>KOGI</option>
+                                                                    <option>KWARA</option>
+                                                                    <option>LAGOS</option>
+                                                                    <option>NASSARAWA</option>
+                                                                    <option>NIGER</option>
+                                                                    <option>OGUN</option>
+                                                                    <option>ONDO</option>
+                                                                    <option>OSUN</option>
+                                                                    <option>OYO</option>
+                                                                    <option>PLATEAU</option>
+                                                                    <option>RIVERS</option>
+                                                                    <option>SOKOTO</option>
+                                                                    <option>TARABA</option>
+                                                                    <option>YOBE</option>
+                                                                    <option>ZAMFARA</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-2 col-md-6 col-sm-12 column">
+                                                        <input type="hidden" value="Nigeria" name="area_location">
                                                         <button type="Submit" name="searchBtn"
                                                             class="theme-btn btn-one">Search</button>
 
@@ -214,7 +325,7 @@ if (isset($_SESSION['useremail'])) {
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <!-- property-page-section -->
         <section class="property-page-section property-grid">
@@ -431,7 +542,6 @@ if (isset($_SESSION['useremail'])) {
                                             </div>
                                         </div>
                                     </form> -->
-                                    <?php if($_GET['propertyCategory'] == 'Distress Properties'):  ?>
                                     <form action="" method="post" class="form-light">
                                         <div class="row">
                                             <div class="col-md-12">
@@ -452,22 +562,97 @@ if (isset($_SESSION['useremail'])) {
                                             <div class="col-md-12 ">
                                                 <div class="form-group">
                                                     <label>Type</label>
-                                                    <select name="type" id="type" class="form-control">
-                                                        <option value="" selected="selected">Select Types</option>
-                                                        <option class="text-capitalize" value="bungalow">bungalow
+                                                    <select class="form-control" name="propertyCategory"
+                                                    id="trigShow" required>
+                                                    <option value="<?= $propertyCategory ?>">
+                                                        <?= $propertyCategory ?>
+                                                    </option>
+                                                    <option value="Distress Properties" class="text-capitalize">Distress Property
+                                                    </option>
+                                                    <option value="Non Distress Properties" class="text-capitalize">Non-Distress
+                                                        Property
+                                                    </option>
+                                                    <option value="Autos/Machinery"  class="text-capitalize">Autos & Machinery</option>
+                                                    <option value="Land"  class="text-capitalize">Land</option>
+                                                </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 column show">
+                                                <label>Property Type</label>
+                                                <div class="field-input">
+                                                    <select class="form-control" name="typeproperty">
+                                                        <option value="">
+                                                            
                                                         </option>
-                                                        <option class="text-capitalize" value="fully detached"> fully
-                                                            detached</option>
-                                                        <option class="text-capitalize" value="semi detached">semi
-                                                            detached</option>
-                                                        <option class="text-capitalize" value="terrace">terrace</option>
-                                                        <option class="text-capitalize" value="maisonette">maisonette
+                                                        <option value="bungalow"  class="text-capitalize">bungalow</option>
+                                                        <option value="fully detached"  class="text-capitalize"> fully detached</option>
+                                                        <option value="semi detached"  class="text-capitalize">semi detached</option>
+                                                        <option value="terrace"  class="text-capitalize">terrace</option>
+                                                        <option value="maisonette"  class="text-capitalize">maisonette
                                                         </option>
-                                                        <option class="text-capitalize" value="land">land
+                                                        <option value="land"  class="text-capitalize">land
                                                         </option>
                                                     </select>
                                                 </div>
                                             </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 column show3">
+                                                <label>Property Type</label>
+                                                <div class="field-input">
+                                                    <select class="form-control" name="distresscat">
+                                                        <option value="">
+                                                            
+                                                        </option>
+                                                        <option value="bungalow"  class="text-capitalize">bungalow</option>
+                                                        <option value="fully detached"  class="text-capitalize"> fully detached</option>
+                                                        <option value="semi detached"  class="text-capitalize">semi detached</option>
+                                                        <option value="terrace"  class="text-capitalize">terrace</option>
+                                                        <option value="maisonette"  class="text-capitalize">maisonette
+                                                        </option>
+                                                        <option value="land"  class="text-capitalize">land
+                                                        </option>
+                                                        <option value="apartment-block"  class="text-capitalize">apartment-block
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 column show2">
+                                                <label>Property Type</label>
+                                                <div class="field-input">
+                                                    <select class="form-control" name="autocat">
+                                                        <option value="">
+                                                            
+                                                        </option>
+                                                        <option value="Vechicle"  class="text-capitalize">Vechicle</option>
+                                                        <option value="motorbike"  class="text-capitalize"> motorbike</option>
+                                                        <option value="aircraft"  class="text-capitalize">aircraft</option>
+                                                        <option value="vessel/ships"  class="text-capitalize">vessel/ships</option>
+                                                        <option value="cranes"  class="text-capitalize">cranes</option>
+                                                        <option value="scaffold iron bars"  class="text-capitalize">scaffold iron bars
+                                                        </option>
+                                                        <option value="wires and conductors"  class="text-capitalize">wires and conductors</option>
+                                                        <option value="heavy machineries"  class="text-capitalize">heavy machineries</option>    
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 column show1">
+                                                <label>Land Category</label>
+                                                <div class="field-input">
+                                                    <select class="form-control" name="landcategory" id="">
+                                                        <option value="">
+                                                            
+                                                        </option>
+                                                        <option value="Wetland"  class="text-capitalize">Wetland</option>
+                                                        <option value="dry land"  class="text-capitalize"> dry land</option>
+                                                        <option value="sandfilled"  class="text-capitalize">sandfilled</option>
+                                                        <option value="bare-land"  class="text-capitalize">bare-land</option>
+                                                        <option value="demolishable"  class="text-capitalize">demolishable</option>
+                                                        <option value="Semi Detached Duplex"  class="text-capitalize">Semi Detached Duplex
+                                                        </option>
+                                                        <option value="Terrace Bungalow"  class="text-capitalize">Terrace Bungalow</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
@@ -567,440 +752,9 @@ if (isset($_SESSION['useremail'])) {
                                             </div>
                                         </div>
                                     </form>
-                                    <?php elseif($_GET['propertyCategory'] == 'Non Distress Properties'):  ?>
-                                    <form action="" method="post" class="form-light">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label>Location</label>
-                                                    <div class="easy-autocomplete">
-                                                        <textarea data-prefix="" name="Location"
-                                                            placeholder="Enter a state, locality or area"
-                                                            data-results="all" style="height:36px;" type="text"
-                                                            class="form-control side-panel-search propertyLocation"
-                                                            autocomplete="off" id="eac-118" required></textarea>
+                                  
 
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12 ">
-                                                <div class="form-group">
-                                                    <label>Type</label>
-                                                    <select name="type" id="type" class="form-control">
-                                                        <option class="text-capitalize" value="" selected="selected">
-                                                            Select Types</option>
-                                                        <option class="text-capitalize" value="bungalow">bungalow
-                                                        </option>
-                                                        <option class="text-capitalize" value="fully detached"> fully
-                                                            detached</option>
-                                                        <option class="text-capitalize" value="semi detached">semi
-                                                            detached</option>
-                                                        <option class="text-capitalize" value="terrace">terrace</option>
-                                                        <option class="text-capitalize" value="maisonette">maisonette
-                                                        </option>
-                                                        <option class="text-capitalize" value="land">land
-                                                        </option>
-                                                        <option class="text-capitalize" value="apartment-block">
-                                                            apartment-block
-                                                        </option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>Min price</label>
-                                                    <select name="minprice" required id="minprice" class="form-control">
-                                                        <option value="0" selected="selected">No Min</option>
-                                                        <option value="250000"> 250,000</option>
-                                                        <option value="500000"> 500,000</option>
-                                                        <option value="750000"> 750,000</option>
-                                                        <option value="1000000"> 1 Million</option>
-                                                        <option value="2000000"> 2 Million</option>
-                                                        <option value="5000000"> 5 Million</option>
-                                                        <option value="10000000"> 10 Million</option>
-                                                        <option value="20000000"> 20 Million</option>
-                                                        <option value="30000000"> 30 Million</option>
-                                                        <option value="40000000"> 40 Million</option>
-                                                        <option value="60000000"> 60 Million</option>
-                                                        <option value="80000000"> 80 Million</option>
-                                                        <option value="100000000"> 100 Million</option>
-                                                        <option value="150000000"> 150 Million</option>
-                                                        <option value="200000000"> 200 Million</option>
-                                                        <option value="250000000"> 250 Million</option>
-                                                        <option value="300000000"> 300 Million</option>
-                                                        <option value="400000000"> 400 Million</option>
-                                                        <option value="500000000"> 500 Million</option>
-                                                        <option value="600000000"> 600 Million</option>
-                                                        <option value="700000000"> 700 Million</option>
-                                                        <option value="800000000"> 800 Million</option>
-                                                        <option value="900000000"> 900 Million</option>
-                                                        <option value="1000000000"> 1 Billion</option>
-                                                        <option value="2000000000"> 2 Billion</option>
-                                                        <option value="5000000000"> 5 Billion</option>
-                                                        <option value="10000000000"> 10 Billion</option>
-                                                        <option value="20000000000"> 20 Billion</option>
-                                                        <option value="30000000000"> 30 Billion</option>
-                                                        <option value="40000000000"> 40 Billion</option>
-                                                        <option value="50000000000"> 50 Billion</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>Max price</label>
-                                                    <select name="maxprice" required id="maxprice" class="form-control">
-                                                        <option value="0" selected="selected">No Max</option>
-                                                        <option value="250000"> 250,000</option>
-                                                        <option value="500000"> 500,000</option>
-                                                        <option value="750000"> 750,000</option>
-                                                        <option value="1000000"> 1 Million</option>
-                                                        <option value="2000000"> 2 Million</option>
-                                                        <option value="5000000"> 5 Million</option>
-                                                        <option value="10000000"> 10 Million</option>
-                                                        <option value="20000000"> 20 Million</option>
-                                                        <option value="30000000"> 30 Million</option>
-                                                        <option value="40000000"> 40 Million</option>
-                                                        <option value="60000000"> 60 Million</option>
-                                                        <option value="80000000"> 80 Million</option>
-                                                        <option value="100000000"> 100 Million</option>
-                                                        <option value="150000000"> 150 Million</option>
-                                                        <option value="200000000"> 200 Million</option>
-                                                        <option value="250000000"> 250 Million</option>
-                                                        <option value="300000000"> 300 Million</option>
-                                                        <option value="400000000"> 400 Million</option>
-                                                        <option value="500000000"> 500 Million</option>
-                                                        <option value="600000000"> 600 Million</option>
-                                                        <option value="700000000"> 700 Million</option>
-                                                        <option value="800000000"> 800 Million</option>
-                                                        <option value="900000000"> 900 Million</option>
-                                                        <option value="1000000000"> 1 Billion</option>
-                                                        <option value="2000000000"> 2 Billion</option>
-                                                        <option value="5000000000"> 5 Billion</option>
-                                                        <option value="10000000000"> 10 Billion</option>
-                                                        <option value="20000000000"> 20 Billion</option>
-                                                        <option value="30000000000"> 30 Billion</option>
-                                                        <option value="40000000000"> 40 Billion</option>
-                                                        <option value="50000000000"> 50 Billion</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label>Title</label>
-                                                    <input name="keywords" id="keywords" required class="form-control"
-                                                        placeholder="e.g. 'pool' or 'jacuzzi'" value=""
-                                                        autocomplete="off">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <button type="submit" name="advquery" class="theme-btn btn-one ">
-                                                    <span>Search</span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                    <?php elseif($_GET['propertyCategory'] == 'Autos/Machinery'):  ?>
-                                    <form action="" method="post" class="form-light">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label>Location</label>
-                                                    <div class="easy-autocomplete">
-                                                        <textarea data-prefix="" name="Location"
-                                                            placeholder="Enter a state, locality or area"
-                                                            data-results="all" style="height:36px;" type="text"
-                                                            class="form-control side-panel-search propertyLocation"
-                                                            autocomplete="off" id="eac-118" required></textarea>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12 ">
-                                                <div class="form-group">
-                                                    <label>Type</label>
-                                                    <select name="type" id="type" class="form-control">
-                                                        <option class="text-capitalize" value="0" selected="selected">
-                                                            Select Types</option>
-                                                        <option class="text-capitalize" value="Vechicle">Vechicle
-                                                        </option>
-                                                        <option class="text-capitalize" value="motorbike"> motorbike
-                                                        </option>
-                                                        <option class="text-capitalize" value="aircraft">aircraft
-                                                        </option>
-                                                        <option class="text-capitalize" value="vessel/ships">
-                                                            vessel/ships</option>
-                                                        <option class="text-capitalize" value="cranes">cranes</option>
-                                                        <option class="text-capitalize" value="scaffold iron bars">
-                                                            scaffold iron bars
-                                                        </option>
-                                                        <option class="text-capitalize" value="wires and conductors">
-                                                            wires and conductors
-                                                        </option>
-                                                        <option class="text-capitalize" value="heavy machineries">heavy
-                                                            machineries</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>Min price</label>
-                                                    <select name="minprice" required id="minprice" class="form-control">
-                                                        <option value="0" selected="selected">No Min</option>
-                                                        <option value="250000"> 250,000</option>
-                                                        <option value="500000"> 500,000</option>
-                                                        <option value="750000"> 750,000</option>
-                                                        <option value="1000000"> 1 Million</option>
-                                                        <option value="2000000"> 2 Million</option>
-                                                        <option value="5000000"> 5 Million</option>
-                                                        <option value="10000000"> 10 Million</option>
-                                                        <option value="20000000"> 20 Million</option>
-                                                        <option value="30000000"> 30 Million</option>
-                                                        <option value="40000000"> 40 Million</option>
-                                                        <option value="60000000"> 60 Million</option>
-                                                        <option value="80000000"> 80 Million</option>
-                                                        <option value="100000000"> 100 Million</option>
-                                                        <option value="150000000"> 150 Million</option>
-                                                        <option value="200000000"> 200 Million</option>
-                                                        <option value="250000000"> 250 Million</option>
-                                                        <option value="300000000"> 300 Million</option>
-                                                        <option value="400000000"> 400 Million</option>
-                                                        <option value="500000000"> 500 Million</option>
-                                                        <option value="600000000"> 600 Million</option>
-                                                        <option value="700000000"> 700 Million</option>
-                                                        <option value="800000000"> 800 Million</option>
-                                                        <option value="900000000"> 900 Million</option>
-                                                        <option value="1000000000"> 1 Billion</option>
-                                                        <option value="2000000000"> 2 Billion</option>
-                                                        <option value="5000000000"> 5 Billion</option>
-                                                        <option value="10000000000"> 10 Billion</option>
-                                                        <option value="20000000000"> 20 Billion</option>
-                                                        <option value="30000000000"> 30 Billion</option>
-                                                        <option value="40000000000"> 40 Billion</option>
-                                                        <option value="50000000000"> 50 Billion</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>Max price</label>
-                                                    <select name="maxprice" required id="maxprice" class="form-control">
-                                                        <option value="0" selected="selected">No Max</option>
-                                                        <option value="250000"> 250,000</option>
-                                                        <option value="500000"> 500,000</option>
-                                                        <option value="750000"> 750,000</option>
-                                                        <option value="1000000"> 1 Million</option>
-                                                        <option value="2000000"> 2 Million</option>
-                                                        <option value="5000000"> 5 Million</option>
-                                                        <option value="10000000"> 10 Million</option>
-                                                        <option value="20000000"> 20 Million</option>
-                                                        <option value="30000000"> 30 Million</option>
-                                                        <option value="40000000"> 40 Million</option>
-                                                        <option value="60000000"> 60 Million</option>
-                                                        <option value="80000000"> 80 Million</option>
-                                                        <option value="100000000"> 100 Million</option>
-                                                        <option value="150000000"> 150 Million</option>
-                                                        <option value="200000000"> 200 Million</option>
-                                                        <option value="250000000"> 250 Million</option>
-                                                        <option value="300000000"> 300 Million</option>
-                                                        <option value="400000000"> 400 Million</option>
-                                                        <option value="500000000"> 500 Million</option>
-                                                        <option value="600000000"> 600 Million</option>
-                                                        <option value="700000000"> 700 Million</option>
-                                                        <option value="800000000"> 800 Million</option>
-                                                        <option value="900000000"> 900 Million</option>
-                                                        <option value="1000000000"> 1 Billion</option>
-                                                        <option value="2000000000"> 2 Billion</option>
-                                                        <option value="5000000000"> 5 Billion</option>
-                                                        <option value="10000000000"> 10 Billion</option>
-                                                        <option value="20000000000"> 20 Billion</option>
-                                                        <option value="30000000000"> 30 Billion</option>
-                                                        <option value="40000000000"> 40 Billion</option>
-                                                        <option value="50000000000"> 50 Billion</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label>Title</label>
-                                                    <input name="keywords" id="keywords" required class="form-control"
-                                                        placeholder="e.g. 'pool' or 'jacuzzi'" value=""
-                                                        autocomplete="off">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <button type="submit" name="advquery" class="theme-btn btn-one ">
-                                                    <span>Search</span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                    <?php elseif($_GET['propertyCategory'] == 'Land'):  ?>
-                                    <form action="" method="post" class="form-light">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label>Location</label>
-                                                    <div class="easy-autocomplete">
-                                                        <textarea data-prefix="" name="Location"
-                                                            placeholder="Enter a state, locality or area"
-                                                            data-results="all" style="height:36px;" type="text"
-                                                            class="form-control side-panel-search propertyLocation"
-                                                            autocomplete="off" id="eac-118" required></textarea>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label>Type</label>
-                                                    <select name="type" id="type" class="form-control">
-                                                        <option class="text-capitalize" value="0" selected="selected">
-                                                            Select Types</option>
-                                                        <option class="text-capitalize" value="Wetland">Wetland</option>
-                                                        <option class="text-capitalize" value="dry land"> dry land
-                                                        </option>
-                                                        <option class="text-capitalize" value="sandfilled">sandfilled
-                                                        </option>
-                                                        <option class="text-capitalize" value="bare-land">bare-land
-                                                        </option>
-                                                        <option class="text-capitalize" value="demolishable">
-                                                            demolishable</option>
-                                                        <option class="text-capitalize" value="Semi Detached Duplex">
-                                                            Semi Detached Duplex
-                                                        </option>
-                                                        <option class="text-capitalize" value="Terrace Bungalow">Terrace
-                                                            Bungalow</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>Min price</label>
-                                                    <select name="minprice" required id="minprice" class="form-control">
-                                                        <option value="0" selected="selected">No Min</option>
-                                                        <option value="250000"> 250,000</option>
-                                                        <option value="500000"> 500,000</option>
-                                                        <option value="750000"> 750,000</option>
-                                                        <option value="1000000"> 1 Million</option>
-                                                        <option value="2000000"> 2 Million</option>
-                                                        <option value="5000000"> 5 Million</option>
-                                                        <option value="10000000"> 10 Million</option>
-                                                        <option value="20000000"> 20 Million</option>
-                                                        <option value="30000000"> 30 Million</option>
-                                                        <option value="40000000"> 40 Million</option>
-                                                        <option value="60000000"> 60 Million</option>
-                                                        <option value="80000000"> 80 Million</option>
-                                                        <option value="100000000"> 100 Million</option>
-                                                        <option value="150000000"> 150 Million</option>
-                                                        <option value="200000000"> 200 Million</option>
-                                                        <option value="250000000"> 250 Million</option>
-                                                        <option value="300000000"> 300 Million</option>
-                                                        <option value="400000000"> 400 Million</option>
-                                                        <option value="500000000"> 500 Million</option>
-                                                        <option value="600000000"> 600 Million</option>
-                                                        <option value="700000000"> 700 Million</option>
-                                                        <option value="800000000"> 800 Million</option>
-                                                        <option value="900000000"> 900 Million</option>
-                                                        <option value="1000000000"> 1 Billion</option>
-                                                        <option value="2000000000"> 2 Billion</option>
-                                                        <option value="5000000000"> 5 Billion</option>
-                                                        <option value="10000000000"> 10 Billion</option>
-                                                        <option value="20000000000"> 20 Billion</option>
-                                                        <option value="30000000000"> 30 Billion</option>
-                                                        <option value="40000000000"> 40 Billion</option>
-                                                        <option value="50000000000"> 50 Billion</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>Max price</label>
-                                                    <select name="maxprice" required id="maxprice" class="form-control">
-                                                        <option value="0" selected="selected">No Max</option>
-                                                        <option value="250000"> 250,000</option>
-                                                        <option value="500000"> 500,000</option>
-                                                        <option value="750000"> 750,000</option>
-                                                        <option value="1000000"> 1 Million</option>
-                                                        <option value="2000000"> 2 Million</option>
-                                                        <option value="5000000"> 5 Million</option>
-                                                        <option value="10000000"> 10 Million</option>
-                                                        <option value="20000000"> 20 Million</option>
-                                                        <option value="30000000"> 30 Million</option>
-                                                        <option value="40000000"> 40 Million</option>
-                                                        <option value="60000000"> 60 Million</option>
-                                                        <option value="80000000"> 80 Million</option>
-                                                        <option value="100000000"> 100 Million</option>
-                                                        <option value="150000000"> 150 Million</option>
-                                                        <option value="200000000"> 200 Million</option>
-                                                        <option value="250000000"> 250 Million</option>
-                                                        <option value="300000000"> 300 Million</option>
-                                                        <option value="400000000"> 400 Million</option>
-                                                        <option value="500000000"> 500 Million</option>
-                                                        <option value="600000000"> 600 Million</option>
-                                                        <option value="700000000"> 700 Million</option>
-                                                        <option value="800000000"> 800 Million</option>
-                                                        <option value="900000000"> 900 Million</option>
-                                                        <option value="1000000000"> 1 Billion</option>
-                                                        <option value="2000000000"> 2 Billion</option>
-                                                        <option value="5000000000"> 5 Billion</option>
-                                                        <option value="10000000000"> 10 Billion</option>
-                                                        <option value="20000000000"> 20 Billion</option>
-                                                        <option value="30000000000"> 30 Billion</option>
-                                                        <option value="40000000000"> 40 Billion</option>
-                                                        <option value="50000000000"> 50 Billion</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label>Title</label>
-                                                    <input name="keywords" id="keywords" required class="form-control"
-                                                        placeholder="e.g. 'pool' or 'jacuzzi'" value=""
-                                                        autocomplete="off">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label>Square Meters</label>
-                                                    <input name="sqrt" id="sqrt" required class="form-control"
-                                                        placeholder="500">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <button type="submit" name="advquery" class="theme-btn btn-one ">
-                                                    <span>Search</span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                    <?php endif;  ?>
-
+                                
                                 </div>
                             </div>
                         </div>
@@ -1240,7 +994,7 @@ if (isset($_SESSION['useremail'])) {
                                             <div class="lower-content">
                                                 <div class="title-text">
                                                     <h4><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
-                                                            class="text-dark">
+                                                            class="text-dark" style="color:#2F7366 !important;">
                                                             <?= $info['propertytitle'] ?>/
                                                             <?= $info['marketstatus']  ?>
                                                         </a></h4>
@@ -1300,22 +1054,19 @@ if (isset($_SESSION['useremail'])) {
                                                     <?php endif; ?>
                                                 </ul> -->
                                                 <div class="other-info-box clearfix">
-                                                    <div class="btn-box d-flex justify-content-between oull-left">
-                                                        <a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
-                                                            class="theme-btn btn-two ">See Details</a>
-
-                                                        <a href="#modalId" class="theme-btn btn-two "
-                                                            data-toggle="modal"><span id='<?= $info[' longtitude'] ?>'
-                                                                class="span" title="
-                                                                <?= $info['langtitude'] ?>">Map
-                                                            </span></a>
-                                                        <a href="contect" class="theme-btn btn-two "
-                                                           ><span  class="span" >Book Insepection
-                                                            </span></a>
-                                                    </div> <!-- <ul class="other-option pull-right clearfix">
-                                                            <li><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"><i class="icon-12"></i></a></li>
-                                                            <li><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"><i class="icon-13"></i></a></li>
-                                                        </ul> -->
+                                                    <div class="btn-box btn-group d-flex justify-content-between oull-left">
+                                                        <a style="padding: 10px;" href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
+                                                            class="theme-btn btn-one "> <span  style="font-size: 15px; ">Details</span></a>
+                                                        <a style="padding: 10px;" href="#modalId" class="theme-btn btn-one "
+                                                            data-toggle="modal">
+                                                            <span id='<?= $info[' longtitude'] ?>'
+                                                                class="span" title="<?= $info['langtitude'] ?>" style="font-size: 15px; ">Map
+                                                            </span>
+                                                        </a>
+                                                        <a style="padding: 10px;" href="contact" class="theme-btn btn-one ">
+                                                            <span  class="span" style="font-size: 15px; ">Book Inspection</span>
+                                                        </a>
+                                                    </div> 
                                                 </div>
                                             </div>
                                         </div>
@@ -1435,8 +1186,11 @@ if (isset($_SESSION['useremail'])) {
     <!-- main-js -->
     <script src="assets/js/script.js"></script>
     <script>
-        $(".show").hide()
+               $(".show").hide()
         $(".show1").hide()
+        $(".show2").hide()
+        $(".show3").hide()
+
 
         $('#trigShow').change(function (e) {
             e.preventDefault();
@@ -1444,15 +1198,37 @@ if (isset($_SESSION['useremail'])) {
             if (trigVal == 'Land') {
                 $(".show1").show()
                 $(".show").hide()
+                $(".show2").hide()
+                $(".show3").hide()
+                $(".demoshow").hide()
+
+
             } else if (trigVal == 'Autos/Machinery') {
                 $(".show").hide()
                 $(".show1").hide()
+                $(".show2").show()
+                $(".show3").hide()
+                $(".demoshow").hide()
+
+
+            }  else if (trigVal == 'Non Distress Properties') {
+                $(".show3").show()
+                $(".show").hide()
+                $(".show1").hide()
+                $(".show2").hide()
+                $(".demoshow").hide()
+
 
             } else {
-                $(".show1").hide()
                 $(".show").show()
+                $(".show1").hide()
+                $(".show2").hide()
+                $(".show3").hide()
+                $(".demoshow").hide()
+
             }
         });
+
     </script>
 
 

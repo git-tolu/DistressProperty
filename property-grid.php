@@ -117,44 +117,6 @@ if (isset($_SESSION['useremail'])) {
                 </div>
             </div>
         </section>
-        <section class="search-field-section">
-            <div class="auto-container">
-                <div class="inner-container">
-                    <div class="search-field">
-                        <div class="tabs-box">
-
-                            <!-- <div class="tabs-content info-group">
-                                <div class="tab active-tab" id="tab-1"> -->
-                            <div class="inner-box">
-                                <div class="top-search">
-                                    <form action="property-gridAll" method="get"
-                                        class="search-form  justify-content-center align-items-center text-center d-flex">
-                                        <div class="row clearfix" style="width: 800px;">
-                                            <div class="col-lg-12 col-md-12 col-sm-12 ">
-                                                <div class="form-group">
-
-                                                    <div class="field-input">
-                                                        <i class="fas fa-search"></i>
-                                                        <input type="search" name="search"
-                                                            placeholder="Search by Property, Address, City or State..."
-                                                            required="">
-                                                    </div>
-                                                </div>
-                                                <button type="submit" class="search-btn p-2"><i
-                                                        class="fas fa-search"></i> Search</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            <!-- </div>
-                            </div> -->
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
 
 
 
@@ -226,18 +188,18 @@ if (isset($_SESSION['useremail'])) {
         </section>
          -->
         <!-- search-field-section -->
-        <section class="search-field-section style-two">
+        <section class="search-field-section">
             <div class="auto-container">
                 <div class="inner-container">
-                    <div class="search-field">
+                <div class="search-field">
                         <div class="tabs-box">
-                            <div class="tabs-content info-group">
-
-                                <div class="tab active-tab" id="tab-1">
+                           
+                            <!-- <div class="tabs-content info-group">
+                                <div class="tab active-tab" id="tab-1"> -->
                                     <div class="inner-box">
                                         <div class="top-search">
-                                            <form action="" method="post" class="search-form">
-                                                <div class="row clearfix">
+                                            <form action="" method="post" class="search-form d-flex justify-content-center align-items-center text-center">
+                                                <div class="row clearfix w-100" >
                                                     <div class="col-lg-5 col-md-6 col-sm-12 column">
                                                         <div class="form-group">
                                                             <div class="field-input">
@@ -328,24 +290,25 @@ if (isset($_SESSION['useremail'])) {
 
                                                     <div class="col-lg-2 col-md-6 col-sm-12 column">
                                                         <input type="hidden" value="Nigeria" name="area_location">
-                                                        <button type="Submit" name="searchBtn"
-                                                            class="theme-btn btn-one">Search</button>
+                                                        <div class="form-group">
+                                                            <input type="submit" value="Search" name="searchBtn" class="btn theme-btn btn-one form-control" style="padding: 0px;">
+                                                        </div>
 
                                                     </div>
                                                 </div>
-
                                             </form>
                                         </div>
-
                                     </div>
-                                </div>
-
-                            </div>
+                                <!-- </div>
+                            </div> -->
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
+
+      
         <!-- search-field-section end -->
 
 
@@ -1327,7 +1290,7 @@ if (isset($_SESSION['useremail'])) {
                                             <div class="lower-content">
                                                 <div class="title-text">
                                                     <h4><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
-                                                            class="text-dark">
+                                                            class="text-dark" style="color:#2F7366 !important;">
                                                             <?= $info['propertytitle'] ?>/
                                                             <?= $info['marketstatus'] ?>
                                                         </a></h4>
@@ -1403,22 +1366,20 @@ if (isset($_SESSION['useremail'])) {
                                                     <?php endif; ?>
                                                 </ul> -->
                                                 <div class="other-info-box clearfix">
-                                                    <div class="btn-box d-flex justify-content-between oull-left">
-                                                        <a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
-                                                            class="theme-btn btn-two ">See Details</a>
+                                                    <div class="btn-box btn-group d-flex justify-content-between oull-left">
+                                                        <a style="padding: 10px;" href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
+                                                            class="theme-btn btn-one "> <span  style="font-size: 15px; ">Details</span></a>
+                                                        <a style="padding: 10px;" href="#modalId" class="theme-btn btn-one "
+                                                            data-toggle="modal">
+                                                            <span id='<?= $info[' longtitude'] ?>'
+                                                                class="span" title="<?= $info['langtitude'] ?>" style="font-size: 15px; ">Map
+                                                            </span>
+                                                        </a>
+                                                        <a style="padding: 10px;" href="contact" class="theme-btn btn-one ">
+                                                            <span  class="span" style="font-size: 15px; ">Book Inspection</span>
+                                                        </a>
+                                                    </div> 
 
-                                                        <a href="#modalId" class="theme-btn btn-two "
-                                                            data-toggle="modal"><span id='<?= $info[' longtitude'] ?>'
-                                                                class="span" title="
-                                                                <?= $info['langtitude'] ?>">Map
-                                                            </span></a>
-                                                            <a href="contect" class="theme-btn btn-two "
-                                                            ><span  class="span" >Book Insepection
-                                                             </span></a>
-                                                    </div> <!-- <ul class="other-option pull-right clearfix">
-                                                            <li><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"><i class="icon-12"></i></a></li>
-                                                            <li><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"><i class="icon-13"></i></a></li>
-                                                        </ul> -->
                                                 </div>
                                             </div>
                                         </div>

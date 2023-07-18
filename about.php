@@ -47,6 +47,15 @@ if (isset($_SESSION['useremail'])) {
     <link href="assets/css/switcher-style.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/responsive.css" rel="stylesheet">
+    <style>
+        .category-block-one .inner-box .more-btn .theme-btn.btn-one:hover {
+  background-color: white !important;
+  border: 2px solid white !important;
+  color: #D9A464 !important;
+  box-shadow: 0 10px 30px 0px rgb(0 0 0 / 10%);
+
+}
+    </style>
 
 </head>
 
@@ -281,7 +290,7 @@ if (isset($_SESSION['useremail'])) {
                                         I will recommend you join the train while offer lasts.
                                     </p> -->
 
-                                    <div class="more-btn"><a href="#one" class="theme-btn btn-one"
+                                    <div class="more-btn"><a href="#one" class="theme-btn hov btn-one"
                                             data-toggle="modal">View Profile</a></div>
                                             <div class="more-btn">
 
@@ -327,7 +336,7 @@ if (isset($_SESSION['useremail'])) {
                                         It is worthy to note that Alex Udeze also sits on the board of two equally
                                         thriving affiliate companies. He is a devote father and husband, a
                                         philanthropist and humanitarian </p> -->
-                                    <div class="more-btn"><a href="#two" class="theme-btn btn-one"
+                                    <div class="more-btn"><a href="#two" class="theme-btn hov btn-one"
                                             data-toggle="modal">View Profile</a></div>
                                             <div class="more-btn">
 
@@ -371,7 +380,7 @@ if (isset($_SESSION['useremail'])) {
                                         She is known for her exceptional ability to execute mind-breaking
                                         marketing initiatives and has a track record of excellent delivery within
                                         and outside Nigeria.</p> -->
-                                    <div class="more-btn"><a href="#three" class="theme-btn btn-one"
+                                    <div class="more-btn"><a href="#three" class="theme-btn hov btn-one"
                                             data-toggle="modal">View Profile</a></div>
                                             <div class="more-btn">
 
@@ -416,7 +425,7 @@ if (isset($_SESSION['useremail'])) {
                                         His vast experience in operational stratey and project coordination sets apart
                                         as an exception leader and business executive
                                     </p> -->
-                                    <div class="more-btn"><a href="#four" class="theme-btn btn-one"
+                                    <div class="more-btn"><a href="#four" class="theme-btn hov btn-one"
                                             data-toggle="modal">View Profile</a></div>
                                             <div class="more-btn">
 
@@ -461,7 +470,7 @@ if (isset($_SESSION['useremail'])) {
                                         security, stock brokerage and real estate industries.
                                         Collins Chionuma is a renowned politician and indeed an
                                         amiable patron of transformative leadership.</p> -->
-                                    <div class="more-btn"><a href="#six" class="theme-btn btn-one"
+                                    <div class="more-btn"><a href="#six" class="theme-btn hov btn-one"
                                             data-toggle="modal">View Profile</a></div>
                                             <div class="more-btn">
 

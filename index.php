@@ -306,21 +306,21 @@ if (isset($_SESSION['useremail'])) {
                                                     </span>
                                                 </div>
                                                 <div class="lower-content">
-                                                    <div class="author-info clearfix">
-                                                        <div class="author pull-left">
-                                                            <figure class="author-thumb"><img src="assets/images/footer-logo.png"
-                                                                    style="object-fit:cover; background-position: center; width: 60px; height: 40px; border-radius: 50%;"
-                                                                    alt="">
-                                                            </figure>
-                                                            <h6 class="text-uppercase">
-                                                                <?= $info['propertytitle'] ?>
-                                                            </h6>
-                                                        </div>
-                                                        <div class="buy-btn pull-right"><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
-                                                                <?= $info['symbol'] . number_format($info['propertyprice'], 2) ?>
-                                                            </a>
-                                                        </div>
-                                                    </div>
+                                                                        <div class="author-info clearfix">
+                                                                            <div class="author pull-left">
+                                                                                <figure class="author-thumb"><img src="assets/images/footer-logo.png"
+                                                                                        style="object-fit:cover; background-position: center; width: 60px; height: 40px; border-radius: 50%;"
+                                                                                        alt="">
+                                                                                </figure>
+                                                                                <h6 class="text-uppercase">
+                                                                                    <?= $info['propertytitle'] ?>
+                                                                                </h6>
+                                                                            </div>
+                                                                            <div class="buy-btn pull-right"><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
+                                                                                    <?= $info['symbol'] . number_format($info['propertyprice'], 2) ?>
+                                                                                </a>
+                                                                            </div>
+                                                                        </div>
                                                                 
                                                                         <div class="title-text">
                                                                             <h6><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
@@ -328,9 +328,9 @@ if (isset($_SESSION['useremail'])) {
                                                                                 </a></h6>
                                                                         </div>
                                                                         <div class="title-text">
-                                                                    <h3><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
+                                                                    <h4><a class="text-capitalize" href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
                                                                     <?= $info['typeproperty'] ?>
-                                                                        </a></h3>
+                                                                        </a></h4>
                                                                 </div>
                                                                        
                                                                         <p>

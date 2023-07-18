@@ -397,8 +397,10 @@ Please note that the property aforementioned does not belong to Distress Propert
                                     </p>
                                     <div class="d-flex justify-content-between mt-3">
                                     <a href="javascript:void()" class="theme-btn btn-one" id='show'>Call</a>
-                                    
-                                        <a href="https://api.whatsapp.com/send?phone=<?= $agentDetails['whatsappNumber'] ?>" target="_blank" class="theme-btn btn-one">Whatsapp</a>
+                                    <a href="contect" class="theme-btn btn-one "
+                                                            ><span  class="span" >Book Inspection
+                                                             </span></a>
+                                        <!-- <a href="https://api.whatsapp.com/send?phone=<?= $agentDetails['whatsappNumber'] ?>" target="_blank" class="theme-btn btn-one">Whatsapp</a> -->
                                     </div>
                                     <div class="bg-light p-3"> <p id="noshow">Phoneno: <?= $agentDetails['callNumber'] ?></p></div>
                                
@@ -555,8 +557,13 @@ Please note that the property aforementioned does not belong to Distress Propert
                                                                         <?= $info['area_location'] ?>
                                                                     </li>
                                                                 </ul> -->
-                                            <div class="btn-box d-flex justify-content-center align-items-center text-center"><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
-                                                                        class="theme-btn btn-two">See Details</a></div>
+                                            <div class="btn-box d-flex justify-content-center align-items-center text-center">
+                                                <a style="padding: 10px;" href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>" class="theme-btn btn-one">
+                                                <span  class="span" style="font-size: 15px; ">See Details</span></a>
+                                                <a style="padding: 10px;" href="contact" class="theme-btn btn-one ">
+                                                            <span  class="span" style="font-size: 15px; ">Book Inspection</span>
+                                                        </a>
+                                                        </div>
                                         </div>
                                     </div>
                                 </div>
