@@ -164,7 +164,7 @@ if (isset($_SESSION['useremail'])) {
                 <div class="inner-container bg-color-2" style="background-color: #D9A464;">
                     <div class="upper-box clearfix">
                         <div class="sec-title light">
-                            <h5>Why Choose Us?</h5>
+                            <h5 style="color: white;" class="text-center">Why choose distress capital investment?</h5>
                         </div>
                     </div>
                     <div class="lower-box">
