@@ -97,116 +97,123 @@ if (isset($_SESSION['useremail'])) {
         <section class="search-field-section">
             <div class="auto-container">
                 <div class="inner-container">
-                <div class="search-field">
+                    <div class="search-field">
                         <div class="tabs-box">
-                           
-                            <!-- <div class="tabs-content info-group">
-                                <div class="tab active-tab" id="tab-1"> -->
-                                    <div class="inner-box">
-                                        <div class="top-search">
-                                            <form action="" method="post" class="search-form  d-flex justify-content-center align-items-center text-center">
-                                                <div class="row clearfix w-100" >
-                                                    <div class="col-lg-5 col-md-6 col-sm-12 column">
-                                                        <div class="form-group">
-                                                            <div class="field-input">
-                                                                <select class="form-control" name="propertyCategory"
-                                                                    required>
-                                                                    <option data-display="Property Type">Property Type
-                                                                    </option>
-                                                                    <?php
-                                                                    if ($propertyCategory == 'Land'):
-                                                                        ?>
-                                                                    <option value="Residential"  class="text-capitalize">Residential</option>
-                                                                    <option value="commercial"  class="text-capitalize">commercial</option>
-                                                                    <option value="Mixed Area"  class="text-capitalize"> Mixed Area</option>
-                                                                    <?php else: ?>
-                                                                    <option value="Detached Duplex"  class="text-capitalize">Detached Duplex
-                                                                    </option>
-                                                                    <option value="Terrace Duplex"  class="text-capitalize"> Terrace Duplex
-                                                                    </option>
-                                                                    <option value="Flat/Apartment"  class="text-capitalize">Flat/Apartment
-                                                                    </option>
-                                                                    <option value="Detached Bungalow"  class="text-capitalize">Detached Bungalow
-                                                                    </option>
-                                                                    <option value="Semi Detached Bungalow"  class="text-capitalize">Semi Detached
-                                                                        Bungalow</option>
-                                                                    <option value="Semi Detached Duplex"  class="text-capitalize">Semi Detached
-                                                                        Duplex</option>
-                                                                    <option value="Terrace Bungalow"  class="text-capitalize">Terrace Bungalow
-                                                                    </option>
-                                                                    <?php endif; ?>
-                                                                    <!-- <option value="Distress Properties">Distress Property</option>
+                            <div class="inner-box">
+                                <div class="top-search">
+                                    <form action="" method="post"
+                                        class="search-form  d-flex justify-content-center align-items-center text-center">
+                                        <div class="row clearfix w-100">
+                                            <div class="col-lg-5 col-md-6 col-sm-12 column">
+                                                <div class="form-group">
+                                                    <div class="field-input">
+                                                        <select class="form-control" name="propertyCategory" required>
+                                                            <option data-display="Property Type">Property Type
+                                                            </option>
+                                                            <?php
+                                                            if ($propertyCategory == 'Land'):
+                                                                ?>
+                                                                <option value="Residential" class="text-capitalize">
+                                                                    Residential</option>
+                                                                <option value="commercial" class="text-capitalize">
+                                                                    commercial</option>
+                                                                <option value="Mixed Area" class="text-capitalize"> Mixed
+                                                                    Area</option>
+                                                            <?php else: ?>
+                                                                <option value="Detached Duplex" class="text-capitalize">
+                                                                    Detached Duplex
+                                                                </option>
+                                                                <option value="Terrace Duplex" class="text-capitalize">
+                                                                    Terrace Duplex
+                                                                </option>
+                                                                <option value="Flat/Apartment" class="text-capitalize">
+                                                                    Flat/Apartment
+                                                                </option>
+                                                                <option value="Detached Bungalow" class="text-capitalize">
+                                                                    Detached Bungalow
+                                                                </option>
+                                                                <option value="Semi Detached Bungalow"
+                                                                    class="text-capitalize">Semi Detached
+                                                                    Bungalow</option>
+                                                                <option value="Semi Detached Duplex"
+                                                                    class="text-capitalize">Semi Detached
+                                                                    Duplex</option>
+                                                                <option value="Terrace Bungalow" class="text-capitalize">
+                                                                    Terrace Bungalow
+                                                                </option>
+                                                            <?php endif; ?>
+                                                            <!-- <option value="Distress Properties">Distress Property</option>
                                                                     <option value="Non Distress
                                                                         Properties">Non-Distress Property
                                                                     </option>
                                                                     <option value="Autos/Machinery">Autos & Machinery</option>
                                                                     <option value="Land">Land</option> -->
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-lg-5 col-md-6 col-sm-12 column">
-                                                        <div class="form-group">
-                                                            <div class="select-box">
-                                                                <select class="form-control" name="state" required>
-                                                                    <option data-display="Select State">Select State
-                                                                    </option>
-                                                                    <option>ABUJA FCT</option>
-                                                                    <option>ABIA</option>
-                                                                    <option>ADAMAWA</option>
-                                                                    <option>AKWA IBOM</option>
-                                                                    <option>ANAMBRA</option>
-                                                                    <option>BAUCHI</option>
-                                                                    <option>BAYELSA</option>
-                                                                    <option>BENUE</option>
-                                                                    <option>BORNO</option>
-                                                                    <option>CROSS RIVER</option>
-                                                                    <option>DELTA</option>
-                                                                    <option>EBONYI</option>
-                                                                    <option>EDO</option>
-                                                                    <option>EKITI</option>
-                                                                    <option>ENUGU</option>
-                                                                    <option>GOMBE</option>
-                                                                    <option>IMO</option>
-                                                                    <option>JIGAWA</option>
-                                                                    <option>KADUNA</option>
-                                                                    <option>KANO</option>
-                                                                    <option>KATSINA</option>
-                                                                    <option>KEBBI</option>
-                                                                    <option>KOGI</option>
-                                                                    <option>KWARA</option>
-                                                                    <option>LAGOS</option>
-                                                                    <option>NASSARAWA</option>
-                                                                    <option>NIGER</option>
-                                                                    <option>OGUN</option>
-                                                                    <option>ONDO</option>
-                                                                    <option>OSUN</option>
-                                                                    <option>OYO</option>
-                                                                    <option>PLATEAU</option>
-                                                                    <option>RIVERS</option>
-                                                                    <option>SOKOTO</option>
-                                                                    <option>TARABA</option>
-                                                                    <option>YOBE</option>
-                                                                    <option>ZAMFARA</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-lg-2 col-md-6 col-sm-12 column">
-                                                        <input type="hidden" value="Nigeria" name="area_location">
-                                                        <div class="form-group">
-                                                            <input type="submit" value="Search" name="searchBtn" class="btn theme-btn btn-one form-control" style="padding: 0px;">
-                                                        </div>
-
+                                                        </select>
                                                     </div>
                                                 </div>
-                                            </form>
+                                            </div>
+
+                                            <div class="col-lg-5 col-md-6 col-sm-12 column">
+                                                <div class="form-group">
+                                                    <div class="select-box">
+                                                        <select class="form-control" name="state" required>
+                                                            <option data-display="Select State">Select State
+                                                            </option>
+                                                            <option>ABUJA FCT</option>
+                                                            <option>ABIA</option>
+                                                            <option>ADAMAWA</option>
+                                                            <option>AKWA IBOM</option>
+                                                            <option>ANAMBRA</option>
+                                                            <option>BAUCHI</option>
+                                                            <option>BAYELSA</option>
+                                                            <option>BENUE</option>
+                                                            <option>BORNO</option>
+                                                            <option>CROSS RIVER</option>
+                                                            <option>DELTA</option>
+                                                            <option>EBONYI</option>
+                                                            <option>EDO</option>
+                                                            <option>EKITI</option>
+                                                            <option>ENUGU</option>
+                                                            <option>GOMBE</option>
+                                                            <option>IMO</option>
+                                                            <option>JIGAWA</option>
+                                                            <option>KADUNA</option>
+                                                            <option>KANO</option>
+                                                            <option>KATSINA</option>
+                                                            <option>KEBBI</option>
+                                                            <option>KOGI</option>
+                                                            <option>KWARA</option>
+                                                            <option>LAGOS</option>
+                                                            <option>NASSARAWA</option>
+                                                            <option>NIGER</option>
+                                                            <option>OGUN</option>
+                                                            <option>ONDO</option>
+                                                            <option>OSUN</option>
+                                                            <option>OYO</option>
+                                                            <option>PLATEAU</option>
+                                                            <option>RIVERS</option>
+                                                            <option>SOKOTO</option>
+                                                            <option>TARABA</option>
+                                                            <option>YOBE</option>
+                                                            <option>ZAMFARA</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-2 col-md-6 col-sm-12 column">
+                                                <input type="hidden" value="Nigeria" name="area_location">
+                                                <div class="form-group">
+                                                    <input type="submit" value="Search" name="searchBtn"
+                                                        class="btn theme-btn btn-one form-control"
+                                                        style="padding: 0px;">
+                                                </div>
+
+                                            </div>
                                         </div>
-                                    </div>
-                                <!-- </div>
-                            </div> -->
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -562,19 +569,22 @@ if (isset($_SESSION['useremail'])) {
                                             <div class="col-md-12 ">
                                                 <div class="form-group">
                                                     <label>Type</label>
-                                                    <select class="form-control" name="propertyCategory"
-                                                    id="trigShow" required>
-                                                    <option value="<?= $propertyCategory ?>">
-                                                        <?= $propertyCategory ?>
-                                                    </option>
-                                                    <option value="Distress Properties" class="text-capitalize">Distress Property
-                                                    </option>
-                                                    <option value="Non Distress Properties" class="text-capitalize">Non-Distress
-                                                        Property
-                                                    </option>
-                                                    <option value="Autos/Machinery"  class="text-capitalize">Autos & Machinery</option>
-                                                    <option value="Land"  class="text-capitalize">Land</option>
-                                                </select>
+                                                    <select class="form-control" name="propertyCategory" id="trigShow"
+                                                        required>
+                                                        <option value="<?= $propertyCategory ?>">
+                                                            <?= $propertyCategory ?>
+                                                        </option>
+                                                        <option value="Distress Properties" class="text-capitalize">
+                                                            Distress Property
+                                                        </option>
+                                                        <option value="Non Distress Properties" class="text-capitalize">
+                                                            Non-Distress
+                                                            Property
+                                                        </option>
+                                                        <option value="Autos/Machinery" class="text-capitalize">Autos &
+                                                            Machinery</option>
+                                                        <option value="Land" class="text-capitalize">Land</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12 col-md-12 col-sm-12 column show">
@@ -582,15 +592,18 @@ if (isset($_SESSION['useremail'])) {
                                                 <div class="field-input">
                                                     <select class="form-control" name="typeproperty">
                                                         <option value="">
-                                                            
+
                                                         </option>
-                                                        <option value="bungalow"  class="text-capitalize">bungalow</option>
-                                                        <option value="fully detached"  class="text-capitalize"> fully detached</option>
-                                                        <option value="semi detached"  class="text-capitalize">semi detached</option>
-                                                        <option value="terrace"  class="text-capitalize">terrace</option>
-                                                        <option value="maisonette"  class="text-capitalize">maisonette
+                                                        <option value="bungalow" class="text-capitalize">bungalow
                                                         </option>
-                                                        <option value="land"  class="text-capitalize">land
+                                                        <option value="fully detached" class="text-capitalize"> fully
+                                                            detached</option>
+                                                        <option value="semi detached" class="text-capitalize">semi
+                                                            detached</option>
+                                                        <option value="terrace" class="text-capitalize">terrace</option>
+                                                        <option value="maisonette" class="text-capitalize">maisonette
+                                                        </option>
+                                                        <option value="land" class="text-capitalize">land
                                                         </option>
                                                     </select>
                                                 </div>
@@ -600,17 +613,21 @@ if (isset($_SESSION['useremail'])) {
                                                 <div class="field-input">
                                                     <select class="form-control" name="distresscat">
                                                         <option value="">
-                                                            
+
                                                         </option>
-                                                        <option value="bungalow"  class="text-capitalize">bungalow</option>
-                                                        <option value="fully detached"  class="text-capitalize"> fully detached</option>
-                                                        <option value="semi detached"  class="text-capitalize">semi detached</option>
-                                                        <option value="terrace"  class="text-capitalize">terrace</option>
-                                                        <option value="maisonette"  class="text-capitalize">maisonette
+                                                        <option value="bungalow" class="text-capitalize">bungalow
                                                         </option>
-                                                        <option value="land"  class="text-capitalize">land
+                                                        <option value="fully detached" class="text-capitalize"> fully
+                                                            detached</option>
+                                                        <option value="semi detached" class="text-capitalize">semi
+                                                            detached</option>
+                                                        <option value="terrace" class="text-capitalize">terrace</option>
+                                                        <option value="maisonette" class="text-capitalize">maisonette
                                                         </option>
-                                                        <option value="apartment-block"  class="text-capitalize">apartment-block
+                                                        <option value="land" class="text-capitalize">land
+                                                        </option>
+                                                        <option value="apartment-block" class="text-capitalize">
+                                                            apartment-block
                                                         </option>
                                                     </select>
                                                 </div>
@@ -620,17 +637,24 @@ if (isset($_SESSION['useremail'])) {
                                                 <div class="field-input">
                                                     <select class="form-control" name="autocat">
                                                         <option value="">
-                                                            
+
                                                         </option>
-                                                        <option value="Vechicle"  class="text-capitalize">Vechicle</option>
-                                                        <option value="motorbike"  class="text-capitalize"> motorbike</option>
-                                                        <option value="aircraft"  class="text-capitalize">aircraft</option>
-                                                        <option value="vessel/ships"  class="text-capitalize">vessel/ships</option>
-                                                        <option value="cranes"  class="text-capitalize">cranes</option>
-                                                        <option value="scaffold iron bars"  class="text-capitalize">scaffold iron bars
+                                                        <option value="Vechicle" class="text-capitalize">Vechicle
                                                         </option>
-                                                        <option value="wires and conductors"  class="text-capitalize">wires and conductors</option>
-                                                        <option value="heavy machineries"  class="text-capitalize">heavy machineries</option>    
+                                                        <option value="motorbike" class="text-capitalize"> motorbike
+                                                        </option>
+                                                        <option value="aircraft" class="text-capitalize">aircraft
+                                                        </option>
+                                                        <option value="vessel/ships" class="text-capitalize">
+                                                            vessel/ships</option>
+                                                        <option value="cranes" class="text-capitalize">cranes</option>
+                                                        <option value="scaffold iron bars" class="text-capitalize">
+                                                            scaffold iron bars
+                                                        </option>
+                                                        <option value="wires and conductors" class="text-capitalize">
+                                                            wires and conductors</option>
+                                                        <option value="heavy machineries" class="text-capitalize">heavy
+                                                            machineries</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -639,16 +663,22 @@ if (isset($_SESSION['useremail'])) {
                                                 <div class="field-input">
                                                     <select class="form-control" name="landcategory" id="">
                                                         <option value="">
-                                                            
+
                                                         </option>
-                                                        <option value="Wetland"  class="text-capitalize">Wetland</option>
-                                                        <option value="dry land"  class="text-capitalize"> dry land</option>
-                                                        <option value="sandfilled"  class="text-capitalize">sandfilled</option>
-                                                        <option value="bare-land"  class="text-capitalize">bare-land</option>
-                                                        <option value="demolishable"  class="text-capitalize">demolishable</option>
-                                                        <option value="Semi Detached Duplex"  class="text-capitalize">Semi Detached Duplex
+                                                        <option value="Wetland" class="text-capitalize">Wetland</option>
+                                                        <option value="dry land" class="text-capitalize"> dry land
                                                         </option>
-                                                        <option value="Terrace Bungalow"  class="text-capitalize">Terrace Bungalow</option>
+                                                        <option value="sandfilled" class="text-capitalize">sandfilled
+                                                        </option>
+                                                        <option value="bare-land" class="text-capitalize">bare-land
+                                                        </option>
+                                                        <option value="demolishable" class="text-capitalize">
+                                                            demolishable</option>
+                                                        <option value="Semi Detached Duplex" class="text-capitalize">
+                                                            Semi Detached Duplex
+                                                        </option>
+                                                        <option value="Terrace Bungalow" class="text-capitalize">Terrace
+                                                            Bungalow</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -752,9 +782,9 @@ if (isset($_SESSION['useremail'])) {
                                             </div>
                                         </div>
                                     </form>
-                                  
 
-                                
+
+
                                 </div>
                             </div>
                         </div>
@@ -806,70 +836,7 @@ if (isset($_SESSION['useremail'])) {
                                 <div class="deals-list-content list-item">
                                     <?php
 
-                                if (isset($_POST['advquery'])) {
-                                    // Number of items per page
-                                    $itemsPerPage = 9;
-
-                                    // Current page number
-                                    $page = isset($_GET['page']) ? $_GET['page'] : 1;
-
-                                    // Calculate the starting index of the items to display
-                                    $startIndex = ($page - 1) * $itemsPerPage;
-
-                                    // Query to fetch the items from the database
-                                    // Replace this with your own query to fetch the items
-                                    $Location = $_POST['Location'];
-                                    $typeproperty = $_POST['type'];
-                                    $minprice = $_POST['minprice'];
-                                    $maxprice = $_POST['maxprice'];
-                                    $keywords = $_POST['keywords'];
-                                     if($_GET['propertyCategory'] == 'Distress Properties'):  
-                                        $fetch = $dbs->AdvanceSearchqueryDis($Location, $typeproperty,  $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex);
-                                     elseif($_GET['propertyCategory'] == 'Non Distress Properties'):
-                                        $fetch = $dbs->AdvanceSearchqueryDis($Location, $typeproperty,  $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex);
-                                     elseif($_GET['propertyCategory'] == 'Autos/Machinery'):
-                                        $fetch = $dbs->AdvanceSearchqueryDis($Location, $typeproperty,  $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex);
-                                    elseif($_GET['propertyCategory'] == 'Land'): 
-                                        $sqrt = $_POST['sqrt'];
-                                        $fetch = $dbs->AdvanceSearchqueryLand($Location, $typeproperty,  $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex, $sqrt);
-                                     endif;
-                                // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
-                            
-                                    // Execute the query and fetch the items
-                                    // Replace this with your own code to execute the query and fetch the items
-                                    // $items = []; // array to store the fetched items
-                            
-                                    // Query to get the total number of items
-                                    // Replace this with your own query to get the total number of items
-                                    // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
-                                    if($_GET['propertyCategory'] == 'Distress Properties'):  
-                                    $totalItemsQuery = $dbs->AdvanceSearchqueryNODis($Location, $typeproperty,  $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex);
-                                    elseif($_GET['propertyCategory'] == 'Non Distress Properties'):
-                                    $totalItemsQuery = $dbs->AdvanceSearchqueryNODis($Location, $typeproperty,  $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex);
-                                    elseif($_GET['propertyCategory'] == 'Autos/Machinery'):
-                                    $totalItemsQuery = $dbs->AdvanceSearchqueryNODis($Location, $typeproperty,  $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex);
-                                    elseif($_GET['propertyCategory'] == 'Land'): 
-                                    $totalItemsQuery = $dbs->AdvanceSearchqueryNOLand($Location, $typeproperty,  $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex, $sqrt);
-                                    $sqrt = $_POST['sqrt'];
-                                    endif;
-
-                                    //$totalItemsQuery = $dbs->AdvanceSearchqueryNO($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex, $ref);
-                                    $totalItemsResult = $totalItemsQuery; // result of executing the query
-                            
-                                    // Get the total number of items
-                                    $totalItems = $totalItemsResult;
-
-                                    // Calculate the total number of pages
-                                    $totalPages = ceil($totalItems / $itemsPerPage);
-                                } else {
-                                    if (isset($_POST['searchBtn'])) {
-                                        $propertyCategory = $_POST['propertyCategory'];
-                                        $state = $_POST['state'];
-                                        // echo $state;
-                                        // $area_location = $_POST['area_location'];
-                                        // $city = $_POST['city'];
-                                        // $fetch = $dbs->SelectAllApropertiesWhere($user_id, $propertyCategory, $area_location, $city, $state);
-                                        $fetch = $dbs->SelectAllApropertiesWhereNoSess($propertyCategory, $state);
+                                    if (isset($_POST['advquery'])) {
                                         // Number of items per page
                                         $itemsPerPage = 9;
 
@@ -881,57 +848,58 @@ if (isset($_SESSION['useremail'])) {
 
                                         // Query to fetch the items from the database
                                         // Replace this with your own query to fetch the items
-                                        //    $fetch = $dbs->SelectAllApropertiesNoSessNoLimitPag($propertyCategory, $itemsPerPage, $startIndex);
+                                        $Location = $_POST['Location'];
+                                        $typeproperty = $_POST['type'];
+                                        $minprice = $_POST['minprice'];
+                                        $maxprice = $_POST['maxprice'];
+                                        $keywords = $_POST['keywords'];
+                                        if ($_GET['propertyCategory'] == 'Distress Properties'):
+                                            $fetch = $dbs->AdvanceSearchqueryDis($Location, $typeproperty, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex);
+                                        elseif ($_GET['propertyCategory'] == 'Non Distress Properties'):
+                                            $fetch = $dbs->AdvanceSearchqueryDis($Location, $typeproperty, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex);
+                                        elseif ($_GET['propertyCategory'] == 'Autos/Machinery'):
+                                            $fetch = $dbs->AdvanceSearchqueryDis($Location, $typeproperty, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex);
+                                        elseif ($_GET['propertyCategory'] == 'Land'):
+                                            $sqrt = $_POST['sqrt'];
+                                            $fetch = $dbs->AdvanceSearchqueryLand($Location, $typeproperty, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex, $sqrt);
+                                        endif;
                                         // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
-                            
+                                    
                                         // Execute the query and fetch the items
                                         // Replace this with your own code to execute the query and fetch the items
                                         // $items = []; // array to store the fetched items
-                            
+                                    
                                         // Query to get the total number of items
                                         // Replace this with your own query to get the total number of items
                                         // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
-                                        $totalItemsQuery = $dbs->SelectAllApropertiesNoSessNoLimitPagCount($propertyCategory);
+                                        if ($_GET['propertyCategory'] == 'Distress Properties'):
+                                            $totalItemsQuery = $dbs->AdvanceSearchqueryNODis($Location, $typeproperty, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex);
+                                        elseif ($_GET['propertyCategory'] == 'Non Distress Properties'):
+                                            $totalItemsQuery = $dbs->AdvanceSearchqueryNODis($Location, $typeproperty, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex);
+                                        elseif ($_GET['propertyCategory'] == 'Autos/Machinery'):
+                                            $totalItemsQuery = $dbs->AdvanceSearchqueryNODis($Location, $typeproperty, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex);
+                                        elseif ($_GET['propertyCategory'] == 'Land'):
+                                            $totalItemsQuery = $dbs->AdvanceSearchqueryNOLand($Location, $typeproperty, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex, $sqrt);
+                                            $sqrt = $_POST['sqrt'];
+                                        endif;
+
+                                        //$totalItemsQuery = $dbs->AdvanceSearchqueryNO($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex, $ref);
                                         $totalItemsResult = $totalItemsQuery; // result of executing the query
-                            
+                                    
                                         // Get the total number of items
-                                        $totalItems = $totalItemsResult['id'];
+                                        $totalItems = $totalItemsResult;
 
                                         // Calculate the total number of pages
                                         $totalPages = ceil($totalItems / $itemsPerPage);
                                     } else {
-                                        if (isset($_GET['search'])) {
-                                            # code...
-                                            $search = $_GET['search'];
-                                            $itemsPerPage = 9;
-
-                                            // Current page number
-                                            $page = isset($_GET['page']) ? $_GET['page'] : 1;
-
-                                            // Calculate the starting index of the items to display
-                                            $startIndex = ($page - 1) * $itemsPerPage;
-
-                                            // Query to fetch the items from the database
-                                            // Replace this with your own query to fetch the items
-                                            $fetch = $dbs->SelectAllApropertiesSearch($search, $startIndex, $itemsPerPage);
-                                            // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
-                            
-                                            // Execute the query and fetch the items
-                                            // Replace this with your own code to execute the query and fetch the items
-                                            // $items = []; // array to store the fetched items
-                            
-                                            // Query to get the total number of items
-                                            // Replace this with your own query to get the total number of items
-                                            // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
-                                            $totalItemsQuery = $dbs->SelectAllApropertiesNoSessNoLimitPagCountAll();
-                                            $totalItemsResult = $totalItemsQuery; // result of executing the query
-                            
-                                            // Get the total number of items
-                                            $totalItems = $totalItemsResult['id'];
-
-                                            // Calculate the total number of pages
-                                            $totalPages = ceil($totalItems / $itemsPerPage);
-                                        } else {
+                                        if (isset($_POST['searchBtn'])) {
+                                            $propertyCategory = $_POST['propertyCategory'];
+                                            $state = $_POST['state'];
+                                            // echo $state;
+                                            // $area_location = $_POST['area_location'];
+                                            // $city = $_POST['city'];
+                                            // $fetch = $dbs->SelectAllApropertiesWhere($user_id, $propertyCategory, $area_location, $city, $state);
+                                            $fetch = $dbs->SelectAllApropertiesWhereNoSess($propertyCategory, $state);
                                             // Number of items per page
                                             $itemsPerPage = 9;
 
@@ -943,96 +911,159 @@ if (isset($_SESSION['useremail'])) {
 
                                             // Query to fetch the items from the database
                                             // Replace this with your own query to fetch the items
-                                            $fetch = $dbs->SelectAllpropertiesNoLimit($startIndex, $itemsPerPage);
+                                            //    $fetch = $dbs->SelectAllApropertiesNoSessNoLimitPag($propertyCategory, $itemsPerPage, $startIndex);
                                             // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
-                            
+                                    
                                             // Execute the query and fetch the items
                                             // Replace this with your own code to execute the query and fetch the items
                                             // $items = []; // array to store the fetched items
-                            
+                                    
                                             // Query to get the total number of items
                                             // Replace this with your own query to get the total number of items
                                             // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
-                                            $totalItemsQuery = $dbs->SelectAllApropertiesNoSessNoLimitPagCountAll();
+                                            $totalItemsQuery = $dbs->SelectAllApropertiesNoSessNoLimitPagCount($propertyCategory);
                                             $totalItemsResult = $totalItemsQuery; // result of executing the query
-                            
+                                    
                                             // Get the total number of items
                                             $totalItems = $totalItemsResult['id'];
 
                                             // Calculate the total number of pages
                                             $totalPages = ceil($totalItems / $itemsPerPage);
+                                        } else {
+                                            if (isset($_GET['search'])) {
+                                                # code...
+                                                $search = $_GET['search'];
+                                                $itemsPerPage = 9;
 
-                                            // $fetch = $dbs->SelectAllpropertiesNoLimit();
-                            
+                                                // Current page number
+                                                $page = isset($_GET['page']) ? $_GET['page'] : 1;
+
+                                                // Calculate the starting index of the items to display
+                                                $startIndex = ($page - 1) * $itemsPerPage;
+
+                                                // Query to fetch the items from the database
+                                                // Replace this with your own query to fetch the items
+                                                $fetch = $dbs->SelectAllApropertiesSearch($search, $startIndex, $itemsPerPage);
+                                                // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
+                                    
+                                                // Execute the query and fetch the items
+                                                // Replace this with your own code to execute the query and fetch the items
+                                                // $items = []; // array to store the fetched items
+                                    
+                                                // Query to get the total number of items
+                                                // Replace this with your own query to get the total number of items
+                                                // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
+                                                $totalItemsQuery = $dbs->SelectAllApropertiesNoSessNoLimitPagCountAll();
+                                                $totalItemsResult = $totalItemsQuery; // result of executing the query
+                                    
+                                                // Get the total number of items
+                                                $totalItems = $totalItemsResult['id'];
+
+                                                // Calculate the total number of pages
+                                                $totalPages = ceil($totalItems / $itemsPerPage);
+                                            } else {
+                                                // Number of items per page
+                                                $itemsPerPage = 9;
+
+                                                // Current page number
+                                                $page = isset($_GET['page']) ? $_GET['page'] : 1;
+
+                                                // Calculate the starting index of the items to display
+                                                $startIndex = ($page - 1) * $itemsPerPage;
+
+                                                // Query to fetch the items from the database
+                                                // Replace this with your own query to fetch the items
+                                                $fetch = $dbs->SelectAllpropertiesNoLimit($startIndex, $itemsPerPage);
+                                                // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
+                                    
+                                                // Execute the query and fetch the items
+                                                // Replace this with your own code to execute the query and fetch the items
+                                                // $items = []; // array to store the fetched items
+                                    
+                                                // Query to get the total number of items
+                                                // Replace this with your own query to get the total number of items
+                                                // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
+                                                $totalItemsQuery = $dbs->SelectAllApropertiesNoSessNoLimitPagCountAll();
+                                                $totalItemsResult = $totalItemsQuery; // result of executing the query
+                                    
+                                                // Get the total number of items
+                                                $totalItems = $totalItemsResult['id'];
+
+                                                // Calculate the total number of pages
+                                                $totalPages = ceil($totalItems / $itemsPerPage);
+
+                                                // $fetch = $dbs->SelectAllpropertiesNoLimit();
+                                    
+                                            }
+
                                         }
-
                                     }
-                                }
 
 
-                                if ($fetch):
-                                    foreach ($fetch as $info):
-                                        ?>
-                                    <div class="deals-block-one">
-                                        <div class="inner-box">
-                                            <div class="image-box">
-                                                <?php
+                                    if ($fetch):
+                                        foreach ($fetch as $info):
+                                            ?>
+                                            <div class="deals-block-one">
+                                                <div class="inner-box">
+                                                    <div class="image-box">
+                                                        <?php
                                                         $galleryimage = $info['galleryimage'];
                                                         $fetchgallery = $dbs->SelectFromImgLim($galleryimage);
                                                         foreach ($fetchgallery as $fetchgalleryInfo) {
                                                             ?>
-                                                <figure class="image"><img
-                                                        src="./galleryImage/<?= $fetchgalleryInfo['imagename'] ?>"
-                                                        alt=""
-                                                        style="object-fit: cover; background-position: center; height: 400px; ">
-                                                </figure>
-                                                <?php } ?>
-                                                <!-- <div class="batch"><i class="icon-11"></i></div>
+                                                            <figure class="image"><img
+                                                                    src="./galleryImage/<?= $fetchgalleryInfo['imagename'] ?>"
+                                                                    alt=""
+                                                                    style="object-fit: cover; background-position: center; height: 400px; ">
+                                                            </figure>
+                                                        <?php } ?>
+                                                        <!-- <div class="batch"><i class="icon-11"></i></div>
                                                     <span class="category">Featured</span>
                                                     <div class="buy-btn"><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">For Buy</a></div> -->
-                                            </div>
-                                            <div class="lower-content">
-                                                <div class="title-text">
-                                                    <h4><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
-                                                            class="text-dark" style="color:#2F7366 !important;">
-                                                            <?= $info['propertytitle'] ?>/
-                                                            <?= $info['marketstatus']  ?>
-                                                        </a></h4>
-                                                </div>
-                                                <div class="price-box clearfix">
-                                                    <div class="price-info pull-left">
-                                                        <!-- <h6>Start From</h6> -->
-                                                        <h4><a
-                                                                href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
-                                                                <?= $info['symbol'] . number_format($info['propertyprice'], 2) ?>
-                                                            </a></h4>
                                                     </div>
-                                                    <!-- <div class="author-box pull-right">
-                                                        <figure class="author-thumb">
-                                                            <img src="assets/images/footer-logo.png"
+                                                    <div class="lower-content">
+                                                        <div class="title-text">
+                                                            <h4><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
+                                                                    class="text-dark" style="color:#2F7366 !important;">
+                                                                    <?= $info['propertytitle'] ?>/
+                                                                    <?= $info['marketstatus'] ?>
+                                                                </a></h4>
+                                                        </div>
+                                                        <div class="price-box clearfix">
+                                                            <div class="price-info pull-left">
+                                                                <!-- <h6>Start From</h6> -->
+                                                                <h4><a
+                                                                        href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
+                                                                        <?= $info['symbol'] . number_format($info['propertyprice'], 2) ?>
+                                                                    </a></h4>
+                                                            </div>
+                                                            <div class="author-box pull-right">
+                                                        <figure class="author-tumb">
+                                                            <!-- <img src="assets/images/footer-logo.png"
                                                                 style="object-fit:cover; background-position: center; width: 60px; height: 40px; border-radius: 50%;"
-                                                                alt="">
-                                                            <span><a
-                                                                    href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
-                                                                    <?= $info['typeproperty'] ?>
+                                                                alt=""> -->
+                                                            <span> <a style=" width: 150px; padding: 0px;" href="bookeeping"
+                                                                    class="m-1 theme-btn btn-one text-center">
+                                                                    <span class="span" style="font-size: 15px; ">Book
+                                                                        Inspection</span>
                                                                 </a></span>
                                                         </figure>
-                                                    </div> -->
-                                                </div>
-                                                <div class="title-text">
-                                                    <h6><a
-                                                            href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
-                                                            <?= $info['city'] ?>,
-                                                            <?= $info['state'] ?>
-                                                            <?= $info['area_location'] ?>
-                                                        </a></h6>
-                                                </div>
-                                                <p>
-                                                    <?= substr($info['detailedinfo'], 0, 77) . ' ...' ?>.
-                                                </p>
-                                                <!-- <ul class="more-details clearfix">
+                                                    </div>
+                                                        </div>
+                                                        <div class="title-text">
+                                                            <h6><a
+                                                                    href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
+                                                                    <?= $info['city'] ?>,
+                                                                    <?= $info['state'] ?>
+                                                                    <?= $info['area_location'] ?>
+                                                                </a></h6>
+                                                        </div>
+                                                        <p>
+                                                            <?= substr($info['detailedinfo'], 0, 77) . ' ...' ?>.
+                                                        </p>
+                                                        <!-- <ul class="more-details clearfix">
                                                     <?php if ($info['propertyCategory'] !== 'Land'): ?>
-                                                        <?php if($info['propertyCategory'] !== 'Autos/Machinery'):  ?>
+                                                        <?php if ($info['propertyCategory'] !== 'Autos/Machinery'): ?>
 
                                                         <li><i class="icon-14"></i>
                                                             <?= $info['bedrooms'] ?> Beds
@@ -1044,8 +1075,8 @@ if (isset($_SESSION['useremail'])) {
                                                             <?= $info['toilets'] ?> Toilets
                                                         </li>     
                                                                                                             
-                                                        <?php else:  ?> 
-                                                        <?php endif;  ?> 
+                                                        <?php else: ?> 
+                                                        <?php endif; ?> 
                                                   
                                                     <?php else: ?>
                                                     <p><i class="icon-16"></i>
@@ -1053,28 +1084,35 @@ if (isset($_SESSION['useremail'])) {
                                                     </p>
                                                     <?php endif; ?>
                                                 </ul> -->
-                                                <div class="other-info-box clearfix">
-                                                    <div class="btn-box btn-group d-flex justify-content-between oull-left">
-                                                        <a style="padding: 10px;" href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
-                                                            class="theme-btn btn-one "> <span  style="font-size: 15px; ">Details</span></a>
-                                                        <a style="padding: 10px;" href="#modalId" class="theme-btn btn-one "
-                                                            data-toggle="modal">
-                                                            <span id='<?= $info[' longtitude'] ?>'
-                                                                class="span" title="<?= $info['langtitude'] ?>" style="font-size: 15px; ">Map
-                                                            </span>
-                                                        </a>
-                                                        <a style="padding: 10px;" href="contact" class="theme-btn btn-one ">
-                                                            <span  class="span" style="font-size: 15px; ">Book Inspection</span>
-                                                        </a>
-                                                    </div> 
+                                                        <div class="other-info-box clearfix">
+                                                            <div class="btn-box btn-group d-flex ">
+                                                                <a style=" width: 150px; "
+                                                                    href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
+                                                                    class="m-1 theme-btn btn-one text-center">
+                                                                    <span style="font-size: 15px; ">Details</span>
+                                                                </a>
+                                                                <a style=" width: 150px; " href="#modalId"
+                                                                    class="m-1 theme-btn btn-one text-center"
+                                                                    data-toggle="modal">
+                                                                    <span id='<?= $info[' longtitude'] ?>' class="span" title="
+                                                                <?= $info['langtitude'] ?>" style="font-size: 15px;
+                                                                ">Map
+                                                                    </span>
+                                                                </a>
+                                                                <!-- <a style=" width: 150px; padding: 0px;" href="contact"
+                                                                    class="m-1 theme-btn btn-one text-center">
+                                                                    <span class="span" style="font-size: 15px; ">Book
+                                                                        Inspection</span>
+                                                                </a> -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <?php
-                                    endforeach;
-                                else:
-                                    ?>
+                                            <?php
+                                        endforeach;
+                                    else:
+                                        ?>
                                     <div class="col-lg-6 col-md-6 col-sm-12 feature-block">
                                         <div class="feature-block-one">
                                             <div class="inner-box">
@@ -1094,15 +1132,16 @@ if (isset($_SESSION['useremail'])) {
                                 <ul class="pagination clearfix">
 
                                     <?php for ($i = 1; $i <= $totalPages; $i++): ?>
-                                    <li><a class=""
-                                            href="?propertyCategory=<?= $propertyCategory ?>&page=<?php echo $i; ?>"
-                                            <?php if ($i==$page) echo 'class="current"' ; ?>>
-                                            <?php echo $i; ?>
-                                        </a></li>
+                                        <li><a class=""
+                                                href="?propertyCategory=<?= $propertyCategory ?>&page=<?php echo $i; ?>"
+                                                <?php if ($i == $page)
+                                                    echo 'class="current"'; ?>>
+                                                <?php echo $i; ?>
+                                            </a></li>
                                     <?php endfor; ?>
 
                                     <?php if ($i <= $totalPages): ?>
-                                    <!-- <li><a href="?propertyCategory=<?= $propertyCategory ?>&page=<?php echo $i; ?>"><i class="fas fa-angle-right"></i></a></li> -->
+                                        <!-- <li><a href="?propertyCategory=<?= $propertyCategory ?>&page=<?php echo $i; ?>"><i class="fas fa-angle-right"></i></a></li> -->
                                     <?php endif; ?>
                                     <!-- <li><a href="property-grid.html">2</a></li>
                                     <li><a href="property-grid.html">3</a></li>
@@ -1186,7 +1225,7 @@ if (isset($_SESSION['useremail'])) {
     <!-- main-js -->
     <script src="assets/js/script.js"></script>
     <script>
-               $(".show").hide()
+        $(".show").hide()
         $(".show1").hide()
         $(".show2").hide()
         $(".show3").hide()
@@ -1211,7 +1250,7 @@ if (isset($_SESSION['useremail'])) {
                 $(".demoshow").hide()
 
 
-            }  else if (trigVal == 'Non Distress Properties') {
+            } else if (trigVal == 'Non Distress Properties') {
                 $(".show3").show()
                 $(".show").hide()
                 $(".show1").hide()

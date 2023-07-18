@@ -1303,25 +1303,18 @@ if (isset($_SESSION['useremail'])) {
                                                                 <?= $info['symbol'] . number_format($info['propertyprice'], 2) ?>
                                                             </a></h4>
                                                     </div>
-                                                    <!-- <div class="author-box pull-right">
-                                                        <figure class="author-thumb">
-                                                            <img src="assets/images/footer-logo.png"
+                                                    <div class="author-box pull-right">
+                                                        <figure class="author-tumb">
+                                                            <!-- <img src="assets/images/footer-logo.png"
                                                                 style="object-fit:cover; background-position: center; width: 60px; height: 40px; border-radius: 50%;"
-                                                                alt="">
-                                                            <span><a
-                                                                    href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
-                                                                    <?php if($info['propertyCategory'] == 'Distress Properties'):   ?>
-                                                                    <?= $info['typeproperty'] ?>
-                                                                    <?php elseif($info['propertyCategory'] == 'Non Distress Properties'): ?>
-                                                                    <?= $info['distresscat'] ?>
-                                                                    <?php elseif($info['propertyCategory'] == 'Autos/Machinery'): ?>
-                                                                    <?= $info['typeproperty'] ?>
-                                                                    <?php elseif($info['propertyCategory'] == 'Land'): ?>
-                                                                                                                                                                                                        <?= $info['landcategory'] ?> 
-                                                                    <?php endif; ?>
+                                                                alt=""> -->
+                                                            <span> <a style=" width: 150px; padding: 0px;" href="bookeeping"
+                                                                    class="m-1 theme-btn btn-one text-center">
+                                                                    <span class="span" style="font-size: 15px; ">Book
+                                                                        Inspection</span>
                                                                 </a></span>
-                                                        </figure> 
-                                                    </div> -->
+                                                        </figure>
+                                                    </div>
                                                 </div>
                                                 <div class="title-text">
                                                     <h6><a
@@ -1366,21 +1359,27 @@ if (isset($_SESSION['useremail'])) {
                                                     <?php endif; ?>
                                                 </ul> -->
                                                 <div class="other-info-box clearfix">
-                                                    <div class="btn-box btn-group d-flex justify-content-between oull-left">
-                                                        <a style="padding: 10px;" href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
-                                                            class="theme-btn btn-one "> <span  style="font-size: 15px; ">Details</span></a>
-                                                        <a style="padding: 10px;" href="#modalId" class="theme-btn btn-one "
-                                                            data-toggle="modal">
-                                                            <span id='<?= $info[' longtitude'] ?>'
-                                                                class="span" title="<?= $info['langtitude'] ?>" style="font-size: 15px; ">Map
-                                                            </span>
-                                                        </a>
-                                                        <a style="padding: 10px;" href="contact" class="theme-btn btn-one ">
-                                                            <span  class="span" style="font-size: 15px; ">Book Inspection</span>
-                                                        </a>
-                                                    </div> 
-
-                                                </div>
+                                                            <div class="btn-box btn-group d-flex ">
+                                                                <a style=" width: 150px; "
+                                                                    href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
+                                                                    class="m-1 theme-btn btn-one text-center">
+                                                                    <span style="font-size: 15px; ">Details</span>
+                                                                </a>
+                                                                <a style=" width: 150px; " href="#modalId"
+                                                                    class="m-1 theme-btn btn-one text-center"
+                                                                    data-toggle="modal">
+                                                                    <span id='<?= $info[' longtitude'] ?>' class="span" title="
+                                                                <?= $info['langtitude'] ?>" style="font-size: 15px;
+                                                                ">Map
+                                                                    </span>
+                                                                </a>
+                                                                <!-- <a style=" width: 150px; padding: 0px;" href="contact"
+                                                                    class="m-1 theme-btn btn-one text-center">
+                                                                    <span class="span" style="font-size: 15px; ">Book
+                                                                        Inspection</span>
+                                                                </a> -->
+                                                            </div>
+                                                        </div>
                                             </div>
                                         </div>
                                     </div>

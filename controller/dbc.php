@@ -128,6 +128,15 @@ class Dbc extends Database
         return $row;
     }
 
+    public function bookInspection($fullname, $email, $phone, $date, $message)
+    {
+        $sql = "INSERT INTO bookinspection (fullname, email, phone,  date, message)  VALUES  ('$fullname', '$email', '$phone',  '$date', '$message')";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([]);
+        return true;
+
+    }
+
     public function UploadProps($user_id, $propertyid, $propertytitle, $propertyprice, $area_location, $address, $city, $state, $longtitude, $langtitude, $detailedinfo, $featuredimage, $galleryimage, $status, $propertyCategory, $bedrooms, $bathroom, $toilets, $propsize, $parkingspace, $landsize, $titleproperty, $typeproperty, $landcategory, $youtubelink, $marketstatus, $symbol, $agent_id, $distresscat, $autocat, $estatename, $refno)
     {
         $sql = "INSERT INTO properties (user_id, propertyid, propertytitle,  propertyprice, area_location,  address, city, state,  longtitude, langtitude, detailedinfo,  featuredimage, galleryimage, status, propertyCategory, bedrooms, bathroom, toilets, propsize, parkingspace, landsize, titleproperty, typeproperty, landcategory, youtubelink, marketstatus, symbol, agent_id, distresscat, autocat, estatename, refno) VALUES 

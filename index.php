@@ -312,7 +312,7 @@ if (isset($_SESSION['useremail'])) {
                                                                                         style="object-fit:cover; background-position: center; width: 60px; height: 40px; border-radius: 50%;"
                                                                                         alt="">
                                                                                 </figure>
-                                                                                <h6 class="text-uppercase">
+                                                                                <h6 class="text-uppercase" >
                                                                                     <?= $info['propertytitle'] ?>
                                                                                 </h6>
                                                                             </div>
@@ -328,7 +328,7 @@ if (isset($_SESSION['useremail'])) {
                                                                                 </a></h6>
                                                                         </div>
                                                                         <div class="title-text">
-                                                                    <h4><a class="text-capitalize" href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
+                                                                    <h4><a class="text-capitalize"  style="color:#2F7366 !important;"  href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
                                                                     <?= $info['typeproperty'] ?>
                                                                         </a></h4>
                                                                 </div>
@@ -372,7 +372,7 @@ if (isset($_SESSION['useremail'])) {
                                                                     </li>
                                                                 </ul> -->
                                                     <div class="btn-box d-flex justify-content-center align-items-center text-center"><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
-                                                                                class="theme-btn btn-two">See Details</a></div>
+                                                                                class="theme-btn btn-one">See Details</a></div>
                                                 </div>
                                             </div>
                                         </div>
