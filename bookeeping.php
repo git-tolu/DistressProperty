@@ -185,13 +185,11 @@ if (isset($_POST['bookinspection'])) {
                                 data-markers='{
                                     "marker-1": [40.712776, -74.005974, "<h4>Branch Office</h4><p>77/99 New York</p>","assets/images/icons/map-marker.png"]
                                 }'>
-
                             </div>
                         </div> -->
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.631149357805!2d3.475689!3d6.4413886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103bf44b82d6e989%3A0xa5c472a433262322!2s5b%20Chief%20Collins%20Uchidiuno%20St%2C%20Lekki%20Phase%201%20106104%2C%20Lagos%2C%20Nigeria!5e0!3m2!1sen!2sus!4v1686910148317!5m2!1sen!2sus"
-                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>
