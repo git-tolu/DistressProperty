@@ -57,15 +57,15 @@ if(isset($_POST['loginUSer'])){
         // $errorMessage = "";
     }
 }
-if (isset($_SESSION['useremail'])) {
+// if (isset($_SESSION['useremail'])) {
   
-    $user_email = $_SESSION['useremail'];
-    $UsersData = $dbs->currentUser($user_email);
-    foreach ($UsersData as $values) {
-      $user_role = $values['user_role'];
-      // $hashpass = $values['hashpass'];
-    }
-  }
+//     $user_email = $_SESSION['useremail'];
+//     $UsersData = $dbs->currentUser($user_email);
+//     foreach ($UsersData as $values) {
+//       $user_role = $values['user_role'];
+//       // $hashpass = $values['hashpass'];
+//     }
+//   }
 ?>
 
 <!DOCTYPE html>

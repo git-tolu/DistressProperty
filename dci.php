@@ -79,7 +79,8 @@ if (isset($_SESSION['useremail'])) {
                     <div class="image-layer" style="background-image:url(assets/images/dcibannerpage.jpeg);"></div>
                     <div class="auto-container">
                         <div class="content-box">
-                        <h2 class="text-capitalize">Make tomorrow's profit today</h2>
+                        <p> Make tomorrow's profit today <p>
+                        <h2>Distress Capital Investment (DCI)</h2>
                         </div> 
                     </div>
                 </div>
@@ -87,7 +88,8 @@ if (isset($_SESSION['useremail'])) {
                     <div class="image-layer" style="background-image:url(assets/images/dcibannerpage.jpeg);"></div>
                     <div class="auto-container">
                         <div class="content-box">
-                        <h2 class="text-capitalize">Make tomorrow's profit today</h2>
+                        <p> Make tomorrow's profit today <p>
+                        <h2>Distress Capital Investment (DCI)</h2>
                         </div>   
                     </div>
                 </div>
@@ -95,7 +97,8 @@ if (isset($_SESSION['useremail'])) {
                     <div class="image-layer" style="background-image:url(assets/images/dcibannerpage.jpeg);"></div>
                     <div class="auto-container">
                         <div class="content-box">
-                        <h2 class="text-capitalize">Make tomorrow's profit today</h2>
+                        <p> Make tomorrow's profit today <p>
+                        <h2>Distress Capital Investment (DCI)</h2>
                         </div>  
                     </div>
                 </div>

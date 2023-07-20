@@ -80,7 +80,7 @@ if (isset($_SESSION['useremail'])) {
         <section class="banner-style-two centred">
             <div class="banner-carousel owl-theme owl-carousel owl-nav-none">
                 <div class="slide-item">
-                    <div class="image-layer" style="background-image:url(assets/images/bannerhome.jpg)"></div>
+                    <div class="image-layer" style="background-image:url(assets/images/slid1.jpeg)"></div>
                     <div class="auto-container">
                         <div class="content-box">
                         <p> Africa’s Biggest Distress Property Market Place <p>
@@ -89,7 +89,7 @@ if (isset($_SESSION['useremail'])) {
                     </div>
                 </div>
                 <div class="slide-item">
-                    <div class="image-layer" style="background-image:url(assets/images/bannerhome.jpg)"></div>
+                    <div class="image-layer" style="background-image:url(assets/images/slid2.jpeg)"></div>
                     <div class="auto-container">
                         <div class="content-box">
                         <p> Africa’s Biggest Distress Property Market Place <p>
@@ -98,7 +98,52 @@ if (isset($_SESSION['useremail'])) {
                     </div>
                 </div>
                 <div class="slide-item">
-                    <div class="image-layer" style="background-image:url(assets/images/bannerhome.jpg)"></div>
+                    <div class="image-layer" style="background-image:url(assets/images/slid3.jpeg)"></div>
+                    <div class="auto-container">
+                        <div class="content-box">
+                        <p> Africa’s Biggest Distress Property Market Place <p>
+                        <h2>BUY. SELL. INVEST.</h2>
+                        </div>  
+                    </div>
+                </div>
+                <div class="slide-item">
+                    <div class="image-layer" style="background-image:url(assets/images/slid4.jpeg)"></div>
+                    <div class="auto-container">
+                        <div class="content-box">
+                        <p> Africa’s Biggest Distress Property Market Place <p>
+                        <h2>BUY. SELL. INVEST.</h2>
+                        </div>  
+                    </div>
+                </div>
+                <div class="slide-item">
+                    <div class="image-layer" style="background-image:url(assets/images/slid5.jpeg)"></div>
+                    <div class="auto-container">
+                        <div class="content-box">
+                        <p> Africa’s Biggest Distress Property Market Place <p>
+                        <h2>BUY. SELL. INVEST.</h2>
+                        </div>  
+                    </div>
+                </div>
+                <div class="slide-item">
+                    <div class="image-layer" style="background-image:url(assets/images/slid6.jpeg)"></div>
+                    <div class="auto-container">
+                        <div class="content-box">
+                        <p> Africa’s Biggest Distress Property Market Place <p>
+                        <h2>BUY. SELL. INVEST.</h2>
+                        </div>  
+                    </div>
+                </div>
+                <div class="slide-item">
+                    <div class="image-layer" style="background-image:url(assets/images/slid7.jpeg)"></div>
+                    <div class="auto-container">
+                        <div class="content-box">
+                        <p> Africa’s Biggest Distress Property Market Place <p>
+                        <h2>BUY. SELL. INVEST.</h2>
+                        </div>  
+                    </div>
+                </div>
+                <div class="slide-item">
+                    <div class="image-layer" style="background-image:url(assets/images/slid8.jpeg)"></div>
                     <div class="auto-container">
                         <div class="content-box">
                         <p> Africa’s Biggest Distress Property Market Place <p>
