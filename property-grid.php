@@ -54,6 +54,15 @@ if (isset($_SESSION['useremail'])) {
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfCP4-o7KxqBfbWE5VX5Qw5a_M8P-mGUU&callback=initMap&sensor=false"></script>
     <script src="assets/js/jquery.js"></script>
+    <style>
+        @media only screen and (max-width: 767px){
+
+            /* .theme-btn {
+                width: 100px !important;
+                height: 50px;
+            } */
+        }
+    </style>
 
 
 </head>
@@ -1283,9 +1292,6 @@ if (isset($_SESSION['useremail'])) {
                                                         style="object-fit: cover; background-position: center; height: 400px; ">
                                                 </figure>
                                                 <?php } ?>
-                                                <!-- <div class="batch"><i class="icon-11"></i></div>
-                                                    <span class="category">Featured</span>
-                                                    <div class="buy-btn"><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">For Buy</a></div> -->
                                             </div>
                                             <div class="lower-content">
                                                 <div class="title-text">
@@ -1303,18 +1309,18 @@ if (isset($_SESSION['useremail'])) {
                                                                 <?= $info['symbol'] . number_format($info['propertyprice'], 2) ?>
                                                             </a></h4>
                                                     </div>
-                                                    <div class="author-box pull-right">
+                                                     <!--<div class="author-box pull-right">
                                                         <figure class="author-tumb">
-                                                            <!-- <img src="assets/images/footer-logo.png"
+                                                            <img src="assets/images/footer-logo.png"
                                                                 style="object-fit:cover; background-position: center; width: 60px; height: 40px; border-radius: 50%;"
-                                                                alt=""> -->
+                                                                alt=""> 
                                                             <span> <a style=" width: 150px; padding: 0px;" href="bookeeping"
                                                                     class="m-1 theme-btn btn-one text-center">
                                                                     <span class="span" style="font-size: 15px; ">Book
                                                                         Inspection</span>
                                                                 </a></span>
                                                         </figure>
-                                                    </div>
+                                                    </div>-->
                                                 </div>
                                                 <div class="title-text">
                                                     <h6><a
@@ -1359,25 +1365,26 @@ if (isset($_SESSION['useremail'])) {
                                                     <?php endif; ?>
                                                 </ul> -->
                                                 <div class="other-info-box clearfix">
-                                                            <div class="btn-box btn-group d-flex ">
-                                                                <a style=" width: 150px; "
+                                                            <div class="btn-box btn-group  d-flex " style="width: 100%;">
+                                                                <a style=" width: 30%; "
                                                                     href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
                                                                     class="m-1 theme-btn btn-one text-center">
                                                                     <span style="font-size: 15px; ">Details</span>
                                                                 </a>
-                                                                <a style=" width: 150px; " href="#modalId"
-                                                                    class="m-1 theme-btn btn-one text-center"
+                                                                <a style=" width: 20%; " href="#modalId"
+                                                                class="m-1 theme-btn btn-one text-center "
                                                                     data-toggle="modal">
                                                                     <span id='<?= $info[' longtitude'] ?>' class="span" title="
                                                                 <?= $info['langtitude'] ?>" style="font-size: 15px;
-                                                                ">Map
-                                                                    </span>
+                                                                ">Map</span>
                                                                 </a>
-                                                                <!-- <a style=" width: 150px; padding: 0px;" href="contact"
+                                                                <a style=" width: 50%; "
+                                                                    href="bookeeping"
                                                                     class="m-1 theme-btn btn-one text-center">
-                                                                    <span class="span" style="font-size: 15px; ">Book
+                                                                    <span style="font-size: 15px; ">Book
                                                                         Inspection</span>
-                                                                </a> -->
+                                                                </a>
+                                                              
                                                             </div>
                                                         </div>
                                             </div>

@@ -68,11 +68,20 @@
                                 <li class="    <?php if ($page == 'DCi') {
                                     echo 'current';
                                 } ?>"><a href="dci" class=" ">Invest</a></li>
-                                <li class="reslogo mx-3">
-                                    <figure class="logo reslogo"><a href="index"><img src="assets/images/logo.png"
-                                                style="width: 150px; height: 50px; " alt=""></a>
-                                    </figure>
-                                </li>
+                                                 <?php if($page == 'DCi'):  ?>
+                                    <li class="reslogo mx-3  ">
+                                        <figure class="logo reslogo"><a href="index"><img src="assets/images/dcilogo.png"
+                                                    style="width: 150px; height: 50px; " alt=""></a>
+                                        </figure>
+                                    </li>
+                                <?php else: ?>
+                                        <li class="reslogo mx-3  ">
+                                            <figure class="logo reslogo"><a href="index"><img src="assets/images/logo.png"
+                                                        style="width: 150px; height: 50px; " alt=""></a>
+                                            </figure>
+                                        </li>
+
+                                <?php endif;?>
                                 <li class="    <?php if ($page == 'about') {
                                     echo 'current';
                                 } ?>"><a href="about" class=" ">About

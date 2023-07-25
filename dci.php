@@ -460,7 +460,7 @@ if (isset($_SESSION['useremail'])) {
                                                 <div class="shape-2"
                                                     style="background-image: url(assets/images/shape/shape-5.png);">
                                                 </div>
-                                                <h4>Invested Capital: Distress-invest Starter Partnership </h4>
+                                                <h4>Invested Capital: Distress-invest Standard Partnership </h4>
                                                 <h2>50 - 99 <span>Million Naira</span></h2>
                                             </div>
                                             <div class="table-content">
@@ -487,7 +487,7 @@ if (isset($_SESSION['useremail'])) {
                                                 <div class="shape-2"
                                                     style="background-image: url(assets/images/shape/shape-5.png);">
                                                 </div>
-                                                <h4>Invested Capital: Distress-invest Starter Partnership </h4>
+                                                <h4>Invested Capital: Distress-invest Premium Partnership </h4>
                                                 <h2>100 <span>Million and above</span></h2>
                                             </div>
                                             <div class="table-content">

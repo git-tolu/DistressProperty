@@ -50,12 +50,12 @@ if (isset($_SESSION['useremail'])) {
     <link href="assets/css/responsive.css" rel="stylesheet">
     <style>
         .category-block-one .inner-box .more-btn .theme-btn.btn-one:hover {
-  background-color: white !important;
-  border: 2px solid white !important;
-  color: #D9A464 !important;
-  box-shadow: 0 10px 30px 0px rgb(0 0 0 / 10%);
+            background-color: white !important;
+            border: 2px solid white !important;
+            color: #D9A464 !important;
+            box-shadow: 0 10px 30px 0px rgb(0 0 0 / 10%);
 
-}
+        }
     </style>
 
 </head>
@@ -83,72 +83,80 @@ if (isset($_SESSION['useremail'])) {
                     <div class="image-layer" style="background-image:url(assets/images/slid1.jpeg)"></div>
                     <div class="auto-container">
                         <div class="content-box">
-                        <p> Africa’s Biggest Distress Property Market Place <p>
-                        <h2>BUY. SELL. INVEST.</h2>
-                        </div> 
+                            <p> Africa’s Biggest Distress Property Market Place
+                            <p>
+                            <h2>BUY. SELL. INVEST.</h2>
+                        </div>
                     </div>
                 </div>
                 <div class="slide-item">
                     <div class="image-layer" style="background-image:url(assets/images/slid2.jpeg)"></div>
                     <div class="auto-container">
                         <div class="content-box">
-                        <p> Africa’s Biggest Distress Property Market Place <p>
-                        <h2>BUY. SELL. INVEST.</h2>
-                        </div>   
+                            <p> Africa’s Biggest Distress Property Market Place
+                            <p>
+                            <h2>BUY. SELL. INVEST.</h2>
+                        </div>
                     </div>
                 </div>
                 <div class="slide-item">
                     <div class="image-layer" style="background-image:url(assets/images/slid3.jpeg)"></div>
                     <div class="auto-container">
                         <div class="content-box">
-                        <p> Africa’s Biggest Distress Property Market Place <p>
-                        <h2>BUY. SELL. INVEST.</h2>
-                        </div>  
+                            <p> Africa’s Biggest Distress Property Market Place
+                            <p>
+                            <h2>BUY. SELL. INVEST.</h2>
+                        </div>
                     </div>
                 </div>
                 <div class="slide-item">
                     <div class="image-layer" style="background-image:url(assets/images/slid4.jpeg)"></div>
                     <div class="auto-container">
                         <div class="content-box">
-                        <p> Africa’s Biggest Distress Property Market Place <p>
-                        <h2>BUY. SELL. INVEST.</h2>
-                        </div>  
+                            <p> Africa’s Biggest Distress Property Market Place
+                            <p>
+                            <h2>BUY. SELL. INVEST.</h2>
+                        </div>
                     </div>
                 </div>
                 <div class="slide-item">
                     <div class="image-layer" style="background-image:url(assets/images/slid5.jpeg)"></div>
                     <div class="auto-container">
                         <div class="content-box">
-                        <p> Africa’s Biggest Distress Property Market Place <p>
-                        <h2>BUY. SELL. INVEST.</h2>
-                        </div>  
+                            <p> Africa’s Biggest Distress Property Market Place
+                            <p>
+                            <h2>BUY. SELL. INVEST.</h2>
+                        </div>
                     </div>
                 </div>
                 <div class="slide-item">
                     <div class="image-layer" style="background-image:url(assets/images/slid6.jpeg)"></div>
                     <div class="auto-container">
                         <div class="content-box">
-                        <p> Africa’s Biggest Distress Property Market Place <p>
-                        <h2>BUY. SELL. INVEST.</h2>
-                        </div>  
+                            <p> Africa’s Biggest Distress Property Market Place
+                            <p>
+                            <h2>BUY. SELL. INVEST.</h2>
+                        </div>
                     </div>
                 </div>
                 <div class="slide-item">
                     <div class="image-layer" style="background-image:url(assets/images/slid7.jpeg)"></div>
                     <div class="auto-container">
                         <div class="content-box">
-                        <p> Africa’s Biggest Distress Property Market Place <p>
-                        <h2>BUY. SELL. INVEST.</h2>
-                        </div>  
+                            <p> Africa’s Biggest Distress Property Market Place
+                            <p>
+                            <h2>BUY. SELL. INVEST.</h2>
+                        </div>
                     </div>
                 </div>
                 <div class="slide-item">
                     <div class="image-layer" style="background-image:url(assets/images/slid8.jpeg)"></div>
                     <div class="auto-container">
                         <div class="content-box">
-                        <p> Africa’s Biggest Distress Property Market Place <p>
-                        <h2>BUY. SELL. INVEST.</h2>
-                        </div>  
+                            <p> Africa’s Biggest Distress Property Market Place
+                            <p>
+                            <h2>BUY. SELL. INVEST.</h2>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -156,32 +164,34 @@ if (isset($_SESSION['useremail'])) {
         <section class="search-field-section">
             <div class="auto-container">
                 <div class="inner-container">
-                <div class="search-field">
+                    <div class="search-field">
                         <div class="tabs-box">
-                           
+
                             <!-- <div class="tabs-content info-group">
                                 <div class="tab active-tab" id="tab-1"> -->
-                                    <div class="inner-box">
-                                        <div class="top-search">
-                                            <form action="property-gridAll" method="get" class="search-form  justify-content-center align-items-center text-center d-flex">
-                                                <div class="row clearfix" style="width: 800px;">
-                                                    <div class="col-lg-12 col-md-12 col-sm-12 ">
-                                                        <div class="form-group">
-                                                           
-                                                            <div class="field-input">
-                                                                <i class="fas fa-search"></i>
-                                                                <input type="search" name="search"
-                                                                    placeholder="Search by Property, Address, City or State..."
-                                                                    required="">
-                                                            </div>
-                                                        </div>
-                                                        <button type="submit" class="search-btn p-2"><i class="fas fa-search"></i> Search</button>
+                            <div class="inner-box">
+                                <div class="top-search">
+                                    <form action="property-gridAll" method="get"
+                                        class="search-form  justify-content-center align-items-center text-center d-flex">
+                                        <div class="row clearfix" style="width: 800px;">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 ">
+                                                <div class="form-group">
+
+                                                    <div class="field-input">
+                                                        <i class="fas fa-search"></i>
+                                                        <input type="search" name="search"
+                                                            placeholder="Search by Property, Address, City or State..."
+                                                            required="">
                                                     </div>
                                                 </div>
-                                            </form>
+                                                <button type="submit" class="search-btn p-2"><i
+                                                        class="fas fa-search"></i> Search</button>
+                                            </div>
                                         </div>
-                                    </div>
-                                <!-- </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- </div>
                             </div> -->
                         </div>
                     </div>
@@ -250,18 +260,17 @@ if (isset($_SESSION['useremail'])) {
                                     <h5><a href="property-details.html">Buy</a></h5>
                                     <p class="text-center">
                                         Looking for Property to
-                                buy at the best possible
-                                prices?
-                                With us you have the
-                                advantage to acquire
-                                property in prime
-                                locations with prices that
-                                are below actual market
-                                value.
+                                        buy at the best possible
+                                        prices?
+                                        With us you have the
+                                        advantage to acquire
+                                        property in prime
+                                        locations with prices that
+                                        are below actual market
+                                        value.
                                     </p>
-                                    <div class="more-btn"><a
-                                            href="property-gridAll"
-                                            class="theme-btn btn-one hov">Get Started</a></div>
+                                    <div class="more-btn"><a href="property-gridAll" class="theme-btn btn-one hov">Get
+                                            Started</a></div>
                                 </div>
                             </div>
                         </div>
@@ -271,17 +280,16 @@ if (isset($_SESSION['useremail'])) {
                                     <div class="icon-box"><i class="icon-26"></i></div>
                                     <h5><a href="property-details.html">Sell</a></h5>
                                     <p class="text-center pb-4">In need of a lump sum
-                                of cash and need to
-                                liquidate an asset real
-                                quick?
-                                We offer financial relief
-                                and can get your
-                                Distress property off
-                                the market in record
-                                time.</p>
-                                    <div class="more-btn"><a
-                                            href="signup"
-                                            class="theme-btn btn-one hov">Get Started</a></div>
+                                        of cash and need to
+                                        liquidate an asset real
+                                        quick?
+                                        We offer financial relief
+                                        and can get your
+                                        Distress property off
+                                        the market in record
+                                        time.</p>
+                                    <div class="more-btn"><a href="signup" class="theme-btn btn-one hov">Get Started</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -291,17 +299,16 @@ if (isset($_SESSION['useremail'])) {
                                     <div class="icon-box"><i class="icon-21"></i></div>
                                     <h5><a href="property-details.html">Invest</a></h5>
                                     <p class="text-center">Looking for viable
-                                hands to multiply
-                                your money with
-                                excellent and
-                                consistent return on
-                                investment?
-                                We have the best
-                                investment packages
-                                with nearly 0% risk.</p>
-                                    <div class="more-btn"><a
-                                            href="dci"
-                                            class="theme-btn btn-one hov">Get Started</a></div>
+                                        hands to multiply
+                                        your money with
+                                        excellent and
+                                        consistent return on
+                                        investment?
+                                        We have the best
+                                        investment packages
+                                        with nearly 0% risk.</p>
+                                    <div class="more-btn"><a href="dci" class="theme-btn btn-one hov">Get Started</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -317,9 +324,10 @@ if (isset($_SESSION['useremail'])) {
         <section class="feature-section sec-pad bg-color-1">
             <div class="auto-container">
                 <div class="sec-title centred">
-                   
+
                     <h2>Featured Distress Property</h2>
-                    <p>We offer financial services via a financial relief strategy through the liquidation of Distress Property.</p>
+                    <p>We offer financial services via a financial relief strategy through the liquidation of Distress
+                        Property.</p>
                 </div>
                 <div class="row clearfix">
                     <?php
@@ -328,124 +336,121 @@ if (isset($_SESSION['useremail'])) {
                     if ($fetch):
                         foreach ($fetch as $info):
                             ?>
-                                    <div class="col-lg-4 col-md-6 col-sm-12 feature-block ">
-                                        <div class="feature-block-one wow fadeInUp animated" data-wow-delay="00ms"
-                                            data-wow-duration="1500ms">
-                                            <div class="inner-box">
-                                                <div class="image-box">
-                                                    <?php 
+                    <div class="col-lg-4 col-md-6 col-sm-12 feature-block ">
+                        <div class="feature-block-one wow fadeInUp animated" data-wow-delay="00ms"
+                            data-wow-duration="1500ms">
+                            <div class="inner-box">
+                                <div class="image-box">
+                                    <?php 
                                                         $galleryimage = $info['galleryimage'];
                                                         $fetchgallery =  $dbs->SelectFromImgLim($galleryimage);
                                                         foreach ($fetchgallery as $fetchgalleryInfo ){
                                                     ?>
-                                                        <figure class="image-box"><img src="./galleryImage/<?= $fetchgalleryInfo['imagename']  ?>"
-                                                                alt="" style="width: 100% !important; height: 400px !important; background-size: cover;"></figure>
-                                                    <?php }  ?>
-                                                    <!-- <figure class="image"><img src="featuredGallery/<?= $info['featuredimage'] ?>"
+                                    <figure class="image-box"><img
+                                            src="./galleryImage/<?= $fetchgalleryInfo['imagename']  ?>" alt=""
+                                            style="width: 100% !important; height: 400px !important; background-size: cover;">
+                                    </figure>
+                                    <?php }  ?>
+                                    <!-- <figure class="image"><img src="featuredGallery/<?= $info['featuredimage'] ?>"
                                                             alt="">
                                                     </figure> -->
-                                                    <div class="batch"><i class="icon-11"></i></div>
-                                                    <span class="category">
-                                                        Featured
-                                                        <?php $info['propertyCategory'] ?>
-                                                    </span>
-                                                </div>
-                                                <div class="lower-content">
-                                                                        <div class="author-info clearfix">
-                                                                            <div class="author pull-left">
-                                                                                <figure class="author-thumb"><img src="assets/images/footer-logo.png"
-                                                                                        style="object-fit:cover; background-position: center; width: 60px; height: 40px; border-radius: 50%;"
-                                                                                        alt="">
-                                                                                </figure>
-                                                                                <h6 class="text-uppercase" >
-                                                                                    <?= $info['propertytitle'] ?>
-                                                                                </h6>
-                                                                            </div>
-                                                                            <div class="buy-btn pull-right"><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
-                                                                                    <?= $info['symbol'] . number_format($info['propertyprice'], 2) ?>
-                                                                                </a>
-                                                                            </div>
-                                                                        </div>
-                                                                
-                                                                        <div class="title-text">
-                                                                            <h6><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
-                                                                                      <?= $info['city'] ?>,   <?= $info['state'] ?>         <?= $info['area_location'] ?>
-                                                                                </a></h6>
-                                                                        </div>
-                                                                        <div class="title-text">
-                                                                    <h4><a class="text-capitalize"  style="color:#2F7366 !important;"  href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
-                                                                    <?= $info['typeproperty'] ?>
-                                                                        </a></h4>
-                                                                </div>
-                                                                       
-                                                                        <p>
-                                                                            <?= substr($info['detailedinfo'], 0, 77) . ' ...' ?>
-                                                                        <p>
-                                                                        <ul class="more-details clearfix">
-                                                                        <?php if($info['propertyCategory'] !== 'Land'):  ?>
-                                                                            <?php if($info['propertyCategory'] !== 'Autos/Machinery'):  ?>
-
-                                                                            <li><i class="icon-14"></i>
-                                                                                <?= $info['bedrooms'] ?> Beds
-                                                                            </li>
-                                                                            <li><i class="icon-15"></i>
-                                                                                <?= $info['bathroom'] ?> Baths
-                                                                            </li>
-                                                                            <li><i class="icon-15"></i>
-                                                                                <?= $info['toilets'] ?> Toilets
-                                                                            </li>     
-                                                                                                                                
-                                                                            <?php else:  ?> 
-                                                                            <?php endif;  ?>                                                                             <?php else:  ?> 
-                                                                                <p><i class="icon-16"></i> <?= $info['landsize']  ?> landsize(sqrt)</p>
-                                                                            <?php endif;  ?> 
-                                                                            <!-- <li><i class="icon-16"></i>600 Prop Size(Sq Ft)</li>
-                                                                            <li><i class="icon-16"></i>600 Parking Spaces</li> -->
-                                                                        </ul>
-                                                                        <!-- <ul class="more-details clearfix">
-                                                                    <li>
-                                                                        City:
-                                                                        <?= $info['city'] ?>
-                                                                    </li>
-                                                                    <li>
-                                                                        State:
-                                                                        <?= $info['state'] ?>
-                                                                    </li>
-                                                                    <li>
-                                                                        Country:
-                                                                        <?= $info['area_location'] ?>
-                                                                    </li>
-                                                                </ul> -->
-                                                    <div class="btn-box d-flex justify-content-center align-items-center text-center"><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
-                                                                                class="theme-btn btn-one">See Details</a></div>
-                                                </div>
-                                            </div>
+                                    <div class="batch"><i class="icon-11"></i></div>
+                                    <span class="category">
+                                        Featured
+                                        <?php $info['propertyCategory'] ?>
+                                    </span>
+                                </div>
+                                <div class="lower-content">
+                                    <div class="author-info clearfix">
+                                        <div class="author pull-left">
+                                            <figure class="author-thumb"><img src="assets/images/footer-logo.png"
+                                                    style="object-fit:cover; background-position: center; width: 60px; height: 40px; border-radius: 50%;"
+                                                    alt="">
+                                            </figure>
+                                            <h6 class="text-uppercase">
+                                                <?= $info['propertytitle'] ?>
+                                            </h6>
+                                        </div>
+                                        <div class="buy-btn pull-right"><a
+                                                href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
+                                                <?= $info['symbol'] . number_format($info['propertyprice'], 2) ?>
+                                            </a>
                                         </div>
                                     </div>
-                                    <?php
+
+                                    <div class="title-text">
+                                        <h6><a
+                                                href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
+                                                <?= $info['city'] ?>,
+                                                <?= $info['state'] ?>
+                                                <?= $info['area_location'] ?>
+                                            </a></h6>
+                                    </div>
+                                    <div class="title-text">
+                                        <h4><a class="text-capitalize" style="color:#2F7366 !important;"
+                                                href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
+                                                <?= $info['typeproperty'] ?>
+                                            </a></h4>
+                                    </div>
+
+                                    <p>
+                                        <?= substr($info['detailedinfo'], 0, 77) . ' ...' ?>
+                                    <p>
+                                    <ul class="more-details clearfix">
+                                        <?php if($info['propertyCategory'] !== 'Land'):  ?>
+                                        <?php if($info['propertyCategory'] !== 'Autos/Machinery'):  ?>
+
+                                        <li><i class="icon-14"></i>
+                                            <?= $info['bedrooms'] ?> Beds
+                                        </li>
+                                        <li><i class="icon-15"></i>
+                                            <?= $info['bathroom'] ?> Baths
+                                        </li>
+                                        <li><i class="icon-15"></i>
+                                            <?= $info['toilets'] ?> Toilets
+                                        </li>
+
+                                        <?php else:  ?>
+                                        <?php endif;  ?>
+                                        <?php else:  ?>
+                                        <p><i class="icon-16"></i>
+                                            <?= $info['landsize']  ?> landsize(sqrt)
+                                        </p>
+                                        <?php endif;  ?>
+                                    </ul>
+                                    <div class="btn-box d-flex justify-content-center align-items-center text-center"><a
+                                            href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
+                                            class="theme-btn btn-one">See Details</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
                         endforeach;
                     else:
                         ?>
-                            <div class="col-lg-4 col-md-6 col-sm-12 feature-block d-flex justify-content-center align-items-center text-center">
-                                <div class="feature-block-one wow fadeInUp animated" data-wow-delay="00ms"
-                                    data-wow-duration="1500ms">
-                                    <div class="inner-box">
-                                        <div class="lower-content d-flex justify-content-center align-items-center ">
-                                            <div class="btn-box mt-5"><a href="javascript:void()" class="theme-btn btn-two">No
-                                                    Property Found</a></div>
-                                        </div>
-                                    </div>
+                    <div
+                        class="col-lg-4 col-md-6 col-sm-12 feature-block d-flex justify-content-center align-items-center text-center">
+                        <div class="feature-block-one wow fadeInUp animated" data-wow-delay="00ms"
+                            data-wow-duration="1500ms">
+                            <div class="inner-box">
+                                <div class="lower-content d-flex justify-content-center align-items-center ">
+                                    <div class="btn-box mt-5"><a href="javascript:void()" class="theme-btn btn-two">No
+                                            Property Found</a></div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
                     <?php endif; ?>
-                   
+
                 </div>
-                <div class="more-btn centred"><a href="property-grid?propertyCategory=Distress Properties" class="theme-btn btn-one">View All
+                <div class="more-btn centred"><a href="property-grid?propertyCategory=Distress Properties"
+                        class="theme-btn btn-one">View All
                         Listing</a></div>
             </div>
         </section>
         <!-- feature-section end -->
-        
+
         <!-- Lannd feature-section -->
         <section class="feature-section sec-pad bg-color-1" style="background-color: white;">
             <div class="auto-container">
@@ -457,11 +462,14 @@ if (isset($_SESSION['useremail'])) {
                 </div> -->
                 <div class="row clearfix">
                     <!-- <video src="https://www.youtube.com/watch?v=mCSImAzDMXg&feature=youtu.be" controls loop style="width: 100%; height: 100%;" class=""></video> -->
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/mCSImAzDMXg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="width: 100%; height: 100%;"> </iframe>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/mCSImAzDMXg"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen style="width: 100%; height: 100%;"> </iframe>
                 </div>
             </div>
         </section>
-      
+
 
         <!-- testimonial-section end -->
         <section class="testimonial-section bg-color-1 centred">
@@ -529,36 +537,43 @@ if (isset($_SESSION['useremail'])) {
         </button>
     </div>
 
-<!-- Modal Body -->
-<!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
-<div class="modal fade  "   id="modalId" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
-    <div class="modal-dialog  modal-dialog-centered modal-md" role="document">
-        <div class="modal-content pt-3" style="background-color: #D9A464;">
-            <!-- <div class="modal-header">
+    <!-- Modal Body -->
+    <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+    <div class="modal fade  " id="modalId" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+        role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered modal-md" role="document">
+            <div class="modal-content pt-3" style="background-color: #D9A464;">
+                <!-- <div class="modal-header">
                 <h5 class="modal-title" id="modalTitleId">Don't leave without an exclusive offer from us </h5>
                     <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
             </div> -->
-            <form class="" action="https://distresspropertymarket.us14.list-manage.com/subscribe/post?u=3617399b9ffe7259a94198d02&amp;id=caa3512409&amp;f_id=00b976e0f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form">
-                <div class="modal-body p-2">
-                    <h5 class="modal-title text-center text-white p-2" id="modalTitleId">Get first hand access and updates on available distress deals </h5>
-                  <div class="col-md-12 my-2">
-                    <input type="text" class="form-control" id="validationCustom01" placeholder="Name"  name="FNAME" required>
-                  </div>
-                  <div class="col-md-12 my-2">
-                    <input type="text" class="form-control" id="validationCustom02" placeholder="Email" name="EMAIL" required>
-                  </div>
-                  <div class="col-md-12 my-2">
-                    <button type="submit" style="background-color: #004030; width: 100%;"  class="btn text-white" >Subscribe Now</button>
-                  </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    
-                </div>
-            </form>
+                <form class=""
+                    action="https://distresspropertymarket.us14.list-manage.com/subscribe/post?u=3617399b9ffe7259a94198d02&amp;id=caa3512409&amp;f_id=00b976e0f0"
+                    method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form">
+                    <div class="modal-body p-2">
+                        <h5 class="modal-title text-center text-white p-2" id="modalTitleId">Get first hand access and
+                            updates on available distress deals </h5>
+                        <div class="col-md-12 my-2">
+                            <input type="text" class="form-control" id="validationCustom01" placeholder="Name"
+                                name="FNAME" required>
+                        </div>
+                        <div class="col-md-12 my-2">
+                            <input type="text" class="form-control" id="validationCustom02" placeholder="Email"
+                                name="EMAIL" required>
+                        </div>
+                        <div class="col-md-12 my-2">
+                            <button type="submit" style="background-color: #004030; width: 100%;"
+                                class="btn text-white">Subscribe Now</button>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 
     <!-- jequery plugins -->
     <script src="assets/js/jquery.js"></script>
