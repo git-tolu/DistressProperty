@@ -130,7 +130,7 @@ if (isset($_SESSION['useremail'])) {
         <!-- End Mobile Menu -->
 
         <!--Page Title-->
-        <section class="page-title centred" style="background-image: url(assets/images/bgall.jpg);">
+        <section class="page-title centred" style="background-image: url(assets/images/signup.jpeg);">
             <div class="auto-container">
                 <div class="content-box clearfix">
                     <h1>Sign Up</h1>

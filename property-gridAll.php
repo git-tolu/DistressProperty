@@ -1041,12 +1041,12 @@ if (isset($_SESSION['useremail'])) {
                                                         <figure class="author-tumb">
                                                             <!-- <img src="assets/images/footer-logo.png"
                                                                 style="object-fit:cover; background-position: center; width: 60px; height: 40px; border-radius: 50%;"
-                                                                alt=""> -->
+                                                                alt="">
                                                             <span> <a style=" width: 150px; padding: 0px;" href="bookeeping"
                                                                     class="m-1 theme-btn btn-one text-center">
                                                                     <span class="span" style="font-size: 15px; ">Book
                                                                         Inspection</span>
-                                                                </a></span>
+                                                                </a></span> -->
                                                         </figure>
                                                     </div>
                                                         </div>
@@ -1085,25 +1085,26 @@ if (isset($_SESSION['useremail'])) {
                                                     <?php endif; ?>
                                                 </ul> -->
                                                         <div class="other-info-box clearfix">
-                                                            <div class="btn-box btn-group d-flex ">
-                                                                <a style=" width: 150px; "
+                                                        <div class="btn-box btn-group  d-flex " style="width: 100%;">
+                                                                <a style=" width: 30%; "
                                                                     href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
                                                                     class="m-1 theme-btn btn-one text-center">
                                                                     <span style="font-size: 15px; ">Details</span>
                                                                 </a>
-                                                                <a style=" width: 150px; " href="#modalId"
-                                                                    class="m-1 theme-btn btn-one text-center"
+                                                                <a style=" width: 20%; " href="#modalId"
+                                                                class="m-1 theme-btn btn-one text-center "
                                                                     data-toggle="modal">
                                                                     <span id='<?= $info[' longtitude'] ?>' class="span" title="
                                                                 <?= $info['langtitude'] ?>" style="font-size: 15px;
-                                                                ">Map
-                                                                    </span>
+                                                                ">Map</span>
                                                                 </a>
-                                                                <!-- <a style=" width: 150px; padding: 0px;" href="contact"
+                                                                <a style=" width: 50%; "
+                                                                    href="bookeeping"
                                                                     class="m-1 theme-btn btn-one text-center">
-                                                                    <span class="span" style="font-size: 15px; ">Book
+                                                                    <span style="font-size: 15px; ">Book
                                                                         Inspection</span>
-                                                                </a> -->
+                                                                </a>
+                                                              
                                                             </div>
                                                         </div>
                                                     </div>

@@ -141,7 +141,7 @@ if (isset($_SESSION['useremail'])) {
 
 
       <!--Page Title-->
-        <section class="page-title centred" style="background-image: url(assets/images/bgall.jpg);">
+        <section class="page-title centred" style="background-image: url(assets/images/contact.jpeg);">
             <div class="auto-container">
                 <div class="content-box clearfix">
                     <h1>Contact Us</h1>

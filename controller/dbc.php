@@ -358,11 +358,12 @@ class Dbc extends Database
     {
         $sql = "SELECT *
         FROM properties
-        WHERE typeproperty = '$typeproperty' AND  address LIKE '%$Location' AND  (propertyprice >= '$minprice' AND propertyprice <= '$maxprice') AND propertytitle LIKE '%$keywords%' AND status != 'pending' ORDER BY id DESC LIMIT $startIndex, $itemsPerPage ";
+        WHERE typeproperty = '$typeproperty' AND  address LIKE '%$Location%' AND  (propertyprice >= '$minprice' AND propertyprice <= '$maxprice') AND propertytitle LIKE '%$keywords%' AND status != 'pending' ORDER BY id DESC LIMIT $startIndex, $itemsPerPage ";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $row;
+        // return  var_dump($sql);
+        // return $row;
     }
 
     // public function AdvanceSearchqueryDis($Location, $typeproperty,  $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex)

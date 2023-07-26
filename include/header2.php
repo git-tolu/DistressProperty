@@ -27,8 +27,13 @@
         <div class="outer-box">
             <div class="main-box">
                 <div class="logo-box " style="visibility: hidden; width: 0px;">
-                    <figure class="logo "><a href="index"><img src="assets/images/logo.png"
+                    <?php if($page == 'DCi'):  ?>
+                        <figure class="logo "><a href="index"><img src="assets/images/dcilogo.png"
                                 style="width: 150px; height: 50px; " alt=""></a></figure>
+                    <?php else: ?>
+                            <figure class="logo "><a href="index"><img src="assets/images/logo.png"
+                                style="width: 150px; height: 50px; " alt=""></a></figure>
+                    <?php endif;?>
                 </div>
                 <div class="menu-area clearfix">
                     <!--Mobile Navigation Toggler-->

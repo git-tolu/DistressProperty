@@ -3,7 +3,16 @@
             <div class="close-btn"><i class="fas fa-times"></i></div>
             
             <nav class="menu-box">
-                <div class="nav-logo" style="background-color: black;"><a href="index"><img src="assets/images/logo.png" alt="" title=""></a></div>
+                <div class="nav-logo" style="background-color: black;"><a href="index">
+                    <?php if($page == 'DCi'):  ?>
+                        <img src="assets/images/dcilogo.png" alt="" title="">
+                        
+                        <?php else: ?>
+                            <img src="assets/images/logo.png" alt="" title="">
+                                     
+
+                                <?php endif;?>
+                </a></div>
                 <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
                
                 <div class="social-links">
