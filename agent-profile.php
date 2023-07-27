@@ -157,11 +157,21 @@ if (isset($_POST['propertytitle'])) {
     $detailedinfo = $dbusers->test_input($_POST['detailedinfo']);
     $propertyCategory = $dbusers->test_input($_POST['propertyCategory']);
     $formType = $dbusers->test_input($_POST['formType']);
-    $bedrooms = $dbusers->test_input($_POST['bedrooms']);
-    $bathroom = $dbusers->test_input($_POST['bathroom']);
-    $toilets = $dbusers->test_input($_POST['toilets']);
-    $propsize = $dbusers->test_input($_POST['propsize']);
-    $parkingspace = $dbusers->test_input($_POST['parkingspace']);
+
+    if (!empty($_POST['bedrooms'])) {
+        $bedrooms = $dbusers->test_input($_POST['bedrooms']);
+        $bathroom = $dbusers->test_input($_POST['bathroom']);
+        $toilets = $dbusers->test_input($_POST['toilets']);
+        $propsize = $dbusers->test_input($_POST['propsize']);
+        $parkingspace = $dbusers->test_input($_POST['parkingspace']);
+    }else{
+        $bedrooms = $dbusers->test_input($_POST['bedrooms1']);
+        $bathroom = $dbusers->test_input($_POST['bathroom1']);
+        $toilets = $dbusers->test_input($_POST['toilets1']);
+        $propsize = $dbusers->test_input($_POST['propsize1']);
+        $parkingspace = $dbusers->test_input($_POST['parkingspace1']);
+
+    }
     $landsize = $dbusers->test_input($_POST['landsize']);
     $titleproperty = '';
     // $titleproperty = $dbusers->test_input($_POST['titleproperty']);
@@ -1078,14 +1088,14 @@ if (isset($_POST['propertytitle'])) {
                                                 <div class="col-lg-6 col-md-6 col-sm-12 column show3 ">
                                                     <div class="field-input">
                                                         <label>Bedrooms</label>
-                                                        <input type="number" name="bedrooms" placeholder="Bedrooms"
+                                                        <input type="number" name="bedrooms1" placeholder="Bedrooms"
                                                             value="<?= $bedrooms ?>">
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 col-md-6 col-sm-12 column show3">
                                                     <div class="field-input">
                                                         <label>Bathroom</label>
-                                                        <input type="number" name="bathroom" placeholder="Bathroom"
+                                                        <input type="number" name="bathroom1" placeholder="Bathroom"
                                                             value="<?= $bathroom ?>">
                                                     </div>
                                                 </div>
@@ -1093,21 +1103,21 @@ if (isset($_POST['propertytitle'])) {
                                                 <div class="col-lg-6 col-md-6 col-sm-12 column show3">
                                                     <div class="field-input">
                                                         <label>Toilets</label>
-                                                        <input type="number" name="toilets" placeholder="toilets"
+                                                        <input type="number" name="toilets1" placeholder="toilets"
                                                             value="<?= $toilets ?>">
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 col-md-6 col-sm-12 column show3">
                                                     <div class="field-input">
                                                         <label>Property Size(Square Meter)</label>
-                                                        <input type="number" name="propsize" placeholder="Property Size"
+                                                        <input type="number" name="propsize1" placeholder="Property Size"
                                                             value="<?= $propsize ?>">
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12 col-md-12 col-sm-12 column show3">
                                                     <div class="field-input">
                                                         <label>Parking Space</label>
-                                                        <input type="number" name="parkingspace"
+                                                        <input type="number" name="parkingspace1"
                                                             placeholder="Parking Space" value="<?= $parkingspace ?>">
                                                     </div>
                                                 </div>
