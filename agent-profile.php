@@ -163,7 +163,8 @@ if (isset($_POST['propertytitle'])) {
     $propsize = $dbusers->test_input($_POST['propsize']);
     $parkingspace = $dbusers->test_input($_POST['parkingspace']);
     $landsize = $dbusers->test_input($_POST['landsize']);
-    $titleproperty = $dbusers->test_input($_POST['titleproperty']);
+    $titleproperty = '';
+    // $titleproperty = $dbusers->test_input($_POST['titleproperty']);
     $youtubelink = $dbusers->test_input($_POST['youtubelink']);
     $marketstatus = $dbusers->test_input($_POST['marketstatus']);
     $estatename = $dbusers->test_input($_POST['estatename']);
@@ -405,7 +406,7 @@ if (isset($_POST['propertytitle'])) {
 
 
         <!--Page Title-->
-        <section class="page-title centred" style="background-image: url(assets/images/bgall.jpg);">
+        <section class="page-title centred" style="background-image: url(assets/images/slid8.jpeg);">
             <div class="auto-container">
                 <div class="content-box clearfix">
                     <h1>My Account</h1>
@@ -578,7 +579,7 @@ if (isset($_POST['propertytitle'])) {
                                                                 <!-- <h6>Start From</h6> -->
                                                                 <h4><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
                                                                         class="text-white mbwhite">
-                                                                        <?= $info['symbol'] . number_format($info['propertyprice'], 2) ?>
+                                                                        <?= $info['symbol'] . $info['propertyprice'] ?>
                                                                     </a></h4>
                                                             </div>
                                                             <div class="author-box pull-right">

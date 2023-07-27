@@ -122,7 +122,7 @@ if (isset($_SESSION['useremail'])) {
 
 
        <!--Page Title-->
-        <section class="page-title centred" style="background-image: url(assets/images/bgall.jpg);">
+        <section class="page-title centred" style="background-image: url(assets/images/slid7.jpeg);">
             <div class="auto-container">
                 <div class="content-box clearfix">
                     <h1>Property Details</h1>
@@ -151,7 +151,7 @@ if (isset($_SESSION['useremail'])) {
                             
                             <div class="price-box pull-right">
                                 <h3>
-                                    <?= $info['symbol'] . number_format($info['propertyprice'], 2) ?>
+                                    <?= $info['symbol'] . $info['propertyprice'] ?>
                                 </h3>
                             </div>
                         </div>
@@ -397,7 +397,7 @@ Please note that the property aforementioned does not belong to Distress Propert
                                     </p>
                                     <div class="d-flex justify-content-between mt-3">
                                     <a href="javascript:void()" class="theme-btn btn-one" id='show'>Call</a>
-                                    <a href="contect" class="theme-btn btn-one "
+                                    <a href="bookeeping" class="theme-btn btn-one "
                                                             ><span  class="span" >Book Inspection
                                                              </span></a>
                                         <!-- <a href="https://api.whatsapp.com/send?phone=<?= $agentDetails['whatsappNumber'] ?>" target="_blank" class="theme-btn btn-one">Whatsapp</a> -->
@@ -508,7 +508,7 @@ Please note that the property aforementioned does not belong to Distress Propert
                                                     </h6>
                                                 </div>
                                                 <div class="buy-btn pull-right"><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
-                                                        <?= $info['symbol'] . number_format($info['propertyprice'], 2) ?>
+                                                        <?= $info['symbol'] . $info['propertyprice'] ?>
                                                     </a>
                                                 </div>
                                             </div>

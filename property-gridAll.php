@@ -1034,7 +1034,7 @@ if (isset($_SESSION['useremail'])) {
                                                                 <!-- <h6>Start From</h6> -->
                                                                 <h4><a
                                                                         href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
-                                                                        <?= $info['symbol'] . number_format($info['propertyprice'], 2) ?>
+                                                                        <?= $info['symbol'] . $info['propertyprice'] ?>
                                                                     </a></h4>
                                                             </div>
                                                             <div class="author-box pull-right">
