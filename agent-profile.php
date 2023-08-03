@@ -188,8 +188,8 @@ if (isset($_POST['propertytitle'])) {
     } else {
         $typeproperty = $dbusers->test_input($_POST['autocat']);
     }
-    $featuredimage = '';
-    // $featuredimage = $_FILES['featuredimage']['name'];
+    // $featuredimage = '';
+    $featuredimage = $_FILES['featuredimage']['name'];
     // $galleryimage = $_FILES['galleryimage']['name'];
     // echo $typeproperty; 
 
@@ -221,15 +221,15 @@ if (isset($_POST['propertytitle'])) {
             //     $errorMessage = "cannot upload more than 20 files.<br>";
             // } else {
 
-            //     // $targetDirectory = "featuredGallery/";
-            //     // $targetFile = $targetDirectory . basename($_FILES["featuredimage"]["name"]);
-            //     //if (move_uploaded_file($_FILES["featuredimage"]["tmp_name"], $targetFile)) {
-            //     //   $display = ' ';
-            //     //    $errorMessage = "File uploaded successfully.";
-            //     //  } else {
-            //     //   $display = ' ';
-            //     //   $errorMessage = "File upload failed.";
-            //     //  } 
+                $targetDirectory = "featuredGallery/";
+                $targetFile = $targetDirectory . basename($_FILES["featuredimage"]["name"]);
+                if (move_uploaded_file($_FILES["featuredimage"]["tmp_name"], $targetFile)) {
+                  $display = ' ';
+                   $errorMessage = "File uploaded successfully.";
+                 } else {
+                  $display = ' ';
+                  $errorMessage = "File upload failed.";
+                 } 
 
             //     // $targetDirectory = 'galleryImage/';
 
@@ -315,7 +315,7 @@ if (isset($_POST['propertytitle'])) {
     <link href="assets/css/responsive.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css.scss">
     <script src="assets/js/jquery.js"></script>
-    <!-- <script src="assets/dropify-master/dropify-master/dist/css/dropify.min.css"></script> -->
+    <link rel="stylesheet" src="assets/dropify-master/dropify-master/dist/css/dropify.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dropzone@5.9.3/dist/dropzone.min.css">
     <script src="https://cdn.jsdelivr.net/npm/dropzone@5.9.3/dist/dropzone.min.js"></script>
     <style>
@@ -566,12 +566,17 @@ if (isset($_POST['propertytitle'])) {
                                                         $fetchgallery = $dbusers->SelectFromImgLim($galleryimage);
                                                         foreach ($fetchgallery as $fetchgalleryInfo) {
                                                             ?>
-                                                            <figure class="image"><img
+                                                            <!-- <figure class="image"><img
                                                                     src="./galleryImage/<?= $fetchgalleryInfo['imagename'] ?>"
                                                                     alt=""
                                                                     style="object-fit: cover; background-position: center; width: 100% !important;  height: 400px;">
+                                                            </figure> -->
+                                                            <?php } ?>
+                                                            <figure class="image"><img
+                                                                    src="./featuredGallery/<?= $info['featuredimage'] ?>"
+                                                                    alt=""
+                                                                    style="object-fit: cover; background-position: center; width: 100% !important;  height: 400px;">
                                                             </figure>
-                                                        <?php } ?>
                                                         <!-- <div class="batch"><i class="icon-11"></i></div>
                                                         <span class="category">Featured</span>
                                                         <div class="buy-btn"><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">For Buy</a></div> -->
@@ -1131,13 +1136,16 @@ if (isset($_POST['propertytitle'])) {
                                                 </div>
                                                 <div class="col-lg-12 col-md-12 col-sm-12 column mt-3">
                                                     <div class="gallery-box">
-
-
+                                                        <h4><i class="icon-16"></i>Featured Images:</h4>
+                                                        <div class="upload-inner centred">
+                                                                <input type="file"  class="dropify"  name="featuredimage" required>
+                                                        </div>
                                                     </div>
 
                                                 </div>
                                             </div>
                                 </form>
+                                <h4><i class="icon-16"></i>Gallery Image:</h4>
                                 <form action="process.php" class="dropzone" id="myDropzone"></form>
                                 <button class="theme-btn btn-one m-3" type="button" onclick="submitForm()"
                                     name="uploadProps">Upload</button>
@@ -1310,11 +1318,42 @@ if (isset($_POST['propertytitle'])) {
                 this.on('success', function (file, response) {
                     console.log(response);
                 });
+                this.options.sortable = true; // Enable sorting
+
+        this.on("queuecomplete", function() {
+            // Update the order of files after rearranging
+            var files = this.files;
+            console.log("Updated file order:", files);
+        });
             },
             //   
 
             addRemoveLinks: true,
             autoProcessQueue: true,
+            drop(e) {
+    return this.element.classList.remove("dz-drag-hover");
+  },
+  dragstart(e) {},
+  dragend(e) {
+    return this.element.classList.remove("dz-drag-hover");
+  },
+  dragenter(e) {
+    return this.element.classList.add("dz-drag-hover");
+  },
+  dragover(e) {
+    return this.element.classList.add("dz-drag-hover");
+  },
+  dragleave(e) {
+    return this.element.classList.remove("dz-drag-hover");
+  },
+
+  paste(e) {},
+
+  // Called whenever there are no files left in the dropzone anymore, and the
+  // dropzone should be displayed as if in the initial state.
+  reset() {
+    return this.element.classList.remove("dz-started");
+  }
 
         };        // Initialize Dropzone.js
 

@@ -346,11 +346,15 @@ if (isset($_SESSION['useremail'])) {
                                                         $fetchgallery =  $dbs->SelectFromImgLim($galleryimage);
                                                         foreach ($fetchgallery as $fetchgalleryInfo ){
                                                     ?>
-                                    <figure class="image-box"><img
+                                    <!-- <figure class="image-box"><img
                                             src="./galleryImage/<?= $fetchgalleryInfo['imagename']  ?>" alt=""
                                             style="width: 100% !important; height: 400px !important; background-size: cover;">
-                                    </figure>
+                                    </figure> -->
                                     <?php }  ?>
+                                    <figure class="image-box"><img
+                                            src="./featuredGallery/<?= $info['featuredimage'] ?>" alt=""
+                                            style="width: 100% !important; height: 400px !important; background-size: cover;">
+                                    </figure>
                                     <!-- <figure class="image"><img src="featuredGallery/<?= $info['featuredimage'] ?>"
                                                             alt="">
                                                     </figure> -->
@@ -373,7 +377,7 @@ if (isset($_SESSION['useremail'])) {
                                         </div>
                                         <div class="buy-btn pull-right"><a
                                                 href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
-                                                <?= $info['symbol'] . number_format($info['propertyprice'], 2) ?>
+                                                <?= $info['symbol'] . $info['propertyprice'] ?>
                                             </a>
                                         </div>
                                     </div>

@@ -82,7 +82,7 @@ if (isset($_SESSION['useremail'])) {
 
 
         <!--Page Title-->
-        <section class="page-title centred" style="background-image: url(assets/images/bgall.jpeg);">
+        <section class="page-title centred" style="background-image: url(assets/images/slid5.jpeg);">
             <div class="auto-container">
                 <div class="content-box clearfix">
                     <h1>Properties</h1>
@@ -1011,12 +1011,17 @@ if (isset($_SESSION['useremail'])) {
                                                         $fetchgallery = $dbs->SelectFromImgLim($galleryimage);
                                                         foreach ($fetchgallery as $fetchgalleryInfo) {
                                                             ?>
-                                                            <figure class="image"><img
+                                                            <!-- <figure class="image"><img
                                                                     src="./galleryImage/<?= $fetchgalleryInfo['imagename'] ?>"
                                                                     alt=""
                                                                     style="object-fit: cover; background-position: center; height: 400px; ">
-                                                            </figure>
+                                                            </figure> -->
                                                         <?php } ?>
+                                                        <figure class="image"><img
+                                                                    src="./featuredGallery/<?= $info['featuredimage'] ?>"
+                                                                    alt=""
+                                                                    style="object-fit: cover; background-position: center; height: 400px;">
+                                                            </figure>
                                                         <!-- <div class="batch"><i class="icon-11"></i></div>
                                                     <span class="category">Featured</span>
                                                     <div class="buy-btn"><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">For Buy</a></div> -->

@@ -1322,12 +1322,16 @@ if (isset($_SESSION['useremail'])) {
                                                         $fetchgallery = $dbs->SelectFromImgLim($galleryimage);
                                                         foreach ($fetchgallery as $fetchgalleryInfo) {
                                                             ?>
-                                                            <figure class="image"><img
+                                                            <!-- <figure class="image"><img
                                                                     src="./galleryImage/<?= $fetchgalleryInfo['imagename'] ?>"
                                                                     alt=""
                                                                     style="object-fit: cover; background-position: center; height: 400px; ">
-                                                            </figure>
+                                                            </figure> -->
                                                         <?php } ?>
+                                                        <figure class="image">
+                                                            <img src="./featuredGallery/<?= $info['featuredimage'] ?>" alt=""
+                                                                    style="object-fit: cover; background-position: center; height: 400px;">
+                                                        </figure>
                                                     </div>
                                                     <div class="lower-content">
                                                         <div class="title-text">

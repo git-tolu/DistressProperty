@@ -1,5 +1,5 @@
-// $('.dropify').dropify({ maxFiles: 6, });
-$('.myDropzone').dropify({ maxFiles: 6, });
+$('.dropify').dropify({ maxFiles: 1, });
+// $('.myDropzone').dropify({ maxFiles: 6, });
 // $('').dropify();
 
 // $(".dropzone").dropzone();

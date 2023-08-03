@@ -484,12 +484,12 @@ Please note that the property aforementioned does not belong to Distress Propert
                                                         $fetchgallery =  $dbs->SelectFromImgLim($galleryimage);
                                                         foreach ($fetchgallery as $fetchgalleryInfo ){
                                                     ?>
-                                                        <figure class="image-box"><img src="./galleryImage/<?= $fetchgalleryInfo['imagename']  ?>"
-                                                                alt="" style="width: 100% !important; height: 400px !important; background-size: cover;"></figure>
+                                                        <!-- <figure class="image-box"><img src="./galleryImage/<?= $fetchgalleryInfo['imagename']  ?>"
+                                                                alt="" style="width: 100% !important; height: 400px !important; background-size: cover;"></figure> -->
                                                     <?php }  ?>
-                                            <!-- <figure class="image"><img src="featuredGallery/<?= $info['featuredimage'] ?>"
+                                            <figure class="image-box"><img src="featuredGallery/<?= $info['featuredimage'] ?>"
                                                     alt="">
-                                            </figure> -->
+                                            </figure>
                                             <div class="batch"><i class="icon-11"></i></div>
                                             <span class="category">
                                                 Featured
