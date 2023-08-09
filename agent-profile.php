@@ -134,6 +134,7 @@ if (isset($_GET['del'])) {
     }
 
 }
+
 if (isset($_SESSION['galleryimageid'])) {
     $galleryimageid = $_SESSION['galleryimageid'];
 
@@ -851,14 +852,17 @@ if (isset($_POST['propertytitle'])) {
                                                             <option value="<?= $typeproperty ?>">
                                                                 <?= $typeproperty ?>
                                                             </option>
-                                                            <option value="Wetland"  class="text-capitalize">Wetland</option>
+                                                             <option value="Residential"  class="text-capitalize">Residential</option>
+                                                             <option value="Commercial"  class="text-capitalize">Commercial</option>
+                                                             <option value="Mixed & used"  class="text-capitalize">Mixed & used</option>
+                                                            <!-- <option value="Wetland"  class="text-capitalize">Wetland</option>
                                                             <option value="dry land"  class="text-capitalize"> dry land</option>
                                                             <option value="sandfilled"  class="text-capitalize">sandfilled</option>
                                                             <option value="bare-land"  class="text-capitalize">bare-land</option>
                                                             <option value="demolishable"  class="text-capitalize">demolishable</option>
                                                             <option value="Semi Detached Duplex"  class="text-capitalize">Semi Detached Duplex
                                                             </option>
-                                                            <option value="Terrace Bungalow"  class="text-capitalize">Terrace Bungalow</option>
+                                                            <option value="Terrace Bungalow"  class="text-capitalize">Terrace Bungalow</option> -->
                                                         </select>
                                                     </div>
                                                 </div>
@@ -1138,7 +1142,7 @@ if (isset($_POST['propertytitle'])) {
                                                     <div class="gallery-box">
                                                         <h4><i class="icon-16"></i>Featured Images:</h4>
                                                         <div class="upload-inner centred">
-                                                                <input type="file"  class="dropify"  name="featuredimage" required>
+                                                            <input type="file"  class="dropify"  data-show-remove="false"  name="featuredimage" required>
                                                         </div>
                                                     </div>
 
@@ -1320,11 +1324,11 @@ if (isset($_POST['propertytitle'])) {
                 });
                 this.options.sortable = true; // Enable sorting
 
-        this.on("queuecomplete", function() {
-            // Update the order of files after rearranging
-            var files = this.files;
-            console.log("Updated file order:", files);
-        });
+                this.on("queuecomplete", function() {
+                    // Update the order of files after rearranging
+                    var files = this.files;
+                    console.log("Updated file order:", files);
+                });
             },
             //   
 
@@ -1358,41 +1362,41 @@ if (isset($_POST['propertytitle'])) {
         };        // Initialize Dropzone.js
 
 
-        function handleFileSelect(event) {
-            const files = event.target.files;
-            const imageContainer = document.getElementById('imageContainer');
-            const maxImages = 20 - imageContainer.childElementCount;
+        // function handleFileSelect(event) {
+        //     const files = event.target.files;
+        //     const imageContainer = document.getElementById('imageContainer');
+        //     const maxImages = 20 - imageContainer.childElementCount;
 
-            if (files.length > maxImages) {
-                alert('You can upload a maximum of 20 images.');
-                return;
-            }
-            for (let i = 0; i < files.length; i++) {
-                const file = files[i];
-                const reader = new FileReader();
+        //     if (files.length > maxImages) {
+        //         alert('You can upload a maximum of 20 images.');
+        //         return;
+        //     }
+        //     for (let i = 0; i < files.length; i++) {
+        //         const file = files[i];
+        //         const reader = new FileReader();
 
-                reader.onload = function (event) {
-                    const imageUrl = event.target.result;
-                    const imageElement = document.createElement('img');
-                    imageElement.src = imageUrl;
+        //         reader.onload = function (event) {
+        //             const imageUrl = event.target.result;
+        //             const imageElement = document.createElement('img');
+        //             imageElement.src = imageUrl;
 
-                    const deleteButton = document.createElement('button');
-                    deleteButton.innerText = 'Delete';
-                    deleteButton.addEventListener('click', function () {
-                        imageElement.remove();
-                        deleteButton.remove();
-                    });
+        //             const deleteButton = document.createElement('button');
+        //             deleteButton.innerText = 'Delete';
+        //             deleteButton.addEventListener('click', function () {
+        //                 imageElement.remove();
+        //                 deleteButton.remove();
+        //             });
 
-                    const imageWrapper = document.createElement('div');
-                    imageWrapper.appendChild(imageElement);
-                    imageWrapper.appendChild(deleteButton);
+        //             const imageWrapper = document.createElement('div');
+        //             imageWrapper.appendChild(imageElement);
+        //             imageWrapper.appendChild(deleteButton);
 
-                    imageContainer.appendChild(imageWrapper);
-                }
+        //             imageContainer.appendChild(imageWrapper);
+        //         }
 
-                reader.readAsDataURL(file);
-            }
-        }
+        //         reader.readAsDataURL(file);
+        //     }
+        // }
         var placeSearch, autocomplete;
         var componentForm = {
             street_number: 'short_name',

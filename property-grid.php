@@ -1349,30 +1349,24 @@ if (isset($_SESSION['useremail'])) {
                                                                         <?= $info['symbol'] . $info['propertyprice'] ?>
                                                                     </a></h4>
                                                             </div>
-                                                             <!--<div class="author-box pull-right">
-                                                        <figure class="author-tumb">
-                                                            <img src="assets/images/footer-logo.png"
-                                                                style="object-fit:cover; background-position: center; width: 60px; height: 40px; border-radius: 50%;"
-                                                                alt=""> 
-                                                            <span> <a style=" width: 150px; padding: 0px;" href="bookeeping"
-                                                                    class="m-1 theme-btn btn-one text-center">
-                                                                    <span class="span" style="font-size: 15px; ">Book
-                                                                        Inspection</span>
-                                                                </a></span>
-                                                        </figure>
-                                                    </div>-->
+                                                            
                                                         </div>
                                                         <div class="title-text">
                                                             <h6><a
                                                                     href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
-                                                                    <?= $info['city'] ?>,
-                                                                    <?= $info['state'] ?>
-                                                                    <?= $info['area_location'] ?>
+                                                                <?= $info['address'] ?>
+                                                               
                                                                 </a></h6>
                                                         </div>
-                                                        <p>
+                                                          <ul class="more-details clearfix mt-1">
+                                                            <li>
+                                                                Ref Id:<?= $info['refno'] ?> 
+                                                            </li>
+                                                           
+                                                        </ul>
+                                                        <!-- <p>
                                                             <?= substr($info['detailedinfo'], 0, 77) . ' ...' ?>.
-                                                        </p>
+                                                        </p> -->
                                                         <!-- <ul class="more-details clearfix">
                                                     
                                                     <?php if ($_GET['propertyCategory'] == 'Distress Properties'): ?>
@@ -1405,14 +1399,14 @@ if (isset($_SESSION['useremail'])) {
                                                     <?php endif; ?>
                                                 </ul> -->
                                                         <div class="other-info-box clearfix">
-                                                                    <div class="btn-box btn-group  d-flex " style="width: 100%;">
+                                                                    <div class="btn-box btn-group   " style="width: 100%;">
                                                                         <a style=" width: 30%; "
                                                                             href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
-                                                                            class="m-1 theme-btn btn-one text-center">
+                                                                            class="border-white theme-btn btn-one text-center">
                                                                             <span style="font-size: 15px; ">Details</span>
                                                                         </a>
                                                                         <a style=" width: 20%; " href="#modalId"
-                                                                        class="m-1 theme-btn btn-one text-center "
+                                                                        class="border-white theme-btn btn-one text-center "
                                                                             data-toggle="modal">
                                                                             <span id='<?= $info[' longtitude'] ?>' class="span" title="
                                                                 <?= $info['langtitude'] ?>" style="font-size: 15px;
@@ -1420,7 +1414,7 @@ if (isset($_SESSION['useremail'])) {
                                                                         </a>
                                                                         <a style=" width: 50%; "
                                                                             href="bookeeping"
-                                                                            class="m-1 theme-btn btn-one text-center">
+                                                                            class="border-white theme-btn btn-one text-center">
                                                                             <span style="font-size: 15px; ">Book
                                                                                 Inspection</span>
                                                                         </a>

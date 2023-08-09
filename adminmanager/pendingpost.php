@@ -1,9 +1,26 @@
 <?php
 include('includes/aunthenticate.php');
+include('../controller/session.php');
+
 $page = "Properties";
 $home = "Distress Property Market ";
 $apptitle = "Distress Property Market : Admin ";
 $todaydate = date("jS F, Y");
+
+if (isset($_GET['del'])) {
+    # code...
+    $id = $_GET['del'];
+    $result = $dbusers->DeleteProps($id);
+    if ($result) {
+
+        $display = ' ';
+        $alertColor = 'success';
+        $errorMessage = 'Deleted successfully';
+        header("location: pendingpost");
+
+    }
+
+}
 
 ?>
 <!DOCTYPE html>
@@ -228,7 +245,9 @@ include("includes/pagehead.php");
                                             <td><label class='label $class'>$accountstatus</label></td>
                                             <td class='btn-group'>
                                             $btn
-                                            <a href='../property-details?propertyCategory=" . $info8['propertyCategory'] . "&id=" . $info8['id'] . "' target='_blank' ><button  class='btn btn-success '>view</button><a/>
+                                            <a href='../property-details?propertyCategory=" . $info8['propertyCategory'] . "&id=" . $info8['id'] . "' target='_blank' ><button  class='btn btn-success '>View</button><a/>
+                                            <a href='../edit-prop?edit=". $info8['id'] ."' target='_blank' ><button  class='btn btn-primary '>Edit</button><a/>
+                                            <a href='pendingpost?del=". $info8['id'] ."'  ><button  class='btn btn-success '>Delete</button><a/>
                                             </td>
 											
                                         </tr>";

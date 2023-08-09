@@ -1055,17 +1055,23 @@ if (isset($_SESSION['useremail'])) {
                                                         </figure>
                                                     </div>
                                                         </div>
+                                                       
                                                         <div class="title-text">
                                                             <h6><a
                                                                     href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
-                                                                    <?= $info['city'] ?>,
-                                                                    <?= $info['state'] ?>
-                                                                    <?= $info['area_location'] ?>
+                                                                <?= $info['address'] ?>
+                                                               
                                                                 </a></h6>
                                                         </div>
-                                                        <p>
+                                                          <ul class="more-details clearfix mt-1">
+                                                            <li>
+                                                                Ref Id:<?= $info['refno'] ?> 
+                                                            </li>
+                                                           
+                                                        </ul>
+                                                        <!-- <p>
                                                             <?= substr($info['detailedinfo'], 0, 77) . ' ...' ?>.
-                                                        </p>
+                                                        </p> -->
                                                         <!-- <ul class="more-details clearfix">
                                                     <?php if ($info['propertyCategory'] !== 'Land'): ?>
                                                         <?php if ($info['propertyCategory'] !== 'Autos/Machinery'): ?>
@@ -1089,29 +1095,29 @@ if (isset($_SESSION['useremail'])) {
                                                     </p>
                                                     <?php endif; ?>
                                                 </ul> -->
-                                                        <div class="other-info-box clearfix">
-                                                        <div class="btn-box btn-group  d-flex " style="width: 100%;">
-                                                                <a style=" width: 30%; "
-                                                                    href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
-                                                                    class="m-1 theme-btn btn-one text-center">
-                                                                    <span style="font-size: 15px; ">Details</span>
-                                                                </a>
-                                                                <a style=" width: 20%; " href="#modalId"
-                                                                class="m-1 theme-btn btn-one text-center "
-                                                                    data-toggle="modal">
-                                                                    <span id='<?= $info[' longtitude'] ?>' class="span" title="
+                                                <div class="other-info-box clearfix">
+                                                                    <div class="btn-box btn-group   " style="width: 100%;">
+                                                                        <a style=" width: 30%; "
+                                                                            href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
+                                                                            class="border-white theme-btn btn-one text-center">
+                                                                            <span style="font-size: 15px; ">Details</span>
+                                                                        </a>
+                                                                        <a style=" width: 20%; " href="#modalId"
+                                                                        class="border-white theme-btn btn-one text-center "
+                                                                            data-toggle="modal">
+                                                                            <span id='<?= $info[' longtitude'] ?>' class="span" title="
                                                                 <?= $info['langtitude'] ?>" style="font-size: 15px;
                                                                 ">Map</span>
-                                                                </a>
-                                                                <a style=" width: 50%; "
-                                                                    href="bookeeping"
-                                                                    class="m-1 theme-btn btn-one text-center">
-                                                                    <span style="font-size: 15px; ">Book
-                                                                        Inspection</span>
-                                                                </a>
+                                                                        </a>
+                                                                        <a style=" width: 50%; "
+                                                                            href="bookeeping"
+                                                                            class="border-white theme-btn btn-one text-center">
+                                                                            <span style="font-size: 15px; ">Book
+                                                                                Inspection</span>
+                                                                        </a>
                                                               
-                                                            </div>
-                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                     </div>
                                                 </div>
                                             </div>

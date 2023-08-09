@@ -180,26 +180,31 @@ if (isset($_SESSION['useremail'])) {
 							
                             <div class="details-box content-widget">
                                 <div class="title-box">
-                                    <h4>Property Details</h4>
+                                    <h4>Property Details/<?= $info['propertyCategory'] ?></h4>
                                 </div>
-                                <ul class="list clearfix">
-                                    <?php if($info['propertyCategory'] !== 'Land'):  ?>
-                                        <?php if($info['propertyCategory'] !== 'Autos/Machinery'):  ?>
-
-                                            <li>Bedrooms: <span><?= $info['bedrooms']  ?></span></li>
-                                            <li>Bathrooms: <span><?= $info['bathroom']  ?></span></li>
-                                            <li>Property Size: <span><?= $info['propsize']  ?> Sq Ft</span></li>
-                                            <li>Toilets: <span><?= $info['toilets']  ?></span></li>
-                                            <li>Parking Spaces: <span><?= $info['parkingspace']  ?></span></li>
+                                <div class="text">
+                                    <p>
+                                        <?= $info['detailedinfo'] ?>
+                                    </p>
+                                    <ul class="list clearfix">
+                                        <?php if($info['propertyCategory'] !== 'Land'):  ?>
+                                            <?php if($info['propertyCategory'] !== 'Autos/Machinery'):  ?>
+    
+                                                <li>Bedrooms: <span><?= $info['bedrooms']  ?></span></li>
+                                                <li>Bathrooms: <span><?= $info['bathroom']  ?></span></li>
+                                                <li>Property Size: <span><?= $info['propsize']  ?> Sq Ft</span></li>
+                                                <li>Toilets: <span><?= $info['toilets']  ?></span></li>
+                                                <li>Parking Spaces: <span><?= $info['parkingspace']  ?></span></li>
+                                            <?php else:  ?> 
+                                            <?php endif;  ?> 
                                         <?php else:  ?> 
+                                            <li><i class="icon-16"></i><?= $info['landsize']  ?> landsize</li>
                                         <?php endif;  ?> 
-                                    <?php else:  ?> 
-                                        <li><i class="icon-16"></i><?= $info['landsize']  ?> landsize(sq rt)</li>
-                                    <?php endif;  ?> 
-                                   
-                                </ul>
+                                       
+                                    </ul>
+                                </div>
                             </div>	
-                            <div class="discription-box content-widget">
+                            <!-- <div class="discription-box content-widget">
                                 <div class="title-box">
                                     <h4>
                                         <?= $info['propertyCategory'] ?>
@@ -211,11 +216,11 @@ if (isset($_SESSION['useremail'])) {
                                     </p>
                                 </div>
                             </div>
-                         
+                          -->
                            
                             <div class="location-box content-widget">
                                 <div class="title-box">
-                                    <h4>Location</h4>
+                                    <h4>Map</h4>
                                 </div>
                                 <ul class="info clearfix">
                                     <li><span>Address:</span>  <?= $info['address'] ?></li>
@@ -236,7 +241,6 @@ if (isset($_SESSION['useremail'])) {
                                 <div class="text">
                                 
                                     <p>
-                                        
 Please note that the property aforementioned does not belong to Distress Property Market Ltd; therefore, we make no guarantees on the information displayed pertaining to the said property, until due diligence is fulfilled by an interested buyer.
                                     </p>
                                 </div>
@@ -266,11 +270,16 @@ Please note that the property aforementioned does not belong to Distress Propert
                                         <li><a href="<?= $info['youtubelink'] ?>" target="_blank" rel="noopener noreferrer" class="text-dark"><i class="fab fa-youtube" style="font-size: 30px;"></i></a></li>
                                     </ul>
                                 </div>
-                                <div class="title-box bg-light d-flex justify-content-between p-3">
-                                    <h4 class="text-capitalize"><i class="fas fa-link pr-3" style="font-size: 30px;"></i> Youtube Link For Property</h4>
-                                    <ul class="social-links clearfix text-white d-flex justify-content-between" style="width: 300px;">
+                                <div class="title-box bg-light  p-3">
+                                    <h4 class="text-capitalize"><i class="fas fa-link pr-3" style="font-size: 30px;"></i> Youtube Video For Property</h4>
+                                    <iframe width="560" height="315" src="<?= $info['youtubelink'] ?>"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowfullscreen style="width: 100%; height: 100%;" class="m-2"> </iframe>
+                                    <!-- <h4 class="text-capitalize"><i class="fas fa-link pr-3" style="font-size: 30px;"></i> Youtube Link For Property</h4> -->
+                                    <!-- <ul class="social-links clearfix text-white d-flex justify-content-between" style="width: 300px;">
                                         <li><a href="<?= $info['youtubelink'] ?>" target="_blank" rel="noopener noreferrer" class="text-dark"><i class="fab fa-youtube" style="font-size: 30px;"></i></a></li>
-                                    </ul>
+                                    </ul> -->
                                 </div>
                                 <!-- <div class="text">
                                     <ul class="social-links clearfix text-white d-flex justify-content-between" style="width: 300px;">
@@ -390,15 +399,17 @@ Please note that the property aforementioned does not belong to Distress Propert
                                 </div>
                                 <div class="form-inner">
                                     <h3 class="text-capitalize mb-2">Important Information</h3>
-                                    <p>
+                                    <!-- <p>
                                         Be wary of any agent asking you to pay a viewing fee of more than #5,000. They may not be genuine and need to be reported to us. Be particularly wary of any agent claiming to work under the name Winners Property and asking you to pay a refundable inspection and consultancy fee.
                                         <br>
                                         Call Agent
-                                    </p>
-                                    <div class="d-flex justify-content-between mt-3">
-                                    <a href="javascript:void()" class="theme-btn btn-one" id='show'>Call</a>
-                                    <a href="bookeeping" class="theme-btn btn-one "
-                                                            ><span  class="span" >Book Inspection
+                                    </p> -->
+                                    <div class="btn-box btn-group">
+                                    <a href="javascript:void()" class="border-white theme-btn btn-one" id='show' style="font-size: 15px;
+                                                                ">Call</a>
+                                    <a href="bookeeping" class="border-white theme-btn btn-one "
+                                                            ><span  class="span" style="font-size: 15px;
+                                                                ">Book Inspection
                                                              </span></a>
                                         <!-- <a href="https://api.whatsapp.com/send?phone=<?= $agentDetails['whatsappNumber'] ?>" target="_blank" class="theme-btn btn-one">Whatsapp</a> -->
                                     </div>

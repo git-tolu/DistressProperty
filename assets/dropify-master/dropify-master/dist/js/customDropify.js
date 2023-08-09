@@ -1,4 +1,11 @@
-$('.dropify').dropify({ maxFiles: 1, });
+$('.dropify').dropify({
+    messages: {
+        'default': ' ',
+        'replace': ' ',
+        'remove':  ' ',
+        'error':   ' '
+    }
+});
 // $('.myDropzone').dropify({ maxFiles: 6, });
 // $('').dropify();
 
