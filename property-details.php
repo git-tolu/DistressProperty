@@ -198,7 +198,7 @@ if (isset($_SESSION['useremail'])) {
                                             <?php else:  ?> 
                                             <?php endif;  ?> 
                                         <?php else:  ?> 
-                                            <li><i class="icon-16"></i><?= $info['landsize']  ?> landsize</li>
+                                            <li><?= $info['landsize']  ?> landsize</li>
                                         <?php endif;  ?> 
                                        
                                     </ul>

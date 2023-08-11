@@ -1035,13 +1035,13 @@ if (isset($_SESSION['useremail'])) {
                                                                 </a></h4>
                                                         </div>
                                                         <div class="price-box clearfix">
-                                                            <div class="price-info pull-left">
-                                                                <!-- <h6>Start From</h6> -->
+                                                            <!-- <div class="price-info pull-left">
+                                                                <h6>Start From</h6>
                                                                 <h4><a
                                                                         href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
                                                                         <?= $info['symbol'] . $info['propertyprice'] ?>
                                                                     </a></h4>
-                                                            </div>
+                                                            </div> -->
                                                             <div class="author-box pull-right">
                                                         <figure class="author-tumb">
                                                             <!-- <img src="assets/images/footer-logo.png"
@@ -1063,12 +1063,23 @@ if (isset($_SESSION['useremail'])) {
                                                                
                                                                 </a></h6>
                                                         </div>
-                                                          <ul class="more-details clearfix mt-1">
+                                                        <ul class="more-details clearfix mt-1">
+                                                            
                                                             <li>
-                                                                Ref Id:<?= $info['refno'] ?> 
+                                                                Added on :<?=   date("d M Y" , strtotime($info['date_uploaded'])) ?> 
+                                                            </li>
+                                                            <li>
+                                                                Last Update on:<?= date("d M Y" , strtotime($info['lastupdate'])) ?> 
                                                             </li>
                                                            
                                                         </ul>
+                                                         <div class="price-info pull-left m-1">
+                                                                <!-- <h6>Start From</h6> -->
+                                                                <h4><a
+                                                                        href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
+                                                                        <?= $info['symbol'] . $info['propertyprice'] ?>
+                                                                    </a></h4>
+                                                            </div>
                                                         <!-- <p>
                                                             <?= substr($info['detailedinfo'], 0, 77) . ' ...' ?>.
                                                         </p> -->
