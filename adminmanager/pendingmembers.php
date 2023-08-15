@@ -73,7 +73,7 @@ include("includes/pagehead.php");
                                 } ?>
                                 <div class="">
                                     <div id="errorshow">
-                                        <div class="alert " id="error"  role="alert">
+                                        <div class="alert " id="error" role="alert">
                                             A simple primary alert—check it out!
                                         </div>
                                     </div>
@@ -96,11 +96,32 @@ include("includes/pagehead.php");
                                             </thead>
                                             <tbody>
                                                 <?php
-                                                if(!isset($_GET['status'])){
-                                                    header("location: dashboard");
+                                                if (isset($_GET['status']) || isset($_GET['agent_id'])) {
+                                                    if (isset($_GET['agent_id'])) {
+                                                        $agent_id = $_GET['agent_id'];
+                                                        $sql8 = "SELECT * FROM real_users WHERE username='$agent_id'  ORDER BY id DESC";
+                                                    } else {
+                                                        $getsta = $_GET['status'];
+                                                        $sql8 = "SELECT * FROM real_users WHERE accountstatus='$getsta'  ORDER BY id DESC";
+                                                    }
+
+                                                } else {
+                                                    echo "<script>window.location.href = 'dashboard'</script>";
+                                                    // header('location:dashboard');
+                                                
                                                 }
-                                                $getsta = $_GET['status'];
-                                                $sql8 = "SELECT * FROM real_users WHERE accountstatus='$getsta'  ORDER BY id DESC";
+                                                // if (!isset($_GET['status'])) {
+                                                //     header("location: dashboard");
+                                                // } else {
+
+                                                //     if (isset($_GET['agent_id'])) {
+                                                //         $agent_id = $_GET['agent_id'];
+                                                //         $sql8 = "SELECT * FROM real_users WHERE username='$agent_id'  ORDER BY id DESC";
+                                                //     } else {
+                                                //         $getsta = $_GET['status'];
+                                                //         $sql8 = "SELECT * FROM real_users WHERE accountstatus='$getsta'  ORDER BY id DESC";
+                                                //     }
+                                                // }
 
                                                 $result8 = mysqli_query($conn, $sql8);
                                                 if (mysqli_num_rows($result8) > 0) {
@@ -123,7 +144,7 @@ include("includes/pagehead.php");
                                                         } else {
                                                             $class = 'label-success';
                                                         }
-                                                        
+
                                                         $accountstatus = $info8['accountstatus'];
                                                         if ($accountstatus == 'pending' || $accountstatus == 'Disapproved') {
                                                             $class = 'label-danger';
@@ -134,7 +155,7 @@ include("includes/pagehead.php");
                                                             <button id='$mid' class='btn btn-primary deactiveBtn'>Disapprove</button>";
                                                         }
 
-                                                
+
 
                                                         echo "
                                         <tr>
@@ -157,7 +178,7 @@ include("includes/pagehead.php");
                                             <td><label class='label $class'>$accountstatus</label></td>
                                             <td class='btn-group'>
                                             $btn
-                                            <a  class='btn btn-primary' target='_blank'  href='pendingpost?agent_id=" . $agent_id . "' >View Agent Properties</a>
+                                            <a  class='btn btn-success' target='_blank'  href='pendingpost?agent_id=" . $agent_id . "' >View Agent Properties</a>
                                             <a  class='btn btn-primary' target='_blank' href='regdetails?viewagent=" . $agent_id . "'>View Agent Details</a>
                                         </td>
 											
@@ -247,7 +268,7 @@ include("includes/pagehead.php");
                 }
             });
         });
-        $('body').on('click', '.deactiveBtn', function(e) {
+        $('body').on('click', '.deactiveBtn', function (e) {
             e.preventDefault();
             deactiveBtnMem = $(this).attr('id');
             // console.log(deactiveBtnMem);
@@ -257,7 +278,7 @@ include("includes/pagehead.php");
                 data: {
                     deactiveBtnMem: deactiveBtnMem
                 },
-                success: function(response) {
+                success: function (response) {
                     // console.log(response)
                     if (response == 'success') {
                         $('#errorshow').show()

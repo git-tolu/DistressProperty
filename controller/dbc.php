@@ -361,9 +361,9 @@ class Dbc extends Database
         WHERE typeproperty = '$typeproperty' AND  address LIKE '%$Location%' AND  (propertyprice >= '$minprice' AND propertyprice <= '$maxprice') AND propertytitle LIKE '%$keywords%' AND status != 'pending' ORDER BY id DESC LIMIT $startIndex, $itemsPerPage ";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
-        $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
         // return  var_dump($sql);
-        // return $row;
+        return $row;
     }
 
     // public function AdvanceSearchqueryDis($Location, $typeproperty,  $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex)

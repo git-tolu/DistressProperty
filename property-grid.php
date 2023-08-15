@@ -1361,6 +1361,9 @@ if (isset($_SESSION['useremail'])) {
                                                           <ul class="more-details clearfix mt-1">
                                                             
                                                             <li>
+                                                                Ref  :<?=   date("d M Y" , strtotime($info['refno'])) ?> 
+                                                            </li>
+                                                            <li>
                                                                 Added on :<?=   date("d M Y" , strtotime($info['date_uploaded'])) ?> 
                                                             </li>
                                                             <li>

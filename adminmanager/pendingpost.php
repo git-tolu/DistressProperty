@@ -248,6 +248,7 @@ include("includes/pagehead.php");
                                             <a href='../property-details?propertyCategory=" . $info8['propertyCategory'] . "&id=" . $info8['id'] . "' target='_blank' ><button  class='btn btn-success '>View</button><a/>
                                             <a href='../edit-prop?edit=". $info8['id'] ."' target='_blank' ><button  class='btn btn-primary '>Edit</button><a/>
                                             <a href='pendingpost?del=". $info8['id'] ."'  ><button  class='btn btn-success '>Delete</button><a/>
+                                            <a href='pendingmembers?agent_id=". $info8['agent_id'] ."'  ><button  class='btn btn-primary '>View Agent</button><a/>
                                             </td>
 											
                                         </tr>";

@@ -530,7 +530,7 @@ Please note that the property aforementioned does not belong to Distress Propert
                                                                 </div> -->
                                                                 <div class="title-text">
                                                                     <h6><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
-                                                                              <?= $info['city'] ?>,   <?= $info['state'] ?> <?= $info['area_location'] ?>
+                                                                              <?= $info['address'] ?>
                                                                         </a></h6>
                                                                 </div>
                                                                 <div class="price-box clearfix">
@@ -551,9 +551,22 @@ Please note that the property aforementioned does not belong to Distress Propert
                                                                                     class="icon-13"></i></a></li>
                                                                     </ul> -->
                                                                 </div>
-                                                                <p>
+                                                                <!-- <p>
                                                                     <?= substr($info['detailedinfo'], 0, 77) . ' ...' ?>
-                                                                <p>
+                                                                <p> -->
+                                                                <ul class=" clearfix mt-1 mb-2">
+                                                            <li>
+                                                                Ref  :<?=   date("d M Y" , strtotime($info['refno'])) ?> 
+                                                            </li>
+                                                            <li>
+                                                                Added on :<?=   date("d M Y" , strtotime($info['date_uploaded'])) ?> 
+                                                            </li>
+                                                            <li>
+                                                                Last Update on:<?= date("d M Y" , strtotime($info['lastupdate'])) ?> 
+                                                            </li>
+                                                           
+                                                            </ul>
+                                                       
                                                                 <!-- <ul class="more-details clearfix">
                                                                     <li>
                                                                         City:
