@@ -128,20 +128,25 @@ include("includes/pagehead.php");
                                             </thead>
                                             <tbody>
                                                 <?php
-                                                if (isset($_GET['status']) || isset($_GET['agent_id'])) {
                                                     if (isset($_GET['agent_id'])) {
                                                         $agent_id = $_GET['agent_id'];
                                                         $sql8 = "SELECT * FROM properties WHERE agent_id='$agent_id' ORDER BY id DESC ";
-                                                    } else {
+                                                    } elseif (isset($_GET['status'])) {
                                                         $getsta = $_GET['status'];
                                                         $sql8 = "SELECT * FROM properties WHERE status='$getsta'  ORDER BY id DESC ";
+                                                    }                            else {
+                                                        echo "<script>window.location.href = 'dashboard'</script>";
+                                                        // header('location:dashboard');
+    
                                                     }
+    
+                                                // if (isset($_GET['status']) || isset($_GET['agent_id'])) {
                                                    
-                                                } else {
-                                                    echo "<script>window.location.href = 'dashboard'</script>";
-                                                    // header('location:dashboard');
+                                                // } else {
+                                                //     echo "<script>window.location.href = 'dashboard'</script>";
+                                                //     // header('location:dashboard');
 
-                                                }
+                                                // }
 
                                                 // if (isset($_GET['agent_id'])) {
                                                 //     $agent_id = $_GET['agent_id'];
