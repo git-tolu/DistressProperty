@@ -1,6 +1,6 @@
 <?php
 include('includes/aunthenticate.php');
-include('../controller/session.php');
+// include('../controller/session.php');
 
 $page = "Properties";
 $home = "Distress Property Market ";
