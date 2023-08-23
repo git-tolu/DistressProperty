@@ -186,7 +186,9 @@ if (isset($_SESSION['useremail'])) {
                                     <p>
                                         <?= $info['detailedinfo'] ?>
                                     </p>
-                                    <ul class="list clearfix">
+                                </div>
+                                <div class="text">
+                                    <ul class=" clearfix">
                                         <?php if($info['propertyCategory'] !== 'Land'):  ?>
                                             <?php if($info['propertyCategory'] !== 'Autos/Machinery'):  ?>
     

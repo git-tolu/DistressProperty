@@ -1,11 +1,14 @@
 <?php
 include('includes/aunthenticate.php');
-// include('../controller/session.php');
+include('../controller/dbc.php');
 
 $page = "Properties";
 $home = "Distress Property Market ";
 $apptitle = "Distress Property Market : Admin ";
 $todaydate = date("jS F, Y");
+$dbusers = new Dbc();
+$display = 'display-none';
+$errorMessage = ' ';
 
 if (isset($_GET['del'])) {
     # code...
@@ -16,7 +19,7 @@ if (isset($_GET['del'])) {
         $display = ' ';
         $alertColor = 'success';
         $errorMessage = 'Deleted successfully';
-        header("location: pendingpost");
+        header("location: pendingpost?status=Approved");
 
     }
 
@@ -89,10 +92,13 @@ include("includes/pagehead.php");
                                 <?php if (isset($msg)) {
                                     echo $msg;
                                 } ?>
+                                     <div class="alert alert-<?= $alertColor  ?> <?= $display  ?>" id="error" role="alert">
+                                            <?= $errorMessage  ?>
+                                        </div>
                                 <div class="">
                                     <div id="errorshow">
-                                        <div class="alert " id="error" role="alert">
-                                            A simple primary alert—check it out!
+                                        <div class="alert alert-<?= $alertColor  ?> <?= $display  ?>" id="error" role="alert">
+                                            <?= $errorMessage  ?>
                                         </div>
                                     </div>
                                     <div class="table-responsive">
