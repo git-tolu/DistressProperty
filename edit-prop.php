@@ -668,7 +668,7 @@ if (isset($_POST['propertytitle'])) {
                                                 <div class="col-lg-12 col-md-12 col-sm-12 column">
                                                     <div class="field-input">
                                                         <label>Ref No</label>
-                                                        <input type="number"  name="refno"
+                                                        <input type="text"  name="refno"
                                                             value="<?= $refno ?>" placeholder="Ref No" required>
 
                                                     </div>
@@ -921,11 +921,22 @@ if (isset($_POST['propertytitle'])) {
 
                                                 </div>
                                             </div>
+                                            <button class="theme-btn btn-one m-3" type="submit"  onclick="submitForm()" aria-activedescendant=""name="uploadProps">Upload</button>
+
                                 </form>
-                                <h4><i class="icon-16"></i>Gallery Image:</h4>
+                                              <div class="col-lg-12 col-md-12 col-sm-12 column mt-3">
+                                    <div class="gallery-box">
+                                        <h4>Gallery Image upload:</h4>
+                                        <div class="upload-inner centred">
+                                            <form action="process.php" class="dropzone" id="myDropzone"></form>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- <h4><i class="icon-16"></i>Gallery Image:</h4>
                                 <form action="process.php" class="dropzone" id="myDropzone"></form>
                                 <button class="theme-btn btn-one m-3" type="button" onclick="submitForm()"
-                                    name="uploadProps">Upload</button>
+                                    name="uploadProps">Upload</button> -->
                             </div>
 
                         </div>
@@ -1082,9 +1093,20 @@ if (isset($_POST['propertytitle'])) {
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfCP4-o7KxqBfbWE5VX5Qw5a_M8P-mGUU&libraries=places&callback=initAutocomplete"
         defer></script>
     <script>
-        function submitForm() {
-            const form = document.getElementById('myForm');
-            form.submit();
+         function submitForm() {
+            const form1 = document.getElementById('myForm');
+            const form = document.getElementById('myDropzone');
+            // Check if the Dropzone is empty (has no files)
+     
+            if ($("#myForm").val() == '') {
+                Swal.fire('Gallery Image is empty. Please upload images.')
+                // alert("Gallery Image is empty. Please upload images.");
+                form1.event.preventDefault();
+            } else {
+                // The Dropzone is not empty; you can choose to submit the form here
+                // form1.event.preventDefault();
+            }
+            
         }
         Dropzone.options.myDropzone = {
             paramName: 'file',
