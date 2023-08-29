@@ -274,6 +274,7 @@ Please note that the property aforementioned does not belong to Distress Propert
                                 </div>
                                 <div class="title-box bg-light  p-3">
                                     <h4 class="text-capitalize"><i class="fas fa-link pr-3" style="font-size: 30px;"></i> Youtube Video For Property</h4>
+                                    
                                     <iframe width="560" height="315" src="<?= $info['youtubelink'] ?>"
                                     title="YouTube video player" frameborder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -564,7 +565,7 @@ Please note that the property aforementioned does not belong to Distress Propert
                                                                 Added on :<?=   date("d M Y" , strtotime($info['date_uploaded'])) ?> 
                                                             </li>
                                                             <li>
-                                                                Last Update on:<?= date("d M Y" , strtotime($info['lastupdate'])) ?> 
+                                                                Last Updated:<?= date("d M Y" , strtotime($info['lastupdate'])) ?> 
                                                             </li>
                                                            
                                                             </ul>
