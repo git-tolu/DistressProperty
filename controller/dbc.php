@@ -137,17 +137,17 @@ class Dbc extends Database
 
     }
 
-    public function UploadProps($user_id, $propertyid, $propertytitle, $propertyprice, $area_location, $address, $city, $state, $longtitude, $langtitude, $detailedinfo, $featuredimage, $galleryimage, $status, $propertyCategory, $bedrooms, $bathroom, $toilets, $propsize, $parkingspace, $landsize, $titleproperty, $typeproperty, $landcategory, $youtubelink, $marketstatus, $symbol, $agent_id, $distresscat, $autocat, $estatename, $refno, $lastupdate)
+    public function UploadProps($user_id, $propertyid, $propertytitle, $propertyprice, $area_location, $address, $city, $state, $longtitude, $langtitude, $detailedinfo, $featuredimage, $galleryimage, $status, $propertyCategory, $bedrooms, $bathroom, $toilets, $propsize, $parkingspace, $landsize, $titleproperty, $typeproperty, $landcategory, $youtubelink, $marketstatus, $symbol, $agent_id, $distresscat, $autocat, $estatename, $refno, $lastupdate, $pricewithoutcomma)
     {
-        $sql = "INSERT INTO properties (user_id, propertyid, propertytitle,  propertyprice, area_location,  address, city, state,  longtitude, langtitude, detailedinfo,  featuredimage, galleryimage, status, propertyCategory, bedrooms, bathroom, toilets, propsize, parkingspace, landsize, titleproperty, typeproperty, landcategory, youtubelink, marketstatus, symbol, agent_id, distresscat, autocat, estatename, refno, lastupdate) VALUES 
-                   ('$user_id', '$propertyid', '$propertytitle',  '$propertyprice', '$area_location','$address', '$city',  '$state', '$longtitude', '$langtitude', '$detailedinfo',  '$featuredimage', '$galleryimage', '$status', '$propertyCategory', '$bedrooms', '$bathroom', '$toilets', '$propsize', '$parkingspace', '$landsize', '$titleproperty', '$typeproperty', '$landcategory', '$youtubelink', '$marketstatus', '$symbol', '$agent_id', '$distresscat', '$autocat', '$estatename', '$refno', '$lastupdate')";
+        $sql = "INSERT INTO properties (user_id, propertyid, propertytitle,  propertyprice, area_location,  address, city, state,  longtitude, langtitude, detailedinfo,  featuredimage, galleryimage, status, propertyCategory, bedrooms, bathroom, toilets, propsize, parkingspace, landsize, titleproperty, typeproperty, landcategory, youtubelink, marketstatus, symbol, agent_id, distresscat, autocat, estatename, refno, lastupdate, pricewithoutcomma) VALUES 
+                   ('$user_id', '$propertyid', '$propertytitle',  '$propertyprice', '$area_location','$address', '$city',  '$state', '$longtitude', '$langtitude', '$detailedinfo',  '$featuredimage', '$galleryimage', '$status', '$propertyCategory', '$bedrooms', '$bathroom', '$toilets', '$propsize', '$parkingspace', '$landsize', '$titleproperty', '$typeproperty', '$landcategory', '$youtubelink', '$marketstatus', '$symbol', '$agent_id', '$distresscat', '$autocat', '$estatename', '$refno', '$lastupdate', '$pricewithoutcomma')";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([]);
         return true;
     }
-    public function EditProps($user_id, $propertyid, $propertytitle, $propertyprice, $area_location, $address, $city, $state, $longtitude, $langtitude, $detailedinfo, $featuredimage, $galleryimage, $propertyCategory, $id, $bedrooms, $bathroom, $toilets, $propsize, $parkingspace, $landsize, $titleproperty, $typeproperty, $landcategory, $youtubelink, $marketstatus, $symbol, $distresscat, $autocat, $estatename, $refno, $lastupdate)
+    public function EditProps($user_id, $propertyid, $propertytitle, $propertyprice, $area_location, $address, $city, $state, $longtitude, $langtitude, $detailedinfo, $featuredimage, $galleryimage, $propertyCategory, $id, $bedrooms, $bathroom, $toilets, $propsize, $parkingspace, $landsize, $titleproperty, $typeproperty, $landcategory, $youtubelink, $marketstatus, $symbol, $distresscat, $autocat, $estatename, $refno, $lastupdate, $pricewithoutcomma)
     {
-        $sql = "UPDATE   `properties` SET  propertyid = '$propertyid', propertytitle = '$propertytitle',  propertyprice = '$propertyprice', area_location = '$area_location',  address = '$address', city = '$city', state = '$state',  longtitude = '$longtitude', langtitude = '$langtitude', detailedinfo = '$detailedinfo',  featuredimage = '$featuredimage', galleryimage = '$galleryimage',  propertyCategory = '$propertyCategory' , bedrooms  = '$bedrooms', bathroom  = '$bathroom', toilets  = '$toilets', propsize  = '$propsize', parkingspace  = '$parkingspace', landsize = '$landsize', titleproperty = '$titleproperty', typeproperty = '$typeproperty', landcategory = '$landcategory', youtubelink = '$youtubelink', marketstatus = '$marketstatus', symbol = '$symbol', distresscat = '$distresscat', autocat='$autocat', estatename='$estatename', refno='$refno', lastupdate='$lastupdate'  WHERE id = '$id' ";
+        $sql = "UPDATE   `properties` SET  propertyid = '$propertyid', propertytitle = '$propertytitle',  propertyprice = '$propertyprice', area_location = '$area_location',  address = '$address', city = '$city', state = '$state',  longtitude = '$longtitude', langtitude = '$langtitude', detailedinfo = '$detailedinfo',  featuredimage = '$featuredimage', galleryimage = '$galleryimage',  propertyCategory = '$propertyCategory' , bedrooms  = '$bedrooms', bathroom  = '$bathroom', toilets  = '$toilets', propsize  = '$propsize', parkingspace  = '$parkingspace', landsize = '$landsize', titleproperty = '$titleproperty', typeproperty = '$typeproperty', landcategory = '$landcategory', youtubelink = '$youtubelink', marketstatus = '$marketstatus', symbol = '$symbol', distresscat = '$distresscat', autocat='$autocat', estatename='$estatename', refno='$refno', lastupdate='$lastupdate', pricewithoutcomma='$pricewithoutcomma'  WHERE id = '$id' ";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([]);
         return true;
@@ -327,6 +327,25 @@ class Dbc extends Database
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $row;
+    }
+    public function SelectAllApropertiesWhereNoSessAD( $state, $propertyCategory, $minprice, $maxprice,  $keywords,  $itemsPerPage, $startIndex,$sqrt)
+    {
+        $sql = "SELECT * FROM properties WHERE  (propertyCategory='$propertyCategory' OR landcategory='$propertyCategory' OR typeproperty='$propertyCategory')  AND (state='$state' OR address LIKE '%$state%'  OR city='$state' AND propertytitle LIKE '%$keywords%'  OR detailedinfo LIKE '%$keywords%' OR  landsize='$sqrt' ) AND status!='pending'ORDER BY id DESC LIMIT $startIndex, $itemsPerPage ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        // return  var_dump($sql);
+
+        return $row;
+        // pricewithoutcomma >= '$minprice' AND pricewithoutcomma <= '$maxprice'
+    }
+    public function SelectAllApropertiesWhereNoSessADCount( $state, $propertyCategory, $minprice, $maxprice,  $keywords,  $itemsPerPage, $startIndex,$sqrt)
+    {
+        $sql = "SELECT * FROM properties WHERE  (propertyCategory='$propertyCategory' OR landcategory='$propertyCategory' OR typeproperty='$propertyCategory')  AND (state='$state' OR address LIKE '%$state%'  OR city='$state' AND propertytitle LIKE '%$keywords%'  OR detailedinfo LIKE '%$keywords%' OR  landsize='$sqrt' ) AND status!='pending'ORDER BY id DESC LIMIT $startIndex, $itemsPerPage ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $row = $stmt->rowCount();
         return $row;
     }
     public function AdvanceSearchqueryNODis($Location, $typeproperty, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex)

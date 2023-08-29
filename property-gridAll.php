@@ -111,37 +111,49 @@ if (isset($_SESSION['useremail'])) {
                                                             <option data-display="Property Type">Property Type
                                                             </option>
                                                             <?php
-                                                            if ($propertyCategory == 'Land'):
-                                                                ?>
-                                                                <option value="Residential" class="text-capitalize">
-                                                                    Residential</option>
-                                                                <option value="commercial" class="text-capitalize">
-                                                                    commercial</option>
-                                                                <option value="Mixed Area" class="text-capitalize"> Mixed
-                                                                    Area</option>
-                                                            <?php else: ?>
-                                                                <option value="Detached Duplex" class="text-capitalize">
-                                                                    Detached Duplex
-                                                                </option>
-                                                                <option value="Terrace Duplex" class="text-capitalize">
-                                                                    Terrace Duplex
-                                                                </option>
-                                                                <option value="Flat/Apartment" class="text-capitalize">
-                                                                    Flat/Apartment
-                                                                </option>
-                                                                <option value="Detached Bungalow" class="text-capitalize">
-                                                                    Detached Bungalow
-                                                                </option>
-                                                                <option value="Semi Detached Bungalow"
-                                                                    class="text-capitalize">Semi Detached
-                                                                    Bungalow</option>
-                                                                <option value="Semi Detached Duplex"
-                                                                    class="text-capitalize">Semi Detached
-                                                                    Duplex</option>
-                                                                <option value="Terrace Bungalow" class="text-capitalize">
-                                                                    Terrace Bungalow
-                                                                </option>
-                                                            <?php endif; ?>
+                                                                    if ($propertyCategory == 'Distress Properties'):
+                                                                        ?>
+                                                                       <option value="" selected="selected">Select Types</option>
+                                                                        <option  class="text-capitalize"  value="bungalow">bungalow</option>
+                                                                        <option  class="text-capitalize"  value="fully detached"> fully detached</option>
+                                                                        <option  class="text-capitalize"  value="semi detached">semi detached</option>
+                                                                        <option  class="text-capitalize"  value="terrace">terrace</option>
+                                                                        <option  class="text-capitalize"  value="maisonette">maisonette
+                                                                        </option>
+                                                                        <option  class="text-capitalize"  value="land">land
+                                                                        </option>
+                                                                    <?php elseif ($_GET['propertyCategory'] == 'Non Distress Properties'): ?>
+                                                                        <option  class="text-capitalize" value="bungalow">bungalow</option>
+                                                                        <option  class="text-capitalize" value="fully detached"> fully detached</option>
+                                                                        <option  class="text-capitalize" value="semi detached">semi detached</option>
+                                                                        <option  class="text-capitalize" value="terrace">terrace</option>
+                                                                        <option  class="text-capitalize" value="maisonette">maisonette
+                                                                            </option>
+                                                                        <option  class="text-capitalize" value="land">land
+                                                                            </option>
+                                                                            <option  class="text-capitalize" value="apartment-block">apartment-block
+                                                                                </option>
+                                                                    <?php elseif ($_GET['propertyCategory'] == 'Autos/Machinery'): ?>
+                                                                        <option  class="text-capitalize" value="Vechicle">Vechicle</option>
+                                                                    <option  class="text-capitalize" value="motorbike"> motorbike</option>
+                                                                    <option  class="text-capitalize" value="aircraft">aircraft</option>
+                                                                    <option  class="text-capitalize" value="vessel/ships">vessel/ships</option>
+                                                                    <option  class="text-capitalize" value="cranes">cranes</option>
+                                                                    <option  class="text-capitalize" value="scaffold iron bars">scaffold iron bars
+                                                                    </option>
+                                                                    <option  class="text-capitalize" value="wires and conductors">wires and conductors
+                                                                    </option>
+                                                                    <option  class="text-capitalize" value="heavy machineries">heavy machineries</option>
+                                                                    <?php elseif ($_GET['propertyCategory'] == 'Land'): ?>
+                                                                        <option  class="text-capitalize" value="Wetland">Wetland</option>
+                                                            <option  class="text-capitalize" value="dry land"> dry land</option>
+                                                            <option  class="text-capitalize" value="sandfilled">sandfilled</option>
+                                                            <option  class="text-capitalize" value="bare-land">bare-land</option>
+                                                            <option  class="text-capitalize" value="demolishable">demolishable</option>
+                                                            <option  class="text-capitalize" value="Semi Detached Duplex">Semi Detached Duplex
+                                                            </option>
+                                                            <option  class="text-capitalize" value="Terrace Bungalow">Terrace Bungalow</option>
+                                                                    <?php endif; ?>
                                                             <!-- <option value="Distress Properties">Distress Property</option>
                                                                     <option value="Non Distress
                                                                         Properties">Non-Distress Property
@@ -590,7 +602,7 @@ if (isset($_SESSION['useremail'])) {
                                             <div class="col-lg-12 col-md-12 col-sm-12 column show">
                                                 <label>Property Type</label>
                                                 <div class="field-input">
-                                                    <select class="form-control" name="typeproperty">
+                                                    <select class="form-control" name="type">
                                                         <option value="">
 
                                                         </option>
@@ -611,7 +623,7 @@ if (isset($_SESSION['useremail'])) {
                                             <div class="col-lg-12 col-md-12 col-sm-12 column show3">
                                                 <label>Property Type</label>
                                                 <div class="field-input">
-                                                    <select class="form-control" name="distresscat">
+                                                    <select class="form-control" name="type">
                                                         <option value="">
 
                                                         </option>
@@ -635,7 +647,7 @@ if (isset($_SESSION['useremail'])) {
                                             <div class="col-lg-12 col-md-12 col-sm-12 column show2">
                                                 <label>Property Type</label>
                                                 <div class="field-input">
-                                                    <select class="form-control" name="autocat">
+                                                    <select class="form-control" name="type">
                                                         <option value="">
 
                                                         </option>
@@ -661,7 +673,7 @@ if (isset($_SESSION['useremail'])) {
                                             <div class="col-lg-12 col-md-12 col-sm-12 column show1">
                                                 <label>Land Category</label>
                                                 <div class="field-input">
-                                                    <select class="form-control" name="landcategory" id="">
+                                                    <select class="form-control" name="type" id="">
                                                         <option value="">
 
                                                         </option>
@@ -853,16 +865,9 @@ if (isset($_SESSION['useremail'])) {
                                         $minprice = $_POST['minprice'];
                                         $maxprice = $_POST['maxprice'];
                                         $keywords = $_POST['keywords'];
-                                        if ($_GET['propertyCategory'] == 'Distress Properties'):
-                                            $fetch = $dbs->AdvanceSearchqueryDis($Location, $typeproperty, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex);
-                                        elseif ($_GET['propertyCategory'] == 'Non Distress Properties'):
-                                            $fetch = $dbs->AdvanceSearchqueryDis($Location, $typeproperty, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex);
-                                        elseif ($_GET['propertyCategory'] == 'Autos/Machinery'):
-                                            $fetch = $dbs->AdvanceSearchqueryDis($Location, $typeproperty, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex);
-                                        elseif ($_GET['propertyCategory'] == 'Land'):
-                                            $sqrt = $_POST['sqrt'];
-                                            $fetch = $dbs->AdvanceSearchqueryLand($Location, $typeproperty, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex, $sqrt);
-                                        endif;
+                                        $sqrt = '';
+                                        $fetch = $dbs->SelectAllApropertiesWhereNoSessAD($Location, $typeproperty, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex, $sqrt);
+                                       
                                         // $itemsQuery = "SELECT * FROM items LIMIT $startIndex, $itemsPerPage";
                                     
                                         // Execute the query and fetch the items
@@ -872,17 +877,9 @@ if (isset($_SESSION['useremail'])) {
                                         // Query to get the total number of items
                                         // Replace this with your own query to get the total number of items
                                         // $totalItemsQuery = "SELECT COUNT(*) as total FROM items";
-                                        if ($_GET['propertyCategory'] == 'Distress Properties'):
-                                            $totalItemsQuery = $dbs->AdvanceSearchqueryNODis($Location, $typeproperty, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex);
-                                        elseif ($_GET['propertyCategory'] == 'Non Distress Properties'):
-                                            $totalItemsQuery = $dbs->AdvanceSearchqueryNODis($Location, $typeproperty, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex);
-                                        elseif ($_GET['propertyCategory'] == 'Autos/Machinery'):
-                                            $totalItemsQuery = $dbs->AdvanceSearchqueryNODis($Location, $typeproperty, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex);
-                                        elseif ($_GET['propertyCategory'] == 'Land'):
-                                            $totalItemsQuery = $dbs->AdvanceSearchqueryNOLand($Location, $typeproperty, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex, $sqrt);
-                                            $sqrt = $_POST['sqrt'];
-                                        endif;
-
+                                        $sqrt = '';
+                                        $totalItemsQuery = $dbs->SelectAllApropertiesWhereNoSessADCount($Location, $typeproperty, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex, $sqrt);
+                                        
                                         //$totalItemsQuery = $dbs->AdvanceSearchqueryNO($Location, $propertyCategory, $landcategory, $typeproperty, $bedrooms, $bathroom, $toilets, $minprice, $maxprice, $keywords, $itemsPerPage, $startIndex, $ref);
                                         $totalItemsResult = $totalItemsQuery; // result of executing the query
                                     

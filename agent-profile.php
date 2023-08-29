@@ -209,10 +209,13 @@ if (isset($_POST['propertytitle'])) {
         $errorMessage = 'Form Not Completely Filled';
     } else {
         $lastupdate = date("d M Y");
+        // Remove commas from the number
+        $pricewithoutcomma = str_replace(",", "", $propertyprice);
+
         if ($formType == 'edit') {
-            $sql = $dbusers->EditProps($user_id, $propertyid, $propertytitle, $propertyprice, $area_location, $address, $city, $state, $longtitude, $langtitude, $detailedinfo, $featuredimage, $galleryimageid, $propertyCategory, $id, $bedrooms, $bathroom, $toilets, $propsize, $parkingspace, $landsize, $titleproperty, $typeproperty, $landcategory, $youtubelink, $marketstatus, $symbol, $distresscat, $autocat, $estatename, $refno, $lastupdate);
+            $sql = $dbusers->EditProps($user_id, $propertyid, $propertytitle, $propertyprice, $area_location, $address, $city, $state, $longtitude, $langtitude, $detailedinfo, $featuredimage, $galleryimageid, $propertyCategory, $id, $bedrooms, $bathroom, $toilets, $propsize, $parkingspace, $landsize, $titleproperty, $typeproperty, $landcategory, $youtubelink, $marketstatus, $symbol, $distresscat, $autocat, $estatename, $refno, $lastupdate, $pricewithoutcomma);
         } else {
-            $sql = $dbusers->UploadProps($user_id, $propertyid, $propertytitle, $propertyprice, $area_location, $address, $city, $state, $longtitude, $langtitude, $detailedinfo, $featuredimage, $galleryimageid, $status, $propertyCategory, $bedrooms, $bathroom, $toilets, $propsize, $parkingspace, $landsize, $titleproperty, $typeproperty, $landcategory, $youtubelink, $marketstatus, $symbol, $agent_id, $distresscat, $autocat, $estatename, $refno, $lastupdate);
+            $sql = $dbusers->UploadProps($user_id, $propertyid, $propertytitle, $propertyprice, $area_location, $address, $city, $state, $longtitude, $langtitude, $detailedinfo, $featuredimage, $galleryimageid, $status, $propertyCategory, $bedrooms, $bathroom, $toilets, $propsize, $parkingspace, $landsize, $titleproperty, $typeproperty, $landcategory, $youtubelink, $marketstatus, $symbol, $agent_id, $distresscat, $autocat, $estatename, $refno, $lastupdate, $pricewithoutcomma);
         }
 
         if ($sql) {
