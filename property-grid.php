@@ -252,26 +252,48 @@ if (isset($_SESSION['useremail'])) {
                                                                     <option data-display="Property Type">Property Type
                                                                     </option>
                                                                     <?php
-                                                                    if ($propertyCategory == 'Land'):
+                                                                    if ($propertyCategory == 'Distress Properties'):
                                                                         ?>
-                                                                        <option value="Residential"  class="text-capitalize">Residential</option>
-                                                                        <option value="commercial"  class="text-capitalize">commercial</option>
-                                                                        <option value="Mixed Area"  class="text-capitalize"> Mixed Area</option>
-                                                                    <?php else: ?>
-                                                                        <option value="Detached Duplex"  class="text-capitalize">Detached Duplex
+                                                                       <option value="" selected="selected">Select Types</option>
+                                                                        <option  class="text-capitalize"  value="bungalow">bungalow</option>
+                                                                        <option  class="text-capitalize"  value="fully detached"> fully detached</option>
+                                                                        <option  class="text-capitalize"  value="semi detached">semi detached</option>
+                                                                        <option  class="text-capitalize"  value="terrace">terrace</option>
+                                                                        <option  class="text-capitalize"  value="maisonette">maisonette
                                                                         </option>
-                                                                        <option value="Terrace Duplex"  class="text-capitalize"> Terrace Duplex
+                                                                        <option  class="text-capitalize"  value="land">land
                                                                         </option>
-                                                                        <option value="Flat/Apartment"  class="text-capitalize">Flat/Apartment
-                                                                        </option>
-                                                                        <option value="Detached Bungalow"  class="text-capitalize">Detached Bungalow
-                                                                        </option>
-                                                                        <option value="Semi Detached Bungalow"  class="text-capitalize">Semi Detached
-                                                                            Bungalow</option>
-                                                                        <option value="Semi Detached Duplex"  class="text-capitalize">Semi Detached
-                                                                            Duplex</option>
-                                                                        <option value="Terrace Bungalow"  class="text-capitalize">Terrace Bungalow
-                                                                        </option>
+                                                                    <?php elseif ($_GET['propertyCategory'] == 'Non Distress Properties'): ?>
+                                                                        <option  class="text-capitalize" value="bungalow">bungalow</option>
+                                                                        <option  class="text-capitalize" value="fully detached"> fully detached</option>
+                                                                        <option  class="text-capitalize" value="semi detached">semi detached</option>
+                                                                        <option  class="text-capitalize" value="terrace">terrace</option>
+                                                                        <option  class="text-capitalize" value="maisonette">maisonette
+                                                                            </option>
+                                                                        <option  class="text-capitalize" value="land">land
+                                                                            </option>
+                                                                            <option  class="text-capitalize" value="apartment-block">apartment-block
+                                                                                </option>
+                                                                    <?php elseif ($_GET['propertyCategory'] == 'Autos/Machinery'): ?>
+                                                                        <option  class="text-capitalize" value="Vechicle">Vechicle</option>
+                                                                    <option  class="text-capitalize" value="motorbike"> motorbike</option>
+                                                                    <option  class="text-capitalize" value="aircraft">aircraft</option>
+                                                                    <option  class="text-capitalize" value="vessel/ships">vessel/ships</option>
+                                                                    <option  class="text-capitalize" value="cranes">cranes</option>
+                                                                    <option  class="text-capitalize" value="scaffold iron bars">scaffold iron bars
+                                                                    </option>
+                                                                    <option  class="text-capitalize" value="wires and conductors">wires and conductors
+                                                                    </option>
+                                                                    <option  class="text-capitalize" value="heavy machineries">heavy machineries</option>
+                                                                    <?php elseif ($_GET['propertyCategory'] == 'Land'): ?>
+                                                                        <option  class="text-capitalize" value="Wetland">Wetland</option>
+                                                            <option  class="text-capitalize" value="dry land"> dry land</option>
+                                                            <option  class="text-capitalize" value="sandfilled">sandfilled</option>
+                                                            <option  class="text-capitalize" value="bare-land">bare-land</option>
+                                                            <option  class="text-capitalize" value="demolishable">demolishable</option>
+                                                            <option  class="text-capitalize" value="Semi Detached Duplex">Semi Detached Duplex
+                                                            </option>
+                                                            <option  class="text-capitalize" value="Terrace Bungalow">Terrace Bungalow</option>
                                                                     <?php endif; ?>
                                                                     <!-- <option value="Distress Properties">Distress Property</option>
                                                                     <option value="Non Distress

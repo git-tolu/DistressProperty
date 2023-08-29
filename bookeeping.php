@@ -3,7 +3,7 @@ session_start();
 // include('controller/session.php');
 include('controller/dbc.php');
 $dbs = new Dbc();
-$page = 'contact';
+$page = '';
 $user_role = '';
 if (isset($_SESSION['useremail'])) {
 
