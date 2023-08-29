@@ -202,16 +202,20 @@ if (isset($_POST['propertytitle'])) {
     $agent_id = $_SESSION['agent_id'];
 
 
-    if (empty($propertyid) && empty($propertytitle) && empty($propertyprice) && empty($area_location) && empty($address) && empty($state) && empty($detailedinfo) && empty($marketstatus) && empty($youtubelink)) {
+    if (empty($propertyid) && empty($propertytitle) && empty($propertyprice) && empty($area_location) && empty($address) && empty($state) && empty($detailedinfo) && empty($marketstatus) ) {
 
         $display = ' ';
 
         $errorMessage = 'Form Not Completely Filled';
     } else {
+        $lastupdate = date("d M Y");
+
         if ($formType == 'edit') {
-            $sql = $dbusers->EditProps($user_id, $propertyid, $propertytitle, $propertyprice, $area_location, $address, $city, $state, $longtitude, $langtitude, $detailedinfo, $featuredimage, $galleryimageid, $propertyCategory, $id, $bedrooms, $bathroom, $toilets, $propsize, $parkingspace, $landsize, $titleproperty, $typeproperty, $landcategory, $youtubelink, $marketstatus, $symbol, $distresscat, $autocat, $estatename, $refno);
+            $sql = $dbusers->EditProps($user_id, $propertyid, $propertytitle, $propertyprice, $area_location, $address, $city, $state, $longtitude, $langtitude, $detailedinfo, $featuredimage, $galleryimageid, $propertyCategory, $id, $bedrooms, $bathroom, $toilets, $propsize, $parkingspace, $landsize, $titleproperty, $typeproperty, $landcategory, $youtubelink, $marketstatus, $symbol, $distresscat, $autocat, $estatename, $refno, $lastupdate
+            , $lastupdate);
         } else {
-            $sql = $dbusers->UploadProps($user_id, $propertyid, $propertytitle, $propertyprice, $area_location, $address, $city, $state, $longtitude, $langtitude, $detailedinfo, $featuredimage, $galleryimageid, $status, $propertyCategory, $bedrooms, $bathroom, $toilets, $propsize, $parkingspace, $landsize, $titleproperty, $typeproperty, $landcategory, $youtubelink, $marketstatus, $symbol, $agent_id, $distresscat, $autocat, $estatename, $refno);
+            $sql = $dbusers->UploadProps($user_id, $propertyid, $propertytitle, $propertyprice, $area_location, $address, $city, $state, $longtitude, $langtitude, $detailedinfo, $featuredimage, $galleryimageid, $status, $propertyCategory, $bedrooms, $bathroom, $toilets, $propsize, $parkingspace, $landsize, $titleproperty, $typeproperty, $landcategory, $youtubelink, $marketstatus, $symbol, $agent_id, $distresscat, $autocat, $estatename, $refno, $lastupdate
+            , $lastupdate);
         }
 
         if ($sql) {
@@ -353,7 +357,7 @@ if (isset($_POST['propertytitle'])) {
         }
 
         .dropzone .dz-preview .dz-progress {
-            display: none !important;
+            /* display: none !important; */
             /* Hide the progress bar */
         }
 
@@ -906,9 +910,9 @@ if (isset($_POST['propertytitle'])) {
 
                                                 <div class="col-lg-12 col-md-12 col-sm-12 column ">
                                                     <div class="field-input">
-                                                        <label>Youtube Link</label>
+                                                        <label>Youtube Link (optional)</label>
                                                         <input type="text" name="youtubelink" placeholder="Youtube Link"
-                                                            value="<?= $youtubelink ?>" required>
+                                                            value="<?= $youtubelink ?>" >
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12 col-md-12 col-sm-12 column mt-3">
@@ -921,18 +925,18 @@ if (isset($_POST['propertytitle'])) {
 
                                                 </div>
                                             </div>
-                                            <button class="theme-btn btn-one m-3" type="submit"  onclick="submitForm()" aria-activedescendant=""name="uploadProps">Upload</button>
 
                                 </form>
-                                              <div class="col-lg-12 col-md-12 col-sm-12 column mt-3">
+                                <div class="col-lg-12 col-md-12 col-sm-12 column mt-3">
                                     <div class="gallery-box">
                                         <h4>Gallery Image upload:</h4>
                                         <div class="upload-inner centred">
                                             <form action="process.php" class="dropzone" id="myDropzone"></form>
                                         </div>
                                     </div>
-
+                                    
                                 </div>
+                                <button class="theme-btn btn-one m-3" id="submitBTN" type="submit"  onclick="submitForm()" aria-activedescendant=""name="uploadProps">Submit</button>
                                 <!-- <h4><i class="icon-16"></i>Gallery Image:</h4>
                                 <form action="process.php" class="dropzone" id="myDropzone"></form>
                                 <button class="theme-btn btn-one m-3" type="button" onclick="submitForm()"
@@ -1093,16 +1097,20 @@ if (isset($_POST['propertytitle'])) {
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfCP4-o7KxqBfbWE5VX5Qw5a_M8P-mGUU&libraries=places&callback=initAutocomplete"
         defer></script>
     <script>
-         function submitForm() {
+     function submitForm() {
             const form1 = document.getElementById('myForm');
             const form = document.getElementById('myDropzone');
             // Check if the Dropzone is empty (has no files)
      
-            if ($("#myForm").val() == '') {
+            $('#submitBTN').attr('type', 'submit');
+            if ($("#myDropzone").html() == '<div class="dz-default dz-message"><button class="dz-button" type="button">Drop images here or click to upload</button></div>') {
                 Swal.fire('Gallery Image is empty. Please upload images.')
+                $('#submitBTN').attr('type', 'button');
+                // form1.event.preventDefault();
                 // alert("Gallery Image is empty. Please upload images.");
-                form1.event.preventDefault();
             } else {
+                $('#submitBTN').attr('type', 'submit');
+                // form1.submit();
                 // The Dropzone is not empty; you can choose to submit the form here
                 // form1.event.preventDefault();
             }
@@ -2242,6 +2250,41 @@ if (isNaN(number)) {
         $(".show1").hide()
         $(".show2").hide()
         $(".show3").hide()
+        trigVal = $('#trigShow').val()
+            if (trigVal == 'Land') {
+                $(".show1").show()
+                $(".show").hide()
+                $(".show2").hide()
+                $(".show3").hide()
+                $(".demoshow").hide()
+
+
+            } else if (trigVal == 'Autos/Machinery') {
+                $(".show").hide()
+                $(".show1").hide()
+                $(".show2").show()
+                $(".show3").hide()
+                $(".demoshow").hide()
+
+
+            }  else if (trigVal == 'Non Distress Properties') {
+                $(".show3").show()
+                $(".show").hide()
+                $(".show1").hide()
+                $(".show2").hide()
+                $(".demoshow").hide()
+
+
+            } else {
+                $(".show").show()
+                $(".show1").hide()
+                $(".show2").hide()
+                $(".show3").hide()
+                $(".demoshow").hide()
+
+
+
+            }
 
 
         $('#trigShow').change(function (e) {

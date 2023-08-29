@@ -202,7 +202,7 @@ if (isset($_POST['propertytitle'])) {
     $agent_id = $_SESSION['agent_id'];
     
     
-    if (empty($propertyid) && empty($propertytitle) && empty($propertyprice) && empty($area_location) && empty($address) && empty($state) && empty($detailedinfo) && empty($marketstatus) && empty($youtubelink)) {
+    if (empty($propertyid) && empty($propertytitle) && empty($propertyprice) && empty($area_location) && empty($address) && empty($state) && empty($detailedinfo) && empty($marketstatus) ) {
         
         $display = ' ';
 
@@ -354,7 +354,7 @@ if (isset($_POST['propertytitle'])) {
         }
 
         .dropzone .dz-preview .dz-progress {
-            display: none !important;
+            /* display: none !important; */
             /* Hide the progress bar */
         }
 
@@ -1134,9 +1134,9 @@ if (isset($_POST['propertytitle'])) {
 
                                                 <div class="col-lg-12 col-md-12 col-sm-12 column ">
                                                     <div class="field-input">
-                                                        <label>Youtube Link</label>
+                                                        <label>Youtube Link (optional)</label>
                                                         <input type="text" name="youtubelink" placeholder="Youtube Link"
-                                                            value="<?= $youtubelink ?>" required>
+                                                            value="<?= $youtubelink ?>" >
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12 col-md-12 col-sm-12 column mt-3">
@@ -1149,8 +1149,7 @@ if (isset($_POST['propertytitle'])) {
 
                                                 </div>
                                             </div>
-                                            <button class="theme-btn btn-one m-3" type="submit"  onclick="submitForm()" aria-activedescendant=""name="uploadProps">Upload</button>
-                                </form>
+                                        </form>
                                 <div class="col-lg-12 col-md-12 col-sm-12 column mt-3">
                                     <div class="gallery-box">
                                         <h4>Gallery Image upload:</h4>
@@ -1158,8 +1157,9 @@ if (isset($_POST['propertytitle'])) {
                                             <form action="process.php" class="dropzone" id="myDropzone"></form>
                                         </div>
                                     </div>
-
+                                    
                                 </div>
+                                <button class="theme-btn btn-one m-3" id="submitBTN" type="submit"  onclick="submitForm()" aria-activedescendant=""name="uploadProps">Submit</button>
                             </div>
 
                         </div>
@@ -1321,11 +1321,15 @@ if (isset($_POST['propertytitle'])) {
             const form = document.getElementById('myDropzone');
             // Check if the Dropzone is empty (has no files)
      
-            if ($("#myForm").val() == '') {
+            $('#submitBTN').attr('type', 'submit');
+            if ($("#myDropzone").html() == '<div class="dz-default dz-message"><button class="dz-button" type="button">Drop images here or click to upload</button></div>') {
                 Swal.fire('Gallery Image is empty. Please upload images.')
+                $('#submitBTN').attr('type', 'button');
+                // form1.event.preventDefault();
                 // alert("Gallery Image is empty. Please upload images.");
-                form1.event.preventDefault();
             } else {
+                $('#submitBTN').attr('type', 'submit');
+                // form1.submit();
                 // The Dropzone is not empty; you can choose to submit the form here
                 // form1.event.preventDefault();
             }
@@ -1353,31 +1357,32 @@ if (isset($_POST['propertytitle'])) {
             addRemoveLinks: true,
             autoProcessQueue: true,
             drop(e) {
-    return this.element.classList.remove("dz-drag-hover");
-  },
-  dragstart(e) {},
-  dragend(e) {
-    return this.element.classList.remove("dz-drag-hover");
-  },
-  dragenter(e) {
-    return this.element.classList.add("dz-drag-hover");
-  },
-  dragover(e) {
-    return this.element.classList.add("dz-drag-hover");
-  },
-  dragleave(e) {
-    return this.element.classList.remove("dz-drag-hover");
-  },
+                return this.element.classList.remove("dz-drag-hover");
+            },
+            dragstart(e) {},
+            dragend(e) {
+                return this.element.classList.remove("dz-drag-hover");
+            },
+            dragenter(e) {
+                return this.element.classList.add("dz-drag-hover");
+            },
+            dragover(e) {
+                return this.element.classList.add("dz-drag-hover");
+            },
+            dragleave(e) {
+                return this.element.classList.remove("dz-drag-hover");
+            },
 
-  paste(e) {},
+            paste(e) {},
 
-  // Called whenever there are no files left in the dropzone anymore, and the
-  // dropzone should be displayed as if in the initial state.
-  reset() {
-    return this.element.classList.remove("dz-started");
-  }
+            // Called whenever there are no files left in the dropzone anymore, and the
+            // dropzone should be displayed as if in the initial state.
+            reset() {
+                return this.element.classList.remove("dz-started");
+            }
 
-        };        // Initialize Dropzone.js
+        };    
+            // Initialize Dropzone.js
 
 
         // function handleFileSelect(event) {
@@ -2466,6 +2471,41 @@ if (isNaN(number)) {
         $(".show2").hide()
         $(".show3").hide()
 
+        trigVal = $('#trigShow').val()
+            if (trigVal == 'Land') {
+                $(".show1").show()
+                $(".show").hide()
+                $(".show2").hide()
+                $(".show3").hide()
+                $(".demoshow").hide()
+
+
+            } else if (trigVal == 'Autos/Machinery') {
+                $(".show").hide()
+                $(".show1").hide()
+                $(".show2").show()
+                $(".show3").hide()
+                $(".demoshow").hide()
+
+
+            }  else if (trigVal == 'Non Distress Properties') {
+                $(".show3").show()
+                $(".show").hide()
+                $(".show1").hide()
+                $(".show2").hide()
+                $(".demoshow").hide()
+
+
+            } else {
+                $(".show").show()
+                $(".show1").hide()
+                $(".show2").hide()
+                $(".show3").hide()
+                $(".demoshow").hide()
+
+
+
+            }
 
         $('#trigShow').change(function (e) {
             e.preventDefault();
