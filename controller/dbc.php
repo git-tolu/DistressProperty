@@ -331,7 +331,7 @@ class Dbc extends Database
     }
     public function SelectAllApropertiesWhereNoSessAD( $state, $propertyCategory, $minprice, $maxprice,  $keywords,  $itemsPerPage, $startIndex,$sqrt)
     {
-        $sql = "SELECT * FROM properties WHERE  (propertyCategory='$propertyCategory' OR landcategory='$propertyCategory' OR typeproperty='$propertyCategory')  AND (state='$state' OR address LIKE '%$state%'  OR city='$state' AND propertytitle LIKE '%$keywords%'  OR detailedinfo LIKE '%$keywords%' OR  landsize='$sqrt' ) AND status!='pending'ORDER BY id DESC LIMIT $startIndex, $itemsPerPage ";
+        $sql = "SELECT * FROM properties WHERE  (propertyCategory='$propertyCategory' OR landcategory='$propertyCategory' OR typeproperty='$propertyCategory')  AND (state='$state' OR address LIKE '%$state%'  OR city='$state' AND propertytitle LIKE '%$keywords%'  OR detailedinfo LIKE '%$keywords%' OR  landsize='$sqrt' AND pricewithoutcomma BETWEEN '$minprice' AND '$maxprice') AND status!='pending'ORDER BY id DESC LIMIT $startIndex, $itemsPerPage ";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -342,7 +342,7 @@ class Dbc extends Database
     }
     public function SelectAllApropertiesWhereNoSessADCount( $state, $propertyCategory, $minprice, $maxprice,  $keywords,  $itemsPerPage, $startIndex,$sqrt)
     {
-        $sql = "SELECT * FROM properties WHERE  (propertyCategory='$propertyCategory' OR landcategory='$propertyCategory' OR typeproperty='$propertyCategory')  AND (state='$state' OR address LIKE '%$state%'  OR city='$state' AND propertytitle LIKE '%$keywords%'  OR detailedinfo LIKE '%$keywords%' OR  landsize='$sqrt' ) AND status!='pending'ORDER BY id DESC LIMIT $startIndex, $itemsPerPage ";
+        $sql = "SELECT * FROM properties WHERE  (propertyCategory='$propertyCategory' OR landcategory='$propertyCategory' OR typeproperty='$propertyCategory')  AND (state='$state' OR address LIKE '%$state%'  OR city='$state' AND propertytitle LIKE '%$keywords%'  OR detailedinfo LIKE '%$keywords%' OR  landsize='$sqrt' AND pricewithoutcomma BETWEEN '$minprice' AND '$maxprice') AND status!='pending'ORDER BY id DESC LIMIT $startIndex, $itemsPerPage ";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $row = $stmt->rowCount();

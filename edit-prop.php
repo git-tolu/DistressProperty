@@ -632,7 +632,7 @@ if (isset($_POST['propertytitle'])) {
                                                             </option>
                                                              <option value="Residential"  class="text-capitalize">Residential</option>
                                                              <option value="Commercial"  class="text-capitalize">Commercial</option>
-                                                             <option value="Mixed & used"  class="text-capitalize">Mixed & used</option>
+                                                             <option value="Mixed & used"  class="text-capitalize">Mixed  used</option>
                                                             <!-- <option value="Wetland"  class="text-capitalize">Wetland</option>
                                                             <option value="dry land"  class="text-capitalize"> dry land</option>
                                                             <option value="sandfilled"  class="text-capitalize">sandfilled</option>
@@ -918,7 +918,7 @@ if (isset($_POST['propertytitle'])) {
                                                 </div>
                                                 <div class="col-lg-12 col-md-12 col-sm-12 column mt-3">
                                                     <div class="gallery-box">
-                                                        <h4><i class="icon-16"></i>Featured Images:</h4>
+                                                        <h4>Featured Images:</h4>
                                                         <div class="upload-inner centred">
                                                             <input type="file"  class="dropify"  data-show-remove="false"  name="featuredimage" required>
                                                         </div>

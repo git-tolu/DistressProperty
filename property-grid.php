@@ -1404,7 +1404,7 @@ if (isset($_SESSION['useremail'])) {
                                                                 Added on :<?=   date("d M Y" , strtotime($info['date_uploaded'])) ?> 
                                                             </li>
                                                             <li>
-                                                                Last Updated:<?= date("d M Y" , strtotime($info['lastupdate'])) ?> 
+                                                                Last Updated :<?= date("d M Y" , strtotime($info['lastupdate'])) ?> 
                                                             </li>
                                                            
                                                         </ul>

@@ -858,7 +858,7 @@ if (isset($_POST['propertytitle'])) {
                                                             </option>
                                                              <option value="Residential"  class="text-capitalize">Residential</option>
                                                              <option value="Commercial"  class="text-capitalize">Commercial</option>
-                                                             <option value="Mixed & used"  class="text-capitalize">Mixed & used</option>
+                                                             <option value="Mixed  used"  class="text-capitalize">Mixed  used</option>
                                                             <!-- <option value="Wetland"  class="text-capitalize">Wetland</option>
                                                             <option value="dry land"  class="text-capitalize"> dry land</option>
                                                             <option value="sandfilled"  class="text-capitalize">sandfilled</option>

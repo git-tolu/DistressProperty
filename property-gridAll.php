@@ -101,7 +101,7 @@ if (isset($_SESSION['useremail'])) {
                         <div class="tabs-box">
                             <div class="inner-box">
                                 <div class="top-search">
-                                    <form action="" method="post"
+                                    <!-- <form action="" method="post"
                                         class="search-form  d-flex justify-content-center align-items-center text-center">
                                         <div class="row clearfix w-100">
                                             <div class="col-lg-5 col-md-6 col-sm-12 column">
@@ -154,12 +154,7 @@ if (isset($_SESSION['useremail'])) {
                                                             </option>
                                                             <option  class="text-capitalize" value="Terrace Bungalow">Terrace Bungalow</option>
                                                                     <?php endif; ?>
-                                                            <!-- <option value="Distress Properties">Distress Property</option>
-                                                                    <option value="Non Distress
-                                                                        Properties">Non-Distress Property
-                                                                    </option>
-                                                                    <option value="Autos/Machinery">Autos & Machinery</option>
-                                                                    <option value="Land">Land</option> -->
+                                                          
                                                         </select>
                                                     </div>
                                                 </div>
@@ -223,7 +218,7 @@ if (isset($_SESSION['useremail'])) {
 
                                             </div>
                                         </div>
-                                    </form>
+                                    </form> -->
                                 </div>
                             </div>
                         </div>
@@ -1068,7 +1063,7 @@ if (isset($_SESSION['useremail'])) {
                                                                 Added on :<?=   date("d M Y" , strtotime($info['date_uploaded'])) ?> 
                                                             </li>
                                                             <li>
-                                                                Last Updated:<?= date("d M Y" , strtotime($info['lastupdate'])) ?> 
+                                                                Last Updated :<?= date("d M Y" , strtotime($info['lastupdate'])) ?> 
                                                             </li>
                                                            
                                                         </ul>
