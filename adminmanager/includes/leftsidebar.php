@@ -27,12 +27,13 @@
                             </ul>
                         </li>
 						
-                        <!-- 
+                        
 						
 						
+                      <?php if ($role !== 'Manager'): ?>
+                      <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="addusers" aria-expanded="false"><i class="mdi mdi-treasure-chest"></i><span class="hide-menu">Add Users</span></a></li>
                       
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="paymenthistoryad" aria-expanded="false"><i class="mdi mdi-treasure-chest"></i><span class="hide-menu">Payment history</span></a></li>
-                        -->
+                      <?php endif; ?>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="logout" aria-expanded="false"><i class="mdi mdi mdi-power"></i><span class="hide-menu">Log Out</span></a></li>
                     </ul>
                 </nav>
