@@ -1057,13 +1057,16 @@ if (isset($_SESSION['useremail'])) {
                                                         </div>
                                                         <ul class=" clearfix mt-1">
                                                             <li>
-                                                                Ref  :<?=   $info['refno'] ?> 
+                                                                Ref : <?=   $info['refno'] ?> 
                                                             </li>
                                                             <li>
-                                                                Added on :<?=   date("d M Y" , strtotime($info['date_uploaded'])) ?> 
+                                                                Added on : <?=   date("d M Y" , strtotime($info['date_uploaded'])) ?> 
                                                             </li>
                                                             <li>
-                                                                Last Updated :<?= date("d M Y" , strtotime($info['lastupdate'])) ?> 
+                                                                Last Updated : <?= date("d M Y" , strtotime($info['lastupdate'])) ?> 
+                                                            </li>
+                                                            <li>
+                                                                Views : <?= $info['views'] ?> 
                                                             </li>
                                                            
                                                         </ul>

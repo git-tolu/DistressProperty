@@ -10,6 +10,11 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     $id = $_GET['id'];
     $propertyCategory = $_GET['propertyCategory'];
     $info = $dbs->SelectAllApropertiesNoSessWhere($propertyCategory, $id);
+    $views = $info['views'] + 1;
+    $id = $info['id'] ;
+    $sql = "UPDATE `properties` SET `views`='$views' WHERE `id`='$id'";
+    $stmt = $dbs->conn->prepare($sql);
+    $stmt->execute();
     $agentDetails = $dbs->SelectFrom($info['user_id']);
 } else {
     header("location: index.php");
@@ -187,8 +192,10 @@ if (isset($_SESSION['useremail'])) {
                                         <?= $info['detailedinfo'] ?>
                                     </p>
                                 </div>
-                                <div class="text">
-                                    <ul class=" clearfix">
+                             
+                                 <div class="text mt-3">
+                               
+                                    <ul class="info clearfix">
                                         <?php if($info['propertyCategory'] !== 'Land'):  ?>
                                             <?php if($info['propertyCategory'] !== 'Autos/Machinery'):  ?>
     
@@ -200,11 +207,22 @@ if (isset($_SESSION['useremail'])) {
                                             <?php else:  ?> 
                                             <?php endif;  ?> 
                                         <?php else:  ?> 
-                                            <li><?= $info['landsize']  ?> landsize</li>
+                                                                                                        <li>
+                                                                Ref  : <?=  $info['refno'] ?> 
+                                                            </li>
+                                                           
+                                                            <li>
+                                                                Price : <?= $info['propertyprice'] ?> 
+                                                            </li>
+                                                            <li>
+                                                                Location : <?= $info['address'] ?> 
+                                                            </li>
+                                            <li>landsize : <?= $info['landsize']  ?> </li>
                                         <?php endif;  ?> 
                                        
                                     </ul>
-                                </div>
+                                
+                            </div>
                             </div>	
                             <!-- <div class="discription-box content-widget">
                                 <div class="title-box">
@@ -416,7 +434,7 @@ Please note that the property aforementioned does not belong to Distress Propert
                                                              </span></a>
                                         <!-- <a href="https://api.whatsapp.com/send?phone=<?= $agentDetails['whatsappNumber'] ?>" target="_blank" class="theme-btn btn-one">Whatsapp</a> -->
                                     </div>
-                                    <div class="bg-light p-3"> <p id="noshow">Phoneno: <?= $agentDetails['callNumber'] ?></p></div>
+                                    <div class="bg-light p-3"> <p id="noshow">Phoneno : <?= $agentDetails['callNumber'] ?></p></div>
                                
 
                                     <!-- <form action="property-details.html" method="post" class="default-form">
@@ -559,13 +577,16 @@ Please note that the property aforementioned does not belong to Distress Propert
                                                                 <p> -->
                                                                 <ul class=" clearfix mt-1 mb-2">
                                                             <li>
-                                                                Ref  :<?=   date("d M Y" , strtotime($info['refno'])) ?> 
+                                                                Ref  : <?= $info['refno'] ?> 
                                                             </li>
                                                             <li>
-                                                                Added on :<?=   date("d M Y" , strtotime($info['date_uploaded'])) ?> 
+                                                                Added on : <?=   date("d M Y" , strtotime($info['date_uploaded'])) ?> 
                                                             </li>
                                                             <li>
-                                                                Last Updated:<?= date("d M Y" , strtotime($info['lastupdate'])) ?> 
+                                                                Last Updated : <?= date("d M Y" , strtotime($info['lastupdate'])) ?> 
+                                                            </li>
+                                                            <li>
+                                                                Views : <?= $info['views'] ?> 
                                                             </li>
                                                            
                                                             </ul>
