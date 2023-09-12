@@ -1043,14 +1043,9 @@ if (isset($_SESSION['useremail'])) {
                                                         <label>Type</label>
                                                         <select name="type" id="type" class="form-control">
                                                             <option  class="text-capitalize" value="0" selected="selected">Select Types</option>
-                                                            <option  class="text-capitalize" value="Wetland">Wetland</option>
-                                                            <option  class="text-capitalize" value="dry land"> dry land</option>
-                                                            <option  class="text-capitalize" value="sandfilled">sandfilled</option>
-                                                            <option  class="text-capitalize" value="bare-land">bare-land</option>
-                                                            <option  class="text-capitalize" value="demolishable">demolishable</option>
-                                                            <option  class="text-capitalize" value="Semi Detached Duplex">Semi Detached Duplex
-                                                            </option>
-                                                            <option  class="text-capitalize" value="Terrace Bungalow">Terrace Bungalow</option>
+                                                            <option value="Residential"  class="text-capitalize">Residential</option>
+                                                                     <option value="Commercial"  class="text-capitalize">Commercial</option>
+                                                                     <option value="Mixed  used"  class="text-capitalize">Mixed  used</option>
                                                         </select>
                                                     </div>
                                                 </div>

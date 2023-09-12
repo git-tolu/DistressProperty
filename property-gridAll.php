@@ -672,20 +672,9 @@ if (isset($_SESSION['useremail'])) {
                                                         <option value="">
 
                                                         </option>
-                                                        <option value="Wetland" class="text-capitalize">Wetland</option>
-                                                        <option value="dry land" class="text-capitalize"> dry land
-                                                        </option>
-                                                        <option value="sandfilled" class="text-capitalize">sandfilled
-                                                        </option>
-                                                        <option value="bare-land" class="text-capitalize">bare-land
-                                                        </option>
-                                                        <option value="demolishable" class="text-capitalize">
-                                                            demolishable</option>
-                                                        <option value="Semi Detached Duplex" class="text-capitalize">
-                                                            Semi Detached Duplex
-                                                        </option>
-                                                        <option value="Terrace Bungalow" class="text-capitalize">Terrace
-                                                            Bungalow</option>
+                                                        <option value="Residential"  class="text-capitalize">Residential</option>
+                                                                     <option value="Commercial"  class="text-capitalize">Commercial</option>
+                                                                     <option value="Mixed  used"  class="text-capitalize">Mixed  used</option>
                                                     </select>
                                                 </div>
                                             </div>
