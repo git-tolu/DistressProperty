@@ -1009,7 +1009,7 @@ if (isset($_SESSION['useremail'])) {
                                                     </div>
                                                     <div class="lower-content">
                                                         <div class="title-text">
-                                                            <h4><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
+                                                            <h4><a href="property-details.php?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
                                                                     class="text-dark" style="color:#2F7366 !important;">
                                                                     <?= $info['propertytitle'] ?>/
                                                                     <?= $info['marketstatus'] ?>
@@ -1039,7 +1039,7 @@ if (isset($_SESSION['useremail'])) {
                                                        
                                                         <div class="title-text">
                                                             <h6><a
-                                                                    href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
+                                                                    href="property-details.php?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
                                                                 <?= $info['address'] ?>
                                                                
                                                                 </a></h6>
@@ -1062,7 +1062,7 @@ if (isset($_SESSION['useremail'])) {
                                                          <div class="price-info pull-left m-1">
                                                                 <!-- <h6>Start From</h6> -->
                                                                 <h4><a
-                                                                        href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
+                                                                        href="property-details.php?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
                                                                         <?= $info['symbol'] . $info['propertyprice'] ?>
                                                                     </a></h4>
                                                             </div>
@@ -1107,7 +1107,7 @@ if (isset($_SESSION['useremail'])) {
                                                                 ">Map</span>
                                                                         </a>
                                                                         <a style=" width: 50%; "
-                                                                            href="bookeeping"
+                                                                            href="bookeeping.php"
                                                                             class="border-white theme-btn btn-one text-center">
                                                                             <span style="font-size: 15px; ">Book
                                                                                 Inspection</span>

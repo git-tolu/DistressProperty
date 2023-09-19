@@ -428,7 +428,7 @@ Please note that the property aforementioned does not belong to Distress Propert
                                     <div class="btn-box btn-group">
                                     <a href="javascript:void()" class="border-white theme-btn btn-one" id='show' style="font-size: 15px;
                                                                 ">Call</a>
-                                    <a href="bookeeping" class="border-white theme-btn btn-one "
+                                    <a href="bookeeping.php" class="border-white theme-btn btn-one "
                                                             ><span  class="span" style="font-size: 15px;
                                                                 ">Book Inspection
                                                              </span></a>
@@ -539,7 +539,7 @@ Please note that the property aforementioned does not belong to Distress Propert
                                                         <?= $info['propertytitle'] ?>
                                                     </h6>
                                                 </div>
-                                                <div class="buy-btn pull-right"><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
+                                                <div class="buy-btn pull-right"><a href="property-details.php?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
                                                         <?= $info['symbol'] . $info['propertyprice'] ?>
                                                     </a>
                                                 </div>
@@ -550,7 +550,7 @@ Please note that the property aforementioned does not belong to Distress Propert
                                                                         </a></h6>
                                                                 </div> -->
                                                                 <div class="title-text">
-                                                                    <h6><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
+                                                                    <h6><a href="property-details.php?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
                                                                               <?= $info['address'] ?>
                                                                         </a></h6>
                                                                 </div>
@@ -606,9 +606,9 @@ Please note that the property aforementioned does not belong to Distress Propert
                                                                     </li>
                                                                 </ul> -->
                                             <div class="btn-box d-flex justify-content-center align-items-center text-center">
-                                                <a style="padding: 10px;" href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>" class="theme-btn btn-one">
+                                                <a style="padding: 10px;" href="property-details.php?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>" class="theme-btn btn-one">
                                                 <span  class="span" style="font-size: 15px; ">See Details</span></a>
-                                                <a style="padding: 10px;" href="contact" class="theme-btn btn-one ">
+                                                <a style="padding: 10px;" href="contact.php" class="theme-btn btn-one ">
                                                             <span  class="span" style="font-size: 15px; ">Book Inspection</span>
                                                         </a>
                                                         </div>

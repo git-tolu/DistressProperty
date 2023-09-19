@@ -238,7 +238,7 @@ if (isset($_SESSION['useremail'])) {
                             <div class="icon-box"><i class="icon-1"></i></div>
                             <h4>Distress Buying</h4>
                             <p>We aid our clientele acquire Distress Property for below market value</p>
-                            <div class="more-btn m-2"><a href="property-gridAll" class="theme-btn btn-one">Get
+                            <div class="more-btn m-2"><a href="property-gridAll.php" class="theme-btn btn-one">Get
                                     Started</a></div>
                         </div>
                     </div>
@@ -247,7 +247,7 @@ if (isset($_SESSION['useremail'])) {
                             <div class="icon-box"><i class="icon-26"></i></div>
                             <h4>Distress Selling</h4>
                             <p>We aid our clientele in fiancial distress liquidate their assets in record time.</p>
-                            <div class="more-btn m-2"><a href="property-gridAll" class="theme-btn btn-one">Get
+                            <div class="more-btn m-2"><a href="property-gridAll.php" class="theme-btn btn-one">Get
                                     Started</a></div>
                         </div>
                     </div>
@@ -257,7 +257,7 @@ if (isset($_SESSION['useremail'])) {
                             <h4>Investment</h4>
                             <p>We provide a viable Distress Real Estate Investment Trust Platform for willing and
                                 ready investors to come on board with stable and high yielding return on investment.</p>
-                            <div class="more-btn m-2"><a href="dci" class="theme-btn btn-one">Get Started</a></div>
+                            <div class="more-btn m-2"><a href="dci.php" class="theme-btn btn-one">Get Started</a></div>
                         </div>
                     </div>
 

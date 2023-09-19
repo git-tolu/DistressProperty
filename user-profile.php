@@ -173,7 +173,7 @@ if (isset($_POST['saveProfile'])) {
                 <div class="content-box clearfix">
                     <h1>Subcriber Profile</h1>
                     <ul class="bread-crumb clearfix">
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.php">Home</a></li>
                         <li>Subcriber Profile</li>
                     </ul>
                 </div>
@@ -246,7 +246,7 @@ if (isset($_POST['saveProfile'])) {
                                 </div>
                                 <div class="detail clearfix mt-3">
                                     <div class="list-group">
-                                        <a href="user-profile" class="list-group-item list-group-item-action active">
+                                        <a href="user-profile.php" class="list-group-item list-group-item-action active">
                                             <i class="fa fa-person"></i>Profile
                                         </a>
                                         <a href="property-list" class="list-group-item list-group-item-action">

@@ -206,7 +206,7 @@ if (isset($_SESSION['useremail'])) {
                                             </div>
                                         </form>
                                         <div class="othre-text">
-                                            <p>Already have an account? <a href="signin">Sign in</a></p>
+                                            <p>Already have an account? <a href="signin.php">Sign in</a></p>
                                         </div>
                                     </div>
                                 </div>
@@ -240,7 +240,7 @@ if (isset($_SESSION['useremail'])) {
                                             </div>
                                         </form>
                                         <div class="othre-text">
-                                            <p>Already have an account? <a href="signin">Sign in</a></p>
+                                            <p>Already have an account? <a href="signin.php">Sign in</a></p>
                                         </div>
                                     </div>
                                 </div>

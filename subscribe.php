@@ -169,7 +169,7 @@ if (isset($_SESSION['useremail'])) {
                                             </div>
                                         </form>
                                         <div class="othre-text">
-                                            <p>Have not any account? <a href="signup">Register Now</a></p>
+                                            <p>Have not any account? <a href="signup.php">Register Now</a></p>
                                         </div>
                                     </div>
                                 </div>

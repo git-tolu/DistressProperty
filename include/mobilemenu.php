@@ -3,7 +3,7 @@
             <div class="close-btn"><i class="fas fa-times"></i></div>
             
             <nav class="menu-box">
-                <div class="nav-logo" style="background-color: black;"><a href="index">
+                <div class="nav-logo" style="background-color: black;"><a href="index.php">
                     <?php if($page == 'DCi'):  ?>
                         <img src="assets/images/dcilogo.png" alt="" title="">
                         

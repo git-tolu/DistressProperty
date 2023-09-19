@@ -495,7 +495,7 @@ if (isset($_POST['propertytitle'])) {
                                 </div>
                                 <div class="detail clearfix mt-3">
                                     <div class="list-group">
-                                        <a href="agent-profile" class="list-group-item list-group-item-action active">
+                                        <a href="agent-profile.php" class="list-group-item list-group-item-action active">
                                             <i class="fa fa-person"></i>Profile
                                         </a>
                                         <a href="#" class="list-group-item list-group-item-action" id="show1">
@@ -512,7 +512,7 @@ if (isset($_POST['propertytitle'])) {
                                             class="list-group-item list-group-item-action">
                                             <i class="flaticon-locked-padlock"></i>Change Password
                                         </a>
-                                        <a href="logout" class="list-group-item list-group-item-action">
+                                        <a href="logout.php" class="list-group-item list-group-item-action">
                                             <i class="flaticon-logout"></i>Log Out
                                         </a>
 
@@ -588,7 +588,7 @@ if (isset($_POST['propertytitle'])) {
                                                     </div>
                                                     <div class="lower-content">
                                                         <div class="title-text">
-                                                            <h4><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
+                                                            <h4><a href="property-details.php?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
                                                                     class="text-white mbwhite">
                                                                     <?= $info['propertytitle'] ?>/
                                                                     <?= $info['marketstatus'] ?>
@@ -597,7 +597,7 @@ if (isset($_POST['propertytitle'])) {
                                                         <div class="price-box clearfix">
                                                             <div class="price-info pull-left">
                                                                 <!-- <h6>Start From</h6> -->
-                                                                <h4><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
+                                                                <h4><a href="property-details.php?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
                                                                         class="text-white mbwhite">
                                                                         <?= $info['symbol'] . $info['propertyprice'] ?>
                                                                     </a></h4>
@@ -608,7 +608,7 @@ if (isset($_POST['propertytitle'])) {
                                                                         style="object-fit:cover; background-position: center; width: 60px; height: 40px; border-radius: 50%;"
                                                                         alt="">
                                                                     <span><a
-                                                                            href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
+                                                                            href="property-details.php?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
                                                                             <?php if ($info['propertyCategory'] == 'Distress Properties'): ?>
                                                                                 <?= $info['typeproperty'] ?>
                                                                             <?php elseif ($info['propertyCategory'] == 'Non Distress Properties'): ?>
@@ -625,7 +625,7 @@ if (isset($_POST['propertytitle'])) {
                                                             </div>
                                                         </div>
                                                         <div class="title-text">
-                                                            <h6><a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
+                                                            <h6><a href="property-details.php?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
                                                                     class="text-white mbwhite">
                                                                     <?= $info['city'] ?>,
                                                                     <?= $info['state'] ?>
@@ -659,7 +659,7 @@ if (isset($_POST['propertytitle'])) {
                                                         </ul>
                                                         <div class="other-info-box clearfix">
                                                             <div class="btn-box  justify-content-center text-center ">
-                                                                <a href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
+                                                                <a href="property-details.php?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
                                                                     class="theme-btn btn-two ">See Details</a>
 
                                                                 <a href="#modalId" class="theme-btn btn-two "
@@ -668,10 +668,10 @@ if (isset($_POST['propertytitle'])) {
                                                                 <?= $info['langtitude'] ?>">Map
                                                                     </span></a>
 
-                                                                <a href="agent-profile?edit=<?= $info['id'] ?>"
+                                                                <a href="agent-profile.php?edit=<?= $info['id'] ?>"
                                                                     class="theme-btn btn-two ">Edit Post</a>
 
-                                                                <a href="agent-profile?del=<?= $info['id'] ?>"
+                                                                <a href="agent-profile.php?del=<?= $info['id'] ?>"
                                                                     class="theme-btn btn-two ">Delete</a>
                                                             </div>
                                                         </div>

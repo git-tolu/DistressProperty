@@ -443,7 +443,7 @@ if (isset($_SESSION['useremail'])) {
                                                 </ul>
                                             </div>
                                             <div class="table-footer">
-                                                <a href="contact" class="link-btn">Get
+                                                <a href="contact.php" class="link-btn">Get
                                                     Started</a>
                                             </div>
                                         </div>
@@ -470,7 +470,7 @@ if (isset($_SESSION['useremail'])) {
                                                 </ul>
                                             </div>
                                             <div class="table-footer">
-                                                <a href="contact" class="link-btn">Get
+                                                <a href="contact.php" class="link-btn">Get
                                                     Started</a>
                                             </div>
                                         </div>
@@ -498,7 +498,7 @@ if (isset($_SESSION['useremail'])) {
                                                 </ul>
                                             </div>
                                             <div class="table-footer">
-                                                <a href="contact" class="link-btn">Get
+                                                <a href="contact.php" class="link-btn">Get
                                                     Started</a>
                                             </div>
                                         </div>

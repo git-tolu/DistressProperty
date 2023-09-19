@@ -95,17 +95,17 @@
                 <div class="d-flex justify-content-center text-center align-items-center">
                     <figure class="footer-logo rounded-circle p-3"
                         style="background-color: rgb(230, 215, 215); width: 100px; height: 100px; border-radius: 50%;">
-                        <a href="index"><img src="assets/images/footer-logo.png" alt=""></a>
+                        <a href="index.php"><img src="assets/images/footer-logo.png" alt=""></a>
                     </figure>
                 </div>
                 <div class="copyright pull-left">
-                    <p class="text-white"><a href="index" class="text-white">Distress Property Market</a> &copy;
+                    <p class="text-white"><a href="index.php" class="text-white">Distress Property Market</a> &copy;
                         <?= Date('Y') ?> All Right Reserved
                     </p>
                 </div>
                 <ul class="footer-nav pull-right clearfix">
-                    <li><a href="index" class="text-white">Terms of Service</a></li>
-                    <li><a href="index" class="text-white">Privacy Policy</a></li>
+                    <li><a href="index.php" class="text-white">Terms of Service</a></li>
+                    <li><a href="index.php" class="text-white">Privacy Policy</a></li>
                 </ul>
             </div>
         </div>

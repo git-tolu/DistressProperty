@@ -166,8 +166,8 @@ if(isset($_POST['loginUSer'])){
                                             </div>
                                         </form>
                                         <div class="othre-text">
-                                            <p>Don't have an account ? <a href="signup">Register Now</a></p>
-                                            <p>Forgot Password? <a href="forgot">Recover</a></p>
+                                            <p>Don't have an account ? <a href="signup.php">Register Now</a></p>
+                                            <p>Forgot Password? <a href="forgot.php">Recover</a></p>
                                         </div>
                                     </div>
                                 </div>
@@ -188,7 +188,7 @@ if(isset($_POST['loginUSer'])){
                                             </div>
                                         </form>
                                         <div class="othre-text">
-                                            <p>Have not any account? <a href="signup">Register Now</a></p>
+                                            <p>Have not any account? <a href="signup.php">Register Now</a></p>
                                         </div>
                                     </div>
                                 </div>

@@ -28,10 +28,10 @@
             <div class="main-box">
                 <div class="logo-box " style="visibility: hidden; width: 0px;">
                     <?php if($page == 'DCi'):  ?>
-                        <figure class="logo "><a href="index"><img src="assets/images/dcilogo.png"
+                        <figure class="logo "><a href="index.php"><img src="assets/images/dcilogo.png"
                                 style="width: 150px; height: 50px; " alt=""></a></figure>
                     <?php else: ?>
-                            <figure class="logo "><a href="index"><img src="assets/images/logo.png"
+                            <figure class="logo "><a href="index.php"><img src="assets/images/logo.png"
                                 style="width: 150px; height: 50px; " alt=""></a></figure>
                     <?php endif;?>
                 </div>
@@ -48,11 +48,11 @@
                             <ul class="navigation clearfix">
                                 <li class="  <?php if ($page == 'index') {
                                     echo 'current';
-                                } ?>"><a href="index" class="">Home</a>
+                                } ?>"><a href="index.php" class="">Home</a>
                                 </li>
                                 <li class="dropdown    <?php if ($page == 'property-grid') {
                                     echo 'current';
-                                } ?>"><a href="property-gridAll" class=" "><span>Properties</span></a>
+                                } ?>"><a href="property-gridAll.php" class=" "><span>Properties</span></a>
                                     <ul>
                                         <!-- <li><a href="property-gridAll"
                                                 class="text-capitalize ">All Properties</a></li> -->
@@ -60,28 +60,28 @@
                                                 class="text-capitalize ">Distress</a></li>
                                         <li><a href="property-grid?propertyCategory=Land"
                                                 class="text-capitalize">Land</a></li> -->
-                                        <li><a href="property-grid?propertyCategory=Distress Properties"
+                                        <li><a href="property-grid.php?propertyCategory=Distress Properties"
                                                 class="text-capitalize ">Distress Property</a></li>
-                                        <li><a href="property-grid?propertyCategory=Non Distress Properties"
+                                        <li><a href="property-grid.php?propertyCategory=Non Distress Properties"
                                                 class="text-capitalize ">Non-Distress Property</a></li>
-                                        <li><a href="property-grid?propertyCategory=Land"
+                                        <li><a href="property-grid.php?propertyCategory=Land"
                                                 class="text-capitalize ">Land</a></li>
-                                        <li><a href="property-grid?propertyCategory=Autos/Machinery"
+                                        <li><a href="property-grid.php?propertyCategory=Autos/Machinery"
                                                 class="text-capitalize ">Autos & Machinery</a></li>
                                     </ul>
                                 </li>
                                 <li class="    <?php if ($page == 'DCi') {
                                     echo 'current';
-                                } ?>"><a href="dci" class=" ">Invest</a></li>
+                                } ?>"><a href="dci.php" class=" ">Invest</a></li>
                                                  <?php if($page == 'DCi'):  ?>
                                     <li class="reslogo mx-3  ">
-                                        <figure class="logo reslogo"><a href="index"><img src="assets/images/dcilogo.png"
+                                        <figure class="logo reslogo"><a href="index.php"><img src="assets/images/dcilogo.png"
                                                     style="width: 150px; height: 50px; " alt=""></a>
                                         </figure>
                                     </li>
                                 <?php else: ?>
                                         <li class="reslogo mx-3  ">
-                                            <figure class="logo reslogo"><a href="index"><img src="assets/images/logo.png"
+                                            <figure class="logo reslogo"><a href="index.php"><img src="assets/images/logo.png"
                                                         style="width: 150px; height: 50px; " alt=""></a>
                                             </figure>
                                         </li>
@@ -89,11 +89,11 @@
                                 <?php endif;?>
                                 <li class="    <?php if ($page == 'about') {
                                     echo 'current';
-                                } ?>"><a href="about" class=" ">About
+                                } ?>"><a href="about.php" class=" ">About
                                         Us</a></li>
                                 <li class="    <?php if ($page == 'contact') {
                                     echo 'current';
-                                } ?>"><a href="contact" class=" "><span>Contact </span></a></li>
+                                } ?>"><a href="contact.php" class=" "><span>Contact </span></a></li>
 
                                 <?php
                                 if (isset($_SESSION['useremail'])):
@@ -105,12 +105,12 @@
                                         if ($page == 'agent-profile') {
                                             $cls = 'current';
                                         }
-                                        echo '<li class="    ' . $cls . '"><a href="agent-profile" class=" "><i class="fas fa-user"></i> My Account</a></li>';
+                                        echo '<li class="    ' . $cls . '"><a href="agent-profile.php" class=" "><i class="fas fa-user"></i> My Account</a></li>';
                                     } else {
                                         if ($page == 'user-profile') {
                                             $cls = 'current';
                                         }
-                                        echo '<li class="    ' . $cls . '"><a href="user-profile" class=" "><i class="fas fa-user"></i> My Account</a></li>';
+                                        echo '<li class="    ' . $cls . '"><a href="user-profile.php" class=" "><i class="fas fa-user"></i> My Account</a></li>';
                                     }
                                     ?>
                                     <?php
@@ -121,7 +121,7 @@
                                     if (isset($_SESSION['useremail'])) {
                                         //echo '<a href="logout" class=" "><i class="fas fa-user"></i> &nbsp;Log Out</a>';
                                     } else {
-                                        echo '<a href="signin" class=" "><i class="fas fa-user"></i> &nbsp;Sign In</a>';
+                                        echo '<a href="signin.php" class=" "><i class="fas fa-user"></i> &nbsp;Sign In</a>';
 
                                     }
                                     ?>
@@ -192,9 +192,9 @@
                                                             <li><a href="uploadprops">Upload Property</a></li>
                                                             <?php
                                                             if ($user_role == 'Agent') {
-                                                                echo '<li><a href="agent-profile">profile</a></li>';
+                                                                echo '<li><a href="agent-profile.php">profile</a></li>';
                                                             } else {
-                                                                echo '<li><a href="user-profile">profile</a></li>';
+                                                                echo '<li><a href="user-profile.php">profile</a></li>';
                                                             }
                                                             ?>
                                                             <li><a href="signin">Sign In</a></li>
@@ -241,7 +241,7 @@
                                     <div class="btn-box ">
                                         <?php
                                         if ($user_role == 'Agent') {
-                                            echo '<a href="uploadprops" class="theme-btn btn-one" style="height: 10px !important; font-size: 15px;
+                                            echo '<a href="uploadprops.php" class="theme-btn btn-one" style="height: 10px !important; font-size: 15px;
                                             line-height: 1px;"><span>+</span>Add Listing</a>';
                                         } else {
 

@@ -257,7 +257,7 @@ if (isset($_SESSION['useremail'])) {
                             <div class="category-block-one">
                                 <div class="inner-box">
                                     <div class="icon-box"><i class="icon-1"></i></div>
-                                    <h5><a href="property-details.html">Buy</a></h5>
+                                    <h5><a href="property-gridAll.php">Buy</a></h5>
                                     <p class="text-center">
                                         Looking for Property to
                                         buy at the best possible
@@ -269,7 +269,7 @@ if (isset($_SESSION['useremail'])) {
                                         are below actual market
                                         value.
                                     </p>
-                                    <div class="more-btn"><a href="property-gridAll" class="theme-btn btn-one hov">Get
+                                    <div class="more-btn"><a href="property-gridAll.php" class="theme-btn btn-one hov">Get
                                             Started</a></div>
                                 </div>
                             </div>
@@ -278,7 +278,7 @@ if (isset($_SESSION['useremail'])) {
                             <div class="category-block-one">
                                 <div class="inner-box">
                                     <div class="icon-box"><i class="icon-26"></i></div>
-                                    <h5><a href="property-details.html">Sell</a></h5>
+                                    <h5><a href="property-gridAll.php">Sell</a></h5>
                                     <p class="text-center pb-4">In need of a lump sum
                                         of cash and need to
                                         liquidate an asset real
@@ -288,7 +288,7 @@ if (isset($_SESSION['useremail'])) {
                                         Distress property off
                                         the market in record
                                         time.</p>
-                                    <div class="more-btn"><a href="signup" class="theme-btn btn-one hov">Get Started</a>
+                                    <div class="more-btn"><a href="signup.php" class="theme-btn btn-one hov">Get Started</a>
                                     </div>
                                 </div>
                             </div>
@@ -297,7 +297,7 @@ if (isset($_SESSION['useremail'])) {
                             <div class="category-block-one">
                                 <div class="inner-box">
                                     <div class="icon-box"><i class="icon-21"></i></div>
-                                    <h5><a href="property-details.html">Invest</a></h5>
+                                    <h5><a href="property-details.php">Invest</a></h5>
                                     <p class="text-center">Looking for viable
                                         hands to multiply
                                         your money with
@@ -307,7 +307,7 @@ if (isset($_SESSION['useremail'])) {
                                         We have the best
                                         investment packages
                                         with nearly 0% risk.</p>
-                                    <div class="more-btn"><a href="dci" class="theme-btn btn-one hov">Get Started</a>
+                                    <div class="more-btn"><a href="dci.php" class="theme-btn btn-one hov">Get Started</a>
                                     </div>
                                 </div>
                             </div>
@@ -376,7 +376,7 @@ if (isset($_SESSION['useremail'])) {
                                             </h6>
                                         </div>
                                         <div class="buy-btn pull-right"><a
-                                                href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
+                                                href="property-details.php?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
                                                 <?= $info['symbol'] . $info['propertyprice'] ?>
                                             </a>
                                         </div>
@@ -384,7 +384,7 @@ if (isset($_SESSION['useremail'])) {
 
                                     <div class="title-text">
                                         <h6><a
-                                                href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
+                                                href="property-details.php?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
                                                 <?= $info['city'] ?>,
                                                 <?= $info['state'] ?>
                                                 <?= $info['area_location'] ?>
@@ -392,7 +392,7 @@ if (isset($_SESSION['useremail'])) {
                                     </div>
                                     <div class="title-text">
                                         <h4><a class="text-capitalize" style="color:#2F7366 !important;"
-                                                href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
+                                                href="property-details.php?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>">
                                                 <?= $info['typeproperty'] ?>
                                             </a></h4>
                                     </div>
@@ -423,7 +423,7 @@ if (isset($_SESSION['useremail'])) {
                                         <?php endif;  ?>
                                     </ul>
                                     <div class="btn-box d-flex justify-content-center align-items-center text-center"><a
-                                            href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
+                                            href="property-details.php?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
                                             class="theme-btn btn-one">See Details</a></div>
                                 </div>
                             </div>
@@ -448,7 +448,7 @@ if (isset($_SESSION['useremail'])) {
                     <?php endif; ?>
 
                 </div>
-                <div class="more-btn centred"><a href="property-grid?propertyCategory=Distress Properties"
+                <div class="more-btn centred"><a href="property-grid.php?propertyCategory=Distress Properties"
                         class="theme-btn btn-one">View All
                         Listing</a></div>
             </div>
