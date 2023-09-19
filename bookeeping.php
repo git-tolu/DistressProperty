@@ -33,6 +33,8 @@ if (isset($_POST['bookinspection'])) {
         $errorMessage = 'Form Not Completely Filled';
     } else {
         $sql = $dbs->bookInspection($fullname, $email, $phone, $date, $message);
+        
+            include_once('controller/bookeepingemail.php');
         if ($sql) {
             $display = ' ';
             $alertColor = 'success';
