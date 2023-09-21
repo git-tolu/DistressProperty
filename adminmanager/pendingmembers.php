@@ -11,7 +11,13 @@ $todaydate = date("jS F, Y");
 include("includes/pagehead.php");
 ?>
 <!-- This page plugin CSS -->
-<link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
+<!-- Include jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Include DataTables library -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<!-- <link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet"> -->
 
 <body>
     <!-- ============================================================== -->
@@ -78,7 +84,7 @@ include("includes/pagehead.php");
                                         </div>
                                     </div>
                                     <div class="table-responsive">
-                                        <table class="table v-middle">
+                                        <table class="table v-middle" id="myDataTable">
                                             <thead>
                                                 <tr class="bg-light">
                                                     <th class="border-top-0 text-capitalize">full name</th>
@@ -233,17 +239,20 @@ include("includes/pagehead.php");
     ?>
 
     <!--This page plugins -->
-    <script src="assets/extra-libs/DataTables/datatables.min.js"></script>
+    <!-- <script src="assets/extra-libs/DataTables/datatables.min.js"></script> -->
     <!-- start - This is for export functionality only -->
-    <script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+    <!-- <script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
-    <script src="dist/js/pages/datatable/datatable-advanced.init.js"></script>
+    <script src="dist/js/pages/datatable/datatable-advanced.init.js"></script> -->
+    
     <script>
+        let table = new DataTable('#myDataTable');
+
         $('#errorshow').hide()
         $('body').on('click', '.activeBtn', function (e) {
             e.preventDefault();
