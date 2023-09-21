@@ -129,7 +129,7 @@ if (isset($_GET['del'])) {
         $display = ' ';
         $alertColor = 'success';
         $errorMessage = 'Deleted successfully';
-        header("location: agent-profile");
+        header("location: agent-profile.php");
 
     }
 
@@ -269,7 +269,7 @@ if (isset($_POST['propertytitle'])) {
             $alertColor = 'success';
             if ($formType == 'edit') {
                 $errorMessage = "Edited successfully.<br>";
-                header("location: agent-profile");
+                header("location: agent-profile.php");
             } else {
                 $errorMessage = "Uploaded successfully.<br>";
             }

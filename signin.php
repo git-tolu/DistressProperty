@@ -1,12 +1,12 @@
 <?php
-// include('controller/session.php');
+// include('controller/session.php.php');
 session_start();
  include('controller/dbc.php');
 $user_role = '';
 $page = '';
 
   if (isset($_SESSION['useremail'])) {
-    // header('location: index');
+    // header('location: index.php');
     
 $user_email = $_SESSION['useremail'];
 $UsersData = $dbusers->currentUser($user_email);
@@ -44,9 +44,9 @@ if(isset($_POST['loginUSer'])){
                 $_SESSION['useremail'] = $user_email;
                 $_SESSION['user_id'] = $loggedUser['user_id'];
                 if ($loggedUser['user_role'] == 'Agent') {
-                    header('location: agent-profile');
+                    header('location: agent-profile.php');
                 } else {
-                    header('location: user-profile');
+                    header('location: user-profile.php');
                 }
             }else{
                 $errorMessage = '<p class="text-danger">Error: password not correct</p>';

@@ -129,7 +129,7 @@ if (isset($_GET['del'])) {
         $display = ' ';
         $alertColor = 'success';
         $errorMessage = 'Deleted successfully';
-        header("location: agent-profile");
+        header("location: agent-profile.php");
 
     }
 

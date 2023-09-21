@@ -28,7 +28,7 @@ if (isset($_POST['verifyCode'])) {
         //   $_SESSION['user_role'] = $user_role;
         //   $_SESSION['useremail'] = $user_email;
         if ($update) {
-            header("location: signin");
+            header("location: signin.php");
             // if ($user_role == 'Agent') {
 
             // } else {

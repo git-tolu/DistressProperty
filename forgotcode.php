@@ -15,7 +15,7 @@ if (isset($_POST['verifyCode'])) {
         $update = $dbusers->Update($user_email, $usercode);
         $_SESSION['useremail'] = $user_email;
         if ($update) {
-            header("location: updatePass");
+            header("location: updatePass.php");
         }
     }
 }
