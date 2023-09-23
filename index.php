@@ -171,7 +171,7 @@ if (isset($_SESSION['useremail'])) {
                                 <div class="tab active-tab" id="tab-1"> -->
                             <div class="inner-box">
                                 <div class="top-search">
-                                    <form action="property-gridAll" method="get"
+                                    <form action="property-gridAll.php" method="get"
                                         class="search-form  justify-content-center align-items-center text-center d-flex">
                                         <div class="row clearfix" style="width: 800px;">
                                             <div class="col-lg-12 col-md-12 col-sm-12 ">
