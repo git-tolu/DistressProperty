@@ -184,6 +184,7 @@ if (isset($_POST['propertytitle'])) {
         $typeproperty = $dbusers->test_input($_POST['typeproperty']);
     } elseif (!empty($_POST['landcategory'])) {
         $typeproperty = $dbusers->test_input($_POST['landcategory']);
+        // $landcategory = $dbusers->test_input($_POST['landcategory']);
     } elseif (!empty($_POST['distresscat'])) {
         $typeproperty = $dbusers->test_input($_POST['distresscat']);
     } else {
@@ -229,12 +230,12 @@ if (isset($_POST['propertytitle'])) {
                 $targetDirectory = "featuredGallery/";
                 $targetFile = $targetDirectory . basename($_FILES["featuredimage"]["name"]);
                 if (move_uploaded_file($_FILES["featuredimage"]["tmp_name"], $targetFile)) {
-                  $display = ' ';
-                   $errorMessage = "File uploaded successfully.";
-                 } else {
-                  $display = ' ';
-                  $errorMessage = "File upload failed.";
-                 } 
+                    $display = ' ';
+                    $errorMessage = "File uploaded successfully.";
+                } else {
+                    $display = ' ';
+                    $errorMessage = "File upload failed.";
+                } 
 
             //     // $targetDirectory = 'galleryImage/';
 
@@ -852,7 +853,7 @@ if (isset($_POST['propertytitle'])) {
                                                 <div class="col-lg-4 col-md-4 col-sm-12 column show1">
                                                     <label>Land Category</label>
                                                     <div class="field-input">
-                                                        <select class="form-control" name="landcategory" id="">
+                                                        <select class="form-control" name="landcategory" >
                                                             <option value="<?= $typeproperty ?>">
                                                                 <?= $typeproperty ?>
                                                             </option>
@@ -870,15 +871,7 @@ if (isset($_POST['propertytitle'])) {
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-4 col-md-4 col-sm-12 column demoshow">
-                                                    <label>Property Type</label>
-                                                    <div class="field-input">
-                                                        <select class="form-control" name="landcategory" id="">
-                                                            
-                                                            <option value=""  class="text-capitalize"></option>
-                                                        </select>
-                                                    </div>
-                                                </div>
+                                                
                                                
                                                 <div class="col-lg-12 col-md-12 col-sm-12 column">
                                                     <div class="field-input">
