@@ -6,7 +6,7 @@ $user_role = '';
 // include("controller/session.php");
 if (isset($_POST['verifyCode'])) {
     $usercode = $dbusers->test_input($_POST['usercode']);
-    $user_email = $_SESSION['useremail'];
+    $user_email = $_SESSION['user_email'];
     $fetc = $dbusers->verifyCode($user_email, $usercode);
     foreach ($fetc as $value) {
         $user_code = $value['verifycode'];

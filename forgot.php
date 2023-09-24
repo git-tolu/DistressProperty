@@ -13,7 +13,7 @@ if (isset($_POST['verifyCode'])) {
     if ($loggedUser) {
         # code...
             // resave user to session
-            $_SESSION['useremail'] = $user_email;
+            $_SESSION['user_email'] = $user_email;
             // $_SESSION['user_id'] = $loggedUser['user_id'];
             $status = 'not verify';
             $fullname = 'Dear User';

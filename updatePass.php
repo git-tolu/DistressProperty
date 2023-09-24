@@ -7,7 +7,7 @@ $user_role = '';
 if (isset($_POST['verifyCode'])) {
     $usercode = $dbusers->test_input($_POST['verifyCode']);
     $hpass = password_hash($usercode, PASSWORD_DEFAULT);
-    $user_email = $_SESSION['useremail'];
+    $user_email = $_SESSION['user_email'];
     echo $user_email;
     $update = $dbusers->UpdatePass($user_email, $hpass);
     if ($update) {
@@ -15,8 +15,10 @@ if (isset($_POST['verifyCode'])) {
         header("location: signin.php");
     }
 }
+
 $user_role = '';
 $page = '';
+
 // if (!isset($_SESSION['useremail'])) {
 //     header("location: signin");
 
