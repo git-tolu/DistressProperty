@@ -7,7 +7,7 @@ $dbusers = new Dbc;
 
 $user_role = '';
 if (!isset($_SESSION['useremail'])) {
-  header('location: signin');
+  header('location: signin.php');
   die();
 }
 
