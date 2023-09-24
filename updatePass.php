@@ -12,7 +12,7 @@ if (isset($_POST['verifyCode'])) {
     $update = $dbusers->UpdatePass($user_email, $hpass);
     if ($update) {
         session_destroy();
-        header("location: signin");
+        header("location: signin.php");
     }
 }
 $user_role = '';
