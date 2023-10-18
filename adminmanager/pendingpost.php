@@ -116,6 +116,7 @@ include("includes/pagehead.php");
                                                     <th class="border-top-0 text-capitalize">Property Price</th>
                                                     <th class="border-top-0 text-capitalize">area/Locality</th>
                                                     <th class="border-top-0 text-capitalize">Country</th>
+                                                    <th class="border-top-0 text-capitalize">Refno</th>
                                                     <th class="border-top-0 text-capitalize">bedrooms</th>
                                                     <th class="border-top-0 text-capitalize">bathrooms</th>
                                                     <th class="border-top-0 text-capitalize">toilets</th>
@@ -241,6 +242,7 @@ include("includes/pagehead.php");
                                             <td>" . $info8['symbol'] . "$propertyprice</td>
                                             <td>" . $info8['address'] . "</td>
                                             <td>" . $info8['area_location'] . "</td>
+                                            <td> ". $info8['refno']."</td>
                                             <td>$bedrooms</td>
                                             <td>$bathrooms</td>
                                             <td>" . $info8['toilets'] . "</td>
@@ -262,8 +264,8 @@ include("includes/pagehead.php");
                                             <td><label class='label $class'>$accountstatus</label></td>
                                             <td class='btn-group'>
                                             $btn
-                                            <a href='../property-details?propertyCategory=" . $info8['propertyCategory'] . "&id=" . $info8['id'] . "' target='_blank' ><button  class='btn btn-success '>View</button><a/>
-                                            <a href='../edit-prop?edit=". $info8['id'] ."' target='_blank' ><button  class='btn btn-primary '>Edit</button><a/>
+                                            <a href='../property-details.php?propertyCategory=" . $info8['propertyCategory'] . "&id=" . $info8['id'] . "' target='_blank' ><button  class='btn btn-success '>View</button><a/>
+                                            <a href='../edit-prop.php?edit=". $info8['id'] ."' target='_blank' ><button  class='btn btn-primary '>Edit</button><a/>
                                             <a href='pendingpost?del=". $info8['id'] ."'  ><button  class='btn btn-success '>Delete</button><a/>
                                             <a href='pendingmembers?agent_id=". $info8['agent_id'] ."'  ><button  class='btn btn-primary '>View Agent</button><a/>
                                             </td>

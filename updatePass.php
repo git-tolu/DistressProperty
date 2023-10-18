@@ -5,7 +5,7 @@ $dbusers = new Dbc();
 $user_role = '';
 // include("controller/session.php");
 if (isset($_POST['verifyCode'])) {
-    $usercode = $dbusers->test_input($_POST['verifyCode']);
+    $usercode = $dbusers->test_input($_POST['verifycode']);
     $hpass = password_hash($usercode, PASSWORD_DEFAULT);
     $user_email = $_SESSION['user_email'];
     echo $user_email;

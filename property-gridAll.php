@@ -543,7 +543,7 @@ if (isset($_SESSION['useremail'])) {
                                                 <div class="form-group">
                                                     <label>Keywords</label>
                                                     <input name="keywords" id="keywords" required class="form-control"
-                                                        placeholder="e.g. 'pool' or 'jacuzzi'" value=""
+                                                        placeholder="4bedromm duplex etc" value=""
                                                         autocomplete="off">
                                                 </div>
                                             </div>
@@ -612,6 +612,8 @@ if (isset($_SESSION['useremail'])) {
                                                         </option>
                                                         <option value="land" class="text-capitalize">land
                                                         </option>
+                                                        <option  class="text-capitalize" value="apartment-block">apartment-block
+
                                                     </select>
                                                 </div>
                                             </div>
@@ -765,7 +767,7 @@ if (isset($_SESSION['useremail'])) {
                                                 <div class="form-group">
                                                     <label>Title</label>
                                                     <input name="keywords" id="keywords" required class="form-control"
-                                                        placeholder="e.g. 'pool' or 'jacuzzi'" value=""
+                                                        placeholder="4bedromm duplex etc" value=""
                                                         autocomplete="off">
                                                 </div>
                                             </div>
@@ -1095,7 +1097,7 @@ if (isset($_SESSION['useremail'])) {
                                                 <div class="other-info-box clearfix">
                                                                     <div class="btn-box btn-group   " style="width: 100%;">
                                                                         <a style=" width: 30%; "
-                                                                            href="property-details?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
+                                                                            href="property-details.php?propertyCategory=<?= $info['propertyCategory'] ?>&id=<?= $info['id'] ?>"
                                                                             class="border-white theme-btn btn-one text-center">
                                                                             <span style="font-size: 15px; ">Details</span>
                                                                         </a>
